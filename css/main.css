@@ -50,7 +50,7 @@ a {
 
 /*Start of content*/
 #re_content{
-  
+  min-height:400px;
 }
 
 #re_co_intro{
