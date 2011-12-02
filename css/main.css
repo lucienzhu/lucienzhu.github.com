@@ -1,0 +1,154 @@
+/*
+ * COLOR
+ */
+/*
+#242626
+#A9CC56
+#F2EBA0
+#FFFFCF
+#403123
+*/
+
+body{
+  font-family:candara, Georgia, Verdana, Times, Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+
+a {
+  text-decoration:none;
+}
+
+#ut_clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
+
+/*Start of hearder*/
+#re_header{
+  background-color:#FFFFCF;
+  height: 40px;
+  margin-bottom: 20px;
+  border-bottom:1px solid #242626;
+}
+
+#re_he_nav ul li{
+  font-size:large;
+  text-align:center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#re_he_nav ul li a{
+  text-align:center;
+  color:#403123;
+  text-decoration:none;
+}
+
+#re_he_nav ul li a:hover{
+  text-align:center;
+  color:#A9CC56;
+}
+/*End of hearder*/
+
+/*Start of content*/
+#re_content{
+  
+}
+
+#re_co_intro{
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  border-bottom:1px dotted #242626;
+}
+
+#re_co_in_message{
+  
+}
+
+#re_co_in_me_name{
+  font-size:xx-large;
+  text-align:center;
+}
+
+#re_co_in_me_description{
+  font-size:large;
+  padding:20px 20px 20px 20px;
+}
+
+#re_co_in_me_description p{
+  margin-top: 10px;
+}
+
+#re_co_news{
+  margin-top:20px;
+}
+
+#re_co_news h1{
+  font-size:larger;
+}
+
+#re_co_ne_post{
+  margin-top:20px;
+  padding:20px 0px 20px 0px;
+  border-right:1px dashed #242626;
+}
+
+#re_co_ne_po_de_title{
+  font-size:large;
+  font-weight:bold;
+  color:#403123;
+}
+
+#re_co_ne_po_de_time{
+  font-size:small;
+  font-weight:bold;
+  padding: 0 0 0 20px;
+  color:#A9CC56;
+}
+
+#re_co_ne_po_de_content{
+  padding: 20px 0 0 0px;
+}
+/*End of content*/
+
+/*Start of footer*/
+#re_footer{
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top:1px solid #242626;
+  background-color:#FFFFCF;
+}
+
+#re_fo_links{
+  
+}
+
+#re_fo_li_co_title{
+  font-size:large;
+  font-weight:bold;
+}
+
+#re_fo_li_co_list{
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+#re_fo_li_co_list a{
+  font-size:small;
+  font-family: Monospace, Courier;
+  text-align:center;
+  color:#403123;
+  text-decoration:none;
+}
+
+#re_fo_li_col{
+  padding-bottom:20px;
+}
+
+.img-shadow { 
+  padding: 4px;
+  border: solid 1px #CCC;
+  -moz-box-shadow: 1px 1px 5px #999;
+  -webkit-box-shadow: 1px 1px 5px #999;
+  box-shadow: 1px 1px 5px #999;
+}
+/*End of footer*/

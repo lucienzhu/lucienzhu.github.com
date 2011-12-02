@@ -1,0 +1,56 @@
+#re_content h1{
+  text-align:center;
+  font-size:xx-large;
+  padding-bottom:20px;
+}
+
+#re_co_time{
+  background-color:#FFFFCF;
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  font-size:x-large;
+  font-weight:bold;
+  text-align:center;
+}
+
+#re_co_entry{
+  padding-top:20px;
+  margin-bottom:20px;
+  border-left:1px dotted #242626;
+}
+
+#re_co_en_title{
+  font-size:large;
+  font-weight:bold;
+  color:#242626;
+}
+
+#re_co_en_author{
+  color:#403123;
+  font-style:italic;
+}
+
+#re_co_en_author a{
+  color:#A9CC56;
+}
+
+#re_co_en_author a:hover{
+  color:#403123;
+}
+
+#re_co_en_source {
+  color:#242626;
+}
+
+#re_co_en_source a{
+  color:#403123;
+}
+
+#re_co_en_source a:hover{
+  color:#242626;
+}
+
+#re_co_entry a{
+  text-decoration:none;
+}

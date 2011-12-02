@@ -1,0 +1,39 @@
+a{
+  text-decoration:none;
+}
+.re_cv_module{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#re_content{
+  margin-top:20px;
+  margin-bottom:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  border: 2px solid #242626;
+}
+
+#re_content h1{
+  font-size:xx-large;
+  border-bottom: 1px solid #242626;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.re_cv_module_dl{
+  font-size:large;
+  font-weight:bold;
+}
+
+#re_co_ed_co_sc_time,#re_co_ed_co_sc_na_name,#re_co_ex_co_en_na_name,#re_co_ex_co_en_time{
+  font-weight:bold;
+}
+
+#re_co_ed_co_sc_na_title,#re_co_ex_co_en_na_job,#re_co_pu_co_en_source{
+  font-style:italic;
+}
+
+#re_co_pu_co_entry,#re_co_ex_co_entry,#re_co_ed_co_school{
+  padding-bottom:20px;
+}

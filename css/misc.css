@@ -1,0 +1,50 @@
+/*
+ * COLOR
+ */
+/*
+#242626
+#A9CC56
+#F2EBA0
+#FFFFCF
+#403123
+*/
+
+#re_co_op_me_mapcanvas{
+  height: 400px;
+}
+
+#re_co_op_me_mappanel{
+  height: 400px;
+  overflow:auto;
+}
+
+#re_content h1{
+  text-align:center;
+  font-size:xx-large;
+  padding-bottom:20px;
+  border-bottom: 1px dashed #242626;
+}
+
+#re_co_option{
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-right:1px dotted #242626;
+}
+
+#re_co_op_title{
+  padding-bottom:20px;
+  font-size:x-large;
+  font-weight:bold;
+}
+
+#re_co_op_me_subtitle{
+  text-align:center;
+  font-size:larger;
+  font-style:italic;
+}
+
+#re_co_op_me_china, #re_co_op_me_world{
+  height:365px;
+}
