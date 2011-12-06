@@ -2,31 +2,39 @@
  * COLOR
  */
 /*
-#242626
-#A9CC56
-#F2EBA0
-#FFFFCF
-#403123
+#84BF2C
+#BCD991
+#D93829
+#F2F2F2
+#0D0D0D
 */
 
 body{
   font-family:candara, Georgia, Verdana, Times, Arial, sans-serif;
   letter-spacing: normal;
   line-height: 20px;
+  background-color:#F2F2F2;
+  color:#0D0D0D;
 }
 
 a {
   text-decoration:none;
+  color:#0D0D0D;
+}
+
+a:hover {
+  text-decoration:none;
+  color:#84BF2C;
 }
 
 #ut_clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
 
 /*Start of hearder*/
 #re_header{
-  background-color:#FFFFCF;
+  background-color:#BCD991;
   height: 40px;
   margin-bottom: 20px;
-  border-bottom:1px solid #242626;
+  border-bottom:1px solid #84BF2C;
 }
 
 #re_he_nav ul li{
@@ -44,20 +52,21 @@ a {
 
 #re_he_nav ul li a:hover{
   text-align:center;
-  color:#A9CC56;
+  color:#84BF2C;
 }
 /*End of hearder*/
 
 /*Start of content*/
 #re_content{
   min-height:400px;
+  background-color:#F2F2F2;
 }
 
 #re_co_intro{
   padding-top:20px;
   padding-bottom:20px;
   margin-bottom:20px;
-  border-bottom:1px dotted #242626;
+  border-bottom:1px dotted #84BF2C;
 }
 
 #re_co_in_message{
@@ -89,7 +98,7 @@ a {
 #re_co_ne_post{
   margin-top:20px;
   padding:20px 0px 20px 0px;
-  border-right:1px dashed #242626;
+  border-right:1px dashed #84BF2C;
 }
 
 #re_co_ne_po_de_title{
@@ -114,8 +123,8 @@ a {
 #re_footer{
   margin-top: 20px;
   padding-top: 20px;
-  border-top:1px solid #242626;
-  background-color:#FFFFCF;
+  border-top:1px solid #84BF2C;
+  background-color:#BCD991;
 }
 
 #re_fo_links{
@@ -138,6 +147,10 @@ a {
   text-align:center;
   color:#403123;
   text-decoration:none;
+}
+
+#re_fo_li_co_list a:hover{
+  color:#84BF2C;
 }
 
 #re_fo_li_col{
