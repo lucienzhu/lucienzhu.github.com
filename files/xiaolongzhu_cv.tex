@@ -23,6 +23,8 @@
 % This is a helpful package that puts math inside length specifications
 \usepackage{calc}
 
+% set main font
+\usepackage[scaled=0.92]{helvet}
 
 % Simpler bibsection for CV sections
 % (thanks to natbib for inspiration)
@@ -211,7 +213,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\makeheading{Xiaolong L. ~Zhu}
+\makeheading{\large{Xiaolong ~ZHU}}
 
 \section{Contact Information}
 %
@@ -221,19 +223,19 @@
 % ALSO: \rcollength is the width of the right column of the table
 %       (adjust it to your liking; default is 1.85in).
 %
-\newlength{\rcollength}\setlength{\rcollength}{1.85in}%
+\newlength{\rcollength}\setlength{\rcollength}{2.15in}%
 %
 \begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
 Room 411, CYC Bldg
-     & \textit{Mobile:} +852-9768-5403 \\
+     & \textit{Mobile:} \texttt{+852-9768-5403} \\
 \href{http://www.cs.hku.hk/}%
      {Department of Computer Science}
-     & \textit{MSN:} lucienzhu@hotmail.com \\
+     & \textit{MSN:} \texttt{lucienzhu@hotmail.com} \\
 \href{http://www.hku.hk/}{The University of Hong Kong}
-     & \textit{E-mail:} \email{lucienzhu@gmail.com}\\
-Hong Kong, P.R.China
+     & \textit{E-mail:} \texttt{lucienzhu@gmail.com}\\
+Hong Kong SAR
      & \textit{WWW:}
-\href{http://xiaolongzhu.org}{www.xiaolongzhu.org}\\
+\href{http://xiaolongzhu.org}{\texttt{xiaolongzhu.org}}\\
 \end{tabular}
 
 %\section{Objective}
@@ -250,19 +252,20 @@ Hong Kong, P.R.China
 
 \section{Research Interests}
 %
-Computer Vision, including \emph{Motion Capture}, \emph{Gesture Recognition}, \emph{Stereo Image Database};
+Computer Vision, including \emph{Motion Capture}, \emph{Gesture Recognition};
+
 Machine Learning, including \emph{Random Forest}, \emph{Boosting Methods}.
 
 \section{Education}
 %
-\href{http://www.hku.hk/}{\textbf{The University of Hong Kong}},
-Hong Kong, P.R.China
+\href{http://www.hku.hk/}{\textbf{The University of Hong Kong}}, \hfill
+Hong Kong SAR, P.R.China
 \begin{outerlist}
 
-\item[] M.Phil. Candidate,
+\item[] Ph.D. Candidate,
         \href{http://www.cs.hku.hk/}
-             {Computer Science},
-             September 2010 - present
+             {\emph{Computer Science}},
+             \hfill \textbf{September 2010 - present}
         \begin{innerlist}
         %\item Thesis Topic: \emph{Design and Analysis of Optimal
         %    Task-Processing Agents}
@@ -274,20 +277,29 @@ Hong Kong, P.R.China
                    {Dr. Kenneth K. Y. Wong}
         \item Area of Study: Computer Vision
         \end{innerlist}
+\end{outerlist}
 
+\blankline
+
+%
+\href{http://www.hku.hk/}{\textbf{Peking University}}, \hfill
+Beijing, P.R.China
+\begin{outerlist}
 \item[] B.S.,
         \href{http://eecs.pku.edu.cn/}
-             {Machine Intelligence}, September 2006 - June 2010
+             {\emph{Machine Intelligence}} \hfill \textbf{September 2006 - June 2010}
         \begin{innerlist}
         \item Thesis Title:  Segmentation and Classification of Range Image.
         \item \emph{Excellent Undergraduate Thesis Award}.
-        \item Advisor:  \href{http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm} Dr. Huijing Zhao
+        \item Advisor:  \href{http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm} {Dr. Huijing Zhao}
         \end{innerlist}
 
 \end{outerlist}
 
 \section{Publications}
 \begin{bibsection}
+    \item Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}, Miaomiao Liu. Self-Calibrating Depth from Refraction. \emph{IEEE International Conference on Computer Vision (ICCV)}, 2011.
+
     \item \textbf{Xiaolong Zhu}, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha. Segmentation and Classification of Range Image from an Intelligent Vehicle in Urban Environment. \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 2010.
     %doi:10.1109/IROS.2010.5652703
 
@@ -309,17 +321,24 @@ $\bullet$ First Class Honor in China Physics Olympic Games, Gansu, 2006
 
 \section{Experience}
 \href{http://www.hku.hk}{\textbf{The University of Hong Kong}}, \hfill
-Hong Kong, P.R.China
+Hong Kong SAR, P.R.China
 \begin{outerlist}
 \item[] \textit{Teaching Assistant}%
-        \hfill \textbf{September 2010 to December 2010}
-\begin{innerlist}
-\item Assisted \href{http://i.cs.hku.hk/~eng1002b}
-                    {Computer Programming and Applications}
-      instructional team.
-\item Provided office hours and tutorials to first-year engineering students.
-\item Graded assignments on programming and drafting.
-\end{innerlist}
+        \hfill \textbf{September 2011 - December 2011}
+        \begin{innerlist}
+        \item Assisted \href{http://i.cs.hku.hk/~ckchui}{Dr. Chun Kit Chui} in \href{http://i.cs.hku.hk/~eng1002b}
+                            {Computer Programming and Applications}.
+        \item Provided office hours to first-year engineering students.
+        \item Graded assignments on programming.
+        \end{innerlist}
+\item[] \textit{Teaching Assistant}%
+        \hfill \textbf{September 2010 - December 2010}
+        \begin{innerlist}
+        \item Assisted \href{http://i.cs.hku.hk/~kykwong}{Dr. Kenneth K.Y. Wong} in \href{http://i.cs.hku.hk/~eng1002b}
+                            {Computer Programming and Applications}.
+        \item Provided office hours and tutorials to first-year engineering students.
+        \item Graded assignments on programming.
+        \end{innerlist}
 \end{outerlist}
 
 \blankline
@@ -329,7 +348,7 @@ Beijing, P.R.China
 \begin{outerlist}
 
 \item[] \textit{Undergraduate Research Assistant}%
-        \hfill \textbf{September 2008 to June 2010}
+        \hfill \textbf{September 2008 - June 2010}
 \begin{innerlist}
 \item Participated in the \href{http://www.poss.pku.edu.cn/}{\emph{POSS}} project, in
         \href{http://www.cis.pku.edu.cn/vision/3DVCR/3DVCR_E.html}{3D VCR Lab},
@@ -345,7 +364,7 @@ Beijing, P.R.China
 \begin{outerlist}
 
 \item[] \textit{Software Engineer Intern}%
-        \hfill \textbf{June 2010 to August 2010}
+        \hfill \textbf{June 2010 - August 2010}
 \begin{innerlist}
 \item Coded web front-end of a \href{http://bafang.163.com}{Location-based Social Network Service}
 \item Cooperated with web designer.
@@ -353,12 +372,11 @@ Beijing, P.R.China
 \end{outerlist}
 
 \section{Technical Skills}
-$\bullet$ Programming in: \texttt{Matlab}, \texttt{C/C++}, \texttt{Python}, \texttt{JavaScript}
+$\bullet$ Programming in: \texttt{C/C++}, \texttt{Matlab}, \texttt{Python}, \texttt{JavaScript}
 
-$\bullet$ Basic Experience in: \texttt{Java}, \texttt{UNIX Shell scripting}, \texttt{HTML/CSS}, \LaTeX, \texttt{Processing}
+$\bullet$ Basic Experience in: \texttt{jQuery/HTML/CSS}, \texttt{Processing}, \texttt{Java}, \texttt{UNIX Shell scripting}
 
 $\bullet$ Operating Systems: Microsoft Windows family, Mac OS X, Linux Ubuntu
-
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
