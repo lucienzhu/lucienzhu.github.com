@@ -27,6 +27,31 @@ a:hover {
   color:#84BF2C;
 }
 
+#re_co_in_quote blockquote{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	display: block;
+	padding-right: 10px;
+	font-style:italic;
+	border-right: 1px dashed #84BF2C;
+}
+
+#re_co_in_quote blockquote p{
+	font-size: 20px;
+	color: #777;
+}
+
+#re_co_in_quote blockquote small{
+	display: block;
+	font-size: 16px;
+	color: #AAA;
+	text-align: right;
+}
+
+#re_co_in_quote blockquote small::before {
+	content: '--';
+}
+
 #ut_clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
 
 /*Start of hearder*/
@@ -58,7 +83,7 @@ a:hover {
 
 /*Start of content*/
 #re_content{
-  min-height:400px;
+  min-height:600px;
   background-color:#F2F2F2;
 }
 
