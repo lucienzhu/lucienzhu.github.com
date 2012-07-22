@@ -33,7 +33,6 @@ a:hover {
 	display: block;
 	padding-right: 10px;
 	font-style:italic;
-	border-right: 1px dashed #84BF2C;
 }
 
 #re_co_in_quote blockquote p{
@@ -56,10 +55,12 @@ a:hover {
 
 /*Start of hearder*/
 #re_header{
-  background-color:#BCD991;
   height: 40px;
   margin-bottom: 20px;
   border-bottom:1px solid #84BF2C;
+  -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, .15);
+  -moz-box-shadow: 0 0px 4px rgba(0,0,0,.15);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, .15);
 }
 
 #re_he_nav ul li{
@@ -148,8 +149,7 @@ a:hover {
 #re_footer{
   margin-top: 20px;
   padding-top: 20px;
-  border-top:1px solid #84BF2C;
-  background-color:#BCD991;
+  border-top:1px dotted #84BF2C;
 }
 
 #re_fo_links{
