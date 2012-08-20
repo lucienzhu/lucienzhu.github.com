@@ -14,19 +14,20 @@
   <link rel="stylesheet" type="text/css" media="all" href="../css/960/reset.css" />
   <link rel="stylesheet" type="text/css" media="all" href="../css/main.css" />
   <link rel="stylesheet" type="text/css" media="all" href="../css/projects.css" />
-<script type="text/javascript">
+  <!--google analytics tracker code for xiaolongzhu.org-->
+  <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-17034168-1']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17034168-2']);
+    _gaq.push(['_trackPageview']);
 
-  (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-</script>
+  </script>
 
 </head>
 
@@ -49,18 +50,32 @@
 <!-- Content -->
 <div id="re_content" class="container_12">
   <h1>Research Projects</h1>
-  <!--one entry-->
+	<!--one entry-->
+  <div id="re_co_time" class="grid_2 alpha">
+    Jan. 2012<br><i>to</i><br>July. 2012
+  </div>
+  <div id="re_co_entry" class="grid_10 omega">
+    <div id="re_co_en_description" class="grid_7 omega">
+      <div id="re_co_en_de_title" class="grid_7 omega">Static Hand Gesture Recognition</div>
+      <div class="clear"></div>
+      <div id="re_co_en_de_detail" class="grid_7 omega">This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.</div>
+    </div>
+    <div id="re_co_en_image" class="grid_3 omega"><img class="img-shadow" alt="poss" src="./p3/1.jpg" /></a></div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <!--end of one entry-->
+	<!--one entry-->
   <div id="re_co_time" class="grid_2 alpha">
     Mar. 2011<br><i>to</i><br>Present.
   </div>
   <div id="re_co_entry" class="grid_10 omega">
     <div id="re_co_en_description" class="grid_7 omega">
-      <div id="re_co_en_de_title" class="grid_7 omega">Real-time Hand Tracking</div>
+      <div id="re_co_en_de_title" class="grid_7 omega">Hand Motion Capture</div>
       <div class="clear"></div>
-      <div id="re_co_en_de_detail" class="grid_7 omega">This project is on going.
-        </div>
+      <div id="re_co_en_de_detail" class="grid_7 omega">This work is still on going.</div>
     </div>
-    <div id="re_co_en_image" class="grid_3 omega">image</div>
+    <div id="re_co_en_image" class="grid_3 omega">TBD</div>
     <div class="clear"></div>
   </div>
   <div class="clear"></div>
@@ -94,11 +109,10 @@
       <div id="re_fo_li_co_title">My site</div>
       <div id="re_fo_li_co_list">
         <ul>
-          <li><a href="http://gulimujyujyu.me">Home Page</a></li>
-          <li><a href="http://gulimujyujyu.me/web">Web Development</a></li>
-          <li><a href="http://gulimujyujyu.me/research">Research</a></li>
-          <li><a href="http://gulimujyujyu.me/wiki">Wiki</a></li>
-          <li><a href="http://blog.gulimujyujyu.me">Blog</a></li>
+          <li><a href="http://xiaolongzhu.org">Home Page</a></li>
+          <li><a href="http://gulimujyujyu.me">Web Development</a></li>
+          <li><a href="http://xiaolongzhu.org/research">Research</a></li>
+          <li><a href="http://blog.xiaolongzhu.org">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -107,7 +121,6 @@
       <div id="re_fo_li_co_list">
         <ul>
           <li><a href="http://www.cs.hku.hk">HKU CS</a></li>
-          <li><a href="http://www.google.com">Google</a></li>
           <li><a href="http://www.cvpapers.com">CV Papers</a></li>
           <li><a href="http://www.webdesignerdepot">Web Designer Depot</a></li>
           <li><a href="http://www.w3.org">w3c</a></li>
