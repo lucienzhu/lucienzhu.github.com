@@ -7,3 +7,15 @@
   padding-bottom:20px;
   color:#403123;
 }
+
+div#cm {
+  float:left;
+}
+
+div#bar {
+  float:none;
+}
+
+div#lines {
+  float:none;
+}    
