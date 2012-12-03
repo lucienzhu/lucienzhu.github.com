@@ -25,23 +25,24 @@
 
 % set main font
 \usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 
 % Simpler bibsection for CV sections
 % (thanks to natbib for inspiration)
 \makeatletter
 \newlength{\bibhang}
-\setlength{\bibhang}{1em}
+\setlength{\bibhang}{1.5em}
 \newlength{\bibsep}
  {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
 \newenvironment{bibsection}%
-        {\vspace{-\baselineskip}\begin{list}{}{%
+        {\vspace{\itemsep}\begin{list}{}{%
        \setlength{\leftmargin}{\bibhang}%
-       \setlength{\itemindent}{-\leftmargin}%
+       %\setlength{\itemindent}{-\leftmargin}%
        \setlength{\itemsep}{\bibsep}%
        \setlength{\parsep}{\z@}%
         \setlength{\partopsep}{0pt}%
         \setlength{\topsep}{0pt}}}
-        {\end{list}\vspace{-.6\baselineskip}}
+        {\end{list}\vspace{\itemsep}}
 \makeatother
 
 % Layout: Puts the section titles on left side of page
@@ -213,7 +214,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\makeheading{\large{Xiaolong ~ZHU}}
+\makeheading{\huge{Xiaolong ~ZHU}}
 
 \section{Contact Information}
 %
@@ -252,9 +253,9 @@ Hong Kong SAR
 
 \section{Research Interests}
 %
-Computer Vision, including \emph{Motion Capture}, \emph{Gesture Recognition};
+Computer Vision, including \emph{Gesture Recognition}, \emph{Object Recognition};
 
-Machine Learning, including \emph{Random Forest}, \emph{Boosting Methods}.
+Machine Learning, including \emph{Supervised Learning}, \emph{Online Learning}.
 
 \section{Education}
 %
@@ -275,7 +276,7 @@ Hong Kong SAR, P.R.China
         \item Adviser:
               \href{http://i.cs.hku.hk/~kykwong/}
                    {Dr. Kenneth K. Y. Wong}
-        \item Area of Study: Computer Vision
+        \item Area of Study: Computer Vision, especially machine learning for \emph{gesture recognition}
         \end{innerlist}
 \end{outerlist}
 
@@ -297,14 +298,27 @@ Beijing, P.R.China
 \end{outerlist}
 
 \section{Publications}
-\begin{bibsection}
-    \item Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}, Miaomiao Liu. Self-Calibrating Depth from Refraction. \emph{IEEE International Conference on Computer Vision (ICCV)}, 2011.
+[Refereed Conference Papers]
 
-    \item \textbf{Xiaolong Zhu}, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha. Segmentation and Classification of Range Image from an Intelligent Vehicle in Urban Environment. \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 2010.
+\begin{bibsection}
+
+    \item[1.] \textbf{Xiaolong Zhu}, Kwan-Yee K. Wong. Single-Frame Hand Gesture Recognition Using Color and Depth Kernel Desciptors. \emph{IEEE International Conference on Pattern Recognition (ICPR)}, 2012.
+
+    \item[2.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}, Miaomiao Liu. Self-Calibrating Depth from Refraction. \emph{IEEE International Conference on Computer Vision (ICCV)}, 2011.
+
+    \item[3.] \textbf{Xiaolong Zhu}, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha. Segmentation and Classification of Range Image from an Intelligent Vehicle in Urban Environment. \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 2010.
     %doi:10.1109/IROS.2010.5652703
 
-    \item Huijing Zhao, Yiming Liu,\textbf{ Xiaolong Zhu}, Yipu Zhao, Hongbin Zha. Scene Understanding in a Large Dynamic Environment through a Laser-based Sensing. \emph{IEEE International Conference on Robotics and Automation (ICRA)}, 2010.
+    \item[4.] Huijing Zhao, Yiming Liu,\textbf{ Xiaolong Zhu}, Yipu Zhao, Hongbin Zha. Scene Understanding in a Large Dynamic Environment through a Laser-based Sensing. \emph{IEEE International Conference on Robotics and Automation (ICRA)}, 2010.
     %doi:10.1109/ROBOT.2010.5509169
+\end{bibsection}
+
+[Journal Papers]
+
+\begin{bibsection}
+
+    \item[1.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}. Depth from Refraction Using a Transparent Medium with Unknown Pose and Refractive Index. \emph{International Journal of Computer Vision (IJCV)}, 2012.
+
 \end{bibsection}
 
 \section{Honors \& Awards}
@@ -327,16 +341,16 @@ Hong Kong SAR, P.R.China
         \hfill \textbf{September 2011 - December 2011}
         \begin{innerlist}
         \item Assisted \href{http://i.cs.hku.hk/~ckchui}{Dr. Chun Kit Chui} in \href{http://i.cs.hku.hk/~eng1002b}
-                            {Computer Programming and Applications}.
-        \item Provided office hours to first-year engineering students.
+                            {Computer Programming and Applications};
+        \item Provided office hours to first-year engineering students;
         \item Graded assignments on programming.
         \end{innerlist}
 \item[] \textit{Teaching Assistant}%
         \hfill \textbf{September 2010 - December 2010}
         \begin{innerlist}
         \item Assisted \href{http://i.cs.hku.hk/~kykwong}{Dr. Kenneth K.Y. Wong} in \href{http://i.cs.hku.hk/~eng1002b}
-                            {Computer Programming and Applications}.
-        \item Provided office hours and tutorials to first-year engineering students.
+                            {Computer Programming and Applications};
+        \item Provided office hours and tutorials to first-year engineering students;
         \item Graded assignments on programming.
         \end{innerlist}
 \end{outerlist}
@@ -351,14 +365,29 @@ Beijing, P.R.China
         \hfill \textbf{September 2008 - June 2010}
 \begin{innerlist}
 \item Participated in the \href{http://www.poss.pku.edu.cn/}{\emph{POSS}} project, in
-        \href{http://www.cis.pku.edu.cn/vision/3DVCR/3DVCR_E.html}{3D VCR Lab},
+        \href{http://www.cis.pku.edu.cn/vision/3DVCR/3DVCR_E.html}{3D VCR Lab};
 \item Analyzed range data using computer vision methods.
 \end{innerlist}
 
 \end{outerlist}
 
 \section{Professional Experience}
-%
+%% one entry
+\href{http://research.microsoft.com/hci}{\textbf{Microsoft Research Asia}}, \hfill
+Beijing, P.R.China
+\begin{outerlist}
+
+\item[] \textit{Research Intern}%
+        \hfill \textbf{June 2012 - September 2012}
+\begin{innerlist}
+\item Learned HCI workflow of problem solving;
+\item Designed visual feedback for in-air gesture recognition.
+\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+%% one entry
 \href{http://www.youdao.com/}{\textbf{NetEase R\&D.}}, \hfill
 Beijing, P.R.China
 \begin{outerlist}
@@ -366,17 +395,25 @@ Beijing, P.R.China
 \item[] \textit{Software Engineer Intern}%
         \hfill \textbf{June 2010 - August 2010}
 \begin{innerlist}
-\item Coded web front-end of a \href{http://bafang.163.com}{Location-based Social Network Service}
+\item Coded web front-end of a \href{http://bafang.163.com}{Location-based Social Network Service};
 \item Cooperated with web designer.
 \end{innerlist}
 \end{outerlist}
 
 \section{Technical Skills}
-$\bullet$ Programming in: \texttt{C/C++}, \texttt{Matlab}, \texttt{Python}, \texttt{JavaScript}
+$\bullet$ Programming in: \texttt{C/C++}, \texttt{Matlab}, \texttt{JavaScript}, \texttt{Python}
 
-$\bullet$ Basic Experience in: \texttt{jQuery/HTML/CSS}, \texttt{Processing}, \texttt{Java}, \texttt{UNIX Shell scripting}
+$\bullet$ Basic Experience in: \texttt{jQuery/HTML/CSS}, \texttt{Processing}, \texttt{UNIX Shell scripting}
 
-$\bullet$ Operating Systems: Microsoft Windows family, Mac OS X, Linux Ubuntu
+$\bullet$ Operating Systems: Microsoft Windows family, Mac OS X
+
+\section{Social Activities}
+$\bullet$ IT Officer of \href{http://www.pgsa.hku.hk/}{Postgraduate Association (PGSA)} in \href{http://www.hku.hk/}{The University of Hong Kong}, 2011-2013
+
+$\bullet$ Volunteer as Media Assistant for Journalists in \href{http://en.wikipedia.org/wiki/2008_Summer_Olympics}{Games of the XXIX Olympiad}, 2008
+
 \end{document}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
