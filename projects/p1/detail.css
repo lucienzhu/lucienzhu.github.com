@@ -2,8 +2,22 @@
   padding-bottom:20px;
 }
 
+#re_content h1{
+  text-align:center;
+  font-size: 24px;
+}
+
 #re_content h2{
   text-align:center;
-  padding-bottom:20px;
+  font-size: 20px;
   color:#403123;
+}
+
+#re_content h3{
+  text-align:center;
+  font-size: 18px;
+}
+
+a {
+	color: #84BF2C;
 }

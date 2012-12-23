@@ -1,6 +1,18 @@
+/*
+ * COLOR
+ */
+/*
+#84BF2C
+#BCD991
+#D93829
+#F2F2F2
+#0D0D0D
+*/
+
 a{
   text-decoration:none;
 }
+
 .re_cv_module{
   padding-top:10px;
   padding-bottom:10px;
@@ -36,4 +48,21 @@ a{
 
 #re_co_pu_co_entry,#re_co_ex_co_entry,#re_co_ed_co_school{
   padding-bottom:20px;
+}
+
+[class*="social foundicon-"]:before {
+  font-family: "SocialFoundicons";
+}
+[class*="general foundicon-"]:before {
+  font-family: "GeneralFoundicons";
+}
+[class*="gen-enclosed foundicon-"]:before {
+  font-family: "GeneralEnclosedFoundicons";
+}
+[class*="accessibility foundicon-"]:before {
+  font-family: "AccessibilityFoundicons";
+}
+
+.re_co_pu_co_en_name a {
+  color: #84BF2C;
 }

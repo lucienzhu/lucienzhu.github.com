@@ -1,100 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
-<html lang="en">
+<!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Segmentation and Classification of Range Image</title>
-  <meta name="generator" content="Studio 3 http://aptana.com/">
-  <meta name="author" content="xlzhu">
-  <link rel="SHORTCUT ICON" href="http://gulimujyujyu.me/favicon.ico">
-  <!-- Date: 2010-11-28 -->
-  <link rel="stylesheet" type="text/css" media="all" href="../../css/960/text.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../../css/960/960.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../../css/960/reset.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../../css/projects.css" />
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Xiaolong ZHU (朱曉龍)</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="../../css/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="../../css/foundation.min.css">
+  <link rel="stylesheet" href="../../css/app.css">
+  <link rel="stylesheet" href="../../css/responsive-tables.css">
+  <link rel="stylesheet" href="../../css/general_foundicons.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/index.css">
   <link rel="stylesheet" type="text/css" media="all" href="./detail.css" />
-  <!--google analytics tracker code for xiaolongzhu.org-->
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-17034168-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
+  <![endif]-->
+  <script src="../../jsmodernizr.foundation.js"></script>
+  <script type="text/javascript" src="../../js/d3.v2.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
-<!-- Header -->
-<div id="re_header" class="container_12">
-  <div id="re_he_nav" class="grid_12">
-    <ul>
-      <li class="grid_2 alpha"><a href="../../">Home</a></li>
-      <li class="grid_2"><a href="../../projects">Research</a></li>
-      <li class="grid_2"><a href="../../publications">Publication</a></li>
-      <li class="grid_2"><a href="../../cv.html">CV</a></li>
-      <li class="grid_2"><a href="../../contact.html">Contact</a></li>
-      <li class="grid_2 omega"><a href="../../misc.html">Misc</a></li>
-    </ul>
-  </div>
-  <div class="clear"></div>
-</div>
-
-<!-- Content -->
-<div id="re_content" class="container_12">
-  <h1>Segmentation and Classification of Range Image</h1>
-  <h2><b>Xiaolong Zhu</b>, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha.</h2>
-  <p>This project is done during my undergraduate work.
-        Based on the intelligent vehicle <a href="http://poss.pku.edu.cn">POSS</a>, I process range data from two range sensors (SICK LMS 200).</p>
-  <p>The data can be represented as 3D point clouds combining the pose and location of the 
-        vehicle. Meanwhile, it can also be represented as range image due to the property of range
-        sensor. Then a Computer Vision framework of image segmentation and classification is applied
-        to this range image to give each point a semantic label. The whole data is processed offline.</p>
-  <p><img alt="system" src="./system.jpg" /></p>
-  <p>More details are in this <a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/common/research%20vision.htm">website</a>.</p>
-</div>
-
-<!-- Footer -->
-<div id="re_footer" class="container_12">
-  <div id="re_fo_links" class="grid_12">
-    <div id="re_fo_li_col" class="grid_6 alpha">
-      <div id="re_fo_li_co_title">My site</div>
-      <div id="re_fo_li_co_list">
-        <ul>
-          <li><a href="http://xiaolongzhu.org">Home Page</a></li>
-          <li><a href="http://gulimujyujyu.me">Web Development</a></li>
-          <li><a href="http://xiaolongzhu.org/research">Research</a></li>
-          <li><a href="http://blog.xiaolongzhu.org">Blog</a></li>
-        </ul>
-      </div>
+  <!--header-->
+  <div class="row">
+    <div class="eight columns">
+      <h2><a href="http://xiaolongzhu.org/"><img src="../../css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h2>
     </div>
-    <div id="re_fo_li_col" class="grid_6 omega">
-      <div id="re_fo_li_co_title">External</div>
-      <div id="re_fo_li_co_list">
-        <ul>
-          <li><a href="http://www.cs.hku.hk">HKU CS</a></li>
-          <li><a href="http://www.cvpapers.com">CV Papers</a></li>
-          <li><a href="http://www.webdesignerdepot">Web Designer Depot</a></li>
-          <li><a href="http://www.w3.org">w3c</a></li>
-        </ul>
-      </div>
+    <div class="four columns">
+      <ul class="nav-bar right">
+        <li><a href="http://xiaolongzhu.org/projects">Research</a></li>
+        <li><a href="http://xiaolongzhu.org/fun.html">Fun</a></li>
+        <li><a href="http://xiaolongzhu.org/cv.html">CV</a></li>
+      </ul>
     </div>
   </div>
-  <div class="clear"></div>
+
+  <!-- Content -->
+  <div id="re_content" class="row">
+    <div class="twelve columns">
+      <h1>Segmentation and Classification of Range Image</h1>
+      <h2><b>Xiaolong Zhu</b>, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha.</h2>
+      <p>This project is done during my undergraduate work.
+            Based on the intelligent vehicle <a href="http://poss.pku.edu.cn">POSS</a>, I process range data from two range sensors (SICK LMS 200).</p>
+      <p>The data can be represented as 3D point clouds combining the pose and location of the 
+            vehicle. Meanwhile, it can also be represented as range image due to the property of range
+            sensor. Then a Computer Vision framework of image segmentation and classification is applied
+            to this range image to give each point a semantic label. The whole data is processed offline.</p>
+      <p><img alt="system" src="./system.jpg" /></p>
+      <p>More details are in this <a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/common/research%20vision.htm">website</a>.</p> 
+    </div>
+  </div>
+
+  <!--copy right-->
+  <div class="row">
+    <hr>
+    <div class="six columns">
+      <p>© Copyright 2010 by Xiaolong ZHU.</p>
+    </div>
+    <div class="six columns">
+      <ul class="link-list right">
+        <li><a href="http://xiaolongzhu.org/">Home</a></li>
+        <li><a href="http://xiaolongzhu.org/projects">Research</a></li>
+        <li><a href="http://xiaolongzhu.org/fun.html">Fun</a></li>
+        <li><a href="#">Back to top</a></li>
+      </ul>
+    </div>
+  </div>
   
-  <div id="re_fo_copyrights" class="prefix_1 grid_6 alpha">&copy; Copyright 2010 by Xiaolong ZHU</div>
-  <div class="clear"></div>
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+  <script src="../../jsjquery.js"></script><script 
+src="../../jsjquery.foundation.mediaQueryToggle.js"></script><script 
+src="../../jsjquery.foundation.forms.js"></script><script 
+src="../../jsjquery.foundation.reveal.js"></script><script 
+src="../../jsjquery.foundation.orbit.js"></script><script 
+src="../../jsjquery.foundation.navigation.js"></script><script 
+src="../../jsjquery.foundation.buttons.js"></script><script 
+src="../../jsjquery.foundation.tabs.js"></script><script 
+src="../../jsjquery.foundation.tooltips.js"></script><script 
+src="../../jsjquery.foundation.accordion.js"></script><script 
+src="../../jsjquery.placeholder.js"></script><script src="../../jsjquery.foundation.alerts.js"></script><script 
+src="../../jsjquery.foundation.topbar.js"></script><script 
+src="../../jsjquery.foundation.joyride.js"></script><script 
+src="../../jsjquery.foundation.clearing.js"></script><script src="../../jsjquery.foundation.magellan.js"></script>
+  -->
   
-  <div id="re_fo_backtotop" class="prefix_10 grid_2 omega"><a href="#">Back to top</a></div>
-  <div class="clear"></div>
-</div>
+  <!-- Included JS Files (Compressed) -->
+  <script src="../../jsjquery.js"></script>
+  <script src="../../jsfoundation.min.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="../../jsapp.js"></script>
+  <script src="../../jsresponsive-tables.js"></script>
+  
+  <script>
+  $(window).load(function(){
+    $("#featured").orbit();
+  });
+  </script> 
+  
 </body>
 </html>
