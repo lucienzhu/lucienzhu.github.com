@@ -1,0 +1,49 @@
+/*
+ * COLOR
+ */
+/*
+#84BF2C
+#BCD991
+#D93829
+#F2F2F2
+#0D0D0D
+*/
+
+body{
+  font-family:Segoe UI, candara, Georgia, Verdana, Times, Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 20px;
+  font-size: 16px;
+  color:#0D0D0D;
+}
+
+a {
+  text-decoration:none;
+  color:#0D0D0D;
+}
+
+a:hover {
+  text-decoration:none;
+  color:#84BF2C;
+}
+
+.nav-bar {
+  background: #FFFFFF;
+}
+
+.nav-bar > li {
+  border: #FFFFFF;
+}
+
+.nav-bar > li:last-child {
+  border: #FFFFFF;
+}
+
+.nav-bar > li > a {
+  color: #0D0D0D;
+}
+
+.nav-bar > li > a:hover {
+  background: #84BF2C;
+  color: #F2F2F2;
+}
