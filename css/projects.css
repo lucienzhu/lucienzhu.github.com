@@ -1,3 +1,14 @@
+/*
+ * COLOR
+ */
+/*
+#84BF2C
+#BCD991
+#D93829
+#F2F2F2
+#0D0D0D
+*/
+
 #re_content h1{
   text-align:center;
   font-size:xx-large;
@@ -31,6 +42,7 @@
   margin-bottom:20px;
 }
 
-img {
-	width: 200px;
+.projects > h4 {
+  color: #BCD991;
+  margin-top: 40px;
 }

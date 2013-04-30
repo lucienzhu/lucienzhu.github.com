@@ -1,18 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
-<html lang="en">
+<!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Xiaolong (Lucien) ZHU</title>
-  <meta name="generator" content="Studio 3 http://aptana.com/">
-  <meta name="author" content="xlzhu">
-  <link rel="SHORTCUT ICON" href="http://gulimujyujyu.me/favicon.ico">
-  <!-- Date: 2010-11-28 -->
-  <link rel="stylesheet" type="text/css" media="all" href="../css/960/text.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../css/960/960.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../css/960/reset.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="../css/main.css" />
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Xiaolong ZHU (朱曉龍)</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="../css/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="../css/foundation.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/responsive-tables.css">
+  <link rel="stylesheet" href="../css/general_foundicons.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
+  <![endif]-->
+  <script src="../js/modernizr.foundation.js"></script>
   <!--google analytics tracker code for xiaolongzhu.org-->
   <script type="text/javascript">
 
@@ -30,75 +43,90 @@
 </head>
 
 <body>
-<!--Do not need wrapper any more<div id="re_wrapper">-->
-<!-- Header -->
-<div id="re_header" class="container_12">
-  <div id="re_he_nav" class="grid_12">
-    <ul>
-      <li class="grid_2 alpha"><a href="../">Home</a></li>
-      <li class="grid_2"><a href="../projects">Research</a></li>
-      <li class="grid_2"><a href="../publications">Publication</a></li>
-      <li class="grid_2"><a href="../cv.html">CV</a></li>
-      <li class="grid_2"><a href="../contact.html">Contact</a></li>
-      <li class="grid_2 omega"><a href="../misc.html">Misc</a></li>
-    </ul>
+  <!--header-->
+  <div class="row">
+    <div class="eight columns">
+      <h2><a href="http://xiaolongzhu.org/"><img src="../css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h2>
+    </div>
+    <div class="four columns">
+      <ul class="nav-bar right">
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Fun</a></li>
+        <li><a href="#">CV</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="clear"></div>
-</div>
 
-
-<!-- Content -->
-<div id="re_content" class="container_12">
-  
-  <div id="re_co_news" class="grid_12">
-	<h1>List of files</h1>
-    <ul>
-		<li><a href="./xiaolongzhu_cv.pdf">CV in <code>pdf</code> format.</a></li>
-		<li><a href="./xiaolongzhu_cv.tex">CV in <code>tex</code> format.</a></li>
-		<li><a href="./xiaolongzhu_cv_modern_en.pdf">Modern CV in English in <code>pdf</code> format.</a></li>
-		<li><a href="./xiaolongzhu_cv_modern_zh.pdf">Modern CV in Chinese in <code>pdf</code> format.</a></li>
-		<li><a href="./xlzhuathku_ppt_template.pptx">PPT template for presentation.</a></li>
-		<li><a href="./xlzhuathku_paper_template.pptx">PPT template for paper reading.</a></li>
-	</ul>
-  </div>
-  <div class="clear"></div>
-</div>
-
-<!-- Footer -->
-<div id="re_footer" class="container_12">
-  <div id="re_fo_links" class="grid_12">
-    <div id="re_fo_li_col" class="grid_6 alpha">
-      <div id="re_fo_li_co_title">My site</div>
-      <div id="re_fo_li_co_list">
-        <ul>
-          <li><a href="http://xiaolongzhu.org">Home Page</a></li>
-          <li><a href="http://gulimujyujyu.me">Web Development</a></li>
-          <li><a href="http://xiaolongzhu.org/research">Research</a></li>
-          <li><a href="http://blog.xiaolongzhu.org">Blog</a></li>
-        </ul>
+  <!--content-->
+  <div class="row">
+    <div class="twelve columns">
+      <h1>Useful files</h1>
+      <!-- files -->
+      <div class="row">
+        <div class="twelve columns">
+          <table class="responsive twelve columns">
+            <tbody>
+              <tr><td><a href="./xiaolongzhu_cv.pdf">CV in <code>pdf</code> format.</a></td></tr>
+              <tr><td><a href="./xiaolongzhu_cv.tex">CV in <code>tex</code> format.</a></td></tr>
+              <tr><td><a href="./xiaolongzhu_cv_modern_en.pdf">Modern CV in Engtrsh in <code>pdf</code> format.</a></td></tr>
+              <tr><td><a href="./xiaolongzhu_cv_modern_zh.pdf">Modern CV in Chinese in <code>pdf</code> format.</a></td></tr>
+              <tr><td><a href="./xlzhuathku_ppt_template.pptx">PPT template for presentation.</a></td></tr>
+              <tr><td><a href="./xlzhuathku_paper_template.pptx">PPT template for paper reading.</a></td></tr>
+              <tr><td><a href="./xiaolongzhu_assignment.zip">Assignment template.</a></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    <div id="re_fo_li_col" class="grid_6 omega">
-      <div id="re_fo_li_co_title">External</div>
-      <div id="re_fo_li_co_list">
-        <ul>
-          <li><a href="http://www.cs.hku.hk">HKU CS</a></li>
-          <li><a href="http://www.cvpapers.com">CV Papers</a></li>
-          <li><a href="http://www.webdesignerdepot">Web Designer Depot</a></li>
-          <li><a href="http://www.w3.org">w3c</a></li>
+
+    <!--copy right-->
+    <hr>
+    <div class="row">
+      <div class="six columns">
+        <p>© Copyright 2010 by Xiaolong ZHU.</p>
+      </div>
+      <div class="six columns">
+        <ul class="link-list right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Fun</a></li>
+          <li><a href="#">Back to top</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
   
-  <div id="re_fo_copyrights" class="prefix_1 grid_6 alpha">&copy; Copyright 2010 by Xiaolong ZHU</div>
-  <div class="clear"></div>
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+  <script src="../js/jquery.js"></script><script 
+src="../js/jquery.foundation.mediaQueryToggle.js"></script><script 
+src="../js/jquery.foundation.forms.js"></script><script 
+src="../js/jquery.foundation.reveal.js"></script><script 
+src="../js/jquery.foundation.orbit.js"></script><script 
+src="../js/jquery.foundation.navigation.js"></script><script 
+src="../js/jquery.foundation.buttons.js"></script><script 
+src="../js/jquery.foundation.tabs.js"></script><script 
+src="../js/jquery.foundation.tooltips.js"></script><script 
+src="../js/jquery.foundation.accordion.js"></script><script 
+src="../js/jquery.placeholder.js"></script><script src="../js/jquery.foundation.alerts.js"></script><script 
+src="../js/jquery.foundation.topbar.js"></script><script 
+src="../js/jquery.foundation.joyride.js"></script><script 
+src="../js/jquery.foundation.clearing.js"></script><script src="../js/jquery.foundation.magellan.js"></script>
+  -->
   
-  <div id="re_fo_backtotop" class="prefix_10 grid_2 omega"><a href="#">Back to top</a></div>
-  <div class="clear"></div>
-</div>
-<!--Do not need wrapper any more </div>-->
-
+  <!-- Included JS Files (Compressed) -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/foundation.min.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="../js/app.js"></script>
+  <script src="../js/responsive-tables.js"></script>
+  
+  <script>
+  $(window).load(function(){
+    $("#featured").orbit();
+  });
+  </script> 
+  
 </body>
 </html>
