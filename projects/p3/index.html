@@ -35,26 +35,26 @@
 <body>
   <!--header-->
   <div class="row">
-    <div class="eight columns">
-      <h2><a href="/"><img src="../../css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h2>
+    <div class="large-8 columns">
+      <h6><a href="/"><img src="/css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h6>
     </div>
-    <div class="four columns">
+    <div class="large-4 columns">
       <ul class="nav-bar right">
-        <li><a href="/projects/">Research</a></li>
-        <li><a href="/fun.html">Fun</a></li>
-        <li><a href="/cv.html">CV</a></li>
+        <li><a href="http://xiaolongzhu.org/projects/">Research</a></li>
+        <li><a href="http://xiaolongzhu.org/update.html">Log</a></li>
+        <li><a href="http://xiaolongzhu.org/cv.html">CV</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Content -->
   <div id="re_content" class="row">
-    <div class="twelve columns">
+    <div class="large-12 columns">
       <div id="featured">
         <img src="./p3.png" alt="slide image">
       </div>
     </div>
-    <div class="twelve columns">
+    <div class="large-12 columns">
       <h1>Single-Frame Hand Gesture Recognition</h1>
       <h2><b>Xiaolong Zhu</b>, Kenneth K.Y.Wong.</h2>
       <p>This paper presents a ﬂexible method for singleframe hand gesture recognition by fusing information
@@ -499,54 +499,54 @@
     </script>
   </div>
   </div>
-
-  <!--copy right-->
+  
+<!--copy right-->
   <div class="row">
     <hr>
-    <div class="six columns">
+    <div class="large-6 columns">
       <p>© Copyright 2010 by Xiaolong ZHU.</p>
     </div>
-    <div class="six columns">
-      <ul class="link-list right">
+    <div class="large-6 columns">
+      <ul class="inline-list right">
         <li><a href="/">Home</a></li>
         <li><a href="/projects/">Research</a></li>
-        <li><a href="/fun.html">Fun</a></li>
+        <li><a href="/update.html">Log</a></li>
         <li><a href="#">Back to top</a></li>
       </ul>
     </div>
   </div>
   
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  <script src="../../jsjquery.js"></script><script 
-src="../../jsjquery.foundation.mediaQueryToggle.js"></script><script 
-src="../../jsjquery.foundation.forms.js"></script><script 
-src="../../jsjquery.foundation.reveal.js"></script><script 
-src="../../jsjquery.foundation.orbit.js"></script><script 
-src="../../jsjquery.foundation.navigation.js"></script><script 
-src="../../jsjquery.foundation.buttons.js"></script><script 
-src="../../jsjquery.foundation.tabs.js"></script><script 
-src="../../jsjquery.foundation.tooltips.js"></script><script 
-src="../../jsjquery.foundation.accordion.js"></script><script 
-src="../../jsjquery.placeholder.js"></script><script src="../../jsjquery.foundation.alerts.js"></script><script 
-src="../../jsjquery.foundation.topbar.js"></script><script 
-src="../../jsjquery.foundation.joyride.js"></script><script 
-src="../../jsjquery.foundation.clearing.js"></script><script src="../../jsjquery.foundation.magellan.js"></script>
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="../../jsjquery.js"></script>
-  <script src="../../jsfoundation.min.js"></script>
-  
+
+
   <!-- Initialize JS Plugins -->
-  <script src="../../jsapp.js"></script>
-  <script src="../../jsresponsive-tables.js"></script>
-  
+  <script src="/js/app.js"></script>
+  <script src="/js/responsive-tables.js"></script>
+
   <script>
-  $(window).load(function(){
-    $("#featured").orbit();
+  document.write('<script src=js/' +
+    ('__proto__' in {} ? 'zepto' : 'jquery') +
+    '.js><\/script>')
+  </script>
+
+
+  <script src="js/foundation.min.js"></script>
+  <script>
+  $(document).foundation('orbit', {
+    animation: 'fade',
+    timer_speed: 5000,
+    pause_on_hover: false,
+    resume_on_mouseout: false,
+    animation_speed: 500,
+    navigation_arrows: false,
+    slide_number: true,
+    bullets: false,
+    timer: true,
+    variable_height: false,
+    before_slide_change: function(){},
+    after_slide_change: function(){}
   });
-  </script> 
-  
+  </script>
+
 </body>
 </html>
+

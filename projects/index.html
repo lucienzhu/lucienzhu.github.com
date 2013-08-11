@@ -14,21 +14,21 @@
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="../css/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="../css/foundation.min.css">
-  <link rel="stylesheet" href="../css/app.css">
-  <link rel="stylesheet" href="../css/responsive-tables.css">
-  <link rel="stylesheet" href="../css/general_foundicons.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/projects.css">
+-->
+
+<!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="../css/foundation.min.css">
+<link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/responsive-tables.css">
+<link rel="stylesheet" href="../css/general_foundicons.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/projects.css">
   <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
-  <![endif]-->
-  <script src="../js/modernizr.foundation.js"></script>
-  <!--google analytics tracker code for xiaolongzhu.org-->
-  <script type="text/javascript">
+    <![endif]-->
+    <script src="../js/modernizr.foundation.js"></script>
+    <!--google analytics tracker code for xiaolongzhu.org-->
+    <script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-17034168-2']);
@@ -40,72 +40,81 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-  </script>
-</head>
+    </script>
+  </head>
 
-<body>
-  <!--header-->
-  <div class="row">
-    <div class="eight columns">
-      <h2><a href="/"><img src="../css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h2>
-    </div>
-    <div class="four columns">
-      <ul class="nav-bar right">
-        <li><a href="/projects/">Research</a></li>
-        <li><a href="/fun.html">Fun</a></li>
-        <li><a href="/cv.html">CV</a></li>
-      </ul>
-    </div>
-  </div>
-  <!--hero unit-->
-  <div class="row">
-    <div class="twelve columns">
-      <div id="featured">
-        <img src="../css/research.png" alt="slide image">
+  <body>
+    <!--header-->
+    <div class="row">
+      <div class="large-8 columns">
+        <h6><a href="/"><img src="/css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h6>
+      </div>
+      <div class="large-4 columns">
+        <ul class="nav-bar right">
+          <li><a href="/projects/">Research</a></li>
+          <li><a href="/update.html">Log</a></li>
+          <li><a href="/cv.html">CV</a></li>
+        </ul>
       </div>
     </div>
-  </div>
 
-  <!--content-->
-  <div class="row">
-    <div class="twelve columns projects">
-      <h4><i class="general foundicon-idea"> Ph. D. Research</i></h4>
-      <!-- one entry -->
-      <div class="row">
-        <div class="twelve columns">    
-          <h5><a href="./p3/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h5>
-          <div class="two columns">
-            <a href="./p3/"><img src="../css/kernelposture.jpg" alt="kernel descriptors"/></a>
-          </div>
-          <div class="ten columns">
-            <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.</p> 
-          </div>
+    <!--hero unit-->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="slideshow-wrapper">
+          <ul data-orbit>
+            <li>
+              <img src="../css/research.png" alt="slide image">
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <!-- one entry -->
-      <div class="row">
-        <div class="twelve columns">    
-          <h5>Self-Calibrating Depth from Refraction <small>Oct. 2010 to Apr. 2011</small></h5>
-          <div class="two columns">
-            <img src="../css/depthmap.png" alt="kernel descriptors"/>
-          </div>
-          <div class="ten columns">
-            <p>I worked with Zhihu Chen on the project about depth map estimation given three images. A scene is captured twice by a ﬁxed perspective camera, with the ﬁrst image captured directly by the camera and the second by placing a transparent medium between the scene and the camera. A depth map of the scene is then recovered from the displacements of scene points in the images. SIFT-flow is used here to obtain the dense correspondace between two images. </p> 
+    <!--content-->
+    <div class="row">
+      <div class="large-12 columns projects">
+        <h4><i class="general foundicon-idea"> Ph. D. Research</i></h4>
+        <!-- one entry -->
+        <div class="row">
+          <div class="large-12 columns">    
+            <h5><a href="./p3/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h5>
+            <div class="large-2 columns">
+              <a href="./p3/"><img src="../css/kernelposture.jpg" alt="kernel descriptors"/></a>
+            </div>
+            <div class="large-10 columns">
+              <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
+              </p> 
+            </div>
           </div>
         </div>
-      </div>
 
-      <h4><i class="general foundicon-smiley"> Undergraduate Research</i></h4>
-      <!-- one entry -->
-      <div class="row">
-        <div class="twelve columns">          
-          <h5>Autonomous scene labeling using LIDAR on the car <small>Oct. 2008 to Jul. 2010</small></h5>
-          <div class="two columns">
-            <img src="../css/poss.jpeg" alt="kernel descriptors"/>
+        <!-- one entry -->
+        <div class="row">
+          <div class="large-12 columns">    
+            <h5>Self-Calibrating Depth from Refraction <small>Oct. 2010 to Apr. 2011</small></h5>
+            <div class="large-2 columns">
+              <img src="../css/depthmap.png" alt="kernel descriptors"/>
+            </div>
+            <div class="large-10 columns">
+              <p>I worked with Zhihu Chen on the project about depth map estimation given three images. A scene is captured twice by a ﬁxed perspective camera, with the ﬁrst image captured directly by the camera and the second by placing a transparent medium between the scene and the camera. A depth map of the scene is then recovered from the displacements of scene points in the images. SIFT-flow is used here to obtain the dense correspondace between two images. 
+              </p> 
+            </div>
           </div>
-          <div class="ten columns">
-            <p>This project is done during my undergraduate work. Based on the intelligent vehicle POSS, I process range data from two range sensors (SICK LMS 200). The data can be represented as 3D point clouds combining the pose and location of the vehicle. Meanwhile, it can also be represented as range image due to the property of range sensor. Then a Computer Vision framework of image segmentation and classification is applied to this range image to give each point a semantic label. The whole data is processed offline.</p> 
+        </div>
+
+        <h4><i class="general foundicon-smiley"> Undergraduate Research</i></h4>
+        <!-- one entry -->
+        <div class="row">
+          <div class="large-12 columns">          
+            <h5>Autonomous scene labeling using LIDAR on the car <small>Oct. 2008 to Jul. 2010</small></h5>
+            <div class="large-2 columns">
+              <img src="../css/poss.jpeg" alt="kernel descriptors"/>
+            </div>
+            <div class="large-10 columns">
+              <p>This project is done during my undergraduate work. Based on the intelligent vehicle POSS, I process range data from two range sensors (SICK LMS 200). The data can be represented as 3D point clouds combining the pose and location of the vehicle. Meanwhile, it can also be represented as range image due to the property of range sensor. Then a Computer Vision framework of image segmentation and classification is applied to this range image to give each point a semantic label. The whole data is processed offline.
+              </p> 
+            </div>
           </div>
         </div>
       </div>
@@ -114,49 +123,47 @@
     <!--copy right-->
     <div class="row">
       <hr>
-      <div class="six columns">
+      <div class="large-6 columns">
         <p>© Copyright 2010 by Xiaolong ZHU.</p>
       </div>
-      <div class="six columns">
-        <ul class="link-list right">
+      <div class="large-6 columns">
+        <ul class="inline-list right">
           <li><a href="/">Home</a></li>
           <li><a href="/projects/">Research</a></li>
-          <li><a href="/fun.html">Fun</a></li>
+          <li><a href="/update.html">Log</a></li>
           <li><a href="#">Back to top</a></li>
         </ul>
       </div>
     </div>
-  </div>
-  
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  <script src="../js/jquery.js"></script><script 
-src="../js/jquery.foundation.mediaQueryToggle.js"></script><script 
-src="../js/jquery.foundation.forms.js"></script><script 
-src="../js/jquery.foundation.reveal.js"></script><script 
-src="../js/jquery.foundation.orbit.js"></script><script 
-src="../js/jquery.foundation.navigation.js"></script><script 
-src="../js/jquery.foundation.buttons.js"></script><script 
-src="../js/jquery.foundation.tabs.js"></script><script 
-src="../js/jquery.foundation.tooltips.js"></script><script 
-src="../js/jquery.foundation.accordion.js"></script><script 
-src="../js/jquery.placeholder.js"></script><script src="../js/jquery.foundation.alerts.js"></script><script 
-src="../js/jquery.foundation.topbar.js"></script><script 
-src="../js/jquery.foundation.joyride.js"></script><script 
-src="../js/jquery.foundation.clearing.js"></script><script src="../js/jquery.foundation.magellan.js"></script>
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="../js/jquery.js"></script>
-  <script src="../js/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="../js/app.js"></script>
-  <script src="../js/responsive-tables.js"></script>
-  
-  <script>
 
-  </script> 
-  
-</body>
-</html>
+    <!-- Initialize JS Plugins -->
+    <script src="../js/app.js"></script>
+    <script src="../js/responsive-tables.js"></script>
+
+    <script>
+    document.write('<script src=js/' +
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      '.js><\/script>')
+    </script>
+
+
+    <script src="js/foundation.min.js"></script>
+    <script>
+    $(document).foundation('orbit', {
+      animation: 'fade',
+      timer_speed: 5000,
+      pause_on_hover: false,
+      resume_on_mouseout: false,
+      animation_speed: 500,
+      navigation_arrows: false,
+      slide_number: true,
+      bullets: false,
+      timer: true,
+      variable_height: false,
+      before_slide_change: function(){},
+      after_slide_change: function(){}
+    });
+    </script>
+
+  </body>
+  </html>
