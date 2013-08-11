@@ -29,10 +29,21 @@ a:hover {
 
 .nav-bar {
   background: #FFFFFF;
+  height: 40px;
+  margin-left: 0;
+  margin-top: 20px;
+  padding: 0;
 }
 
 .nav-bar > li {
   border: #FFFFFF;
+  float: left;
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border-right: none;
+  line-height: 38px;
 }
 
 .nav-bar > li:last-child {
@@ -46,4 +57,23 @@ a:hover {
 .nav-bar > li > a:hover {
   background: #84BF2C;
   color: #F2F2F2;
+}
+
+.nav-bar>li>a:first-child {
+  position: relative;
+  padding: 0 20px;
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Segoe UI, candara, Georgia, Verdana, Times, Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: #222;
+  text-rendering: optimizeLegibility;
+  margin-top: 0.875em;
+  margin-bottom: 0.5em;
+  line-height: 1.2125em;
 }
