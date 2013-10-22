@@ -1,0 +1,32 @@
+---
+layout: default
+extra_css:
+- /css/index.css
+---
+<!--hero unit-->
+<div class="row">
+    <div class="large-12 columns">
+        <div class="slideshow-wrapper">
+            <div class="preloader"></div>
+            <ul data-orbit>
+                {% if page.featured_images == nil %}
+                <li>
+                    <img src="/css/post_default.png" alt="slide image">
+                </li>
+                {% else %}
+                {% for featured_image in page.featured_images %}
+                <li>
+                    <img src="{{ featured_image }}" alt="slide image">
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- post -->
+<div class="row">
+    <div class="large-12 columns">
+        {{ content }}
+    </div>
+</div>
