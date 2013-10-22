@@ -1,278 +1,220 @@
-<!DOCTYPE html>
-
-<!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
-
-  <title>Xiaolong ZHU (朱曉龍)</title>
-  
-  <!-- Included CSS Files (Uncompressed) -->
-  <!--
-  <link rel="stylesheet" href="../../css/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="../../css/foundation.min.css">
-  <link rel="stylesheet" href="../../css/app.css">
-  <link rel="stylesheet" href="../../css/responsive-tables.css">
-  <link rel="stylesheet" href="../../css/general_foundicons.css">
-  <link rel="stylesheet" href="../../css/common.css">
-  <link rel="stylesheet" href="../../css/index.css">
-  <link rel="stylesheet" type="text/css" media="all" href="./detail.css" />
-  <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
-  <![endif]-->
-  <script src="../../jsmodernizr.foundation.js"></script>
-  <script type="text/javascript" src="../../js/d3.v2.min.js"></script>
-  <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
-</head>
-
-<body>
-  <!--header-->
-  <div class="row">
-    <div class="large-8 columns">
-      <h6><a href="/"><img src="/css/name.png" height="50px" alt="Xiaolong ZHU (朱曉龍)"/></a></h6>
-    </div>
-    <div class="large-4 columns">
-      <ul class="nav-bar right">
-        <li><a href="http://xiaolongzhu.org/projects/">Research</a></li>
-        <li><a href="http://xiaolongzhu.org/update.html">Log</a></li>
-        <li><a href="http://xiaolongzhu.org/cv.html">CV</a></li>
-      </ul>
+---
+layout: default
+title: Research Project by Xiaolong ZHU (朱曉龍)
+extra_css:
+- /css/projects.css
+- detail.css
+extra_js:
+- /jsmodernizr.foundation.js
+- /js/d3.v2.min.js
+- /js/jquery-1.7.2.min.js
+---
+<!-- Content -->
+<div id="re_content" class="row">
+  <div class="large-12 columns">
+    <div id="featured">
+      <img src="./p3.png" alt="slide image">
     </div>
   </div>
-
-  <!-- Content -->
-  <div id="re_content" class="row">
-    <div class="large-12 columns">
-      <div id="featured">
-        <img src="./p3.png" alt="slide image">
-      </div>
-    </div>
-    <div class="large-12 columns">
-      <h1>Single-Frame Hand Gesture Recognition</h1>
-      <h2><b>Xiaolong Zhu</b>, Kenneth K.Y.Wong.</h2>
-      <p>This paper presents a ﬂexible method for singleframe hand gesture recognition by fusing information
+  <div class="large-12 columns">
+    <h1>Single-Frame Hand Gesture Recognition</h1>
+    <h2><b>Xiaolong Zhu</b>, Kenneth K.Y.Wong.</h2>
+    <p>This paper presents a ﬂexible method for singleframe hand gesture recognition by fusing information
     from color and depth images. Existing methods usually
     focus on designing intuitive features for color and depth
     images. On the contrary, our method ﬁrst extracts common patch-level features, and fuses them by means of
     kernel descriptors. Linear SVM is then adopted to predict the class label efﬁciently
     
-      <p id="#dataset">In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is
+    <p id="#dataset">In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is
     robust to the change of distance between the hand and
     the camera. You may first check out the <a href="./icpr2012_Poster.pdf">poster</a> and <a href="./icpr2012_shotgun.pdf">slides</a>, and more details are in the <a href="http://i.cs.hku.hk/~kykwong/publications/xzhu_icpr12.pdf">paper</a>.</p>
-
-      <p>The <a href="#dataset">dataset</a> is available upon email. Please contact me at xlz<a href="http://www.google.com/recaptcha/mailhide/d?k=01GxKNjolAChe314N-umEjBw==&amp;c=VORInABvBEO9XuWZmkzRhA==" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501GxKNjolAChe314N-umEjBw\75\75\46c\75VORInABvBEO9XuWZmkzRhA\75\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@cs.hku.hk</p>
-      
-      <p>Here are some results.</p>
-      
-      <h3>Confusion Matrix</h3>
-      
-        <div id="cm"></div>
-        <div id="bar"></div>
-        <script type="text/javascript">
-
-        
+    <p>The <a href="#dataset">dataset</a> is available upon email. Please contact me at xlz<a href="http://www.google.com/recaptcha/mailhide/d?k=01GxKNjolAChe314N-umEjBw==&amp;c=VORInABvBEO9XuWZmkzRhA==" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501GxKNjolAChe314N-umEjBw\75\75\46c\75VORInABvBEO9XuWZmkzRhA\75\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@cs.hku.hk</p>
+    
+    <p>Here are some results.</p>
+    
+    <h3>Confusion Matrix</h3>
+    
+    <div id="cm"></div>
+    <div id="bar"></div>
+    <script type="text/javascript">
+    
     var m_cm = [20, 10, 10, 20],
-        w_cm = 680 - m_cm[1] - m_cm[3],
-        h_cm = 680 - m_cm[0] - m_cm[2];
-
+    w_cm = 680 - m_cm[1] - m_cm[3],
+    h_cm = 680 - m_cm[0] - m_cm[2];
     var format_cm = d3.format(".4%");
-
     var x_cm = d3.scale.ordinal().rangeRoundBands([0, w_cm], .1),
-        y_cm = d3.scale.ordinal().rangeRoundBands([0, h_cm], .1),
-        z_cm = d3.scale.linear().domain([0, 1]).clamp(true),
-        c_cm = d3.scale.category10().domain([0, 1]);
-
+    y_cm = d3.scale.ordinal().rangeRoundBands([0, h_cm], .1),
+    z_cm = d3.scale.linear().domain([0, 1]).clamp(true),
+    c_cm = d3.scale.category10().domain([0, 1]);
     var xAxis_cm = d3.svg.axis().scale(x_cm).orient("top").tickSize(0),
-        yAxis_cm = d3.svg.axis().scale(y_cm).orient("left").tickSize(0);
-
+    yAxis_cm = d3.svg.axis().scale(y_cm).orient("left").tickSize(0);
     var svg_cm = d3.select("div#cm").append("svg")
-        .attr("version", 1.1)
-        .attr("xmlns", "http://www.w3.org/2000/svg")
-        .attr("id","cm")
-        .attr("width", w_cm + m_cm[1] + m_cm[3])
-        .attr("height", h_cm + m_cm[0] + m_cm[2])
-      .append("g")
-        .attr("transform", "translate(" + m_cm[3] + "," + m_cm[0] + ")");
-        
+    .attr("version", 1.1)
+    .attr("xmlns", "http://www.w3.org/2000/svg")
+    .attr("id","cm")
+    .attr("width", w_cm + m_cm[1] + m_cm[3])
+    .attr("height", h_cm + m_cm[0] + m_cm[2])
+    .append("g")
+    .attr("transform", "translate(" + m_cm[3] + "," + m_cm[0] + ")");
+    
     var cm_labels = ['a','b','c','d','e','f','g','h','i','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y'];
-
     //draw confusion matrix
     d3.json("cm.json", function(data) {
-      var links = data.edge,
-          nodes = data.node,
-          n = nodes.length,
-          matrix = [];
-      //parse to matrix
-      nodes.forEach(function(v,i){
-        v.index = i;
-        v.count = 0;
-        matrix[i] = d3.range(n).map(function(j){return {x:i, y:j, z:0}; });
-      });
-      
-      links.forEach(function(e) { 
-        matrix[+e.x][+e.y].z += +e.value;
-      });
-      
-      //set domain
-      x_cm.domain(d3.range(n));
-      y_cm.domain(d3.range(n));
-      
-      //draw
-      svg_cm.append("rect")
-        .attr("class","background")
-        .attr("width",w_cm)
-        .attr("height",h_cm);
-      
-      var fill_cell = function(row) {
-        var cell = d3.select(this).selectAll(".cell")
-            .data(row.filter(function(d){return d.z;}))
-          .enter().append("rect")
-            .attr("class", "cell")
-            .attr("x", function(d){return y_cm(d.y);})
-            .attr("width",x_cm.rangeBand())
-            .attr("height",y_cm.rangeBand())
-            .style("fill-opacity",function(d){return z_cm(Math.pow(d.z,0.75));})
-            .style("fill","steelblue")
-            .on("mouseover",function(d){
-                console.log("add: " + d.x + ", " + d.y);
-                d3.select(this)
-                    .style("fill","pink")
-                    .style("fill-opacity",1);
-              })
-            .on("mouseout",function(d){
-                console.log("remove: " + d.x + ", " + d.y);
-                d3.select(this)
-                    .style("fill","steelblue")
-                    .style("fill-opacity",function(d){return z_cm(Math.pow(d.z,0.75));});
-              });
-        
-        cell.append("title")
-            .text(function(d) { return "Predict '"+cm_labels[d.y]+"' as '"+cm_labels[d.x]+"': "+format_cm(d.z); });
-      };
-      
-      var row = svg_cm.selectAll(".row")
-          .data(matrix)
-        .enter().append("g")
-          .attr("class","row")
-          .attr("transform", function(d,i){
-              return "translate(0,"+x_cm(i)+")";          
-            })
-          .each(fill_cell);
-      
-      x_cm.domain(cm_labels);
-      y_cm.domain(cm_labels);
-      
-      svg_cm.append("svg:g")
-      .attr("class", "x axis")
-      .call(xAxis_cm);
-      
-      svg_cm.append("svg:g")
-      .attr("class", "x axis")
-      .call(yAxis_cm);
-      
-      //style
-      d3.selectAll("g rect.background")
-          .style("fill","#f7f7f7");
-          
+    var links = data.edge,
+    nodes = data.node,
+    n = nodes.length,
+    matrix = [];
+    //parse to matrix
+    nodes.forEach(function(v,i){
+    v.index = i;
+    v.count = 0;
+    matrix[i] = d3.range(n).map(function(j){return {x:i, y:j, z:0}; });
     });
-
+    
+    links.forEach(function(e) {
+    matrix[+e.x][+e.y].z += +e.value;
+    });
+    
+    //set domain
+    x_cm.domain(d3.range(n));
+    y_cm.domain(d3.range(n));
+    
+    //draw
+    svg_cm.append("rect")
+    .attr("class","background")
+    .attr("width",w_cm)
+    .attr("height",h_cm);
+    
+    var fill_cell = function(row) {
+    var cell = d3.select(this).selectAll(".cell")
+    .data(row.filter(function(d){return d.z;}))
+    .enter().append("rect")
+    .attr("class", "cell")
+    .attr("x", function(d){return y_cm(d.y);})
+    .attr("width",x_cm.rangeBand())
+    .attr("height",y_cm.rangeBand())
+    .style("fill-opacity",function(d){return z_cm(Math.pow(d.z,0.75));})
+    .style("fill","steelblue")
+    .on("mouseover",function(d){
+    console.log("add: " + d.x + ", " + d.y);
+    d3.select(this)
+    .style("fill","pink")
+    .style("fill-opacity",1);
+    })
+    .on("mouseout",function(d){
+    console.log("remove: " + d.x + ", " + d.y);
+    d3.select(this)
+    .style("fill","steelblue")
+    .style("fill-opacity",function(d){return z_cm(Math.pow(d.z,0.75));});
+    });
+    
+    cell.append("title")
+    .text(function(d) { return "Predict '"+cm_labels[d.y]+"' as '"+cm_labels[d.x]+"': "+format_cm(d.z); });
+    };
+    
+    var row = svg_cm.selectAll(".row")
+    .data(matrix)
+    .enter().append("g")
+    .attr("class","row")
+    .attr("transform", function(d,i){
+    return "translate(0,"+x_cm(i)+")";
+    })
+    .each(fill_cell);
+    
+    x_cm.domain(cm_labels);
+    y_cm.domain(cm_labels);
+    
+    svg_cm.append("svg:g")
+    .attr("class", "x axis")
+    .call(xAxis_cm);
+    
+    svg_cm.append("svg:g")
+    .attr("class", "x axis")
+    .call(yAxis_cm);
+    
+    //style
+    d3.selectAll("g rect.background")
+    .style("fill","#f7f7f7");
+    
+    });
     var m_bar = [20, 10, 10, 20],
-        w_bar = 200 - m_bar[1] - m_bar[3],
-        h_bar = 680 - m_bar[0] - m_bar[2];
-
+    w_bar = 200 - m_bar[1] - m_bar[3],
+    h_bar = 680 - m_bar[0] - m_bar[2];
     var format_bar = d3.format(".2f");
-
     var x_bar = d3.scale.linear().range([0, w_bar]),
-        y_bar = d3.scale.ordinal().rangeRoundBands([0, h_bar], .1);
-
+    y_bar = d3.scale.ordinal().rangeRoundBands([0, h_bar], .1);
     var xAxis_bar = d3.svg.axis().scale(x_bar).orient("top").ticks(4).tickSize(-h_bar).tickFormat(d3.format(",0.1f")),
-        yAxis_bar = d3.svg.axis().scale(y_bar).orient("left").tickSize(0);
-
+    yAxis_bar = d3.svg.axis().scale(y_bar).orient("left").tickSize(0);
     var svg_bar = d3.select("div#bar").append("svg:svg")
-        .attr("id","bar")
-        .attr("version", 1.1)
-        .attr("xmlns", "http://www.w3.org/2000/svg")
-        .attr("width", w_bar + m_bar[1] + m_bar[3])
-        .attr("height", h_bar + m_bar[0] + m_bar[2])
-      .append("g")
-        .attr("transform", "translate(" + m_bar[3] + "," + m_bar[0] + ")");    
-        
+    .attr("id","bar")
+    .attr("version", 1.1)
+    .attr("xmlns", "http://www.w3.org/2000/svg")
+    .attr("width", w_bar + m_bar[1] + m_bar[3])
+    .attr("height", h_bar + m_bar[0] + m_bar[2])
+    .append("g")
+    .attr("transform", "translate(" + m_bar[3] + "," + m_bar[0] + ")");
+    
     //draw bar chart
     d3.csv("new_bar.csv", function(data) {
-      // Parse numbers, and sort by value.
-      data.forEach(function(d) { d.value = +d.value; });
-
-      // Set the scale domain.
-      x_bar.domain([0, 1]);
-      y_bar.domain(data.map(function(d) { return d.Name; }));
-
-      var bar = svg_bar.selectAll("g.bar")
-          .data(data)
-        .enter().append("svg:g")
-          .attr("class", "bar")
-          .attr("style", "fill:steelblue;")
-          .attr("transform", function(d) { return "translate(0," + y_bar(d.Name) + ")"; });
-      
-      bar.append("svg:rect")
-          .attr("width", function(d) { return x_bar(d.value); })
-          .attr("height", y_bar.rangeBand());
-
-      bar.append("svg:text")
-          .attr("class","value")
-          .attr("style","fill:#000;font-weight:bold;")
-          .attr("x", function(d) { return x_bar(d.value); })
-          .attr("y", y_bar.rangeBand() / 2)
-          .attr("dx", "-8px")
-          .attr("dy", "8px")
-          .attr("text-anchor", "end")
-          .text(function(d) { return format_bar(d.value); });
-
-      svg_bar.append("svg:g")
-      .attr("class", "x axis")
-      .call(xAxis_bar);
-
-      svg_bar.append("svg:g")
-      .attr("class", "y axis")
-      .call(yAxis_bar);
-      
-      d3.selectAll("text")
-        .attr("style","font:16px verdana;")
-        .style("font-weight","Bold")
-        .style("font-style","Bold");
-      
-      d3.selectAll("g.bar rect")
-        .attr("style","fill:steelblue;");
-      
-      d3.selectAll("g.bar text.value")
-        .style("fill","black")
-        .style("font-size","20px")
-        .style("font-family","verdana")
-        .style("font-weight","Bold")
-        .style("font-style","Bold");
-        
-      d3.selectAll("g.axis")
-        .attr("style","shape-rendering: crispEdges;");
-      
-      d3.selectAll("g.axis path")
-        .attr("style","fill: none;");
-        
-      d3.selectAll("g.x.axis line")
-        .attr("style","stroke:#ffffff;stroke-width:1px;stroke-opacity:.5;");
-        
-      d3.selectAll("g.y.axis path")
-        .attr("style","stroke: black;");
-    }); 
-
-
+    // Parse numbers, and sort by value.
+    data.forEach(function(d) { d.value = +d.value; });
+    // Set the scale domain.
+    x_bar.domain([0, 1]);
+    y_bar.domain(data.map(function(d) { return d.Name; }));
+    var bar = svg_bar.selectAll("g.bar")
+    .data(data)
+    .enter().append("svg:g")
+    .attr("class", "bar")
+    .attr("style", "fill:steelblue;")
+    .attr("transform", function(d) { return "translate(0," + y_bar(d.Name) + ")"; });
+    
+    bar.append("svg:rect")
+    .attr("width", function(d) { return x_bar(d.value); })
+    .attr("height", y_bar.rangeBand());
+    bar.append("svg:text")
+    .attr("class","value")
+    .attr("style","fill:#000;font-weight:bold;")
+    .attr("x", function(d) { return x_bar(d.value); })
+    .attr("y", y_bar.rangeBand() / 2)
+    .attr("dx", "-8px")
+    .attr("dy", "8px")
+    .attr("text-anchor", "end")
+    .text(function(d) { return format_bar(d.value); });
+    svg_bar.append("svg:g")
+    .attr("class", "x axis")
+    .call(xAxis_bar);
+    svg_bar.append("svg:g")
+    .attr("class", "y axis")
+    .call(yAxis_bar);
+    
+    d3.selectAll("text")
+    .attr("style","font:16px verdana;")
+    .style("font-weight","Bold")
+    .style("font-style","Bold");
+    
+    d3.selectAll("g.bar rect")
+    .attr("style","fill:steelblue;");
+    
+    d3.selectAll("g.bar text.value")
+    .style("fill","black")
+    .style("font-size","20px")
+    .style("font-family","verdana")
+    .style("font-weight","Bold")
+    .style("font-style","Bold");
+    
+    d3.selectAll("g.axis")
+    .attr("style","shape-rendering: crispEdges;");
+    
+    d3.selectAll("g.axis path")
+    .attr("style","fill: none;");
+    
+    d3.selectAll("g.x.axis line")
+    .attr("style","stroke:#ffffff;stroke-width:1px;stroke-opacity:.5;");
+    
+    d3.selectAll("g.y.axis path")
+    .attr("style","stroke: black;");
+    });
     </script>
-
     <h3>Accuracy vs. Distance</h3>
     <div id="lines"></div>
     <script type="text/javascript">
@@ -282,271 +224,214 @@
     {"pos":"275","label_name":"Depth","type":"square","color":"#ff7f0e"},
     {"pos":"300","label_name":"Non-pyramid","type":"cross","color":"#1f77b4"}];
     var m_lines = [60, 20, 20, 60],
-        w_lines = 720 - m_lines[1] - m_lines[3],
-        h_lines = 480 - m_lines[0] - m_lines[2];
-
+    w_lines = 720 - m_lines[1] - m_lines[3],
+    h_lines = 480 - m_lines[0] - m_lines[2];
     var format_lines = d3.format(".2f");
-
     var x_lines = d3.scale.linear().range([0, w_lines]).domain([0.5,2.0]),
-        y_lines = d3.scale.pow().exponent(2).range([h_lines, 0]).domain([0,1]);
-
+    y_lines = d3.scale.pow().exponent(2).range([h_lines, 0]).domain([0,1]);
     var xAxis_lines = d3.svg.axis().scale(x_lines).orient("bottom")
-            .tickSize(6,-6,2)
-            .tickValues([0.6, 0.9, 1.2, 1.5, 1.8])
-            .tickFormat(d3.format(".1f")),
-        yAxis_lines = d3.svg.axis().scale(y_lines).orient("left")
-            .tickSubdivide(5)
-            .tickValues([0.2, .4, .6, .8, 1.0])
-            .tickFormat(d3.format(".02f"))
-            .tickSize(6,-6,2);
-
+    .tickSize(6,-6,2)
+    .tickValues([0.6, 0.9, 1.2, 1.5, 1.8])
+    .tickFormat(d3.format(".1f")),
+    yAxis_lines = d3.svg.axis().scale(y_lines).orient("left")
+    .tickSubdivide(5)
+    .tickValues([0.2, .4, .6, .8, 1.0])
+    .tickFormat(d3.format(".02f"))
+    .tickSize(6,-6,2);
     var svg_lines = d3.select("div#lines").append("svg:svg")
-        .attr("id","lines")
-        .attr("version", 1.1)
-        .attr("xmlns", "http://www.w3.org/2000/svg")
-        .attr("width", w_lines + m_lines[1] + m_lines[3])
-        .attr("height", h_lines + m_lines[0] + m_lines[2])
-      .append("g")
-        .attr("transform", "translate(" + m_lines[3] + "," + m_lines[2] +")");    
-        
+    .attr("id","lines")
+    .attr("version", 1.1)
+    .attr("xmlns", "http://www.w3.org/2000/svg")
+    .attr("width", w_lines + m_lines[1] + m_lines[3])
+    .attr("height", h_lines + m_lines[0] + m_lines[2])
+    .append("g")
+    .attr("transform", "translate(" + m_lines[3] + "," + m_lines[2] +")");
+    
     //draw bar chart
     d3.csv("new_lines.csv", function(csv) {
-
-      
-      //draw rules
-      var rules = svg_lines.selectAll("g.xrule")
-          .data(x_lines.ticks(10))
-        .enter().append("g")
-          .attr("class", "xrule");
-      rules.append("line")
-          .attr("x1", x_lines)
-          .attr("x2", x_lines)
-          .attr("y1", 0)
-          .attr("y2", h_lines - 1);
-      rules = svg_lines.selectAll("g.yrule")
-          .data(y_lines.ticks(5))
-        .enter().append("g")
-          .attr("class", "xrule");
-      rules.append("line")
-          .attr("y1", y_lines)
-          .attr("y2", y_lines)
-          .attr("x1", 0)
-          .attr("x2", w_lines + 1);
-      
-      d3.selectAll(".xrule line")
-          .style("stroke","#ccc")
-          .style("shape-rendering","crispEdges");
-      d3.selectAll(".yrule line")
-          .style("stroke","#ccc")
-          .style("shape-rendering","crispEdges");
-      
-      svg_lines.append("svg:g")
-        .attr("class", "x axis")
-        .attr("transform","translate(0,"+h_lines+")")
-        .call(xAxis_lines);
-      svg_lines.append("svg:g")
-        .attr("class", "y axis")
-        .call(yAxis_lines);
-      
-      d3.selectAll("text")
-          .style("font-family","verdana")
-          .style("font-size","16px")
-          .style("font-weight","bold");
-      d3.selectAll("g.x axis")
-          .style("shape-rendering","crispEdges");
-      d3.selectAll("g.y axis")
-          .style("shape-rendering","crispEdges");
-      d3.selectAll("g.axis line")
-          .style("shape-rendering","crispEdges")
-          .style("stroke","#000");
-      d3.selectAll("g.axis g text")
-          .attr("dy","8px");
-      // Parse numbers
-      csv.forEach(function(d){return d.distance = +d.distance;});
-      //------------
-      //line1: ALL
-      csv.forEach(function(d){return d.ALL = +d.ALL;});
-      var line_ALL = svg_lines.selectAll("g.all")
-          .data([csv])
-        .enter().append("path")
-          .attr("class","all")
-          .attr("d",d3.svg.line()
-            .x(function(d){return x_lines(d.distance);})
-            .y(function(d){return y_lines(d.ALL);}));
-      var marker_ALL = svg_lines.selectAll("path.all_marker")
-          .data(csv)
-        .enter().append("svg:path")
-            .attr("class","all_marker")
-            .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.ALL) + ")"; })
-            .attr("d", d3.svg.symbol().type("circle"));
-      d3.selectAll("path.all")
-          .style("fill","none")
-          .style("stroke","#2ca02c")
-          .style("stroke-width","5px");
-      d3.selectAll("path.all_marker")
-          .style("fill","#fff")
-          .style("stroke","#2ca02c")
-          .style("stroke-width","5px");
-          
-      //------------
-      //line2: COLOR
-      csv.forEach(function(d){return d.COLOR = +d.COLOR;});
-      var line_COLOR = svg_lines.selectAll("g.color")
-          .data([csv])
-        .enter().append("path")
-          .attr("class","color")
-          .attr("d",d3.svg.line()
-            .x(function(d){return x_lines(d.distance);})
-            .y(function(d){return y_lines(d.COLOR);}));
-      var marker_COLOR = svg_lines.selectAll("path.color_marker")
-          .data(csv)
-        .enter().append("svg:path")
-            .attr("class","color_marker")
-            .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.COLOR) + ")"; })
-            .attr("d", d3.svg.symbol().type("diamond"));
-      d3.selectAll("path.color")
-          .style("fill","none")
-          .style("stroke","#d62728")
-          .style("stroke-width","5px");
-      d3.selectAll("path.color_marker")
-          .style("fill","#fff")
-          .style("stroke","#d62728")
-          .style("stroke-width","5px");
-      
-      //------------
-      //line3: DEPTH
-      csv.forEach(function(d){return d.DEPTH = +d.DEPTH;});
-      var line_DEPTH = svg_lines.selectAll("g.depth")
-          .data([csv])
-        .enter().append("path")
-          .attr("class","depth")
-          .attr("d",d3.svg.line()
-            .x(function(d){return x_lines(d.distance);})
-            .y(function(d){return y_lines(d.DEPTH);}));
-      var marker_DEPTH = svg_lines.selectAll("path.depth_marker")
-          .data(csv)
-        .enter().append("svg:path")
-            .attr("class","depth_marker")
-            .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.DEPTH) + ")"; })
-            .attr("d", d3.svg.symbol().type("square"));
-      d3.selectAll("path.depth")
-          .style("fill","none")
-          .style("stroke","#ff7f0e")
-          .style("stroke-width","5px");
-      d3.selectAll("path.depth_marker")
-          .style("fill","#fff")
-          .style("stroke","#ff7f0e")
-          .style("stroke-width","5px");
-          
-      //------------
-      //line4: NOPY
-      csv.forEach(function(d){return d.NOPY = +d.NOPY;});
-      var line_NOPY = svg_lines.selectAll("g.nopy")
-          .data([csv])
-        .enter().append("path")
-          .attr("class","nopy")
-          .attr("d",d3.svg.line()
-            .x(function(d){return x_lines(d.distance);})
-            .y(function(d){return y_lines(d.NOPY);}));
-      var marker_NOPY = svg_lines.selectAll("path.nopy_marker")
-          .data(csv)
-        .enter().append("svg:path")
-            .attr("class","nopy_marker")
-            .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.NOPY) + ")"; })
-            .attr("d", d3.svg.symbol().type("cross"));
-      d3.selectAll("path.nopy")
-          .style("fill","none")
-          .style("stroke","#1f77b4")
-          .style("stroke-width","5px");
-      d3.selectAll("path.nopy_marker")
-          .style("fill","#fff")
-          .style("stroke","#1f77b4")
-          .style("stroke-width","5px");
-          
-      //legend
-      var legend = svg_lines.append("svg:g");
-      legend.append("rect")
-          .attr("class","legend_background")
-          .attr("x","450px")
-          .attr("y","210px")
-          .attr("width","145px")
-          .attr("height","100px");
-      var legend_item = legend.selectAll('g.legend_item').data(legend_data)
-        .enter().append("svg:g")
-          .attr("class","legend_item");
-      legend_item.append("svg:path")
-            .attr("class","legend_marker_type")
-            .attr("transform", function(d) { console.log(d);return "translate(" + "465" + "," + (+d.pos-3) + ")"; })
-            .style("fill","none")
-            .style("stroke",function(d){return d.color;})
-            .style("stroke-width","5px")
-            .attr("d", d3.svg.symbol().type(function(d){return d.type;}));
-      legend_item.append("text")
-            .attr("class","legend_marker_label")
-            .attr("x","480px")
-            .attr("y",function(d){return d.pos+"px";})
-            .attr("dx","3px")
-            .attr("dy","3px")
-            .attr("text-anchor","start")
-            .style("font-family","verdana")
-            .style("font-size","16px")
-            .text(function(d){return d.label_name;});
-      d3.selectAll("rect.legend_background")
-          .style("fill","whiteSmoke")
-          .style("stroke","black");
-
-    }); 
+    
+    //draw rules
+    var rules = svg_lines.selectAll("g.xrule")
+    .data(x_lines.ticks(10))
+    .enter().append("g")
+    .attr("class", "xrule");
+    rules.append("line")
+    .attr("x1", x_lines)
+    .attr("x2", x_lines)
+    .attr("y1", 0)
+    .attr("y2", h_lines - 1);
+    rules = svg_lines.selectAll("g.yrule")
+    .data(y_lines.ticks(5))
+    .enter().append("g")
+    .attr("class", "xrule");
+    rules.append("line")
+    .attr("y1", y_lines)
+    .attr("y2", y_lines)
+    .attr("x1", 0)
+    .attr("x2", w_lines + 1);
+    
+    d3.selectAll(".xrule line")
+    .style("stroke","#ccc")
+    .style("shape-rendering","crispEdges");
+    d3.selectAll(".yrule line")
+    .style("stroke","#ccc")
+    .style("shape-rendering","crispEdges");
+    
+    svg_lines.append("svg:g")
+    .attr("class", "x axis")
+    .attr("transform","translate(0,"+h_lines+")")
+    .call(xAxis_lines);
+    svg_lines.append("svg:g")
+    .attr("class", "y axis")
+    .call(yAxis_lines);
+    
+    d3.selectAll("text")
+    .style("font-family","verdana")
+    .style("font-size","16px")
+    .style("font-weight","bold");
+    d3.selectAll("g.x axis")
+    .style("shape-rendering","crispEdges");
+    d3.selectAll("g.y axis")
+    .style("shape-rendering","crispEdges");
+    d3.selectAll("g.axis line")
+    .style("shape-rendering","crispEdges")
+    .style("stroke","#000");
+    d3.selectAll("g.axis g text")
+    .attr("dy","8px");
+    // Parse numbers
+    csv.forEach(function(d){return d.distance = +d.distance;});
+    //------------
+    //line1: ALL
+    csv.forEach(function(d){return d.ALL = +d.ALL;});
+    var line_ALL = svg_lines.selectAll("g.all")
+    .data([csv])
+    .enter().append("path")
+    .attr("class","all")
+    .attr("d",d3.svg.line()
+    .x(function(d){return x_lines(d.distance);})
+    .y(function(d){return y_lines(d.ALL);}));
+    var marker_ALL = svg_lines.selectAll("path.all_marker")
+    .data(csv)
+    .enter().append("svg:path")
+    .attr("class","all_marker")
+    .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.ALL) + ")"; })
+    .attr("d", d3.svg.symbol().type("circle"));
+    d3.selectAll("path.all")
+    .style("fill","none")
+    .style("stroke","#2ca02c")
+    .style("stroke-width","5px");
+    d3.selectAll("path.all_marker")
+    .style("fill","#fff")
+    .style("stroke","#2ca02c")
+    .style("stroke-width","5px");
+    
+    //------------
+    //line2: COLOR
+    csv.forEach(function(d){return d.COLOR = +d.COLOR;});
+    var line_COLOR = svg_lines.selectAll("g.color")
+    .data([csv])
+    .enter().append("path")
+    .attr("class","color")
+    .attr("d",d3.svg.line()
+    .x(function(d){return x_lines(d.distance);})
+    .y(function(d){return y_lines(d.COLOR);}));
+    var marker_COLOR = svg_lines.selectAll("path.color_marker")
+    .data(csv)
+    .enter().append("svg:path")
+    .attr("class","color_marker")
+    .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.COLOR) + ")"; })
+    .attr("d", d3.svg.symbol().type("diamond"));
+    d3.selectAll("path.color")
+    .style("fill","none")
+    .style("stroke","#d62728")
+    .style("stroke-width","5px");
+    d3.selectAll("path.color_marker")
+    .style("fill","#fff")
+    .style("stroke","#d62728")
+    .style("stroke-width","5px");
+    
+    //------------
+    //line3: DEPTH
+    csv.forEach(function(d){return d.DEPTH = +d.DEPTH;});
+    var line_DEPTH = svg_lines.selectAll("g.depth")
+    .data([csv])
+    .enter().append("path")
+    .attr("class","depth")
+    .attr("d",d3.svg.line()
+    .x(function(d){return x_lines(d.distance);})
+    .y(function(d){return y_lines(d.DEPTH);}));
+    var marker_DEPTH = svg_lines.selectAll("path.depth_marker")
+    .data(csv)
+    .enter().append("svg:path")
+    .attr("class","depth_marker")
+    .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.DEPTH) + ")"; })
+    .attr("d", d3.svg.symbol().type("square"));
+    d3.selectAll("path.depth")
+    .style("fill","none")
+    .style("stroke","#ff7f0e")
+    .style("stroke-width","5px");
+    d3.selectAll("path.depth_marker")
+    .style("fill","#fff")
+    .style("stroke","#ff7f0e")
+    .style("stroke-width","5px");
+    
+    //------------
+    //line4: NOPY
+    csv.forEach(function(d){return d.NOPY = +d.NOPY;});
+    var line_NOPY = svg_lines.selectAll("g.nopy")
+    .data([csv])
+    .enter().append("path")
+    .attr("class","nopy")
+    .attr("d",d3.svg.line()
+    .x(function(d){return x_lines(d.distance);})
+    .y(function(d){return y_lines(d.NOPY);}));
+    var marker_NOPY = svg_lines.selectAll("path.nopy_marker")
+    .data(csv)
+    .enter().append("svg:path")
+    .attr("class","nopy_marker")
+    .attr("transform", function(d) { return "translate(" + x_lines(d.distance) + "," + y_lines(d.NOPY) + ")"; })
+    .attr("d", d3.svg.symbol().type("cross"));
+    d3.selectAll("path.nopy")
+    .style("fill","none")
+    .style("stroke","#1f77b4")
+    .style("stroke-width","5px");
+    d3.selectAll("path.nopy_marker")
+    .style("fill","#fff")
+    .style("stroke","#1f77b4")
+    .style("stroke-width","5px");
+    
+    //legend
+    var legend = svg_lines.append("svg:g");
+    legend.append("rect")
+    .attr("class","legend_background")
+    .attr("x","450px")
+    .attr("y","210px")
+    .attr("width","145px")
+    .attr("height","100px");
+    var legend_item = legend.selectAll('g.legend_item').data(legend_data)
+    .enter().append("svg:g")
+    .attr("class","legend_item");
+    legend_item.append("svg:path")
+    .attr("class","legend_marker_type")
+    .attr("transform", function(d) { console.log(d);return "translate(" + "465" + "," + (+d.pos-3) + ")"; })
+    .style("fill","none")
+    .style("stroke",function(d){return d.color;})
+    .style("stroke-width","5px")
+    .attr("d", d3.svg.symbol().type(function(d){return d.type;}));
+    legend_item.append("text")
+    .attr("class","legend_marker_label")
+    .attr("x","480px")
+    .attr("y",function(d){return d.pos+"px";})
+    .attr("dx","3px")
+    .attr("dy","3px")
+    .attr("text-anchor","start")
+    .style("font-family","verdana")
+    .style("font-size","16px")
+    .text(function(d){return d.label_name;});
+    d3.selectAll("rect.legend_background")
+    .style("fill","whiteSmoke")
+    .style("stroke","black");
+    });
     </script>
   </div>
-  </div>
-  
-<!--copy right-->
-  <div class="row">
-    <hr>
-    <div class="large-6 columns">
-      <p>© Copyright 2010 by Xiaolong ZHU.</p>
-    </div>
-    <div class="large-6 columns">
-      <ul class="inline-list right">
-        <li><a href="/">Home</a></li>
-        <li><a href="/projects/">Research</a></li>
-        <li><a href="/update.html">Log</a></li>
-        <li><a href="#">Back to top</a></li>
-      </ul>
-    </div>
-  </div>
-  
-
-
-  <!-- Initialize JS Plugins -->
-  <script src="/js/app.js"></script>
-  <script src="/js/responsive-tables.js"></script>
-
-  <script>
-  document.write('<script src=js/' +
-    ('__proto__' in {} ? 'zepto' : 'jquery') +
-    '.js><\/script>')
-  </script>
-
-
-  <script src="js/foundation.min.js"></script>
-  <script>
-  $(document).foundation('orbit', {
-    animation: 'fade',
-    timer_speed: 5000,
-    pause_on_hover: false,
-    resume_on_mouseout: false,
-    animation_speed: 500,
-    navigation_arrows: false,
-    slide_number: true,
-    bullets: false,
-    timer: true,
-    variable_height: false,
-    before_slide_change: function(){},
-    after_slide_change: function(){}
-  });
-  </script>
-
-</body>
-</html>
-
+</div>
