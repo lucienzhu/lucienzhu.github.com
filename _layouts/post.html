@@ -2,6 +2,7 @@
 layout: default
 extra_css:
 - /css/index.css
+- /css/post.css
 ---
 <!--hero unit-->
 <div class="row">
@@ -27,6 +28,8 @@ extra_css:
 <!-- post -->
 <div class="row">
     <div class="large-12 columns">
+        <h3>{{ page.title }}</h3>
+        <h6 class="post-time">Updated on {{ page.date | date_to_string }}</h6>
         {{ content }}
     </div>
 </div>
