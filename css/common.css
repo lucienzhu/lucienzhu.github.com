@@ -2,9 +2,9 @@
  * COLOR
  */
 /*
-#84BF2C
-#BCD991
-#D93829
+#009E60
+#1B4D3E
+#50C878
 #F2F2F2
 #0D0D0D
 */
@@ -24,7 +24,7 @@ a {
 
 a:hover {
   text-decoration:none;
-  color:#84BF2C;
+  color:#009E60;
 }
 
 .nav-bar {
@@ -55,7 +55,7 @@ a:hover {
 }
 
 .nav-bar > li > a:hover {
-  background: #84BF2C;
+  background: #009E60;
   color: #F2F2F2;
 }
 
