@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shipo come to Hong Kong.
+title: Shipo comes to Hong Kong.
 ---
 
 

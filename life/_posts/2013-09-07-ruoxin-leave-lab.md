@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruoxin left the lab.
+title: Ruoxin leaves the lab.
 show_url: true
 ---
 
