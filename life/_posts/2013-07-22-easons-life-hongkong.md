@@ -1,4 +1,4 @@
 ---
 layout: post
-title: Watched Eason's Life in Hung Hum.
+title: Watch Eason's Life in Hung Hum.
 ---

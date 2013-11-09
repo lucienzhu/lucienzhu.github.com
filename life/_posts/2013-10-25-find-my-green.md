@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fixed the colour for me, Shamrock Green
+title: Fix the colour for me, Shamrock Green
 ---
 
 

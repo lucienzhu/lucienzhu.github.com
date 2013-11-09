@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Attended High table diner of Block B.
+title: Attend High table diner of Block B.
 ---
 
 
