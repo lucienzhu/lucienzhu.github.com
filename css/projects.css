@@ -2,21 +2,19 @@
  * COLOR
  */
 /*
-#84BF2C
-#BCD991
-#D93829
+#009E60
+#1B4D3E
+#50C878
 #F2F2F2
 #0D0D0D
 */
 
 #re_content h1{
   text-align:center;
-  font-size:xx-large;
-  padding-bottom:20px;
 }
 
 #re_co_time{
-  background-color:#D93829;
+  background-color:#50C878;
   padding-top:20px;
   padding-bottom:20px;
   margin-bottom:20px;
@@ -28,7 +26,7 @@
 #re_co_entry{
   padding-top:20px;
   margin-bottom:20px;
-  border-left:1px dotted #242626;
+  border-left:1px dotted #009E60;
 }
 
 #re_co_entry a{
@@ -42,7 +40,29 @@
   margin-bottom:20px;
 }
 
-.projects > h4 {
-  color: #BCD991;
+.projects > h3 {
+  color: #009E60;
   margin-top: 40px;
+}
+
+h4.title {
+  margin-bottom: 0;
+}
+
+p.info {
+  line-height: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+p.info span {
+  vertical-align: top;
+}
+
+h3 i span {
+  padding-left: 0.5em;
+  vertical-align: top; 
+}
+
+i.inactive {
+  color:#ccc;
 }

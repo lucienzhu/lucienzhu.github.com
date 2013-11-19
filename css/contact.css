@@ -1,3 +1,14 @@
+/*
+ * COLOR
+ */
+/*
+#009E60
+#1B4D3E
+#50C878
+#F2F2F2
+#0D0D0D
+*/
+
 #re_co_op_me_mapcanvas{
   height: 400px;
 }
@@ -11,7 +22,7 @@
   text-align:center;
   font-size:xx-large;
   padding-bottom:20px;
-  border-bottom: 1px dashed #242626;
+  border-bottom: 1px dashed #009E60;
 }
 
 #re_co_option{
@@ -19,7 +30,7 @@
   padding-bottom:20px;
   margin-top:20px;
   margin-bottom:20px;
-  border-right:1px dotted #242626;
+  border-right:1px dotted #009E60;
 }
 
 #re_co_op_title{
