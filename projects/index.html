@@ -10,7 +10,13 @@ extra_css:
     <div class="slideshow-wrapper">
       <ul data-orbit>
         <li>
-          <img src="../css/research.png" alt="slide image">
+          <img src="../css/research-gesture-ui.png" alt="Gestural User Interface">
+        </li>
+        <li>
+          <img src="../css/research-kernel-posture.png" alt="Kernel Descriptor">
+        </li>
+        <li>
+          <img src="../css/research-sketch-hand.png" alt="Sketch Hand Recognizer">
         </li>
       </ul>
     </div>
@@ -19,45 +25,76 @@ extra_css:
 <!--content-->
 <div class="row">
   <div class="large-12 columns projects">
-    <h4><i class="general foundicon-idea"> Ph. D. Research</i></h4>
+    <h3><i class="general foundicon-idea"><span>Ph. D. Research</span></i></h3>
     <!-- one entry -->
     <div class="row">
-      <div class="large-12 columns">
-        <h5><a href="./p3/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h5>
-        <div class="large-2 columns">
-          <a href="./p3/"><img src="../css/kernelposture.jpg" alt="kernel descriptors"/></a>
-        </div>
-        <div class="large-10 columns">
-          <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
-          </p>
-        </div>
+      <div class="large-4 columns">
+        <a href="./sketchhand/"><img src="./sketchhand/sketch-hand.jpg" alt="kernel descriptors"/></a>
+      </div>
+      <div class="large-8 columns">
+        <h4 class="title"><a href="./sketchhand/">Sketch a Hand Shape Recognizer</a> <small>Sep. 2012 to Sep. 2013</small></h4>
+        <p class="info">
+          Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
+          <br>
+          <a href="./sketchhand"><i class="general foundicon-page"><span>Project Page</span></i></a>
+          <i class="general foundicon-paper-clip inactive"><span>PDF</span></i>
+          <i class="general foundicon-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
+        </p>
       </div>
     </div>
     <!-- one entry -->
     <div class="row">
-      <div class="large-12 columns">
-        <h5>Self-Calibrating Depth from Refraction <small>Oct. 2010 to Apr. 2011</small></h5>
-        <div class="large-2 columns">
-          <img src="../css/depthmap.png" alt="kernel descriptors"/>
-        </div>
-        <div class="large-10 columns">
-          <p>I worked with Zhihu Chen on the project about depth map estimation given three images. A scene is captured twice by a ﬁxed perspective camera, with the ﬁrst image captured directly by the camera and the second by placing a transparent medium between the scene and the camera. A depth map of the scene is then recovered from the displacements of scene points in the images. SIFT-flow is used here to obtain the dense correspondace between two images.
-          </p>
-        </div>
+      <div class="large-4 columns">
+        <a href="./kernelposture/"><img src="./kernelposture/kernel-posture.jpg" alt="kernel descriptors"/></a>
+      </div>
+      <div class="large-8 columns">
+        <h4 class="title"><a href="./kernelposture/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h4>
+        <p class="info">
+          Xiaolong Zhu and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
+          <br>
+          <a href="./kernelposture"><i class="general foundicon-page"><span>Project Page</span></i></a>
+          <i class="general foundicon-paper-clip inactive"><span>PDF</span></i>
+          <i class="general foundicon-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
+        </p>
       </div>
     </div>
-    <h4><i class="general foundicon-smiley"> Undergraduate Research</i></h4>
     <!-- one entry -->
     <div class="row">
-      <div class="large-12 columns">
-        <h5>Autonomous scene labeling using LIDAR on the car <small>Oct. 2008 to Jul. 2010</small></h5>
-        <div class="large-2 columns">
-          <img src="../css/poss.jpeg" alt="kernel descriptors"/>
-        </div>
-        <div class="large-10 columns">
-          <p>This project is done during my undergraduate work. Based on the intelligent vehicle POSS, I process range data from two range sensors (SICK LMS 200). The data can be represented as 3D point clouds combining the pose and location of the vehicle. Meanwhile, it can also be represented as range image due to the property of range sensor. Then a Computer Vision framework of image segmentation and classification is applied to this range image to give each point a semantic label. The whole data is processed offline.
-          </p>
-        </div>
+      <div class="large-4 columns">
+        <img src="./depthfromrefraction/depth-from-refraction.jpg" alt="depth from refraction"/>
+      </div>
+      <div class="large-8 columns">
+        <h4 class="title"><a href="./depthfromrefraction/">Self-Calibrating Depth from Refraction</a><small>Oct. 2010 to Apr. 2011</small></h4>
+        <p class="info">
+          Zhihu Chen, <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>, <a href="http://research.microsoft.com/en-us/people/yasumat/">Yasuyuki Matsushita</a>, Xiaolong Zhu and <a href="http://www.nicta.com.au/people/mliu">Miaomiao Liu</a>.
+          <br>
+          <i class="general foundicon-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>I worked with Zhihu Chen on the project about depth map estimation given three images. A scene is captured twice by a ﬁxed perspective camera, with the ﬁrst image captured directly by the camera and the second by placing a transparent medium between the scene and the camera. A depth map of the scene is then recovered from the displacements of scene points in the images. SIFT-flow is used here to obtain the dense correspondace between two images.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="large-12 columns projects">
+    <h3><i class="general foundicon-smiley"><span>Undergraduate Research</span></i></h3>
+    <!-- one entry -->
+    <div class="row">
+      <div class="large-4 columns">
+        <img src="./rangeimage/range-image.jpg" alt="range image"/>
+      </div>
+      <div class="large-8 columns">
+        <h4 class="title">Autonomous scene labeling using LIDAR on the car <small>Oct. 2008 to Jul. 2010</small></h4>
+        <p class="info">
+          Xiaolong Zhu, <a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm">Huijing Zhao</a>, Yiming Liu, <a href="http://www.poss.pku.edu.cn/people/zhaoyp/">Yipu Zhao</a> and <a href="http://www.cis.pku.edu.cn/vision/Visual%26Robot/people/zha/">Hongbin Zha</a>.
+          <br>
+          <i class="general foundicon-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>This project is done during my undergraduate work. Based on the intelligent vehicle POSS, I process range data from two range sensors (SICK LMS 200). The data can be represented as 3D point clouds combining the pose and location of the vehicle. Meanwhile, it can also be represented as range image due to the property of range sensor. Then a Computer Vision framework of image segmentation and classification is applied to this range image to give each point a semantic label. The whole data is processed offline.
+        </p>
       </div>
     </div>
   </div>

@@ -11,8 +11,6 @@
 
 #re_content h1{
   text-align:center;
-  font-size:xx-large;
-  padding-bottom:20px;
 }
 
 #re_co_time{
@@ -42,7 +40,29 @@
   margin-bottom:20px;
 }
 
-.projects > h4 {
-  color: #1B4D3E;
+.projects > h3 {
+  color: #009E60;
   margin-top: 40px;
+}
+
+h4.title {
+  margin-bottom: 0;
+}
+
+p.info {
+  line-height: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+p.info span {
+  vertical-align: top;
+}
+
+h3 i span {
+  padding-left: 0.5em;
+  vertical-align: top; 
+}
+
+i.inactive {
+  color:#ccc;
 }
