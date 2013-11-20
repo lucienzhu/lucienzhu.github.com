@@ -4,18 +4,25 @@ title: Xiaolong ZHU (朱曉龍)
 extra_css:
 - /css/index.css
 ---
-
 <!--hero unit-->
 <div class="row">
   <div class="large-12 columns">
     <div class="slideshow-wrapper">
-      <div class="preloader"></div>
       <ul data-orbit>
         <li>
           <img src="/css/zxl.png" alt="slide image">
         </li>
         <li>
           <img src="/css/cm.png" alt="slide image">
+        </li>
+        <li>
+          <img src="/css/research-gesture-ui.png" alt="Gestural User Interface">
+        </li>
+        <li>
+          <img src="/css/research-kernel-posture.png" alt="Kernel Descriptor">
+        </li>
+        <li>
+          <img src="/css/research-sketch-hand.png" alt="Sketch Hand Recognizer">
         </li>
       </ul>
     </div>
@@ -28,11 +35,10 @@ extra_css:
     <div class="row">
       <div class="large-12 columns">
         <h5>Bio</h5>
-        <p>I am a Ph.D student in <a href="http://www.cs.hku.hk">Department of Computer Science</a>, <a href="http://www.hku.hk">the University of
-        Hong Kong</a>. <a href="http://i.cs.hku.hk/~kykwong/">Dr. Kenneth Wong</a> is my current supervisor. My reseach interests include Motion Capture and Tracking, Gesture Recogntion,
-        Machine Learning.
+        <p>I am a Ph.D student in <a href="http://www.cs.hku.hk">Department of Computer Science</a>, <a href="http://www.hku.hk">The University of
+        Hong Kong</a>. <a href="http://i.cs.hku.hk/~kykwong/">Dr. Kenneth Wong</a> is my current supervisor. My reseach interest is to bring interactive methods to computer vision research.
         </p>
-        <p>Now I am working on establishing a depth camera-based system that facilitates gesture understanding. More details are in <a href="/projects">my research page</a>.
+        <p>I am working on prototyping a sketch-based image retrieval system for touch scenario. Before this, most of my work was to recognize hand postures based on a depth camera. More details are in <a href="/projects">my research page</a>.
         </p>
       </div>
     </div>
@@ -46,21 +52,21 @@ extra_css:
           {% for post in site.posts limit:10 %}
           <tr class="post-{{ post.category }}">
             {% if post.show_url == nil %}
-              {% if post.external_url == nil %}
-              <td><abbr>{{ post.date | date_to_string }}</abbr></td><td>{{ post.title }}</td>
-              {% else %}
-              <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
-              {% endif %}
+            {% if post.external_url == nil %}
+            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td>{{ post.title }}</td>
             {% else %}
-              {% if post.external_url == nil %}
-              <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.url }}">{{ post.title }}</a></td>
-              {% else %}
-              <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
-              {% endif %}
+            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+            {% endif %}
+            {% else %}
+            {% if post.external_url == nil %}
+            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.url }}">{{ post.title }}</a></td>
+            {% else %}
+            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+            {% endif %}
             {% endif %}
           </tr>
           {% endfor %}
-          <tr><td></td><td style="text-align:right"><a href="update.html">More...</a></td></tr> 
+          <tr><td></td><td style="text-align:right"><a href="update.html">More...</a></td></tr>
         </tbody>
       </table>
     </div>

@@ -50,19 +50,6 @@ a{
   padding-bottom:20px;
 }
 
-[class*="social foundicon-"]:before {
-  font-family: "SocialFoundicons";
-}
-[class*="general foundicon-"]:before {
-  font-family: "GeneralFoundicons";
-}
-[class*="gen-enclosed foundicon-"]:before {
-  font-family: "GeneralEnclosedFoundicons";
-}
-[class*="accessibility foundicon-"]:before {
-  font-family: "AccessibilityFoundicons";
-}
-
 .re_co_pu_co_en_name a {
   color: #009E60;
 }
