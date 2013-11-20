@@ -16,10 +16,7 @@
   <link rel="stylesheet" type="text/css" media="all" href="/css/app.css">
   <link rel="stylesheet" type="text/css" media="all" href="/css/responsive-tables.css">
   <link rel="stylesheet" type="text/css" media="all" href="/css/general_foundicons.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/css/common.css"> 
-  <script type="text/javascript" src="//use.typekit.net/jnp1zqh.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+  <link rel="stylesheet" type="text/css" media="all" href="/css/common.css">
   {% for css_name in page.extra_css %}
   <link rel="stylesheet" href="{{ css_name }}">
   {% endfor %}
