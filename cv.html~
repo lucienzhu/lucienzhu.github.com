@@ -5,6 +5,7 @@ extra_css:
 - /css/index.css
 - /css/cv.css
 - /css/social_foundicons.css
+extra_
 ---
 <!-- Content -->
 <div id="re_content" class="row">

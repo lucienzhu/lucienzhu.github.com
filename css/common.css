@@ -10,7 +10,7 @@
 */
 
 body{
-  font-family:"nimbus-sans", Segoe UI, candara, Georgia, Verdana, Times, Arial, sans-serif;
+  font-family:"nimbus-sans", Segoe UI, candara, sans-serif;
   letter-spacing: normal;
   line-height: 20px;
   font-size: 16px;
@@ -68,7 +68,6 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Segoe UI, candara, Georgia, Verdana, Times, Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
   color: #222;
