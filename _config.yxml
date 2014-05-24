@@ -1,5 +1,5 @@
 url: http://xiaolongzhu.org
-#markdown: rdiscount
+markdown: kramdown
 permalink: pretty
 pygments: true
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
