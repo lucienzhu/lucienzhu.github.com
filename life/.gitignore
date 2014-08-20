@@ -1,0 +1,3 @@
+*.enex
+*.md
+!_posts/*.md
