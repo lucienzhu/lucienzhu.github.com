@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{cv_professional-cn} % Use the custom resume.cls style
+
+% set main font
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[resetfonts]{cmap} %解决复制问题
+\usepackage[slantfont,boldfont]{xeCJK}% 允许斜体和粗体
+\setCJKmainfont{SimHei}
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\newcommand{\specialcell}[2][c]{%
+    \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\name{朱晓龙|个人简历} % Your name
+\address{香港大学周亦卿楼411室 \\ 香港薄扶林道} % Your address
+\address{\texttt{+}86\texttt{-}14714930403 \\ lucienxlzhu@gmail.com \\ xiaolongzhu.org} % Your phone number and email
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{教育背景}
+
+{\bf 香港大学} \hfill 2010.09 - 2015.03 \\ 
+计算机科学博士研究生在读 \hfill {\em 香港}\smallskip \\
+{\bf 北京大学} \hfill 2006.09 - 2010.06 \\ 
+智能科学学士学位 \hfill {\em 北京} 
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{研究经历}
+    
+%------------------------------------------------
+\begin{rSubsection}{香港大学计算机系}{2010.09至今}{计算机视觉组博士研究生}{香港}
+	\item 利用Random Forests, RBM, SVM等机器学习模型解决彩色图及深度图上手型识别及检测问题；
+	\item 合作参与人脸特征点定位和利用折射获取场景深度的理论研究及实验分析；
+	\item 研究成果发表在多个视觉领域顶级会议上。
+\end{rSubsection}
+
+%------------------------------------------------
+\begin{rSubsection}{北京大学信息科学技术学院智能科学系}{2008.09 - 2010.06}{本科生助研}{北京}
+    \item 参与智能车平台研究，独立结合图像分割方法完成激光深度数据的语义标注；
+    \item 进行相机标定实验，开发算法完成相机图像与深度图像的校准；
+    \item 深度数据标注项目获得信息科学技术学院本科生十佳毕业论文。
+\end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{实习经历}
+    
+%------------------------------------------------
+\begin{rSubsection}{联想研究院IVC研究室}{2013.06 - 2013.08}{实习研究员}{香港}
+    \item 与同事探讨与设计触摸设备上的图像检索新方法；
+    \item 开发的基于热图的人脸减缩项目原型展示给了联想集团CTO并获得好评。
+\end{rSubsection}
+
+%------------------------------------------------
+\begin{rSubsection}{微软亚洲研究院人机交互研究组}{2012.06 - 2012.09}{实习研究员}{北京}
+    \item 在HCI研究员和设计师指导下，调研并设计室内空间的手势识别系统；
+    \item 独立设计完成了基于视觉反馈的Kinect的原型系统，实现手势识别的闭环设计。
+\end{rSubsection}
+
+%------------------------------------------------
+\begin{rSubsection}{网易有道Mobile组}{2010.06 - 2010.08}{软件开发实习生}{北京}
+    \item 负责LBS应用的前端开发，在Spring框架下利用Velocity模版语言完成web及wap界面；
+    \item 与后端负责人和设计师紧密合作，推动项目上线并参与维护。
+\end{rSubsection}
+
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{其它}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+    %-----------------------
+\vspace{0.4em}技术技能 & 
+    \specialcell[t]{
+        熟练掌握：\texttt{Matlab}, \texttt{C/C++}, \texttt{JaveScript/HTML/CSS}; \\        
+        了解运用：\texttt{Python}, \texttt{Java/C\#}, \texttt{UNIX Shell}; \\        
+        操作系统：Mac OS X, Microsoft Windows. \\
+       } \\
+    %-----------------------
+\vspace{0.4em}荣誉奖励 & 
+    \specialcell[t]{
+    北京大学信息科学技术学院本科生十佳毕业论文，2010；\\
+    中国RoboCup救援仿真组三等奖，2010；\\
+    北京大学五四奖学金，2009；\\
+    北京奥运会优秀志愿者，2008；\\
+    中国甘肃物理奥林匹克竞赛一等奖，2006。
+    } \\
+    %-----------------------
+\vspace{0.4em}课外活动 & 
+\specialcell[t]{
+    香港大学赛马会学生三村志新学院棋牌小组负责人，2014；\\    
+    香港大学信息科技委员会研究生学生代表，2012-2014；\\    
+    香港大学研究生会信息科技部部长，2011-2013；\\    
+    北京奥运会国家体育场媒体看台专业志愿者，2008。
+    
+} \\
+    %-----------------------
+\vspace{0.4em}兴趣爱好 & 游泳，足球，桌游，远足。
+\end{tabular}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
