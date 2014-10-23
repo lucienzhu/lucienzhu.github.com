@@ -4,80 +4,110 @@ title: Research Project by Xiaolong ZHU (朱曉龍)
 extra_css:
 - /css/projects.css
 extra_js_bottom:
-- /js/default.orbit.js
+- /js/projects.js
 ---
 <!--hero unit-->
 <div class="row">
   <div class="large-12 columns">
     <div class="slideshow-wrapper">
-      <div class="preloader"></div>
-      <ul data-orbit>
-        <li>
-          <img src="../css/research-gesture-ui.png" alt="Gestural User Interface">
-        </li>
-        <li>
-          <img src="../css/research-kernel-posture.png" alt="Kernel Descriptor">
-        </li>
-        <li>
-          <img src="../css/research-sketch-hand.png" alt="Sketch Hand Recognizer">
-        </li>
-      </ul>
+      <div><div class="th feature" href="#"><img src="./kernelposture/f2.png" alt="Kernel Descriptor Pipeline"></div></div>
+      <div><div class="th feature" href="#"><img src="./kernelposture/f1.jpg" alt="Kernel Descriptor Detail"></div></div>
+      <div><div class="th feature" href="#"><img src="./sketchhand/f1.png" alt="Sketch Results"></div></div>
+      <div><div class="th feature" href="#"><img src="./visualfeedback/f1.png" alt="Visual Feedback"></div></div>
     </div>
   </div>
 </div>
 <!--content-->
 <div class="row">
+  <!-- experience -->
+  <div class="large-12 columns projects">
+    <h3><i class="fi-battery-full"><span>Internships</span></i></h3>
+    <div class="row entry">
+      <div class="large-3 columns">
+        <h3>Lenovo</h3>
+      </div>
+      <div class="large-3 columns">
+        <h3>MSRA</h3>
+      </div>
+      <div class="large-3 columns">
+        <h3>Youdao</h3>
+      </div>
+      <div class="large-3 columns">
+        <h3>Olympic</h3>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Research Projects -->
   <div class="large-12 columns projects">
     <h3><i class="fi-battery-half"><span>Ph. D. Research</span></i></h3>
     <!-- one entry -->
-    <div class="row">
-      <div class="large-4 columns">
-        <a href="./sketchhand/"><img src="./sketchhand/sketch-hand.jpg" alt="kernel descriptors"/></a>
-      </div>
-      <div class="large-8 columns">
-        <h4 class="title"><a href="./sketchhand/">Sketch a Hand Shape Recognizer</a> <small>Sep. 2012 to Sep. 2013</small></h4>
-        <p class="info">
-        Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
-        <br>
-        <a href="./sketchhand"><i class="fi-home"><span>Project Page</span></i></a>
-        <i class="fi-page-pdf inactive"><span>PDF</span></i>
-        <i class="fi-page-search inactive"><span>BibTex</span></i>
-        </p>
-        <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
-        </p>
-      </div>
-    </div>
-    <!-- one entry -->
-    <div class="row">
-      <div class="large-4 columns">
+    <div class="row entry">
+      <div class="large-2 columns">
         <a href="./kernelposture/"><img src="./kernelposture/kernel-posture.jpg" alt="kernel descriptors"/></a>
       </div>
-      <div class="large-8 columns">
-        <h4 class="title"><a href="./kernelposture/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h4>
-        <p class="info">
-        Xiaolong Zhu and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
+      <div class="large-10 columns">
+        <h4 class="title"><a href="./handdetection/">Pixel-level Hand Detection</a> <small>Jan. 2014 to Nov. 2014</small></h4>
+        <p class="info"><i class="fi-torsos-all"></i>
+        Xiaolong Zhu, Xuhui Jia and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
         <br>
-        <a href="./kernelposture"><i class="fi-home"><span>Project Page</span></i></a>
         <i class="fi-page-pdf inactive"><span>PDF</span></i>
         <i class="fi-page-search inactive"><span>BibTex</span></i>
         </p>
-        <p>This work presents a flexible method for singleframe hand gesture recognition by fusing information from color and depth images. Existing methods usually focus on designing intuitive features for color and depth images. On the contrary, our method first extracts common patch-level features, and fuses them by means of kernel descriptors. Linear SVM is then adopted to predict the class label efficiently. In our experiments on two American Sign Language (ASL) datasets, we demonstrate that our approach recognizes each sign accurately with only a small number of training samples, and is robust to the change of distance between the hand and the camera.
+        <p>Pixel level hand detection using structured forests.
         </p>
       </div>
     </div>
     <!-- one entry -->
-    <div class="row">
-      <div class="large-4 columns">
-        <img src="./depthfromrefraction/depth-from-refraction.jpg" alt="depth from refraction"/>
+    <div class="row entry">
+      <div class="large-2 columns">
+        <a href="./sketchhand/"><img src="./sketchhand/sketch-hand.jpg" alt="kernel descriptors"/></a>
       </div>
-      <div class="large-8 columns">
-        <h4 class="title"><a href="./depthfromrefraction/">Self-Calibrating Depth from Refraction</a><small>Oct. 2010 to Apr. 2011</small></h4>
-        <p class="info">
-        Zhihu Chen, <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>, <a href="http://research.microsoft.com/en-us/people/yasumat/">Yasuyuki Matsushita</a>, Xiaolong Zhu and <a href="http://www.nicta.com.au/people/mliu">Miaomiao Liu</a>.
+      <div class="large-10 columns">
+        <h4 class="title"><a href="./sketchhand/">Sketch a Hand Shape Recognizer</a> <small>Sep. 2012 to Sep. 2013</small></h4>
+        <p class="info"><i class="fi-torsos-all"></i>
+        Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
         <br>
+        <i class="fi-page-pdf inactive"><span>PDF</span></i>
         <i class="fi-page-search inactive"><span>BibTex</span></i>
         </p>
-        <p>I worked with Zhihu Chen on the project about depth map estimation given three images. A scene is captured twice by a ﬁxed perspective camera, with the ﬁrst image captured directly by the camera and the second by placing a transparent medium between the scene and the camera. A depth map of the scene is then recovered from the displacements of scene points in the images. SIFT-flow is used here to obtain the dense correspondace between two images.
+        <p>Provide possibility to sketch a hand shape recognizer.
+        </p>
+      </div>
+    </div>
+    <!-- one entry -->
+    <div class="row entry">
+      <div class="large-2 columns">
+        <a href="./kernelposture/"><img src="./kernelposture/kernel-posture.jpg" alt="kernel descriptors"/></a>
+      </div>
+      <div class="large-10 columns">
+        <h4 class="title"><a href="./kernelposture/">Hand Posture Recognition</a> <small>Jan. 2012 to Jul. 2012</small></h4>
+        <p class="info"><i class="fi-torsos-all"></i>
+        Xiaolong Zhu and <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>
+        <br>
+        <i class="fi-page-pdf inactive"><span>PDF</span></i>
+        <i class="fi-page-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>
+          Single frame hand posture recognition by kernel descriptor.
+        </p>
+      </div>
+    </div>
+    <!-- one entry -->
+    <div class="row entry">
+      <div class="large-2 columns">
+        <img src="./depthfromrefraction/depth-from-refraction.jpg" alt="depth from refraction"/>
+      </div>
+      <div class="large-10 columns">
+        <h4 class="title"><a href="./depthfromrefraction/">Self-Calibrating Depth from Refraction</a><small>Oct. 2010 to Apr. 2011</small></h4>
+        <p class="info"><i class="fi-torsos-all"></i>
+        Zhihu Chen, <a href="http://www.cs.hku.hk/~kykwong">Kwan-Yee K. Wong</a>, <a href="http://research.microsoft.com/en-us/people/yasumat/">Yasuyuki Matsushita</a>, Xiaolong Zhu and <a href="http://www.nicta.com.au/people/mliu">Miaomiao Liu</a>
+        <br>
+        <i class="fi-page-pdf inactive"><span>PDF</span></i>
+        <i class="fi-page-search inactive"><span>BibTex</span></i>
+        </p>
+        <p>
+          Obtain the depth of the image by refraction.
         </p>
       </div>
     </div>
@@ -85,18 +115,19 @@ extra_js_bottom:
   <div class="large-12 columns projects">
     <h3><i class="fi-battery-empty"><span>Undergraduate Research</span></i></h3>
     <!-- one entry -->
-    <div class="row">
-      <div class="large-4 columns">
+    <div class="row entry">
+      <div class="large-2 columns">
         <img src="./rangeimage/range-image.jpg" alt="range image"/>
       </div>
-      <div class="large-8 columns">
+      <div class="large-10 columns">
         <h4 class="title"><a href="./rangeimage/">Autonomous Scene Labeling using LIDAR on a Car</a> <small>Oct. 2008 to Jul. 2010</small></h4>
-        <p class="info">
+        <p class="info"><i class="fi-torsos-all"></i>
         Xiaolong Zhu, <a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm">Huijing Zhao</a>, Yiming Liu, <a href="http://www.poss.pku.edu.cn/people/zhaoyp/">Yipu Zhao</a> and <a href="http://www.cis.pku.edu.cn/vision/Visual%26Robot/people/zha/">Hongbin Zha</a>.
         <br>
         <i class="fi-page-search inactive"><span>BibTex</span></i>
         </p>
-        <p>This project is done during my undergraduate work. Based on the intelligent vehicle POSS, I process range data from two range sensors (SICK LMS 200). The data can be represented as 3D point clouds combining the pose and location of the vehicle. Meanwhile, it can also be represented as range image due to the property of range sensor. Then a Computer Vision framework of image segmentation and classification is applied to this range image to give each point a semantic label. The whole data is processed offline.
+        <p>
+          Semantic labelling for range data.
         </p>
       </div>
     </div>

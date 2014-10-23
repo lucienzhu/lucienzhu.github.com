@@ -44,14 +44,26 @@
   margin-top: 40px;
 }
 
-h4.title {
-  margin-bottom: 0;
+div.entry {
+  padding-top: 1em;
 }
 
-p.info {
-  line-height: 1.25em;
+h3 {
+  font-size: large;
+}
+
+h4 {
+  font-size: medium;
+}
+
+h4.title {
   margin-bottom: 0.25em;
-  padding-left: 0.25em;
+  margin-top: 0.25em;
+}
+
+p {
+  line-height: 1.25em;
+  margin-bottom: 0.1em;
 }
 
 p.info span {
@@ -65,4 +77,9 @@ h3 i span {
 
 i.inactive {
   color:#ccc;
+}
+
+.feature {
+  margin: 0.5em;
+  padding: 0.5em;
 }
