@@ -3,34 +3,20 @@ layout: default
 title: Xiaolong ZHU (朱曉龍)
 extra_css:
 - /css/index.css
+extra_js_bottom:
+- /js/index.js
 ---
 <!--hero unit-->
 <div class="row">
   <div class="large-12 columns">
     <div class="slideshow-wrapper">
-      <div class="preloader"></div>
-      <ul data-orbit>
-        <li>
-          <img src="/css/zxl.png" alt="slide image">
-        </li>
-        <li>
-          <img src="/css/cm.png" alt="slide image">
-        </li>
-        <li>
-          <img src="/css/research-gesture-ui.png" alt="Gestural User Interface">
-        </li>
-        <li>
-          <img src="/css/research-kernel-posture.png" alt="Kernel Descriptor">
-        </li>
-        <li>
-          <img src="/css/research-sketch-hand.png" alt="Sketch Hand Recognizer">
-        </li>
-      </ul>
+      <div><img src="/img/feature/zxl.png" alt="portrait"></div>
     </div>
   </div>
 </div>
 <!--content-->
 <div class="row">
+  <!-- Left Panel -->
   <div class="large-8 columns">
     <!-- intro -->
     <div class="row">
@@ -51,39 +37,55 @@ extra_css:
       <table class="responsive large-12 columns">
         <tbody>
           {% for post in site.posts limit:10 %}
-          <tr class="post-{{ post.category }}">
-            {% if post.show_url == nil %}
-            {% if post.external_url == nil %}
-            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td>{{ post.title }}</td>
-            {% else %}
-            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
-            {% endif %}
-            {% else %}
-            {% if post.external_url == nil %}
-            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.url }}">{{ post.title }}</a></td>
-            {% else %}
-            <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
-            {% endif %}
-            {% endif %}
-          </tr>
+            <tr class="post-{{ post.category }}">
+              {% if post.show_url == nil %}
+                {% if post.external_url == nil %}
+                  <td><abbr>{{ post.date | date_to_string }}</abbr></td><td>{{ post.title }}</td>
+                {% else %}
+                  <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+                {% endif %}
+              {% else %}
+                {% if post.external_url == nil %}
+                  <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.url }}">{{ post.title }}</a></td>
+                {% else %}
+                  <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+                {% endif %}
+              {% endif %}
+            </tr>
           {% endfor %}
           <tr><td></td><td style="text-align:right"><a href="update.html">More...</a></td></tr>
         </tbody>
       </table>
     </div>
   </div>
-  <!-- contact -->
+  
+  <!-- Left Panel -->
   <div class="large-4 columns">
-    <h5>Contact</h5>
-    <p>
-    <a href="http://www.maps.hku.hk/"><img src="/css/cyc.png"/></a>
-    </p>
-    <p>
-    <a href="mailto:xlzhu@cs.hku.hk">Mailto: Xiaolong ZHU, 朱曉龍</a> <br/>
-    Room 411, <a href="https://maps.google.com/maps/place?ftid=0x3403ff85af39c74f:0x93c69a89bd6805ec&q=%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%A6%E5%91%A8%E4%BA%A6%E5%8D%BF%E6%A5%BC&hl=zh-CN&ie=UTF8&ll=22.283099,114.135435&spn=0.00001,0.000011&t=m&z=17&vpsrc=0">Chow Yei Ching Building</a>, <br/>
-    Department of Computer Science, <br/>
-    The University of Hong Kong, <br/>
-    Pokfulam Road, Hong Kong SAR. <br/>
-    </p>
+    <!-- contact -->
+    <div class="row">
+      <div class="large-12 columns">
+        <h5>Contact</h5>
+        <p>
+        <a href="http://www.maps.hku.hk/"><img src="/img/cyc.png"/></a>
+        </p>
+        <p>
+        <a href="mailto:xlzhu@cs.hku.hk"><i class="fi-mail"></i>: Xiaolong ZHU, 朱曉龍</a> <br/>
+        Room 411, <a href="https://maps.google.com/maps/place?ftid=0x3403ff85af39c74f:0x93c69a89bd6805ec&q=%E9%A6%99%E6%B8%AF%E5%A4%A7%E5%AD%A6%E5%91%A8%E4%BA%A6%E5%8D%BF%E6%A5%BC&hl=zh-CN&ie=UTF8&ll=22.283099,114.135435&spn=0.00001,0.000011&t=m&z=17&vpsrc=0">Chow Yei Ching Building</a>, <br/>
+        Department of Computer Science, <br/>
+        The University of Hong Kong, <br/>
+        Pokfulam Road, Hong Kong SAR. <br/>
+        </p>
+      </div>
+    </div>
+    <!-- Notice -->
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="notice-bold">I am looking for jobs related to computer vision and machine learning. You may find my CV below.</p>
+        <ul>
+          <li><a href="/hireme/xiaolongzhu_cv.pdf"><i class="fi-archive"></i>English</a></li>
+          <li><a href="/hireme/xiaolongzhu_cv_professional.pdf"><i class="fi-archive"></i>简体中文</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

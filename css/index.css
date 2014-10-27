@@ -12,3 +12,7 @@
 table {
   border: none;
 }
+
+.notice-bold {
+    font-weight: bold;
+}
