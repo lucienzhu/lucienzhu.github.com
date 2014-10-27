@@ -9,6 +9,7 @@
 #0D0D0D
 */
 
+/*
 #re_content h1{
   text-align:center;
 }
@@ -39,30 +40,65 @@
   color:#403123;
   margin-bottom:20px;
 }
+*/
+
+h1.welcome {
+  text-align: center;
+  font-size: x-large;
+}
+
+h1.welcome:hover,
+h1.welcome:focus {
+  text-align: center;
+  font-size: x-large;
+  text-shadow: 0 0 6px rgba(0,158,96,0.5);
+  color: rgba(0,158,96,1);
+}
+
+div.feature-img > img{
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
 
 .projects > h3 {
   margin-top: 40px;
 }
 
-h4.title {
-  margin-bottom: 0;
+div.entry {
+  padding-top: 1em;
 }
 
-p.info {
-  line-height: 1.25em;
+h3 {
+  font-size: large;
+}
+
+h4 {
+  font-size: medium;
+}
+
+h4.title {
   margin-bottom: 0.25em;
-  padding-left: 0.25em;
+  margin-top: 0.25em;
+}
+
+p {
+  line-height: 1.25em;
+  margin-bottom: 0.1em;
+}
+
+p.info i {
+  padding-right: 0.5em;
 }
 
 p.info span {
   vertical-align: top;
 }
 
-h3 i span {
-  padding-left: 0.5em;
-  vertical-align: top; 
-}
-
 i.inactive {
   color:#ccc;
+}
+
+.feature {
+  margin: 0.5em;
+  padding: 0.5em;
 }
