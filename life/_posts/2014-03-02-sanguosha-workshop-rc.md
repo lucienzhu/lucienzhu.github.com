@@ -1,4 +1,4 @@
 ---
 layout: post
-title: Host a Sanguosha Workshop in Residential College
+title: Host a Sanguosha Workshop in Residential College.
 ---

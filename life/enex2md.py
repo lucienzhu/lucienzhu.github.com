@@ -1,7 +1,13 @@
+#!/usr/bin/python
+
+#if not able to run from terminal, try to run it in the interactive mode by `execfile('enex2md.py')`
+
 from lxml import etree
 from StringIO import StringIO
+import codecs
 
 p = etree.XMLParser(remove_blank_text=True, resolve_entities=False)
+
 def parse_note(xmlFile):
     context = etree.iterparse(xmlFile, encoding='utf-8', strip_cdata=False)
     note_dict = {}
@@ -28,11 +34,13 @@ def convert_to_mds(notes, debug=False):
 layout: post
 title: %s
 ---
+
 '''
     mds = []
     for note in notes:
         ctime = note['created']
         ctitle = note['title']
+        ccontent = note['content'] # no use
         fn = fmt_fn % (ctime[0:4], ctime[4:6], ctime[6:8], \
             ctitle.replace(' ', '-'))
         fn = fn.lower()
@@ -40,12 +48,13 @@ title: %s
             fn = fn + 'md'
         else:
             fn = fn + '.md'
-        cnt = fmt_cnt % (ctitle)#, notes[0]['content'])
+        cnt = fmt_cnt % (ctitle)#, unicode(ccontent, "utf-8")) #need to parse a list
         mds.append(cnt)
 
         if not debug:
-            with open(fn, 'w') as md:
+            with codecs.open(fn, 'w', 'utf-8') as md:
                 md.write(cnt)
+                md.close()
 
     return mds
 
