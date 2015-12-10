@@ -2,6 +2,5 @@ url: http://xiaolongzhu.org
 markdown: kramdown
 permalink: pretty
 highlighter: pygments
+github: [Repository metadata]
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
-gems:
-  - jekyll-sitemap
