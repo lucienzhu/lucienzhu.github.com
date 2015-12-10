@@ -1,5 +1,5 @@
 url: http://xiaolongzhu.org
 markdown: kramdown
 permalink: pretty
-pygments: true
+highlighter: pygments
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
