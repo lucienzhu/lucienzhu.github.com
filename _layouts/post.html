@@ -17,10 +17,20 @@ layout: default
 </div> 
 
 <!-- post -->
-<div class="row">
+<div class="row post-content">
     <div class="large-12 columns">
-        <h3>{{ page.title }}</h3>
-        <h6 class="post-time">Updated on {{ page.date | date_to_string }}</h6>
+        <h1 class="title">{{ page.title }}</h1>
+        <p id="subtitletrans" class="subtitlecontainer">
+        <i class="fi-calendar"></i> <a class="subtitle">{{ page.date | date: "%B %d, %Y" }}</a>
+        {% if page.author %} | <i class="fi-torso"></i> <a class="subtitle" href="{{ site.baseurl }}/">{{ page.author }}</a>{% endif %}
+        {% assign tags_list = site.tags %}
+        {% if site.tags %} 
+        | <i class="fi-pricetag-multiple"></i>
+        {% for tag in site.tags %}
+        <a class="subtitle">{{ tag[0] }}</a>
+        {% endfor %}
+        {% endif %}
+        </p>
         {{ content }}
     </div>
 </div>

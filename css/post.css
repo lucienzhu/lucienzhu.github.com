@@ -13,3 +13,36 @@ h6.post-time {
     font-weight: normal;
     padding-left: 2em;
 }
+
+h1.title { 
+    font-size: 2em;
+    line-height: 1.125;
+    text-align: center;
+}
+
+.subtitlecontainer {
+    text-decoration: none;
+    color: #9B9B9B;
+    font-weight: normal;
+    padding-top: .5em;
+    text-align: center;
+}
+
+.subtitle {
+    color: #9B9B9B;
+}
+
+#subtitletrans a {
+    transition: all 0.4s ease-in-out;
+}
+
+a {
+    background-color: transparent;
+}
+
+.post-content h1 {font-size: 2em;}
+.post-content h2 {font-size: 1.8em;}
+.post-content h3 {font-size: 1.5em;}
+.post-content h4 {font-size: 1.2em;}
+.post-content h5 {font-size: 1em;}
+.post-content h6 {font-size: 0.8em;}
