@@ -1,6 +1,13 @@
 url: http://xiaolongzhu.org
 markdown: kramdown
-permalink: pretty
+permalink: date
 highlighter: pygments
 github: [Repository metadata]
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
