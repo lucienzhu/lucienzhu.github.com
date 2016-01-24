@@ -1,5 +1,6 @@
 ---
 layout: post
+category: life
 title: Finish writing IVCNZ 2013.
 show_url: true
 ---

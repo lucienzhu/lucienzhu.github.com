@@ -1,5 +1,6 @@
 ---
 layout: post
+category: life
 title: Ruoxin leaves the lab.
 show_url: true
 ---
