@@ -4,6 +4,8 @@ permalink: date
 highlighter: pygments
 github: [Repository metadata]
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
+gems:
+  - jekyll-feed
 
 defaults:
   -
