@@ -1,7 +1,7 @@
 url: http://xiaolongzhu.org
 markdown: kramdown
 permalink: date
-highlighter: pygments
+highlighter: rouge
 github: [Repository metadata]
 exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
 gems:
