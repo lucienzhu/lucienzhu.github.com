@@ -20,7 +20,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{cv_professional-cn} % Use the custom resume.cls style
+\documentclass[UTF8]{cv_professional-cn} % Use the custom resume.cls style
 
 % set main font
 \usepackage[scaled=0.92]{helvet}
@@ -28,14 +28,14 @@
 
 \usepackage[resetfonts]{cmap} %解决复制问题
 \usepackage[slantfont,boldfont]{xeCJK}% 允许斜体和粗体
-\setCJKmainfont{SimHei}
+\setCJKmainfont{STHeiti}
 
 \usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 \newcommand{\specialcell}[2][c]{%
     \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
 
 \name{朱晓龙|个人简历} % Your name
-\address{香港大学周亦卿楼411室 \\ 香港薄扶林道} % Your address
+\address{腾讯公司 \\ 深圳} % Your address
 \address{\texttt{+}86\texttt{-}14714930403 \\ lucienxlzhu@gmail.com \\ xiaolongzhu.org} % Your phone number and email
 
 % Simpler bibsection for CV sections
@@ -64,8 +64,8 @@
 
 \begin{rSection}{兴趣方向}
 
-{\bf 计算机视觉}，包括物体检测，手势识别，图像语义标注，人脸特征点定位，场景字符识别；\\ 
-{\bf 机器学习}，包括随机森林，支持向量机，深度学习； \\ 
+{\bf 计算机视觉}，包括物体分类与检测，手势识别，人脸特征点定位，姿态跟踪与识别，场景字符识别；\\
+{\bf 机器学习}，包括随机森林，支持向量机，深度学习（卷积神经网络）； \\
 {\bf 人机交互}，包括交互设计，用户研究，手势识别系统，触屏交互系统。
 
 \end{rSection}
@@ -83,7 +83,7 @@
 \end{rSubsection}
 
 %------------------------------------------------
-\begin{rSubsection}{北京大学}{2006.09 - 2010.06}{智能科学学士学位}{北京} 
+\begin{rSubsection}{北京大学}{2006.09 - 2010.06}{智能科学学士学位}{北京}
 	\item 研究课题：车载平台上的距离图像的分割与分类；
 	\item 导师：赵卉菁教授；
 	\item 毕业论文《距离图像的分割与分类》获信息科学技术学院本科生十佳毕业论文。
@@ -95,15 +95,21 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{工作经历}
-	
+
+  %------------------------------------------------
+  \begin{rSubsection}{腾讯公司技术工程事业群AI平台部}{2016.08 至今}{高级研究员}{深圳}
+    \item 与天天P图，手机 QQ 合作，推动艺术滤镜项目的落地，并参与发表 CVPR 一篇；
+    \item 对接 AI Lab，参与多个视觉项目工程化。
+  \end{rSubsection}
+
 	%------------------------------------------------
-	\begin{rSubsection}{腾讯公司技术工程事业群内部搜索部}{2015.07 至今}{基础研究工程师}{深圳}
+	\begin{rSubsection}{腾讯公司技术工程事业群内部搜索部}{2015.07 - 2016.08}{基础研究工程师}{深圳}
 		\item 2015 年「腾讯大咖」项目校招生；
 		\item 与微信模式识别中心语音团队合作，参与了 LSTMP + CTC 语音识别模型的开发和训练；
 		\item 参与「天天快报」新闻推荐项目的深度学习模块的特征工程实验；
 		\item 开发了一个基于 ROS/Turtlebot 的服务机器人原型。
 	\end{rSubsection}
-	
+
 \end{rSection}
 
 
@@ -112,7 +118,7 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{研究经历}
-    
+
 %------------------------------------------------
 \begin{rSubsection}{香港大学计算机系}{2010.09 - 2016.01}{计算机视觉组博士研究生}{香港}
 	\item 利用 Random Forests, RBM, SVM, CNN 等模型解决彩色图及深度图上手型识别及检测问题；
@@ -134,7 +140,7 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{实习经历}
-    
+
 %------------------------------------------------
 \begin{rSubsection}{联想研究院IVC研究室}{2013.06 - 2013.08}{实习研究员}{香港}
     \item 与同事探讨并参与设计触摸设备上的图像检索新模式的预研；
@@ -161,8 +167,8 @@
 
 \begin{rSection}{专业技能}
 
-熟练掌握：\texttt{Matlab}, \texttt{C/C++}, \texttt{JavaScript/HTML/CSS}; \\   
-了解运用：\texttt{Python}, \texttt{C\#}, \texttt{Java}, \texttt{Processing}, \texttt{UNIX Shell}; \\       
+熟练掌握：\texttt{Matlab}, \texttt{C/C++}, \texttt{JavaScript/HTML/CSS}; \\
+了解运用：\texttt{Python}, \texttt{C\#}, \texttt{Java}, \texttt{Processing}, \texttt{UNIX Shell}; \\
 操作系统：Mac OS X, Microsoft Windows。
 
 \end{rSection}
@@ -193,7 +199,7 @@
 
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
     %-----------------------
-\vspace{0.4em}荣誉奖励 & 
+\vspace{0.4em}荣誉奖励 &
     \specialcell[t]{
     北京大学信息科学技术学院本科生十佳毕业论文，2010；\\
     中国RoboCup救援仿真组三等奖，2010；\\
@@ -202,11 +208,11 @@
     中国甘肃物理奥林匹克竞赛一等奖，2006。
     } \\
     %-----------------------
-\vspace{0.4em}课外活动 & 
+\vspace{0.4em}课外活动 &
 \specialcell[t]{
-	腾讯技术工程事业群(TEG)技术俱乐部发起人之一，2015-2016；\\    
-    香港大学信息科技委员会研究生学生代表，2012-2014；\\    
-    香港大学研究生会信息科技部部长，2011-2013；\\    
+	腾讯技术工程事业群(TEG)技术俱乐部发起人之一，2015-2016；\\
+    香港大学信息科技委员会研究生学生代表，2012-2014；\\
+    香港大学研究生会信息科技部部长，2011-2013；\\
     北京奥运会国家体育场媒体看台专业志愿者，2008。
 } \\
     %-----------------------
@@ -224,22 +230,24 @@
 [会议文章]
 
 \begin{bibsection}
-	\item[1.] \textbf{Xiaolong Zhu}, Wei Liu, Xuhui Jia and Kwan-Yee K. Wong. A Two-Stage Detector for Hand Detection in Ego-Centric Videos. \emph{Winter Conference on Applications of Computer Vision (WACV)}, 2016.
-	
-	\item[2.] \textbf{Xiaolong Zhu}, Xuhui Jia and Kwan-Yee K. Wong. Pixel-Level Hand Detection with Shape-aware Structured Forests. \emph{Asian Conference on Computer Vision (ACCV)}, 2014.
-	
-	\item[3.] \textbf{Xiaolong Zhu}, Ruoxin Sang, Xuhui Jia and Kwan-Yee K. Wong. A Hand Shape Recognizer from Simple Sketches. \emph{International Conference on Image and Vision Computing New Zealand (IVCNZ)}, 2013.
-	
-	\item[4.] Xuhui Jia, \textbf{Xiaolong Zhu}, Angran Lin and Kwok-Ping Chan. Face Alignment using Structured Random Regressors Combined with Statistical Shape Model Fitting. \emph{International Conference on Image and Vision Computing New Zealand (IVCNZ)}, 2013.
-	
-	\item[5.] \textbf{Xiaolong Zhu}, Kwan-Yee K. Wong. Single-Frame Hand Gesture Recognition Using Color and Depth Kernel Descriptors. \emph{IEEE International Conference on Pattern Recognition (ICPR)}, 2012.
-	
-	\item[6.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}, Miaomiao Liu. Self-Calibrating Depth from Refraction. \emph{IEEE International Conference on Computer Vision (ICCV)}, 2011.
-	
-	\item[7.] \textbf{Xiaolong Zhu}, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha. Segmentation and Classification of Range Image from an Intelligent Vehicle in Urban Environment. \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 2010.
+  \item[1.] Haozhi Huang, Hao Wang, Wenhan Luo, Lin Ma, Wenhao Jiang, \textbf{Xiaolong Zhu}, Zhifeng Li, and Wei Liu. Real-Time Neural Style Transfer for Videos. \emph{IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017.
+
+	\item[2.] \textbf{Xiaolong Zhu}, Wei Liu, Xuhui Jia and Kwan-Yee K. Wong. A Two-Stage Detector for Hand Detection in Ego-Centric Videos. \emph{Winter Conference on Applications of Computer Vision (WACV)}, 2016.
+
+	\item[3.] \textbf{Xiaolong Zhu}, Xuhui Jia and Kwan-Yee K. Wong. Pixel-Level Hand Detection with Shape-aware Structured Forests. \emph{Asian Conference on Computer Vision (ACCV)}, 2014.
+
+	\item[4.] \textbf{Xiaolong Zhu}, Ruoxin Sang, Xuhui Jia and Kwan-Yee K. Wong. A Hand Shape Recognizer from Simple Sketches. \emph{International Conference on Image and Vision Computing New Zealand (IVCNZ)}, 2013.
+
+	\item[5.] Xuhui Jia, \textbf{Xiaolong Zhu}, Angran Lin and Kwok-Ping Chan. Face Alignment using Structured Random Regressors Combined with Statistical Shape Model Fitting. \emph{International Conference on Image and Vision Computing New Zealand (IVCNZ)}, 2013.
+
+	\item[6.] \textbf{Xiaolong Zhu}, Kwan-Yee K. Wong. Single-Frame Hand Gesture Recognition Using Color and Depth Kernel Descriptors. \emph{IEEE International Conference on Pattern Recognition (ICPR)}, 2012.
+
+	\item[7.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}, Miaomiao Liu. Self-Calibrating Depth from Refraction. \emph{IEEE International Conference on Computer Vision (ICCV)}, 2011.
+
+	\item[8.] \textbf{Xiaolong Zhu}, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha. Segmentation and Classification of Range Image from an Intelligent Vehicle in Urban Environment. \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 2010.
 	%doi:10.1109/IROS.2010.5652703
-	
-	\item[8.] Huijing Zhao, Yiming Liu,\textbf{ Xiaolong Zhu}, Yipu Zhao, Hongbin Zha. Scene Understanding in a Large Dynamic Environment through a Laser-based Sensing. \emph{IEEE International Conference on Robotics and Automation (ICRA)}, 2010.
+
+	\item[9.] Huijing Zhao, Yiming Liu,\textbf{ Xiaolong Zhu}, Yipu Zhao, Hongbin Zha. Scene Understanding in a Large Dynamic Environment through a Laser-based Sensing. \emph{IEEE International Conference on Robotics and Automation (ICRA)}, 2010.
 	%doi:10.1109/ROBOT.2010.5509169
 \end{bibsection}
 
@@ -247,8 +255,8 @@
 
 \begin{bibsection}
 	\item[1.] \textbf{Xiaolong Zhu}, Xuhui Jia and Kwan-Yee K. Wong. Structured Forests for Pixel-level Hand Detection and Hand Part Labelling. \emph{Computer Vision and Image Understanding (CVIU)}, 2015.
-	
-    \item[2.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}. Depth from Refraction Using a Transparent Medium with Unknown Pose and Refractive Index. \emph{International Journal of Computer Vision (IJCV)}, 2012.
+
+  \item[2.] Zhihu Chen, Kwan-Yee K. Wong, Yasuyuki Matsushita, \textbf{Xiaolong Zhu}. Depth from Refraction Using a Transparent Medium with Unknown Pose and Refractive Index. \emph{International Journal of Computer Vision (IJCV)}, 2012.
 
 \end{bibsection}
 
