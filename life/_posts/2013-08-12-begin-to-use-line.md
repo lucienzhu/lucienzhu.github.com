@@ -1,5 +1,6 @@
 ---
 layout: post
+category: life
 title: Begin to use LINE.
 show_url: true
 ---

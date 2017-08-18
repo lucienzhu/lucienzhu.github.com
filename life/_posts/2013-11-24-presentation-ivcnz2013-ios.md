@@ -1,8 +1,9 @@
 ---
 layout: post
+category: life
 title: Deployed all my IVCNZ presentation to iPhone and iPad via Keynote.
 featured_images:
-    - /images/life/2013-11-24-presentation-ivcnz2013-ios.png
+    - /img/life/2013-11-24-presentation-ivcnz2013-ios.png
 show_url: true
 ---
 

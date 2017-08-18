@@ -1,5 +1,6 @@
 ---
 layout: post
+category: life
 title: Finish reading the Psychology of Procrastination
 show_url: true
 ---

@@ -1,5 +1,6 @@
 ---
 layout: post
+category: life
 title: Finalize my presentation for IVCNZ 2013.
 show_url: true
 ---

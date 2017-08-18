@@ -27,19 +27,34 @@ extra_js_bottom:
     <tbody>
       {% for post in site.posts %}
       <tr class="post-{{ post.category }}">
+        <td>
+          <abbr>{{ post.date | date_to_string }}</abbr>
+        </td>
         {% if post.show_url == nil %}
           {% if post.external_url == nil %}
-          <td><abbr>{{ post.date | date_to_string }}</abbr></td><td>{{ post.title }}</td>
+          <td>{{ post.title }}</td>
           {% else %}
-          <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+          <td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
           {% endif %}
         {% else %}
           {% if post.external_url == nil %}
-          <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.url }}">{{ post.title }}</a></td>
+          <td><a href="{{ post.url }}">{{ post.title }}</a></td>
           {% else %}
-          <td><abbr>{{ post.date | date_to_string }}</abbr></td><td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
+          <td><a href="{{ post.external_url }}">{{ post.title }}</a></td>
           {% endif %}
         {% endif %}
+        <td>
+          {% if post.category == 'blog' %}
+            {% if post.external_url == nil %}
+            <a href="{{ post.url }}"><i class="fi-heart"></i></a>
+            {% else %}
+            <a href="{{ post.external_url }}"><i class="fi-heart"></i></a>
+            {% endif %}
+          {% endif %}
+          {% if post.tags contains 'chinese' %}
+            汉
+          {% endif %}
+        </td>
       </tr>
       {% endfor %}
       <!--
