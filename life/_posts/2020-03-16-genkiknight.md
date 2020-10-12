@@ -1,10 +1,3 @@
-<!--
- * @Author: Xiaolong Zhu
- * @Date: 2020-10-12 15:17:21
- * @LastEditors: Xiaolong Zhu
- * @LastEditTime: 2020-10-12 15:21:18
- * @Description: 
--->
 ---
 layout: post
 category: life
