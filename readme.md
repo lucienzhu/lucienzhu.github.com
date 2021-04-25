@@ -1,6 +1,6 @@
 ```
 # step 1: instal bundler
-sudo gem install bundler
+gem install bundler
 
 # step 2: install jeykll
 bundle install
