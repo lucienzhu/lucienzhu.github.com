@@ -2,44 +2,12 @@
  * COLOR
  */
 /*
+NEW
+#9E1A00
+#FF4019
+#EB2600
 #009E60
-#1B4D3E
-#50C878
-#F2F2F2
-#0D0D0D
-*/
-
-/*
-#re_content h1{
-  text-align:center;
-}
-
-#re_co_time{
-  background-color:#50C878;
-  padding-top:20px;
-  padding-bottom:20px;
-  margin-bottom:20px;
-  font-size:x-large;
-  font-weight:bold;
-  text-align:center;
-}
-
-#re_co_entry{
-  padding-top:20px;
-  margin-bottom:20px;
-  border-left:1px dotted #009E60;
-}
-
-#re_co_entry a{
-  text-decoration:none;
-}
-
-#re_co_en_de_title{
-  font-size:large;
-  font-weight:bold;
-  color:#403123;
-  margin-bottom:20px;
-}
+#00EB8E
 */
 
 h1.welcome {
@@ -51,8 +19,8 @@ h1.welcome:hover,
 h1.welcome:focus {
   text-align: center;
   font-size: x-large;
-  text-shadow: 0 0 6px rgba(0,158,96,0.5);
-  color: rgba(0,158,96,1);
+  text-shadow: 0 0 6px #FFD500;
+  color: #FFD500;
 }
 
 div.feature-img > img{
