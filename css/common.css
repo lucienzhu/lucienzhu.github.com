@@ -2,11 +2,12 @@
  * COLOR
  */
 /*
+NEW
+#9E1A00
+#FF4019
+#EB2600
 #009E60
-#1B4D3E
-#50C878
-#F2F2F2
-#0D0D0D
+#00EB8E
 */
 
 body{
@@ -24,7 +25,7 @@ a {
 
 a:hover {
   text-decoration:none;
-  color:#009E60;
+  color:#FF4019;
 }
 
 .nav-bar {
@@ -55,7 +56,7 @@ a:hover {
 }
 
 .nav-bar > li > a:hover {
-  background: #009E60;
+  background: #FF4019;
   color: #F2F2F2;
 }
 
