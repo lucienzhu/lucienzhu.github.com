@@ -4,5 +4,3 @@ date: "2013-07-22 00:00:00 +0800"
 original_url: "/life/2013/07/22/easons-life-hongkong.html"
 permalink: "/zh/life/2013/07/22/easons-life-hongkong.html"
 ---
-
-

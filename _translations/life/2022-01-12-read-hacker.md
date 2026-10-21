@@ -4,5 +4,3 @@ date: "2022-01-12 00:00:00 +0800"
 original_url: "/life/2022/01/12/read-hacker.html"
 permalink: "/zh/life/2022/01/12/read-hacker.html"
 ---
-
-

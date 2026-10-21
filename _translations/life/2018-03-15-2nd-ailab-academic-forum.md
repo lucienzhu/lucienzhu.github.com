@@ -4,5 +4,3 @@ date: "2018-03-15 00:00:00 +0800"
 original_url: "/life/work/2018/03/15/2nd-ailab-academic-forum.html"
 permalink: "/zh/life/work/2018/03/15/2nd-ailab-academic-forum.html"
 ---
-
-

@@ -4,5 +4,3 @@ date: "2018-08-18 00:00:00 +0800"
 original_url: "/life/work/2018/08/18/tencent-tlc-talk.html"
 permalink: "/zh/life/work/2018/08/18/tencent-tlc-talk.html"
 ---
-
-

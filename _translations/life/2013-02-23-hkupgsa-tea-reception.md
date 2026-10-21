@@ -4,5 +4,3 @@ date: "2013-02-23 00:00:00 +0800"
 original_url: "/life/2013/02/23/hkupgsa-tea-reception.html"
 permalink: "/zh/life/2013/02/23/hkupgsa-tea-reception.html"
 ---
-
-

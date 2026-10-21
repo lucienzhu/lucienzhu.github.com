@@ -5,5 +5,3 @@ original_url: "/life/2013/07/11/a-post-about-life.html"
 external_url: "http://blog.sina.com.cn/s/blog_6e8e05ac0100wu4h.html"
 permalink: "/zh/life/2013/07/11/a-post-about-life.html"
 ---
-
-

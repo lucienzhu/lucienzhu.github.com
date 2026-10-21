@@ -4,5 +4,3 @@ date: "2014-05-25 00:00:00 +0800"
 original_url: "/life/2014/05/25/real-madrid.html"
 permalink: "/zh/life/2014/05/25/real-madrid.html"
 ---
-
-

@@ -4,5 +4,3 @@ date: "2019-03-04 00:00:00 +0800"
 original_url: "/life/work/2019/03/04/join-start-up.html"
 permalink: "/zh/life/work/2019/03/04/join-start-up.html"
 ---
-
-

@@ -4,5 +4,3 @@ date: "2020-03-16 00:00:00 +0800"
 original_url: "/life/2020/03/16/genkiknight.html"
 permalink: "/zh/life/2020/03/16/genkiknight.html"
 ---
-
-

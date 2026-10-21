@@ -4,5 +4,3 @@ date: "2022-03-26 00:00:00 +0800"
 original_url: "/life/2022/03/26/poisson-equation-is-fun.html"
 permalink: "/zh/life/2022/03/26/poisson-equation-is-fun.html"
 ---
-
-
