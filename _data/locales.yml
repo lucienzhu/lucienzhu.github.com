@@ -1,0 +1,76 @@
+en:
+  navigation: { home: Home, projects: Projects, updates: Updates }
+  language_switch: Language
+  main_navigation: Main navigation
+  footer_navigation: Footer navigation
+  copyright: © Copyright 2010 by Xiaolong ZHU.
+  back_to_top: Back to top
+  show_blog: Show blog posts
+  view_original: View original image (opens in a new tab)
+  all: All
+  filter_updates: Filter updates
+  entry_one: '%count% entry'
+  entry_many: '%count% entries'
+  blog_one: '%count% blog post'
+  blog_many: '%count% blog posts'
+  no_blog: No blog posts yet.
+  show_all: Show all updates
+  earlier_layout: 'Earlier layout:'
+  archive: lifestream archive
+  dataset: Dataset is available upon request.
+  reveal_email: Reveal this e-mail address
+  home:
+    bio: Bio
+    portrait: Portrait of Xiaolong Zhu
+    intro: 'I build AI for games and explore <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">artificial general intelligence</a> and how intelligent agents interact with people. My work spans multi-agent systems, computer vision and applications of machine learning.'
+    background: 'I previously served as Vice President at <a href="https://chaocanshu.cn/">Parametrix.ai</a>, working on game bots, NPCs, companions and large-scale simulations. At Tencent’s AI Platform Department, I led the vision engineering team and collaborated with Tencent AI Lab.'
+    contributions: 'I contributed to the Go AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">Fine Art</a> and, in 2018, served on the Technical Advisory Council of the <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a>.'
+    research: 'I earned my Ph.D. in the <a href="http://www.cs.hku.hk">Department of Computer Science</a> at <a href="http://www.hku.hk">the University of Hong Kong</a>, supervised by <a href="http://i.cs.hku.hk/~kykwong/">Dr. Kenneth Wong</a>. My research focused on hand detection and localization in color images, following earlier work on hand posture recognition with depth cameras. I enjoy solving real-world problems with economical, explainable and reproducible solutions.'
+    links_html: 'Explore my <a href="%projects%">projects and research</a>, read my <a href="%updates%">updates</a>, or find my code on <a href="https://github.com/lucienzhu">GitHub</a>.'
+    more: More updates…
+  projects:
+    intro: Starting from applications related to hand detection and posture analysis, I enjoy solving real-world problems with economical, explainable and reproducible solutions.
+    groups: [At Parametrix.ai, At Tencent, Ph.D. Study, Undergraduate Study]
+  archive_page:
+    photos: Photostream
+    photos_html: 'I take pictures. Some are on <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>.'
+    stream: Lifestream
+    hiking: Hiking 50 km
+zh:
+  navigation: { home: 首页, projects: 项目, updates: 动态 }
+  language_switch: 切换语言
+  main_navigation: 主导航
+  footer_navigation: 页脚导航
+  copyright: © 2010 朱曉龍。
+  back_to_top: 返回顶部
+  show_blog: 查看博客文章
+  view_original: 查看原图（新标签页）
+  all: 全部
+  filter_updates: 筛选动态
+  entry_one: '%count% 条动态'
+  entry_many: '%count% 条动态'
+  blog_one: '%count% 篇博客'
+  blog_many: '%count% 篇博客'
+  no_blog: 暂无博客文章。
+  show_all: 查看全部动态
+  earlier_layout: 旧版页面：
+  archive: 生活动态存档
+  dataset: 数据集可联系索取。
+  reveal_email: 显示邮箱地址
+  home:
+    bio: 简介
+    portrait: 朱曉龍的照片
+    intro: '我从事游戏 AI，探索<a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">通用人工智能（AGI）</a>及智能体与人的互动。我的工作涉及多智能体系统、计算机视觉和机器学习应用。'
+    background: '我曾任<a href="https://chaocanshu.cn/">超参数科技</a>副总裁，探索游戏机器人、NPC、伙伴角色和大规模仿真。在腾讯 AI 平台部，我负责视觉工程团队，并与腾讯 AI Lab 的研究人员合作。'
+    contributions: '我参与过围棋 AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">绝艺</a>的研发，2018 年曾担任 <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> 技术顾问委员会成员。'
+    research: '我在<a href="http://www.hku.hk">香港大学</a><a href="http://www.cs.hku.hk">计算机科学系</a>获得博士学位，导师是 <a href="http://i.cs.hku.hk/~kykwong/">Kenneth Wong 博士</a>。我的研究主要是彩色图像中的手部检测与定位，此前也研究过基于深度相机的手势识别。我喜欢用经济、可解释、可复现的方法解决现实问题。'
+    links_html: '你可以浏览我的<a href="%projects%">项目与研究</a>、阅读<a href="%updates%">动态</a>，或在 <a href="https://github.com/lucienzhu">GitHub</a> 上查看我的代码。'
+    more: 更多动态…
+  projects:
+    intro: 从手部检测和手势分析的应用出发，我喜欢用经济、可解释、可复现的方法解决现实问题。
+    groups: [超参数科技, 腾讯, 博士期间, 本科期间]
+  archive_page:
+    photos: 照片
+    photos_html: '我喜欢拍照，部分照片放在 <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>。'
+    stream: 生活动态
+    hiking: 徒步 50 公里

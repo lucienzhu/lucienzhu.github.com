@@ -1,12 +1,17 @@
+{% include locale.html %}
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ page.lang | default: 'en' }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ page.lang | default: 'en' }}"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }}</title>
+  <title>{{ page.title | strip_html | escape }}</title>
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ english_url | absolute_url }}">
+  <link rel="alternate" hreflang="zh-CN" href="{{ chinese_url | absolute_url }}">
+  {% assign style_version = site.time | date: '%s' %}
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="/css/foundation.css">
@@ -14,19 +19,16 @@
   <!-- Included CSS Files (Compressed) -->
   <link rel="stylesheet" type="text/css" media="all" href="/css/foundation.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="/css/foundation-icons.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/css/common.css">
+  <link rel="stylesheet" type="text/css" media="all" href="{{ '/css/common.css' | relative_url }}?v={{ style_version }}">
   <link rel="stylesheet" type="text/css" media="all" href="/css/slick.css"/>
   
   <link rel="stylesheet" type="text/css" media="all" href="/css/index.css"/>
-  <link rel="stylesheet" type="text/css" media="all" href="/css/post.css"/>
-
-  <script type="text/javascript" src="//use.typekit.net/jnp1zqh.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+  <link rel="stylesheet" type="text/css" media="all" href="{{ '/css/post.css' | relative_url }}?v={{ style_version }}"/>
 
   {% for css_name in page.extra_css %}
-  <link rel="stylesheet" href="{{ css_name }}">
+  <link rel="stylesheet" href="{{ css_name | relative_url }}?v={{ style_version }}">
   {% endfor %}
+  <link rel="stylesheet" href="{{ '/css/typography.css' | relative_url }}?v={{ style_version }}">
   {% for js_name in page.extra_js %}
   <script type="text/javascript" src="{{js_name}}"></script>
   {% endfor %}
@@ -40,8 +42,6 @@
   <link rel="apple-touch-icon" href="/css/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/css/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="/css/apple-touch-icon-114x114.png">
-
-  <script type="text/javascript" src="/js/default.js"></script>
 
   <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -67,5 +67,7 @@
   {% for js_name in page.extra_js_bottom %}
   <script type="text/javascript" src="{{js_name}}"></script>
   {% endfor %}
+  <script type="text/javascript" src="/js/default.js"></script>
+  <script src="{{ '/js/language.js' | relative_url }}"></script>
 </body>
 </html>

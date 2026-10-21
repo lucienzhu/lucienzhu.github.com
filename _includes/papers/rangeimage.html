@@ -1,0 +1,55 @@
+{% if locale == "zh" %}
+<div id="re_content" class="row"><div class="large-12 columns"><h1>距离图像的分割与分类</h1><p class="paper-authors"><b>Xiaolong Zhu</b>, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha</p>
+<p>这是我本科期间的研究项目。基于智能车平台 <a href="http://poss.pku.edu.cn">POSS</a>，处理来自两台 SICK LMS 200 距离传感器的数据。</p><p>结合车辆的位置与姿态，这些数据可以表示为三维点云；由于距离传感器的特性，也可以表示为距离图像。随后使用计算机视觉中的图像分割与分类框架，为每个点赋予语义标签。所有数据均以离线方式处理。</p><p>更多细节见<a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/common/research%20vision.htm">研究页面</a>。</p>
+<h3>摘要</h3><p>随着感知和建图技术的快速发展，搭载传感器的机器人已经能够生成复杂环境的地图。然而，大多数现有研究仍然直接通过点云融合或其他低层几何元素表示环境。如何自动将这些表示转化为语义描述，以支持机器人的高层决策，仍是一个开放问题。本文基于三维点云的另一种表示——距离图像，提出分割与分类框架，为基于图的分割所得到的数据簇标注类别。实验结果表明，这一算法能够有效理解大规模动态城市户外环境中的语义信息。</p>
+<h3>论文</h3><a href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=5652703"><img src="/projects/rangeimage/2010iros-1.png" alt="IROS 2010 论文首页"></a>
+<h3>海报</h3><a href="#"><img src="/projects/rangeimage/2010iros.jpg" alt="IROS 2010 海报"></a></div></div>
+
+{% else %}
+
+
+<!-- Content -->
+<div id="re_content" class="row">
+    <!-- title -->
+    <div class="large-12 columns">
+        <h1>Segmentation and Classification of Range Image</h1>
+        <p class="paper-authors"><b>Xiaolong Zhu</b>, Huijing Zhao, Yiming Liu, Yipu Zhao, Hongbin Zha.</p>
+        <p>This project is done during my undergraduate work.
+    Based on the intelligent vehicle <a href="http://poss.pku.edu.cn">POSS</a>, I process range data from two range sensors (SICK LMS 200).</p>
+    <p>The data can be represented as 3D point clouds combining the pose and location of the
+    vehicle. Meanwhile, it can also be represented as range image due to the property of range
+    sensor. Then a Computer Vision framework of image segmentation and classification is applied
+    to this range image to give each point a semantic label. The whole data is processed offline.</p>
+    <p>More details are in this <a href="http://www.cis.pku.edu.cn/faculty/vision/zhaohj/common/research%20vision.htm">website</a>.</p>
+    </div>
+    <!-- abstract -->
+    <div class="large-12 columns">
+        <h3>Abstract</h3>
+        <p>As the rapid development of sensing and mapping techniques, it becomes a well-known technology that a map of complex environment can be generated using a robot carrying sensors. However, most of the existing researches represent envi- ronments directly using the integration of point clouds or other low-level geometric primitives. It remains an open problem to automatically convert these low-level map representations to semantic descriptions in order to effectively support high-level decision of a robot. Based on another representation of 3D point clouds, i.e. range image, this paper proposes a framework of segmentation and classification of range image, the objective of which is to annotate class labels to the data clusters that are obtained through a graph-based segmentation. Experimental results are presented and evaluated demonstrating that the pro- posed algorithm has efficiency in understanding the semantic knowledge of a large dynamic urban outdoor environment.
+        </p>
+    </div>
+    <!-- Paper -->
+    <div class="large-12 columns">
+        <h3>Paper</h3>
+        <ul class="large-block-grid-4">
+            <li>
+                <a class="th" href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=5652703" alt="iros2010"/>
+                <img src="/projects/rangeimage/2010iros-1.png" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- poster -->
+    <div class="large-12 columns">
+        <h3>Poster</h3>
+        <ul class="large-block-grid-2">
+            <li>
+                <a class="th" href="#">
+                <img src="/projects/rangeimage/2010iros.jpg" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endif %}

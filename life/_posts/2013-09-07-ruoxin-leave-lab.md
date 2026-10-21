@@ -5,8 +5,8 @@ title: Ruoxin leaves the lab.
 show_url: true
 ---
 
-临时起意，拍了一组照片，留下些念想。
+On a whim, we took some photos to hold on to the memories.
 
-和你这一年做了很多有意思的事儿，但是还有很多未完成。加油加油！
+We have done many interesting things together over the past year, though there is still so much unfinished. Keep going!
 
-祝工作顺利，万事如意。
+Wishing you every success in your new job and all the best.

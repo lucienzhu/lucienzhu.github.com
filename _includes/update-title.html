@@ -1,0 +1,8 @@
+{%- if post.external_url -%}
+  <a href="{{ post.external_url }}">{{ post_view.title }}</a>
+{%- elsif post.show_url -%}
+  <a href="{{ post_view.url | relative_url }}">{{ post_view.title }}</a>
+{%- else -%}
+  {{ post_view.title }}
+{%- endif -%}
+{% if post.tags contains 'blog' %}{% include blog-tag.html %}{% endif %}

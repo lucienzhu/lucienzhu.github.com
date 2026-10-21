@@ -1,0 +1,9 @@
+<p{% if include.dataset_id %} id="dataset"{% endif %}>
+  {% if locale == 'zh' %}
+  <a href="#dataset">数据集</a>可通过邮件联系索取。请联系
+  {% else %}
+  The <a href="#dataset">dataset</a> is available upon email. Please contact me at
+  {% endif %}
+  xlz<a href="http://www.google.com/recaptcha/mailhide/d?k=01GxKNjolAChe314N-umEjBw==&amp;c=VORInABvBEO9XuWZmkzRhA==" onclick="window.open(this.href, '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="{{ t.reveal_email }}">...</a>@cs.hku.hk
+  {% if locale == 'zh' %}。<a href="{{ english_url | relative_url }}">英文版</a>也保留了相同联系方式。{% endif %}
+</p>

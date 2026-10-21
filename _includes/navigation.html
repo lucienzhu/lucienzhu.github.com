@@ -1,0 +1,5 @@
+<ul class="{{ include.menu_class }}">
+  {% for item in site.data.navigation %}
+  <li><a href="{{ locale_prefix | append: item.url | relative_url }}"{% if page.section == item.section %} aria-current="page"{% endif %}>{{ t.navigation[item.section] }}</a></li>
+  {% endfor %}
+</ul>

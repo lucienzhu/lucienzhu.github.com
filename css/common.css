@@ -11,10 +11,7 @@ NEW
 */
 
 body{
-  font-family:"nimbus-sans", Segoe UI, candara, sans-serif;
   letter-spacing: normal;
-  line-height: 20px;
-  font-size: 16px;
   color:#0D0D0D;
 }
 
@@ -65,21 +62,230 @@ a:hover {
   padding: 0 20px;
   display: block;
   text-decoration: none;
-  font-size: 14px;
 }
 
-.nav-img > img {
-  height: 2.5em;
+.site-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  margin-bottom: 32px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  font-style: normal;
+.site-header:before,
+.site-header:after {
+  content: none;
+  display: none;
+}
+
+.site-menu {
+  display: flex;
+  justify-content: flex-end;
+  height: auto;
+  margin: 0;
+  gap: 24px;
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin-top: 0;
+}
+
+.language-switch {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.language-switch a { color: #777; }
+.language-switch a[aria-current="true"] { color: #222; }
+
+.site-menu > li > a:first-child {
+  padding: 0;
+}
+
+.site-menu > li > a:hover {
+  background: transparent;
+  color: #FF4019;
+}
+
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid #FF4019;
+  outline-offset: 3px;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-left: 0;
+}
+
+.footer-menu > li {
+  margin: 0 0 0 20px;
+}
+
+.back-to-top {
+  text-align: right;
+}
+
+.page-content {
+  padding-top: 0;
+  padding-bottom: 30px;
+}
+
+.slideshow-wrapper .slick-prev { left: 8px; z-index: 1; }
+.slideshow-wrapper .slick-next { right: 8px; z-index: 1; }
+
+.paper-content img {
+  max-width: min(100%, 16rem);
+  max-height: 22rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.paper-content #cm,
+.paper-content #bar,
+.paper-content #lines {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.updates-year {
+  margin-top: 36px;
+}
+
+.update-entries {
+  list-style: none;
+  margin-left: 0;
+}
+
+.update-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 12px 0;
+  line-height: 1.6;
+}
+
+.update-entry time {
+  flex: 0 0 60px;
+  color: #666;
+}
+
+.recent-updates .update-entry time,
+.archive-updates .update-entry time {
+  flex-basis: 7rem;
+}
+
+.update-entry > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.updates-filters {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 12px;
+}
+
+.updates-filters a,
+.update-tag {
+  display: inline-block;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: #666;
+}
+
+.updates-filters a {
+  padding: 7px 0;
+}
+
+.updates-filters a[aria-current="true"] {
   color: #222;
-  text-rendering: optimizeLegibility;
-  margin-top: 0.875em;
-  margin-bottom: 0.5em;
-  line-height: 1.2125em;
+}
+
+.update-tag {
+  margin-left: 8px;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.update-tag:hover,
+.updates-filters a:not([aria-current="true"]):hover {
+  color: #222;
+}
+
+.update-tag:focus-visible,
+.updates-filters a:focus-visible {
+  outline: 2px solid #FF4019;
+  outline-offset: 3px;
+}
+
+.updates-count,
+.updates-archive {
+  color: #666;
+}
+
+.updates-archive {
+  margin-top: 36px;
+}
+
+.update-entry[hidden],
+.updates-year[hidden] {
+  display: none;
+}
+
+@media only screen and (max-width: 64em) {
+  .site-header {
+    gap: 8px 0;
+    padding-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .header-navigation {
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: 4px 16px;
+  }
+  .site-menu {
+    justify-content: flex-start;
+    margin-top: 0;
+    gap: 16px;
+  }
+
+  .site-menu > li > a:first-child {
+    padding: 0;
+  }
+
+  .footer-menu {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .footer-menu > li {
+    margin: 0;
+  }
+
+  .back-to-top {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 24em) {
+  .site-menu { gap: 12px; }
+  .header-navigation { gap: 4px 12px; }
+  .update-entry { gap: 16px; }
 }
 
 

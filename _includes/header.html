@@ -1,12 +1,12 @@
 <!--header-->
-<div class="row">
-  <div class="large-8 columns">
-    <h6><a class="nav-img" href="/"><img src="/img/name.png" alt="Xiaolong ZHU (朱曉龍)"/></a></h6>
+<header class="row site-header">
+  <div class="large-6 columns">
+    <a class="site-name" href="{{ locale_prefix | append: '/' | relative_url }}">Xiaolong Zhu <span lang="zh-CN">朱曉龍</span></a>
   </div>
-  <div class="large-4 columns">
-    <ul class="nav-bar right">
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/update.html">Log</a></li>
-    </ul>
+  <div class="large-6 columns header-navigation">
+    <nav aria-label="{{ t.main_navigation }}">
+      {% include navigation.html menu_class="nav-bar site-menu" %}
+    </nav>
+    {% include language-switch.html %}
   </div>
-</div>
+</header>

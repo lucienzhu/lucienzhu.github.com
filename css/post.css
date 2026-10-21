@@ -16,21 +16,18 @@ h6.post-time {
 }
 
 h1.title { 
-    font-size: 2em;
-    line-height: 1.125;
-    text-align: center;
+    margin-top: 1rem;
 }
 
 .subtitlecontainer {
     text-decoration: none;
-    color: #9B9B9B;
+    color: #666;
     font-weight: normal;
     padding-top: .5em;
-    text-align: center;
 }
 
 .subtitle {
-    color: #9B9B9B;
+    color: #666;
 }
 
 #subtitletrans a {
@@ -41,9 +38,35 @@ a {
     background-color: transparent;
 }
 
-.post-content h1 {font-size: 2em;}
-.post-content h2 {font-size: 1.8em;}
-.post-content h3 {font-size: 1.5em;}
-.post-content h4 {font-size: 1.2em;}
-.post-content h5 {font-size: 1em;}
-.post-content h6 {font-size: 0.8em;}
+.post-content.longform {
+    max-width: 52rem;
+}
+
+.longform img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 35rem);
+    max-height: 24rem;
+    object-fit: contain;
+    margin: 1.5rem auto;
+}
+
+.longform .article-figure {
+    max-width: 35rem;
+    margin: 1.5rem auto;
+}
+
+.longform .article-figure img {
+    width: 100%;
+    margin: 0 auto;
+    cursor: zoom-in;
+}
+
+.longform .article-figure--medium {
+    max-width: 30rem;
+}
+
+.longform .article-figure--small {
+    max-width: 22.5rem;
+}

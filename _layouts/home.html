@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% include locale.html %}
+<main>
+  <div class="row"><div class="large-12 columns">
+    <div class="slideshow-wrapper"><div><img src="/img/feature/zxl.png" alt="{{ t.home.portrait }}"></div></div>
+  </div></div>
+  <div class="row"><div class="large-12 columns">
+    <h2>{{ t.home.bio }}</h2>
+    <p>{{ t.home.intro }}</p>
+    {% assign projects_url = locale_prefix | append: '/projects/' | relative_url %}
+    {% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
+    <p>{{ t.home.background }}</p>
+    <p>{{ t.home.contributions }}</p>
+    <p>{{ t.home.research }}</p>
+    <p>{{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
+    <h2>{{ t.navigation.updates }}</h2>
+    <ul class="update-entries recent-updates">
+      {% for post in site.posts limit:10 %}
+      {% include localized-post.html post=post %}
+      <li class="update-entry post-{{ post.category }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time>
+        <div>{% include update-title.html %}</div>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="updates-more"><a href="{{ updates_url }}">{{ t.home.more }}</a> · <a href="{{ locale_prefix | append: '/update.html' | relative_url }}">{{ t.archive }}</a></p>
+  </div></div>
+</main>

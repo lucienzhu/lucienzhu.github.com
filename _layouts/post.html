@@ -1,13 +1,13 @@
 ---
 layout: default
 ---
+{% include locale.html %}
 
 <div class="row">
     <div class="large-12 columns">
         <hr>
         {% if page.featured_images != nil %}
         <div class="slideshow-wrapper">
-            <div class="preloader"></div>
             {% for featured_image in page.featured_images %}
             <div><img src="{{ featured_image }}" alt="slide image"></div>
             {% endfor %}
@@ -17,20 +17,23 @@ layout: default
 </div> 
 
 <!-- post -->
-<div class="row post-content">
+<main class="row post-content{% if page.tags contains 'blog' %} longform{% endif %}">
     <div class="large-12 columns">
-        <h1 class="title">{{ page.title }}</h1>
+        <h1 class="title">{% if page.external_url %}<a href="{{ page.external_url }}">{{ page.title }}</a>{% else %}{{ page.title }}{% endif %}</h1>
         <p id="subtitletrans" class="subtitlecontainer">
-        <i class="fi-calendar"></i> <a class="subtitle">{{ page.date | date: "%B %d, %Y" }}</a>
-        {% if page.author %} | <i class="fi-torso"></i> <a class="subtitle" href="{{ site.baseurl }}/">{{ page.author }}</a>{% endif %}
-        {% assign tags_list = site.tags %}
-        {% if site.tags %} 
+        <i class="fi-calendar"></i> <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time>
+        {% if page.author %} | <i class="fi-torso"></i> <a class="subtitle" href="{{ locale_prefix | append: '/' | relative_url }}">{{ page.author }}</a>{% endif %}
+        {% if page.tags.size > 0 %}
         | <i class="fi-pricetag-multiple"></i>
-        {% for tag in site.tags %}
-        <a class="subtitle">{{ tag[0] }}</a>
+        {% for tag in page.tags %}
+        {% if tag == 'blog' %}
+        {% include blog-tag.html %}
+        {% else %}
+        <span class="subtitle">{{ tag }}</span>
+        {% endif %}
         {% endfor %}
         {% endif %}
         </p>
         {{ content }}
     </div>
-</div>
+</main>

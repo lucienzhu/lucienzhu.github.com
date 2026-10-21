@@ -1,0 +1,5 @@
+{%- if locale == 'zh' -%}
+  {%- if include.short -%}{{ include.date | date: '%-m月%-d日' }}{%- else -%}{{ include.date | date: '%Y年%-m月%-d日' }}{%- endif -%}
+{%- else -%}
+  {%- if include.short -%}{{ include.date | date: '%d %b' }}{%- else -%}{{ include.date | date: '%b %-d, %Y' }}{%- endif -%}
+{%- endif -%}

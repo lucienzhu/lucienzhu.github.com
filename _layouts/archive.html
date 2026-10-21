@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% include locale.html %}
+<main>
+  <div class="row"><div class="large-12 columns"><img src="/img/feature/hiking.png" alt="{{ t.archive_page.hiking }}"></div></div>
+  <div class="row"><div class="large-12 columns">
+    <h2>{{ t.archive_page.photos }}</h2>
+    <p>{{ t.archive_page.photos_html }}</p>
+    <h2>{{ t.archive_page.stream }}</h2>
+    <ul class="update-entries archive-updates">
+      {% for post in site.posts %}
+      {% include localized-post.html post=post %}
+      <li class="update-entry"><time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time><div>{% include update-title.html %}</div></li>
+      {% endfor %}
+    </ul>
+  </div></div>
+</main>
