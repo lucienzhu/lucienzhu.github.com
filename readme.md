@@ -17,6 +17,8 @@ bundle exec jekyll serve
 
 Projects 中的 Linux Foundation 经历链接到 2018 年官方报道；标志使用[官方品牌资源](https://www.linuxfoundation.org/brand-guidelines)，其名称和标志属于 The Linux Foundation。
 
+Projects 的分组、经历、日期、个人角色和中英文文案集中在 `_data/projects.json`。分组使用稳定 `id` 生成页内导航；`layout: text` 用于不需要配图的研究、竞赛和分享记录。论文按正式会议年份标注，工作经历按实际任职期间标注，赛事年份与赛事报告发表年份分别说明。新增内容应附公开的论文、代码、赛事或活动链接，团队项目须明确个人角色。
+
 英文动态与长文保留在 `_posts/` 和 `life/_posts/`。对应的中文内容放在 `_translations/`，通过 `original_url` 对应英文网址，并设置 `permalink: /zh/原英文路径`。译文使用独立集合，不会重复计入动态数量。
 
 新增页面时也要添加对应的 `/zh/` 页面。语言切换自动指向同一页面的另一个版本，并保留 Updates 的筛选条件。正文配图使用 `_includes/article-image.html`，继续共用尺寸限制。

@@ -1,7 +1,215 @@
 [
   {
-    "icon": "heart",
+    "id": "community",
+    "title": {
+      "en": "Open source & competitions",
+      "zh": "开源与竞赛"
+    },
+    "label": {
+      "en": "Open source & competitions",
+      "zh": "开源与竞赛"
+    },
     "items": [
+      {
+        "id": "neural-mmo-challenges",
+        "info": {
+          "en": "Co-organizer · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
+          "zh": "联合筹办 · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 论文</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 赛事报告</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 赛事报告（2025 年发表）</a>"
+        },
+        "en": {
+          "title": "Neural MMO Challenges",
+          "date": "2022–2023",
+          "description": "Co-organized Neural MMO competitions at IJCAI 2022 and NeurIPS 2022–2023 with academic and community partners. Worked on competition promotion and university collaboration, connecting multi-agent research with an open competition community."
+        },
+        "zh": {
+          "title": "Neural MMO 多智能体竞赛",
+          "date": "2022–2023 年",
+          "description": "与学术及社区伙伴联合筹办 IJCAI 2022、NeurIPS 2022 和 2023 的 Neural MMO 多智能体竞赛，参与赛事推广与高校合作，将多智能体研究连接到开放竞赛社区。"
+        },
+        "external_url": "https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge"
+      },
+      {
+        "id": "lux-ai-season-2",
+        "info": {
+          "en": "Co-organizer · <a href=\"https://neurips.cc/Conferences/2023/CompetitionTrack\">NeurIPS competition track</a> · <a href=\"https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2\">Kaggle</a>",
+          "zh": "联合筹办 · <a href=\"https://neurips.cc/Conferences/2023/CompetitionTrack\">NeurIPS 官方竞赛单元</a> · <a href=\"https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2\">Kaggle</a>"
+        },
+        "en": {
+          "title": "Lux AI Challenge Season 2 · NeurIPS",
+          "date": "2023",
+          "description": "Co-organized the NeurIPS edition of Lux AI Challenge Season 2, a benchmark for long-horizon planning and large-scale multi-agent learning, hosted on Kaggle."
+        },
+        "zh": {
+          "title": "Lux AI Challenge 第二季 · NeurIPS",
+          "date": "2023 年",
+          "description": "参与联合筹办 Lux AI Challenge 第二季 NeurIPS 赛事，在 Kaggle 上面向长时程规划与大规模多智能体学习建立开放挑战。"
+        },
+        "external_url": "https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2"
+      },
+      {
+        "id": "jux",
+        "info": {
+          "en": "Team open-source release · <a href=\"https://github.com/RoboEden/jux\">Code & benchmarks</a>",
+          "zh": "团队开源项目 · <a href=\"https://github.com/RoboEden/jux\">代码与性能基准</a>"
+        },
+        "en": {
+          "title": "Jux · Lux on JAX",
+          "date": "2023",
+          "description": "Our team released a JAX implementation of the Lux AI Season 2 game core, moving simulation onto GPUs to support parallel environments and faster reinforcement learning experiments."
+        },
+        "zh": {
+          "title": "Jux：基于 JAX 的 Lux 游戏引擎",
+          "date": "2023 年",
+          "description": "团队开源了基于 JAX 的 Lux AI 第二季游戏内核，将游戏仿真搬到 GPU 上，支持大批量并行环境与更高效的强化学习实验。"
+        },
+        "external_url": "https://github.com/RoboEden/jux"
+      }
+    ],
+    "layout": "text"
+  },
+  {
+    "id": "research",
+    "title": {
+      "en": "Selected research",
+      "zh": "研究成果"
+    },
+    "label": {
+      "en": "Research",
+      "zh": "研究成果"
+    },
+    "items": [
+      {
+        "id": "d3po",
+        "info": {
+          "en": "Co-author · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">Code</a>",
+          "zh": "论文共同作者 · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">代码</a>"
+        },
+        "en": {
+          "title": "D3PO · Human feedback for diffusion models",
+          "date": "2024",
+          "description": "Co-authored a method that uses pairwise human preferences to fine-tune diffusion policies directly, avoiding the need to train a separate reward model."
+        },
+        "zh": {
+          "title": "D3PO：基于人类反馈的扩散模型微调",
+          "date": "2024 年",
+          "description": "共同研究利用成对人类偏好直接微调扩散策略的方法，无需额外训练奖励模型，探索生成式 AI 的偏好对齐。"
+        },
+        "external_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html"
+      },
+      {
+        "id": "neural-mmo-2",
+        "info": {
+          "en": "Co-author · <a href=\"https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html\">NeurIPS 2023 · Datasets and Benchmarks</a> · <a href=\"https://neuralmmo.github.io/\">Project</a>",
+          "zh": "论文共同作者 · <a href=\"https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html\">NeurIPS 2023 · 数据集与基准单元</a> · <a href=\"https://neuralmmo.github.io/\">项目</a>"
+        },
+        "en": {
+          "title": "Neural MMO 2.0",
+          "date": "2023",
+          "description": "Co-authored an open research environment with a flexible task system for studying how agents generalize to unfamiliar tasks, maps and opponents."
+        },
+        "zh": {
+          "title": "Neural MMO 2.0",
+          "date": "2023 年",
+          "description": "共同参与开放研究环境 Neural MMO 2.0 的论文工作，通过灵活的任务系统研究智能体对新任务、地图与对手的泛化能力。"
+        },
+        "external_url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html"
+      },
+      {
+        "id": "tree-lstm-mapf",
+        "info": {
+          "en": "Co-author · <a href=\"https://arxiv.org/abs/2210.12933\">Paper</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">Code</a>",
+          "zh": "论文共同作者 · <a href=\"https://arxiv.org/abs/2210.12933\">论文</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">代码</a>"
+        },
+        "en": {
+          "title": "Multi-Agent Path Finding via Tree LSTM",
+          "date": "2022",
+          "description": "Co-authored a reinforcement learning solution for railway scheduling in Flatland, combining tree-structured observations, curriculum training and centralized control."
+        },
+        "zh": {
+          "title": "基于 Tree LSTM 的多智能体路径规划",
+          "date": "2022 年",
+          "description": "共同研究 Flatland 铁路调度中的强化学习方案，结合树结构观测、分阶段训练和集中控制，改善多列车的协同路径规划。"
+        },
+        "external_url": "https://arxiv.org/abs/2210.12933"
+      },
+      {
+        "id": "emergent-collective-intelligence",
+        "info": {
+          "en": "Co-author · <a href=\"https://openreview.net/pdf?id=KCWm-HV0PQT\">NeurIPS 2022 Deep RL Workshop</a> · <a href=\"https://arxiv.org/abs/2301.01609\">arXiv</a>",
+          "zh": "论文共同作者 · <a href=\"https://openreview.net/pdf?id=KCWm-HV0PQT\">NeurIPS 2022 Deep RL Workshop</a> · <a href=\"https://arxiv.org/abs/2301.01609\">arXiv</a>"
+        },
+        "en": {
+          "title": "Emergent collective intelligence in Lux",
+          "date": "2022",
+          "description": "Co-authored research on how group strategies emerge through self-play and curriculum learning among large populations of cooperating and competing agents."
+        },
+        "zh": {
+          "title": "Lux 中的群体智能涌现",
+          "date": "2022 年",
+          "description": "共同研究大量智能体在合作与竞争中的自博弈训练，观察个体技能如何逐步发展为群体策略。"
+        },
+        "external_url": "https://openreview.net/pdf?id=KCWm-HV0PQT"
+      },
+      {
+        "id": "elo-opponent-selection",
+        "info": {
+          "en": "Co-author · <a href=\"https://ieee-cog.org/2021/assets/papers/paper_299.pdf\">IEEE Conference on Games 2021</a>",
+          "zh": "论文共同作者 · <a href=\"https://ieee-cog.org/2021/assets/papers/paper_299.pdf\">IEEE Conference on Games 2021</a>"
+        },
+        "en": {
+          "title": "PPO with Elo-based opponent selection",
+          "date": "2021",
+          "description": "Co-authored work on opponent selection for reinforcement learning and its combination with rolling-horizon evolutionary planning in fighting games."
+        },
+        "zh": {
+          "title": "结合 Elo 对手选择的 PPO 博弈策略",
+          "date": "2021 年",
+          "description": "共同研究强化学习中的 Elo 对手选择，并与滚动时域进化规划结合，探索格斗游戏 AI 的训练和决策。"
+        },
+        "external_url": "https://ieee-cog.org/2021/assets/papers/paper_299.pdf"
+      },
+      {
+        "id": "reflective-face-regression",
+        "info": {
+          "en": "Co-author · <a href=\"https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf\">BMVC 2016</a>",
+          "zh": "论文共同作者 · <a href=\"https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf\">BMVC 2016</a>"
+        },
+        "en": {
+          "title": "Reflective regression of 2D–3D face shape",
+          "date": "2016",
+          "description": "Co-authored a face-alignment method that incorporates 3D face geometry and a reflective consistency measure to improve robustness under large pose changes."
+        },
+        "zh": {
+          "title": "大姿态下的 2D–3D 人脸形状回归",
+          "date": "2016 年",
+          "description": "共同研究结合三维人脸几何与反射一致性度量的人脸对齐方法，提高大姿态变化下的鲁棒性。"
+        },
+        "external_url": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf"
+      }
+    ],
+    "layout": "text"
+  },
+  {
+    "items": [
+      {
+        "id": "gaea",
+        "info": {
+          "en": "Parametrix.ai · <a href=\"https://www.chaocanshu.cn/new.html?291\">Release</a>",
+          "zh": "超参数科技 · <a href=\"https://www.chaocanshu.cn/new.html?291\">发布介绍</a>"
+        },
+        "en": {
+          "title": "GAEA · Autonomous NPC simulation",
+          "date": "2023",
+          "description": "Worked on and released GAEA, a solution for large populations of autonomous NPCs, extending game AI from competitive bots toward simulated worlds and interactive characters."
+        },
+        "zh": {
+          "title": "GAEA：自主 NPC 与大规模仿真",
+          "date": "2023 年",
+          "description": "参与研发并发布 GAEA 自主 NPC 方案，将游戏 AI 从对战机器人延伸到大规模角色仿真与虚拟世界中的交互角色。"
+        },
+        "external_url": "https://www.chaocanshu.cn/new.html?291",
+        "image": "/projects/gameai/parametrix.png"
+      },
       {
         "image": "/projects/gameai/parametrix.png",
         "info": {
@@ -9,20 +217,29 @@
           "zh": "<i class=\"fi-torsos-all\">Parametrix.ai</i>\n          <br>"
         },
         "en": {
-          "title": "Redefine the relationship between AI and Human Players",
-          "date": "2019 ~",
-          "description": "What is the difference between AIs and living beings, if they have similar intellectual levels, or AIs are even smarter?"
+          "title": "Game AI and multi-agent systems",
+          "date": "2019–2024",
+          "description": "As an early team member and later Vice President at Parametrix.ai, worked on the technical architecture and research behind game bots, NPCs and multi-agent simulation across MOBA, FPS, strategy and card games."
         },
         "zh": {
-          "title": "重新定义 AI 与人类玩家的关系",
-          "date": "2019 年起",
-          "description": "如果 AI 的智力与生物相当，甚至更加聪明，那么两者之间的区别是什么？"
-        }
+          "title": "游戏 AI 与多智能体系统",
+          "date": "2019–2024 年",
+          "description": "作为超参数科技早期团队成员及后来的副总裁，参与游戏机器人、NPC 和多智能体仿真的技术架构与前沿研究，覆盖 MOBA、FPS、策略及卡牌等游戏类型。"
+        },
+        "id": "game-ai-and-agents"
       }
-    ]
+    ],
+    "id": "parametrix",
+    "title": {
+      "en": "At Parametrix.ai",
+      "zh": "超参数科技"
+    },
+    "label": {
+      "en": "Parametrix.ai",
+      "zh": "超参数科技"
+    }
   },
   {
-    "icon": "battery-full",
     "items": [
       {
         "image": "/projects/linuxfoundation/lf-stacked-color.svg",
@@ -96,8 +313,8 @@
       {
         "image": "/projects/styletransfer/videostyle.png",
         "info": {
-          "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x QQ Mobile</i>\n        <br>",
-          "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × 手机 QQ</i>\n        <br>"
+          "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x QQ Mobile</i>\n        <br> <a href=\"https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Real-Time_Neural_Style_CVPR_2017_paper.html\">CVPR 2017 paper</a>",
+          "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × 手机 QQ</i>\n        <br> <a href=\"https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Real-Time_Neural_Style_CVPR_2017_paper.html\">CVPR 2017 论文</a>"
         },
         "en": {
           "title": "Live Video Style Transfer",
@@ -178,10 +395,140 @@
           "description": "研发声学模型的分布式训练算法。"
         }
       }
-    ]
+    ],
+    "id": "tencent",
+    "title": {
+      "en": "At Tencent",
+      "zh": "腾讯"
+    },
+    "label": {
+      "en": "Tencent",
+      "zh": "腾讯"
+    }
   },
   {
-    "icon": "battery-half",
+    "id": "talks",
+    "title": {
+      "en": "Talks & milestones",
+      "zh": "公开分享与里程碑"
+    },
+    "label": {
+      "en": "Talks & milestones",
+      "zh": "分享与里程碑"
+    },
+    "items": [
+      {
+        "id": "tsinghua-lecture",
+        "info": {
+          "en": "Speaker · Tsinghua Shenzhen International Graduate School",
+          "zh": "分享嘉宾 · 清华大学深圳国际研究生院"
+        },
+        "en": {
+          "title": "Guest lecture · Tsinghua SIGS",
+          "date": "2021",
+          "description": "Shared AI research and engineering experience in a technical talk at Tsinghua Shenzhen International Graduate School."
+        },
+        "zh": {
+          "title": "清华深圳国际研究生院分享",
+          "date": "2021 年",
+          "description": "在清华大学深圳国际研究生院开展技术分享，交流 AI 研究与工程实践。"
+        },
+        "external_url": "https://www.sigs.tsinghua.edu.cn/"
+      },
+      {
+        "id": "arm-developer-summit",
+        "info": {
+          "en": "Speaker · <a href=\"http://event.31huiyi.com/1431897125/index?pageId=1431904677\">Event</a>",
+          "zh": "演讲嘉宾 · <a href=\"http://event.31huiyi.com/1431897125/index?pageId=1431904677\">活动</a>"
+        },
+        "en": {
+          "title": "Arm Developer Global Summit",
+          "date": "Sep. 2018",
+          "description": "Presented engineering approaches to mobile AI development and deployment on Arm platforms."
+        },
+        "zh": {
+          "title": "Arm 人工智能开发者全球峰会",
+          "date": "2018 年 9 月",
+          "description": "分享基于 Arm 平台的移动端 AI 研发、优化与应用落地经验。"
+        },
+        "external_url": "http://event.31huiyi.com/1431897125/index?pageId=1431904677"
+      },
+      {
+        "id": "tencent-tlc",
+        "info": {
+          "en": "Speaker · <a href=\"http://2018.tlc.ivweb.io/\">Tencent TLC 2018</a>",
+          "zh": "演讲嘉宾 · <a href=\"http://2018.tlc.ivweb.io/\">腾讯 TLC 2018</a>"
+        },
+        "en": {
+          "title": "Tencent TLC · Pose estimation on mobile",
+          "date": "Aug. 2018",
+          "description": "Shared the path from pose-estimation models to real-time mobile applications, including neural-network optimization and FeatherCNN."
+        },
+        "zh": {
+          "title": "腾讯 TLC：人体姿态识别在移动端的应用",
+          "date": "2018 年 8 月",
+          "description": "以人体姿态识别为例，介绍从模型研发到移动端实时运行的工程过程，涵盖神经网络优化与 FeatherCNN。"
+        },
+        "external_url": "http://2018.tlc.ivweb.io/"
+      },
+      {
+        "id": "lc3-panels",
+        "info": {
+          "en": "Speaker · <a href=\"http://sched.co/FCNM\">LFDL session</a> · <a href=\"http://sched.co/EawO\">Deep learning session</a>",
+          "zh": "分享嘉宾 · <a href=\"http://sched.co/FCNM\">LFDL 专场</a> · <a href=\"http://sched.co/EawO\">深度学习专场</a>"
+        },
+        "en": {
+          "title": "LC3 China · Deep learning sessions",
+          "date": "Jun. 2018",
+          "description": "Spoke in sessions on the LF Deep Learning Foundation and deep learning at LC3 China."
+        },
+        "zh": {
+          "title": "LC3 China：深度学习与 LFDL 分享",
+          "date": "2018 年 6 月",
+          "description": "在 LC3 China 参与 LF Deep Learning Foundation 与深度学习相关的公开分享。"
+        },
+        "external_url": "http://sched.co/FCNM"
+      },
+      {
+        "id": "tencent-ai-forum",
+        "info": {
+          "en": "Speaker · <a href=\"https://ai.tencent.com/ailab/academicforum.html\">Tencent AI Forum</a>",
+          "zh": "分享嘉宾 · <a href=\"https://ai.tencent.com/ailab/academicforum.html\">腾讯 AI 学术论坛</a>"
+        },
+        "en": {
+          "title": "Tencent AI Forum · Reinforcement learning in FineArt",
+          "date": "Mar. 2018",
+          "description": "Presented reinforcement learning work from the FineArt Go AI project at Tencent AI Forum."
+        },
+        "zh": {
+          "title": "腾讯 AI 学术论坛：绝艺中的强化学习",
+          "date": "2018 年 3 月",
+          "description": "在腾讯 AI 学术论坛分享围棋 AI 绝艺项目中的强化学习工作。"
+        },
+        "external_url": "https://ai.tencent.com/ailab/academicforum.html"
+      },
+      {
+        "id": "hku-poster-award",
+        "info": {
+          "en": "The University of Hong Kong",
+          "zh": "香港大学"
+        },
+        "en": {
+          "title": "First place · Departmental poster presentation",
+          "date": "Jun. 2014",
+          "description": "Received first place in the departmental poster presentation during Ph.D. study at the University of Hong Kong."
+        },
+        "zh": {
+          "title": "院系海报展示第一名",
+          "date": "2014 年 6 月",
+          "description": "博士期间获得香港大学院系海报展示第一名。"
+        },
+        "detail": "/life/2014/06/20/department-poster-presentation.html"
+      }
+    ],
+    "layout": "text"
+  },
+  {
     "items": [
       {
         "image": "/projects/e2ehand/f1.png",
@@ -305,10 +652,18 @@
         },
         "detail": "/projects/depthfromrefraction/"
       }
-    ]
+    ],
+    "id": "phd",
+    "title": {
+      "en": "Ph.D. research",
+      "zh": "博士研究"
+    },
+    "label": {
+      "en": "Ph.D.",
+      "zh": "博士研究"
+    }
   },
   {
-    "icon": "battery-empty",
     "items": [
       {
         "image": "/projects/youdao2010/fea1.png",
@@ -345,6 +700,15 @@
         },
         "detail": "/projects/rangeimage/"
       }
-    ]
+    ],
+    "id": "undergraduate",
+    "title": {
+      "en": "Undergraduate research",
+      "zh": "本科研究与实习"
+    },
+    "label": {
+      "en": "Undergraduate",
+      "zh": "本科研究"
+    }
   }
 ]

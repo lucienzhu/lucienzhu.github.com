@@ -2,6 +2,23 @@
   padding-bottom: 30px;
 }
 
+.project-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 32px;
+}
+
+.project-index a { color: #666; }
+.project-index a:hover { color: #FF4019; }
+
+.project-index a:focus-visible {
+  outline: 2px solid #FF4019;
+  outline-offset: 3px;
+}
+
+.project-group { scroll-margin-top: 24px; }
+
 .project-group + .project-group {
   margin-top: 48px;
 }
@@ -91,6 +108,17 @@
   display: none;
 }
 
+.project-group--text .project-entry {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+
+.project-group--text .project-heading,
+.project-group--text .project-description,
+.project-group--text .info {
+  grid-column: 1;
+}
+
 @media only screen and (max-width: 40em) {
   .project-group + .project-group {
     margin-top: 40px;
@@ -117,7 +145,4 @@
     height: 64px;
   }
 
-  .project-entry .info {
-    margin-top: 8px;
-  }
 }

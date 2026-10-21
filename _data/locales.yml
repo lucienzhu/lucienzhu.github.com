@@ -29,8 +29,7 @@ en:
     links_html: 'Explore my <a href="%projects%">projects and research</a>, read my <a href="%updates%">updates</a>, or find my code on <a href="https://github.com/lucienzhu">GitHub</a>.'
     more: More updates…
   projects:
-    intro: Starting from applications related to hand detection and posture analysis, I enjoy solving real-world problems with economical, explainable and reproducible solutions.
-    groups: [At Parametrix.ai, At Tencent, Ph.D. Study, Undergraduate Study]
+    browse: Browse projects and milestones
   archive_page:
     photos: Photostream
     photos_html: 'I take pictures. Some are on <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>.'
@@ -67,8 +66,7 @@ zh:
     links_html: '你可以浏览我的<a href="%projects%">项目与研究</a>、阅读<a href="%updates%">动态</a>，或在 <a href="https://github.com/lucienzhu">GitHub</a> 上查看我的代码。'
     more: 更多动态…
   projects:
-    intro: 从手部检测和手势分析的应用出发，我喜欢用经济、可解释、可复现的方法解决现实问题。
-    groups: [超参数科技, 腾讯, 博士期间, 本科期间]
+    browse: 浏览项目与里程碑
   archive_page:
     photos: 照片
     photos_html: '我喜欢拍照，部分照片放在 <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>。'
