@@ -91,18 +91,18 @@
   {
     "id": "neural-mmo-challenges",
     "info": {
-      "en": "Co-organizer · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
-      "zh": "联合筹办 · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 论文</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 赛事报告</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 赛事报告（2025 年发表）</a>"
+      "en": "Co-organizer · Research co-author · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
+      "zh": "联合筹办 · 相关研究共同作者 · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 论文</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 赛事报告</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 赛事报告（2025 年发表）</a>"
     },
     "en": {
-      "title": "Neural MMO Challenges",
+      "title": "Neural MMO · Multi-agent challenges & generalization",
       "date": "2022–2023",
-      "description": "Co-organized Neural MMO competitions at IJCAI 2022 and NeurIPS 2022–2023 with academic and community partners. Worked on competition promotion and university collaboration, connecting multi-agent research with an open competition community."
+      "description": "Co-organized Neural MMO competitions at IJCAI 2022 and NeurIPS 2022–2023, including promotion and university collaboration. Co-authored the associated benchmark research on how agent teams complete multiple objectives and remain effective against opponents not seen during training."
     },
     "zh": {
-      "title": "Neural MMO 多智能体竞赛",
+      "title": "Neural MMO：多智能体竞赛与泛化研究",
       "date": "2022–2023 年",
-      "description": "与学术及社区伙伴联合筹办 IJCAI 2022、NeurIPS 2022 和 2023 的 Neural MMO 多智能体竞赛，参与赛事推广与高校合作，将多智能体研究连接到开放竞赛社区。"
+      "description": "联合筹办 IJCAI 2022、NeurIPS 2022 和 2023 的 Neural MMO 竞赛，参与赛事推广与高校合作。共同参与相关基准研究，探索智能体团队在面对训练中未见过的对手时，完成多任务目标的鲁棒性与泛化能力。"
     },
     "external_url": "https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge",
     "sort_key": 202300,
@@ -204,16 +204,17 @@
       "zh": "论文共同作者 · <a href=\"https://arxiv.org/abs/2210.12933\">论文</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">代码</a>"
     },
     "en": {
-      "title": "Multi-Agent Path Finding via Tree LSTM",
+      "title": "Flatland · Multi-agent railway coordination",
       "date": "2022",
-      "description": "Co-authored a reinforcement learning solution for railway scheduling in Flatland, combining tree-structured observations, curriculum training and centralized control."
+      "description": "Co-authored a reinforcement learning solution for coordinating trains on shared railway tracks in Flatland. Combined Tree LSTM observations, phased training and centralized control to improve routing and reduce deadlocks."
     },
     "zh": {
-      "title": "基于 Tree LSTM 的多智能体路径规划",
+      "title": "Flatland：多列车协同调度与路径规划",
       "date": "2022 年",
-      "description": "共同研究 Flatland 铁路调度中的强化学习方案，结合树结构观测、分阶段训练和集中控制，改善多列车的协同路径规划。"
+      "description": "共同研究 Flatland 中多列车共享线路的强化学习调度方案，结合 Tree LSTM 树结构观测、分阶段训练与集中控制，改善协同路径规划，减少冲突和死锁。"
     },
     "external_url": "https://arxiv.org/abs/2210.12933",
+    "detail": "/projects/flatland/",
     "sort_key": 202200,
     "image": "/img/projects/tree-lstm-mapf.png",
     "image_source": "https://arxiv.org/pdf/2210.12933"
