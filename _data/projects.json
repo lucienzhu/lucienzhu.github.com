@@ -89,25 +89,6 @@
     "image_source": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.pdf"
   },
   {
-    "image": "/projects/gameai/parametrix.png",
-    "info": {
-      "en": "<i class=\"fi-torsos-all\">Parametrix.ai</i>\n          <br>",
-      "zh": "<i class=\"fi-torsos-all\">Parametrix.ai</i>\n          <br>"
-    },
-    "en": {
-      "title": "Game AI and multi-agent systems",
-      "date": "2019–2024",
-      "description": "As a founding member and later Vice President at Parametrix.ai, worked on the technical architecture and research behind game bots, NPCs and multi-agent simulation across MOBA, FPS, strategy and card games."
-    },
-    "zh": {
-      "title": "游戏 AI 与多智能体系统",
-      "date": "2019–2024 年",
-      "description": "作为超参数科技创始成员及后来的副总裁，参与游戏机器人、NPC 和多智能体仿真的技术架构与前沿研究，覆盖 MOBA、FPS、策略及卡牌等游戏类型。"
-    },
-    "id": "game-ai-and-agents",
-    "sort_key": 202400
-  },
-  {
     "id": "neural-mmo-challenges",
     "info": {
       "en": "Co-organizer · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
@@ -257,6 +238,76 @@
     "sort_key": 202200,
     "image": "/img/projects/emergent-collective-intelligence.png",
     "image_source": "https://arxiv.org/pdf/2301.01609"
+  },
+  {
+    "id": "delta-game-ai",
+    "sort_key": 202100,
+    "image": "/img/projects/delta-chinajoy-2021.jpg",
+    "external_url": "https://m.tgbus.com/chinajoy/news/129540",
+    "info": {
+      "en": "Parametrix.ai · Deeply involved · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">Platform overview</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">2021 showcase</a>",
+      "zh": "超参数科技 · 深度参与 · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">平台介绍</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">2021 年展示</a>"
+    },
+    "en": {
+      "title": "Delta · Game AI platform and MOBA AI",
+      "date": "2021",
+      "description": "Deeply involved in Delta and MOBA game AI engineering, working on game integration, model iteration and training-to-deployment workflows to bring reinforcement learning into commercial games.",
+      "image_alt": "Parametrix.ai game AI demonstrations at ChinaJoy 2021"
+    },
+    "zh": {
+      "title": "Delta：游戏 AI 平台与 MOBA 工程化",
+      "date": "2021 年",
+      "description": "深度参与 Delta 游戏 AI 平台与 MOBA AI 工程化，围绕游戏接入、模型迭代和训练到部署的流程建设，推动强化学习在商业游戏中的落地。",
+      "image_alt": "超参数科技在 ChinaJoy 2021 展示游戏 AI 产品"
+    },
+    "image_source": "https://img.36krcdn.com/20210914/v2_d62f71bd970849b4a7adb82196e30e07_img_000?x-oss-process=image/resize,w_960/format,jpg/quality,q_85",
+    "image_source_page": "https://www.36kr.com/p/1398066247517828"
+  },
+  {
+    "id": "your-turn-ai",
+    "sort_key": 202000,
+    "image": "/img/projects/your-turn-ai.jpg",
+    "external_url": "https://www.36kr.com/p/1352881510378887",
+    "info": {
+      "en": "Parametrix.ai · Deeply involved · <a href=\"https://www.36kr.com/p/1352881510378887\">AI technical overview</a> · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">2020 interview</a>",
+      "zh": "超参数科技 · 深度参与 · <a href=\"https://www.36kr.com/p/1352881510378887\">AI 技术介绍</a> · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">2020 年访谈</a>"
+    },
+    "en": {
+      "title": "Your Turn · AI social deduction game",
+      "date": "2020",
+      "description": "Deeply involved in developing AI for Your Turn (轮到你了揭秘篇), a five-player social deduction game selected as a WeChat Creative Mini Game. Its AI players use different skill levels and play styles to support human-like play and matchmaking under hidden information.",
+      "image_alt": "Your Turn gameplay and match history from the official game introduction"
+    },
+    "zh": {
+      "title": "《轮到你了揭秘篇》：AI 推理游戏",
+      "date": "2020 年",
+      "description": "深度参与五人身份推理游戏《轮到你了揭秘篇》的 AI 研发，以不同段位和风格的 AI 玩家支撑非完美信息下的博弈与匹配体验，探索围绕 AI 设计游戏；产品入选微信创意小游戏。",
+      "image_alt": "官方介绍中的《轮到你了揭秘篇》游戏界面与对局记录"
+    },
+    "image_source": "https://img.36krcdn.com/20210813/v2_13f6153df9ba4b7ba362225a6ce58b90_img_000",
+    "image_source_page": "https://www.36kr.com/p/1352881510378887"
+  },
+  {
+    "image": "/projects/gameai/parametrix.png",
+    "info": {
+      "en": "Parametrix.ai · Founding member · Later Vice President",
+      "zh": "超参数科技 · 创始成员 · 后任副总裁"
+    },
+    "en": {
+      "title": "Parametrix.ai · Reinforcement learning foundations",
+      "date": "2019",
+      "description": "As a founding member of Parametrix.ai, worked on early game AI architecture and reinforcement learning infrastructure, including training workflows, experience buffering and experiment monitoring.",
+      "image_alt": "Parametrix.ai logo"
+    },
+    "zh": {
+      "title": "超参数科技：早期强化学习基础设施",
+      "date": "2019 年",
+      "description": "作为超参数科技创始成员，参与早期游戏 AI 技术架构与强化学习基础设施建设，打通训练流程、样本缓存和实验监控。",
+      "image_alt": "超参数科技标志"
+    },
+    "id": "game-ai-and-agents",
+    "sort_key": 201900,
+    "external_url": "https://www.parametrix.ai/about"
   },
   {
     "image": "/projects/linuxfoundation/lf-stacked-color.svg",
