@@ -52,21 +52,25 @@ a {
     margin: 1.5rem auto;
 }
 
-.longform .article-figure {
+.post-content .article-figure {
     max-width: 35rem;
     margin: 1.5rem auto;
 }
 
-.longform .article-figure img {
+.post-content .article-figure img {
+    display: block;
     width: 100%;
+    height: auto;
+    max-height: 24rem;
+    object-fit: contain;
     margin: 0 auto;
     cursor: zoom-in;
 }
 
-.longform .article-figure--medium {
+.post-content .article-figure--medium {
     max-width: 30rem;
 }
 
-.longform .article-figure--small {
+.post-content .article-figure--small {
     max-width: 22.5rem;
 }
