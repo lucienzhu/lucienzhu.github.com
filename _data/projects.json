@@ -1,5 +1,30 @@
 [
   {
+    "id": "3card-royale",
+    "sort_key": 202610,
+    "image": "/img/projects/3card-royale.svg",
+    "image_source": "https://lucienzhu.github.io/gk-royale-playtest/brand-mark.svg",
+    "external_url": "https://lucienzhu.github.io/gk-royale-playtest/about.html",
+    "external_urls": {
+      "en": "https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=en",
+      "zh": "https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=zh-CN"
+    },
+    "info": {
+      "en": "Game design & development · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/?lang=en\">Play online</a> · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=en\">Rules</a> · <a href=\"https://github.com/lucienzhu/gk-royale-playtest\">Code</a>",
+      "zh": "玩法设计与开发 · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/?lang=zh-CN\">在线试玩</a> · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=zh-CN\">规则</a> · <a href=\"https://github.com/lucienzhu/gk-royale-playtest\">代码</a>"
+    },
+    "en": {
+      "title": "3Card Royale",
+      "date": "2024–2026",
+      "description": "Designed and open-sourced a two-player card game using a standard deck, with attack, defense and a race from 2 to Ace. Built a bilingual browser demo, portable game SDKs and a reinforcement-learning environment."
+    },
+    "zh": {
+      "title": "深圳花牌 · 3Card Royale",
+      "date": "2024–2026 年",
+      "description": "原创设计并开源双人扑克游戏，以一副普通扑克牌展开从 2 到 A 的攻防升级。提供中英文在线试玩、多语言游戏 SDK 与强化学习环境。"
+    }
+  },
+  {
     "id": "tennis-robot",
     "sort_key": 202600,
     "image": "/img/projects/tennis-robot.svg",

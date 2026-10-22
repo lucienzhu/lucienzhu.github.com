@@ -6,9 +6,10 @@ layout: default
   <div class="large-12 columns projects">
     {% for project in site.data.projects %}
     {% assign text = project[locale] %}
+    {% assign project_url = project.external_urls[locale] | default: project.external_url %}
     <article class="project-entry"{% if project.id %} id="{{ project.id }}"{% endif %}>
       <div class="project-heading">
-        <h2 class="project-title">{% if project.detail %}<a href="{{ locale_prefix | append: project.detail | relative_url }}">{{ text.title }}</a>{% elsif project.external_url %}<a href="{{ project.external_url }}">{{ text.title }}</a>{% else %}{{ text.title }}{% endif %}</h2>
+        <h2 class="project-title">{% if project.detail %}<a href="{{ locale_prefix | append: project.detail | relative_url }}">{{ text.title }}</a>{% elsif project_url %}<a href="{{ project_url }}">{{ text.title }}</a>{% else %}{{ text.title }}{% endif %}</h2>
         <p class="project-period">{{ text.date }}</p>
       </div>
       {% if project.image %}<div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ text.image_alt | default: text.title | strip_html | escape }}" loading="lazy"></div>{% endif %}
