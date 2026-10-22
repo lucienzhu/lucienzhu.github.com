@@ -228,12 +228,12 @@
     "en": {
       "title": "Flatland · Multi-agent railway coordination",
       "date": "2022",
-      "description": "Co-authored a reinforcement learning solution for coordinating trains on shared railway tracks in Flatland. Combined Tree LSTM observations, phased training and centralized control to improve routing and reduce deadlocks."
+      "description": "Co-authored an early Flatland reinforcement learning alternative to classical operations research for railway scheduling and path finding. Tree LSTM rail observations, phased training and centralized control brought learned policies into competition with leading OR methods."
     },
     "zh": {
       "title": "Flatland：多列车协同调度与路径规划",
       "date": "2022 年",
-      "description": "共同研究 Flatland 中多列车共享线路的强化学习调度方案，结合 Tree LSTM 树结构观测、分阶段训练与集中控制，改善协同路径规划，减少冲突和死锁。"
+      "description": "面向传统由运筹学求解的铁路调度与路径规划，参与早期以强化学习探索经典求解替代路线的研究。将 Tree LSTM 用于轨道拓扑观测，结合分阶段训练与集中控制，使学习型策略达到可与领先运筹方法竞争的水平。"
     },
     "external_url": "https://arxiv.org/abs/2210.12933",
     "detail": "/projects/flatland/",

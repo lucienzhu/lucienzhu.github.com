@@ -7,9 +7,13 @@ extra_css:
 - /css/project-detail.css
 ---
 
-Co-authored *Multi-Agent Path Finding via Tree LSTM*, a reinforcement learning approach to coordinating trains on a shared rail network. Each train must reach its destination while sharing tracks and junctions with other trains; conflicting decisions can cause congestion and irreversible deadlocks.
+Railway scheduling and multi-agent path finding are classic operations research and combinatorial optimization problems. Trains must share tracks and junctions under timetable constraints, avoiding conflicts and deadlocks. Planning, search and replanning are established approaches to these problems.
 
-The solution combines tree-structured observations encoded by Tree LSTM, phased training, reward shaping and centralized control. The archived demonstrations below show an early policy and a later policy on the same test scenario.
+Co-authored *Multi-Agent Path Finding via Tree LSTM*, an early exploration of learned policies as an alternative in Flatland. The key innovation was applying Tree LSTM to branching rail observations, combined with reward shaping, phased training and centralized coordination, so agents could learn cooperative scheduling through simulation.
+
+The paper reports a Flatland3 score of **125.3**, compared with **27.9** for the best reinforcement learning entry in the 2021 challenge. This placed the method between the second- and third-ranked operations research entries in the paper’s comparison, demonstrating a competitive learning-based route to a classical scheduling problem.
+
+The archived demonstrations below show an early policy and a later policy on the same test scenario.
 
 <div class="project-demo-pair">
   {% include project-video.html id="demo" src="/media/projects/flatland-early.mp4" poster="/img/projects/flatland-early.jpg" width="754" height="880" label="Early policy: trains encounter conflicts and deadlocks." %}
