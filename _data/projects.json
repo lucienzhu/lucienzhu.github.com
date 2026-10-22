@@ -1,5 +1,47 @@
 [
   {
+    "id": "tennis-robot",
+    "sort_key": 202500,
+    "image": "/img/projects/tennis-robot.svg",
+    "info": {
+      "en": "Robotics exploration",
+      "zh": "机器人探索"
+    },
+    "en": {
+      "title": "Tennis Robot",
+      "date": "2025",
+      "description": "Explored how visual perception, reinforcement learning and game AI could support tennis robotics and on-court interaction.",
+      "image_alt": "Concept illustration of a tennis ball and trajectory sensing"
+    },
+    "zh": {
+      "title": "网球机器人",
+      "date": "2025 年",
+      "description": "探索将视觉感知、强化学习与博弈决策用于网球机器人，把游戏 AI 的经验延伸到真实场地的人机互动。",
+      "image_alt": "网球与轨迹感知的概念示意图"
+    }
+  },
+  {
+    "id": "super-intern",
+    "sort_key": 202500,
+    "image": "/img/projects/super-intern.png",
+    "image_source": "https://www.producthunt.com/products/super-intern-4",
+    "external_url": "https://www.superintern.ai/",
+    "info": {
+      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt</a>",
+      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt</a>"
+    },
+    "en": {
+      "title": "Super Intern",
+      "date": "2024–2025",
+      "description": "Built an AI teammate for group chats, using shared context to answer questions, track tasks and take action across Discord, Telegram and Slack."
+    },
+    "zh": {
+      "title": "Super Intern",
+      "date": "2024–2025 年",
+      "description": "研发面向群聊的 AI 队友，基于共享上下文回答问题、跟踪任务并执行操作，支持 Discord、Telegram 和 Slack。"
+    }
+  },
+  {
     "id": "d3po",
     "info": {
       "en": "Co-author · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">Code</a>",

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 96" fill="none">
+  <title>Tennis robotics concept</title>
+  <desc>A concept illustration of a tennis ball and trajectory sensing, not a product photograph.</desc>
+  <path d="M12 80H132M24 66H120M40 51H104M24 66L40 51M120 66L104 51M72 51V80" stroke="#B7C7BE" stroke-width="1.5"/>
+  <path d="M18 56C38 15 91 12 123 49" stroke="#616D68" stroke-width="2" stroke-dasharray="3 5"/>
+  <circle cx="18" cy="56" r="3" fill="#616D68"/>
+  <circle cx="123" cy="49" r="3" fill="#616D68"/>
+  <circle cx="75" cy="32" r="22" fill="#BCD654"/>
+  <path d="M58 18C76 19 89 34 90 48M62 50C64 36 77 22 94 21" stroke="#FFFFFF" stroke-width="2.5"/>
+</svg>
