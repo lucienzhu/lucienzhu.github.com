@@ -1,22 +1,22 @@
 [
   {
     "id": "tennis-robot",
-    "sort_key": 202500,
+    "sort_key": 202600,
     "image": "/img/projects/tennis-robot.svg",
     "info": {
-      "en": "Robotics exploration",
-      "zh": "机器人探索"
+      "en": "Sim2Real reinforcement learning · Real-time SLAM · Low-latency perception · SoC design and acceleration",
+      "zh": "强化学习 Sim2Real · 实时 SLAM · 低延迟感知 · SoC 设计与加速"
     },
     "en": {
       "title": "Tennis Robot",
-      "date": "2025",
-      "description": "Explored how visual perception, reinforcement learning and game AI could support tennis robotics and on-court interaction.",
+      "date": "2025–2026",
+      "description": "Advanced a tennis robot from proof of concept to the EVT stage, supporting rally practice, ball serving and collection, coaching, and practice logging.",
       "image_alt": "Concept illustration of a tennis ball and trajectory sensing"
     },
     "zh": {
       "title": "网球机器人",
-      "date": "2025 年",
-      "description": "探索将视觉感知、强化学习与博弈决策用于网球机器人，把游戏 AI 的经验延伸到真实场地的人机互动。",
+      "date": "2025–2026 年",
+      "description": "将网球机器人从概念验证推进至 EVT 阶段，支持陪打、发球、捡球、教练指导与训练记录。",
       "image_alt": "网球与轨迹感知的概念示意图"
     }
   },
