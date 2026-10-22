@@ -240,6 +240,54 @@
     "image_source": "https://arxiv.org/pdf/2301.01609"
   },
   {
+    "id": "ultra",
+    "sort_key": 202200,
+    "detail": "/projects/ultra/",
+    "image": "/img/projects/ultra.jpg",
+    "en": {
+      "title": "Ultra · Humans and AI in one game",
+      "date": "2021–2022",
+      "description": "Worked on a multiplayer world where humans and AI explore, gather, survive and fight together, and helped organize an AI esports event around the prototype.",
+      "image_alt": "Ultra concept demonstration: human and AI characters in a shared voxel world"
+    },
+    "zh": {
+      "title": "Ultra：人和 AI 一起玩的游戏",
+      "date": "2021–2022 年",
+      "description": "参与研发人机共玩的多人世界，让真人玩家与 AI 在探索、采集、生存和战斗中合作与竞争，并与团队组织了一场 AI 电竞活动。",
+      "image_alt": "Ultra 概念演示：真人与 AI 共享的体素游戏世界"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ultra/#demo\">Demo</a> · <a href=\"/life/2022/12/31/ultra-neural-esports.html\">AI esports</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ultra/#demo\">演示视频</a> · <a href=\"/zh/life/2022/12/31/ultra-neural-esports.html\">AI 电竞</a>"
+    },
+    "image_source": "/media/projects/ultra-demo.mp4",
+    "image_time_seconds": 29.56,
+    "image_source_note": "Original frame from the archived January 2022 Ultra concept video; the website includes its first 70 seconds."
+  },
+  {
+    "id": "ai-economics",
+    "sort_key": 202200,
+    "detail": "/projects/ai-economics/",
+    "image": "/img/projects/ai-economics.svg",
+    "en": {
+      "title": "AI Economics · Multi-agent exchange",
+      "date": "2022",
+      "description": "Worked on an independent, runnable economic simulation prototype with resource exchange between agents, exploring how individual needs and differences in production ability can connect through trade.",
+      "image_alt": "Concept illustration of agents exchanging food, timber and stone"
+    },
+    "zh": {
+      "title": "AI Economics：多智能体经济交换",
+      "date": "2022 年",
+      "description": "参与构建独立的多智能体经济仿真项目，已形成支持资源交换的可运行原型，探索个体需求、生产能力差异与交换如何连接成分工和交易。",
+      "image_alt": "智能体交换食物、木材与石料的机制示意图"
+    },
+    "info": {
+      "en": "Parametrix.ai · Working prototype · Resource exchange",
+      "zh": "超参数科技 · 可运行原型 · 资源交换"
+    },
+    "image_source_note": "Concept illustration based on the archived AI Economics environment design."
+  },
+  {
     "id": "delta-game-ai",
     "sort_key": 202100,
     "image": "/img/projects/delta-chinajoy-2021.jpg",
@@ -262,6 +310,31 @@
     },
     "image_source": "https://img.36krcdn.com/20210914/v2_d62f71bd970849b4a7adb82196e30e07_img_000?x-oss-process=image/resize,w_960/format,jpg/quality,q_85",
     "image_source_page": "https://www.36kr.com/p/1398066247517828"
+  },
+  {
+    "id": "ai-jianghu",
+    "sort_key": 202100,
+    "detail": "/projects/ai-jianghu/",
+    "image": "/img/projects/ai-jianghu.jpg",
+    "en": {
+      "title": "AI Jianghu · Generative wuxia adventure",
+      "date": "2021",
+      "description": "Worked on a text-adventure prototype where players choose a character, type their own actions and let AI continue a wuxia story, exploring generative language models as an interactive game mechanic.",
+      "image_alt": "AI Jianghu prototype demonstration: character-driven stories and open text input"
+    },
+    "zh": {
+      "title": "AI 江湖录：生成式武侠文字冒险",
+      "date": "2021 年",
+      "description": "参与研发武侠文字冒险原型，让玩家选择角色、自由输入行动，由 AI 续写故事，探索语言模型与开放式叙事玩法的结合。",
+      "image_alt": "AI 江湖录原型演示：角色故事与自由文本输入"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ai-jianghu/#demo\">Demo</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ai-jianghu/#demo\">演示视频</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>"
+    },
+    "image_source": "/media/projects/ai-jianghu-demo.mp4",
+    "image_time_seconds": 16.8,
+    "image_source_note": "Original frame from the archived 2021 prototype demonstration."
   },
   {
     "id": "your-turn-ai",
