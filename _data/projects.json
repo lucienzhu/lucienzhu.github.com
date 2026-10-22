@@ -496,18 +496,18 @@
     "image": "/projects/linuxfoundation/lf-stacked-color.svg",
     "external_url": "https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem",
     "info": {
-      "en": "Tencent × Linux Foundation",
-      "zh": "腾讯 × Linux Foundation"
+      "en": "Tencent × Linux Foundation · <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Official news · 27 Aug 2018</a> · <a href=\"https://github.com/Angel-ML/angel\">Angel source</a>",
+      "zh": "腾讯 × Linux Foundation · <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">官方新闻 · 2018-08-27</a> · <a href=\"https://github.com/Angel-ML/angel\">Angel 代码</a>"
     },
     "en": {
       "title": "Linux Foundation / LF Deep Learning TAC",
       "date": "2018",
-      "description": "Represented Tencent on the Technical Advisory Council (TAC) of the <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a>. Supported open-source AI collaboration and Tencent’s contribution of <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel</a> to the foundation."
+      "description": "Represented Tencent on the Technical Advisory Council (TAC) of the <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a>. Supported open-source AI collaboration and Tencent’s contribution of <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel</a> to the foundation. The Linux Foundation’s August 27, 2018 announcement quoted me as a Tencent senior AI researcher and TAC member."
     },
     "zh": {
       "title": "Linux Foundation / LFDL 技术顾问委员会",
       "date": "2018 年",
-      "description": "作为腾讯代表，担任 <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a> 技术顾问委员会（TAC）成员，参与推进 <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel 项目加入基金会</a>，与社区合作建设开源 AI 生态。"
+      "description": "作为腾讯代表，担任 <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a> 技术顾问委员会（TAC）成员，参与推进 <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel 项目加入基金会</a>，与社区合作建设开源 AI 生态。2018 年 8 月 27 日，Linux Foundation 官方新闻以腾讯高级 AI 研究员及 TAC 成员身份引用我的发言。"
     },
     "id": "linux-foundation",
     "sort_key": 201800,

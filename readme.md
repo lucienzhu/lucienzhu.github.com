@@ -15,7 +15,7 @@ bundle exec jekyll serve
 
 主导航为 Home、Projects、Updates。个人介绍合并在 Home，原 `/about/` 和 `/zh/about/` 地址分别跳转到对应语言的首页。
 
-Projects 中的 Linux Foundation 经历链接到 2018 年官方报道；标志使用[官方品牌资源](https://www.linuxfoundation.org/brand-guidelines)，其名称和标志属于 The Linux Foundation。
+Projects 中的 Linux Foundation 经历链接到 2018 年官方报道，并保留新闻与 Angel 代码入口。[2018 年 8 月 27 日官方新闻](https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem)明确以腾讯高级 AI 研究员及 LFDL TAC 成员身份引用 Xiaolong Zhu 的发言，可作为个人角色的公开出处，不据此追加 Angel 创始人或核心算法作者身份。当天的动态沿用原 `angel-lfdl.html` 网址，标题使用现可访问的官方新闻入口，旧新闻地址继续保留在中英文正文，另附开源代码，不新增重复动态。项目日期继续按 2018 年展示，与新闻的具体发布日期分开。标志使用[官方品牌资源](https://www.linuxfoundation.org/brand-guidelines)，其名称和标志属于 The Linux Foundation。
 
 Projects 的经历、日期、个人角色和中英文文案集中在 `_data/projects.json`，按 `sort_key` 倒序维护为一个带图列表，不再按主题分组。`sort_key` 使用结束或发表年月（YYYYMM），只有年份时月份为 00；同年且月份不明的条目保留原有顺序。每项使用稳定 `id`，新增缩略图的原始资料链接记录在 `image_source`。论文按正式会议年份标注，工作经历按实际任职期间标注，赛事年份与报告发表年份分别说明。新增内容应附公开的论文、代码或赛事链接，团队项目须明确个人角色。
 
