@@ -27,18 +27,18 @@
     "image_source": "https://www.producthunt.com/products/super-intern-4",
     "external_url": "https://www.superintern.ai/",
     "info": {
-      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt</a>",
-      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt</a>"
+      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · #1 Product of the Day</a>",
+      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · 当日产品第 1 名</a>"
     },
     "en": {
       "title": "Super Intern",
       "date": "2024–2025",
-      "description": "Built an AI teammate for group chats, using shared context to answer questions, track tasks and take action across Discord, Telegram and Slack."
+      "description": "Built an AI teammate for group chats, using shared context to answer questions, track tasks and take action across Discord and Slack."
     },
     "zh": {
       "title": "Super Intern",
       "date": "2024–2025 年",
-      "description": "研发面向群聊的 AI 队友，基于共享上下文回答问题、跟踪任务并执行操作，支持 Discord、Telegram 和 Slack。"
+      "description": "研发面向群聊的 AI 队友，基于共享上下文回答问题、跟踪任务并执行操作，支持 Discord 和 Slack。"
     }
   },
   {
