@@ -538,18 +538,18 @@
   {
     "image": "/projects/goai/fineart.png",
     "info": {
-      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group</i>\n          <br>",
-      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG</i>\n          <br>"
+      "en": "Tencent TEG · <a href=\"/life/work/2018/03/15/2nd-ailab-academic-forum.html\">2018 talk · Learning Go from Scratch</a>",
+      "zh": "腾讯 TEG · <a href=\"/zh/life/work/2018/03/15/2nd-ailab-academic-forum.html\">2018 年演讲《从零开始学围棋》</a>"
     },
     "en": {
       "title": "Go AI FineArt",
       "date": "2018",
-      "description": "Train our AI, <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">FineArt (绝艺)</a>, who masters the game of Go."
+      "description": "Worked on reinforcement learning research and training for <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">FineArt (绝艺)</a>, Tencent’s Go AI, and shared the training approach in “Learning Go from Scratch” at the 2018 Tencent AI Lab Academic Forum."
     },
     "zh": {
       "title": "围棋 AI 绝艺",
       "date": "2018 年",
-      "description": "训练精通围棋的 AI <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">绝艺（FineArt）</a>。"
+      "description": "参与围棋 AI <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">绝艺（FineArt）</a>的强化学习算法研究与训练，并在 2018 年腾讯 AI Lab 学术论坛以《从零开始学围棋》分享训练过程与技术探索。"
     },
     "id": "fineart",
     "sort_key": 201800,
