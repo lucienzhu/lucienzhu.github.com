@@ -29,8 +29,8 @@
     "sort_key": 202600,
     "image": "/img/projects/tennis-robot.svg",
     "info": {
-      "en": "Sim2Real reinforcement learning · Real-time SLAM · Low-latency perception · SoC design and acceleration",
-      "zh": "强化学习 Sim2Real · 实时 SLAM · 低延迟感知 · SoC 设计与加速"
+      "en": "Sim2Real reinforcement learning · Real-time SLAM · Low-latency perception · SoC design and acceleration · <a href=\"https://www.cedarobo.com/en\">Website</a>",
+      "zh": "强化学习 Sim2Real · 实时 SLAM · 低延迟感知 · SoC 设计与加速 · <a href=\"https://www.cedarobo.com/en\">官网</a>"
     },
     "en": {
       "title": "Tennis Robot",
@@ -43,7 +43,8 @@
       "date": "2025–2026 年",
       "description": "将网球机器人从概念验证推进至 EVT 阶段，支持陪打、发球、捡球、教练指导与训练记录。",
       "image_alt": "网球与轨迹感知的概念示意图"
-    }
+    },
+    "external_url": "https://www.cedarobo.com/en"
   },
   {
     "id": "super-intern",
