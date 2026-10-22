@@ -486,14 +486,14 @@
       "zh": "<i class=\"fi-torsos-all\">腾讯 TEG</i>\n        <br>"
     },
     "en": {
-      "title": "Chinese New Year H5",
+      "title": "Portrait Cutout · Chinese New Year H5",
       "date": "Jan. 2017",
-      "description": "A filter that changes your photo background with Chinese New Year greetings."
+      "description": "Pioneered an automatic portrait cutout solution for a Chinese New Year H5 experience, separating people from photo backgrounds and replacing the backgrounds with festive greeting scenes."
     },
     "zh": {
-      "title": "新春祝福 H5",
+      "title": "人像抠图与新春祝福 H5",
       "date": "2017 年 1 月",
-      "description": "将照片背景替换为新春祝福的图像滤镜。"
+      "description": "首创人像自动抠图方案，落地新春祝福 H5，将照片中的人物与背景分离，并替换为新春祝福场景。"
     },
     "id": "new-year-h5",
     "sort_key": 201701
