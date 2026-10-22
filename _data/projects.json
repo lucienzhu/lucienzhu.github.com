@@ -22,7 +22,12 @@
       "title": "深圳花牌 · 3Card Royale",
       "date": "2024–2026 年",
       "description": "原创设计并开源双人扑克游戏，以一副普通扑克牌展开从 2 到 A 的攻防升级。提供中英文在线试玩、多语言游戏 SDK 与强化学习环境。"
-    }
+    },
+    "tags": [
+      "rl",
+      "product",
+      "games"
+    ]
   },
   {
     "id": "tennis-robot",
@@ -44,7 +49,12 @@
       "description": "将网球机器人从概念验证推进至 EVT 阶段，支持陪打、发球、捡球、教练指导与训练记录。",
       "image_alt": "网球与轨迹感知的概念示意图"
     },
-    "external_url": "https://www.cedarobo.com/en"
+    "external_url": "https://www.cedarobo.com/en",
+    "tags": [
+      "rl",
+      "product",
+      "robotics"
+    ]
   },
   {
     "id": "super-intern",
@@ -65,7 +75,10 @@
       "title": "Super Intern",
       "date": "2024–2025 年",
       "description": "研发面向群聊的 AI 队友，基于共享上下文回答问题、跟踪任务并执行操作，支持 Discord 和 Slack。"
-    }
+    },
+    "tags": [
+      "product"
+    ]
   },
   {
     "id": "d3po",
@@ -86,7 +99,10 @@
     "external_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html",
     "sort_key": 202400,
     "image": "/img/projects/d3po.png",
-    "image_source": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.pdf"
+    "image_source": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.pdf",
+    "tags": [
+      "rl"
+    ]
   },
   {
     "image": "/projects/gameai/parametrix.png",
@@ -108,7 +124,13 @@
     },
     "id": "game-ai-and-agents",
     "sort_key": 202400,
-    "external_url": "https://www.parametrix.ai/about"
+    "external_url": "https://www.parametrix.ai/about",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games"
+    ]
   },
   {
     "id": "neural-mmo-challenges",
@@ -129,7 +151,12 @@
     "external_url": "https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge",
     "sort_key": 202300,
     "image": "/img/projects/neural-mmo-challenges.png",
-    "image_source": "https://arxiv.org/pdf/2311.03707"
+    "image_source": "https://arxiv.org/pdf/2311.03707",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "lux-ai-season-2",
@@ -150,7 +177,12 @@
     "external_url": "https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2",
     "sort_key": 202300,
     "image": "/img/projects/lux-ai-season-2.png",
-    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb"
+    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "jux",
@@ -171,7 +203,12 @@
     "external_url": "https://github.com/RoboEden/jux",
     "sort_key": 202300,
     "image": "/img/projects/jux.png",
-    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb"
+    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "neural-mmo-2",
@@ -192,7 +229,12 @@
     "external_url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html",
     "sort_key": 202300,
     "image": "/img/projects/neural-mmo-2.png",
-    "image_source": "https://proceedings.neurips.cc/paper_files/paper/2023/file/9ca22870ae0ba55ee50ce3e2d269e5de-Paper-Datasets_and_Benchmarks.pdf"
+    "image_source": "https://proceedings.neurips.cc/paper_files/paper/2023/file/9ca22870ae0ba55ee50ce3e2d269e5de-Paper-Datasets_and_Benchmarks.pdf",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "gaea",
@@ -217,7 +259,12 @@
     "sort_key": 202300,
     "image_source": "https://guanwang-dev.obs.cn-south-1.myhuaweicloud.com/static-video/changan-city.mp4",
     "image_source_page": "https://www.chaocanshu.cn/product/game_npc",
-    "image_time_seconds": 10
+    "image_time_seconds": 10,
+    "tags": [
+      "multi-agent",
+      "product",
+      "games"
+    ]
   },
   {
     "id": "tree-lstm-mapf",
@@ -239,7 +286,11 @@
     "detail": "/projects/flatland/",
     "sort_key": 202200,
     "image": "/img/projects/tree-lstm-mapf.png",
-    "image_source": "https://arxiv.org/pdf/2210.12933"
+    "image_source": "https://arxiv.org/pdf/2210.12933",
+    "tags": [
+      "rl",
+      "multi-agent"
+    ]
   },
   {
     "id": "emergent-collective-intelligence",
@@ -260,7 +311,12 @@
     "external_url": "https://openreview.net/pdf?id=KCWm-HV0PQT",
     "sort_key": 202200,
     "image": "/img/projects/emergent-collective-intelligence.png",
-    "image_source": "https://arxiv.org/pdf/2301.01609"
+    "image_source": "https://arxiv.org/pdf/2301.01609",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "ultra",
@@ -285,7 +341,12 @@
     },
     "image_source": "/media/projects/ultra-demo.mp4",
     "image_time_seconds": 29.56,
-    "image_source_note": "Original frame from the archived January 2022 Ultra concept video; the website includes its first 70 seconds."
+    "image_source_note": "Original frame from the archived January 2022 Ultra concept video; the website includes its first 70 seconds.",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "ai-economics",
@@ -308,7 +369,10 @@
       "en": "Parametrix.ai · Working prototype · Resource exchange",
       "zh": "超参数科技 · 可运行原型 · 资源交换"
     },
-    "image_source_note": "Concept illustration based on the archived AI Economics environment design."
+    "image_source_note": "Concept illustration based on the archived AI Economics environment design.",
+    "tags": [
+      "multi-agent"
+    ]
   },
   {
     "id": "ruin-guardians",
@@ -333,7 +397,12 @@
     },
     "image_source": "/media/projects/ruin-guardians-demo.mp4",
     "image_time_seconds": 5,
-    "image_source_note": "Original frame from the archived March 8, 2021 prototype video, 2021-03-08-11-48-31_109_w_ex.mp4; an early development build, not the final ChinaJoy presentation."
+    "image_source_note": "Original frame from the archived March 8, 2021 prototype video, 2021-03-08-11-48-31_109_w_ex.mp4; an early development build, not the final ChinaJoy presentation.",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
   },
   {
     "id": "delta-game-ai",
@@ -357,7 +426,13 @@
       "image_alt": "超参数科技在 ChinaJoy 2021 展示游戏 AI 产品"
     },
     "image_source": "https://img.36krcdn.com/20210914/v2_d62f71bd970849b4a7adb82196e30e07_img_000?x-oss-process=image/resize,w_960/format,jpg/quality,q_85",
-    "image_source_page": "https://www.36kr.com/p/1398066247517828"
+    "image_source_page": "https://www.36kr.com/p/1398066247517828",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games"
+    ]
   },
   {
     "id": "ai-jianghu",
@@ -382,7 +457,10 @@
     },
     "image_source": "/media/projects/ai-jianghu-demo.mp4",
     "image_time_seconds": 16.8,
-    "image_source_note": "Original frame from the archived 2021 prototype demonstration."
+    "image_source_note": "Original frame from the archived 2021 prototype demonstration.",
+    "tags": [
+      "games"
+    ]
   },
   {
     "id": "your-turn-ai",
@@ -406,7 +484,13 @@
       "image_alt": "官方介绍中的《轮到你了揭秘篇》游戏界面与对局记录"
     },
     "image_source": "https://img.36krcdn.com/20210813/v2_13f6153df9ba4b7ba362225a6ce58b90_img_000",
-    "image_source_page": "https://www.36kr.com/p/1352881510378887"
+    "image_source_page": "https://www.36kr.com/p/1352881510378887",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games"
+    ]
   },
   {
     "image": "/projects/linuxfoundation/lf-stacked-color.svg",
@@ -426,7 +510,8 @@
       "description": "作为腾讯代表，担任 <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a> 技术顾问委员会（TAC）成员，参与推进 <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel 项目加入基金会</a>，与社区合作建设开源 AI 生态。"
     },
     "id": "linux-foundation",
-    "sort_key": 201800
+    "sort_key": 201800,
+    "tags": []
   },
   {
     "image": "/projects/mobileai/feathercnn.png",
@@ -445,7 +530,10 @@
       "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套移动端推理方案的研发、部署与性能优化，完成 300 多款 Android / iOS 机型适配，覆盖高通 Snapdragon、联发科等芯片平台及不同 CPU / GPU 组合。"
     },
     "id": "feathercnn",
-    "sort_key": 201800
+    "sort_key": 201800,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/goai/fineart.png",
@@ -464,7 +552,11 @@
       "description": "训练精通围棋的 AI <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">绝艺（FineArt）</a>。"
     },
     "id": "fineart",
-    "sort_key": 201800
+    "sort_key": 201800,
+    "tags": [
+      "rl",
+      "games"
+    ]
   },
   {
     "image": "/projects/humanpose/gaonengwushi.png",
@@ -483,7 +575,10 @@
       "description": "首创移动端实时骨架追踪与动作识别方案，落地手机 QQ「高能舞室」，支持 2014 年以来上市的 iOS 和 Android 手机。"
     },
     "id": "mobile-qq-pose",
-    "sort_key": 201712
+    "sort_key": 201712,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/styletransfer/videostyle.png",
@@ -502,7 +597,10 @@
       "description": "首创移动端实时视频风格迁移方案，落地手机 QQ，为 iOS 和 Android 手机提供实时艺术风格滤镜。"
     },
     "id": "live-video-style",
-    "sort_key": 201703
+    "sort_key": 201703,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/semanticsegmentation/people.jpg",
@@ -521,7 +619,10 @@
       "description": "首创人像自动抠图方案，落地新春祝福 H5，将照片中的人物与背景分离，并替换为新春祝福场景。"
     },
     "id": "new-year-h5",
-    "sort_key": 201701
+    "sort_key": 201701,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/semanticsegmentation/sky.jpg",
@@ -540,7 +641,10 @@
       "description": "根据图像内容生成效果的照片滤镜。"
     },
     "id": "your-name-filter",
-    "sort_key": 201610
+    "sort_key": 201610,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/styletransfer/styletransfer.jpg",
@@ -559,7 +663,10 @@
       "description": "首创神经网络照片风格化滤镜，在毫秒级时间内完成照片的艺术风格迁移。"
     },
     "id": "neural-style-filter",
-    "sort_key": 201603
+    "sort_key": 201603,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/tencent/teg_logo.png",
@@ -578,7 +685,8 @@
       "description": "研发声学模型的分布式训练算法。"
     },
     "id": "distributed-learning",
-    "sort_key": 201603
+    "sort_key": 201603,
+    "tags": []
   },
   {
     "id": "reflective-face-regression",
@@ -599,7 +707,8 @@
     "external_url": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf",
     "sort_key": 201600,
     "image": "/img/projects/reflective-face-regression.png",
-    "image_source": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf"
+    "image_source": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf",
+    "tags": []
   },
   {
     "image": "/projects/e2ehand/f1.png",
@@ -618,7 +727,8 @@
       "description": "通过卷积神经网络的多任务学习，实现端到端的手部检测。"
     },
     "id": "end-to-end-hand-detection",
-    "sort_key": 201508
+    "sort_key": 201508,
+    "tags": []
   },
   {
     "image": "/projects/handdetection/fea1.png",
@@ -637,7 +747,8 @@
       "description": "使用结构化森林实现高效、稳健的像素级手部检测。"
     },
     "id": "pixel-hand-detection",
-    "sort_key": 201503
+    "sort_key": 201503,
+    "tags": []
   },
   {
     "id": "turtlebot-elevator",
@@ -662,7 +773,10 @@
       "date": "2015 年",
       "description": "开发基于 ROS/TurtleBot 的「小圆墩」服务机器人原型，实现室内导航、自主乘坐电梯和跨楼层地图切换。通过加速度信号与运动状态识别判断所在楼层，相关楼层监测方案取得中美专利授权。",
       "image_alt": "专利图 1：机器人乘坐电梯的场景示意图"
-    }
+    },
+    "tags": [
+      "robotics"
+    ]
   },
   {
     "image": "/projects/sketchhand/fea1.png",
@@ -682,7 +796,8 @@
     },
     "detail": "/projects/sketchhand/",
     "id": "sketch-hand",
-    "sort_key": 201309
+    "sort_key": 201309,
+    "tags": []
   },
   {
     "image": "/projects/imagesearch/fea1.png",
@@ -701,7 +816,10 @@
       "description": "在联想 IVC 实验室实习。"
     },
     "id": "touch-image-search",
-    "sort_key": 201308
+    "sort_key": 201308,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/visualfeedback/fea1.png",
@@ -720,7 +838,8 @@
       "description": "在微软亚洲研究院人机交互组实习。"
     },
     "id": "visual-feedback",
-    "sort_key": 201209
+    "sort_key": 201209,
+    "tags": []
   },
   {
     "image": "/projects/kernelposture/fea1.png",
@@ -740,7 +859,8 @@
     },
     "detail": "/projects/kernelposture/",
     "id": "hand-posture",
-    "sort_key": 201207
+    "sort_key": 201207,
+    "tags": []
   },
   {
     "image": "/projects/depthfromrefraction/fea1.png",
@@ -760,7 +880,8 @@
     },
     "detail": "/projects/depthfromrefraction/",
     "id": "depth-from-refraction",
-    "sort_key": 201104
+    "sort_key": 201104,
+    "tags": []
   },
   {
     "image": "/projects/youdao2010/fea1.png",
@@ -779,7 +900,10 @@
       "description": "为基于位置的服务（LBS）应用开发前端。"
     },
     "id": "youdao",
-    "sort_key": 201008
+    "sort_key": 201008,
+    "tags": [
+      "product"
+    ]
   },
   {
     "image": "/projects/rangeimage/fea1.png",
@@ -799,6 +923,9 @@
     },
     "detail": "/projects/rangeimage/",
     "id": "lidar-scene-labeling",
-    "sort_key": 201007
+    "sort_key": 201007,
+    "tags": [
+      "robotics"
+    ]
   }
 ]

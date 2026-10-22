@@ -9,6 +9,12 @@ en:
   view_original: View original image (opens in a new tab)
   all: All
   filter_updates: Filter updates
+  filter_projects: Filter projects
+  project_labels: Project labels
+  project_one: '%count% project'
+  project_many: '%count% projects'
+  no_projects: No projects with this label yet.
+  show_all_projects: Show all projects
   entry_one: '%count% entry'
   entry_many: '%count% entries'
   blog_one: '%count% blog post'
@@ -44,6 +50,12 @@ zh:
   view_original: 查看原图（新标签页）
   all: 全部
   filter_updates: 筛选动态
+  filter_projects: 筛选项目
+  project_labels: 项目标签
+  project_one: '%count% 个项目'
+  project_many: '%count% 个项目'
+  no_projects: 暂无带此标签的项目。
+  show_all_projects: 查看全部项目
   entry_one: '%count% 条动态'
   entry_many: '%count% 条动态'
   blog_one: '%count% 篇博客'

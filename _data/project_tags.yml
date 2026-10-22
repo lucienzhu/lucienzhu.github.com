@@ -1,0 +1,15 @@
+- id: rl
+  en: Reinforcement learning
+  zh: 强化学习
+- id: multi-agent
+  en: Multi-agent
+  zh: 多智能体
+- id: product
+  en: Product
+  zh: 产品
+- id: robotics
+  en: Robotics
+  zh: 机器人
+- id: games
+  en: Games
+  zh: 游戏
