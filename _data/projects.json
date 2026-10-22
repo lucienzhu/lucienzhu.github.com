@@ -526,12 +526,12 @@
     "en": {
       "title": "Neural Style Photo Filter",
       "date": "Mar. 2016",
-      "description": "Neural style photo filter is possible in Milliseconds!"
+      "description": "Pioneered neural style photo filters, transforming photos into artistic styles in milliseconds."
     },
     "zh": {
       "title": "神经网络风格化照片滤镜",
       "date": "2016 年 3 月",
-      "description": "在毫秒级时间内完成照片的神经网络风格迁移。"
+      "description": "首创神经网络照片风格化滤镜，在毫秒级时间内完成照片的艺术风格迁移。"
     },
     "id": "neural-style-filter",
     "sort_key": 201603
