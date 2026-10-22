@@ -21,6 +21,8 @@ Projects 的经历、日期、个人角色和中英文文案集中在 `_data/pro
 
 外部项目有中英文版本时，可用 `external_urls.en` 与 `external_urls.zh` 指向对应语言，未设置时继续使用 `external_url`。
 
+GAEA 配图使用超参数官网《活的长安城》演示视频第 10 秒的原始画面，保留字幕和原画面标记；来源视频、产品页与时间点记录在该项目的 `image_source`、`image_source_page` 和 `image_time_seconds`。Projects 中保留原发布链接，并附官方演示和技术讲解入口。
+
 演讲、奖项和里程碑统一进入 Updates。已有记录直接补充原动态，保留旧网址；中英文的 `summary` 用于列表中的简短说明。新奖项只有年份或半年时，`date` 仅作为 Jekyll 排序锚点，`date_precision` 记录精度，页面显示 `date_label`（列表可使用 `date_label_short`），不展示虚构的具体日期。时间不明的微创新奖在腾讯获奖记录中注明任职期间背景，不单独编造时间点。
 
 英文动态与长文保留在 `_posts/` 和 `life/_posts/`。对应的中文内容放在 `_translations/`，通过 `original_url` 对应英文网址，并设置 `permalink: /zh/原英文路径`。译文使用独立集合，不会重复计入动态数量。

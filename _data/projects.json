@@ -194,22 +194,27 @@
   {
     "id": "gaea",
     "info": {
-      "en": "Parametrix.ai · <a href=\"https://www.chaocanshu.cn/new.html?291\">Release</a>",
-      "zh": "超参数科技 · <a href=\"https://www.chaocanshu.cn/new.html?291\">发布介绍</a>"
+      "en": "Parametrix.ai · <a href=\"https://www.chaocanshu.cn/new.html?291\">Release</a> · <a href=\"https://www.bilibili.com/video/BV14L411Q7QC/\">Living Chang'an demo</a> · <a href=\"https://www.bilibili.com/video/BV1fY4y1S76L/\">Technical overview</a>",
+      "zh": "超参数科技 · <a href=\"https://www.chaocanshu.cn/new.html?291\">发布介绍</a> · <a href=\"https://www.bilibili.com/video/BV14L411Q7QC/\">长安城演示</a> · <a href=\"https://www.bilibili.com/video/BV1fY4y1S76L/\">技术讲解</a>"
     },
     "en": {
-      "title": "GAEA · Autonomous NPC simulation",
+      "title": "GAEA · Living Chang'an City",
       "date": "2023",
-      "description": "Worked on and released GAEA, a solution for large populations of autonomous NPCs, extending game AI from competitive bots toward simulated worlds and interactive characters."
+      "description": "Worked on and released GAEA, demonstrated through Living Chang'an City: a virtual society of hundreds of autonomous NPCs with distinct identities, memories and short- and long-term goals.",
+      "image_alt": "Living Chang'an City demo: autonomous NPCs in a city street"
     },
     "zh": {
-      "title": "GAEA：自主 NPC 与大规模仿真",
+      "title": "GAEA：活的长安城",
       "date": "2023 年",
-      "description": "参与研发并发布 GAEA 自主 NPC 方案，将游戏 AI 从对战机器人延伸到大规模角色仿真与虚拟世界中的交互角色。"
+      "description": "参与研发并发布 GAEA，以「活的长安城」技术演示呈现自主 NPC 生态：数百名拥有身份、记忆和长短期目标的 NPC，在持续运转的虚拟社会中自主生活、相互影响。",
+      "image_alt": "活的长安城实机演示：城市街道中的自主 NPC"
     },
-    "external_url": "https://www.chaocanshu.cn/new.html?291",
-    "image": "/projects/gameai/parametrix.png",
-    "sort_key": 202300
+    "external_url": "https://www.chaocanshu.cn/product/game_npc",
+    "image": "/img/projects/gaea-living-changan.jpg",
+    "sort_key": 202300,
+    "image_source": "https://guanwang-dev.obs.cn-south-1.myhuaweicloud.com/static-video/changan-city.mp4",
+    "image_source_page": "https://www.chaocanshu.cn/product/game_npc",
+    "image_time_seconds": 10
   },
   {
     "id": "tree-lstm-mapf",
