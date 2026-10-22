@@ -28,8 +28,6 @@ en:
     research: 'I earned my Ph.D. in the <a href="http://www.cs.hku.hk">Department of Computer Science</a> at <a href="http://www.hku.hk">the University of Hong Kong</a>, supervised by <a href="http://i.cs.hku.hk/~kykwong/">Dr. Kenneth Wong</a>. My research focused on hand detection and localization in color images, following earlier work on hand posture recognition with depth cameras. I enjoy solving real-world problems with economical, explainable and reproducible solutions.'
     links_html: 'Explore my <a href="%projects%">projects and research</a>, read my <a href="%updates%">updates</a>, or find my code on <a href="https://github.com/lucienzhu">GitHub</a>.'
     more: More updates…
-  projects:
-    browse: Browse projects and milestones
   archive_page:
     photos: Photostream
     photos_html: 'I take pictures. Some are on <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>.'
@@ -65,8 +63,6 @@ zh:
     research: '我在<a href="http://www.hku.hk">香港大学</a><a href="http://www.cs.hku.hk">计算机科学系</a>获得博士学位，导师是 <a href="http://i.cs.hku.hk/~kykwong/">Kenneth Wong 博士</a>。我的研究主要是彩色图像中的手部检测与定位，此前也研究过基于深度相机的手势识别。我喜欢用经济、可解释、可复现的方法解决现实问题。'
     links_html: '你可以浏览我的<a href="%projects%">项目与研究</a>、阅读<a href="%updates%">动态</a>，或在 <a href="https://github.com/lucienzhu">GitHub</a> 上查看我的代码。'
     more: 更多动态…
-  projects:
-    browse: 浏览项目与里程碑
   archive_page:
     photos: 照片
     photos_html: '我喜欢拍照，部分照片放在 <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>。'

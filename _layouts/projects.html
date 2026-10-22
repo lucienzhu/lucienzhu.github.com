@@ -4,17 +4,11 @@ layout: default
 {% include locale.html %}
 <main class="row projects-page" aria-label="{{ t.navigation.projects }}">
   <div class="large-12 columns projects">
-  <nav class="project-index" aria-label="{{ t.projects.browse }}">
-    {% for group in site.data.projects %}<a href="#{{ group.id }}">{{ group.label[locale] }}</a>{% endfor %}
-  </nav>
-  {% for group in site.data.projects %}
-  <section id="{{ group.id }}" class="project-group{% if group.layout == 'text' %} project-group--text{% endif %}" aria-labelledby="{{ group.id }}-heading">
-    <h2 id="{{ group.id }}-heading">{{ group.title[locale] }}</h2>
-    {% for project in group.items %}
+    {% for project in site.data.projects %}
     {% assign text = project[locale] %}
     <article class="project-entry"{% if project.id %} id="{{ project.id }}"{% endif %}>
       <div class="project-heading">
-        <h3 class="project-title">{% if project.detail %}<a href="{{ locale_prefix | append: project.detail | relative_url }}">{{ text.title }}</a>{% elsif project.external_url %}<a href="{{ project.external_url }}">{{ text.title }}</a>{% else %}{{ text.title }}{% endif %}</h3>
+        <h2 class="project-title">{% if project.detail %}<a href="{{ locale_prefix | append: project.detail | relative_url }}">{{ text.title }}</a>{% elsif project.external_url %}<a href="{{ project.external_url }}">{{ text.title }}</a>{% else %}{{ text.title }}{% endif %}</h2>
         <p class="project-period">{{ text.date }}</p>
       </div>
       {% if project.image %}<div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ text.title | strip_html | escape }}" loading="lazy"></div>{% endif %}
@@ -22,7 +16,5 @@ layout: default
       {% if project.info[locale] != '' %}<p class="info">{{ project.info[locale] | replace: 'Dataset is available upon request.', t.dataset }}</p>{% endif %}
     </article>
     {% endfor %}
-  </section>
-  {% endfor %}
   </div>
 </main>

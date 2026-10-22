@@ -1,0 +1,5 @@
+{%- if post_view.date_label -%}
+  <span class="update-date">{% if include.short and post_view.date_label_short %}{{ post_view.date_label_short }}{% else %}{{ post_view.date_label }}{% endif %}</span>
+{%- else -%}
+  <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date short=include.short %}</time>
+{%- endif -%}

@@ -79,8 +79,9 @@ table tbody tr th { font-weight: 600; }
 .updates-archive,
 .updates-more,
 .update-entry time,
+.update-date,
+.update-summary,
 .update-tag,
-.project-index,
 .projects .info,
 .project-period,
 .paper-authors {

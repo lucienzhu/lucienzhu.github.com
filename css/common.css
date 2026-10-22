@@ -175,19 +175,27 @@ a:hover {
   line-height: 1.6;
 }
 
-.update-entry time {
+.update-entry time,
+.update-date {
   flex: 0 0 60px;
   color: #666;
 }
 
 .recent-updates .update-entry time,
-.archive-updates .update-entry time {
+.archive-updates .update-entry time,
+.recent-updates .update-date,
+.archive-updates .update-date {
   flex-basis: 7rem;
 }
 
 .update-entry > div {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.update-summary {
+  margin: 4px 0 0;
+  color: #666;
 }
 
 .updates-filters {

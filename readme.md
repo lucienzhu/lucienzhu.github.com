@@ -17,7 +17,9 @@ bundle exec jekyll serve
 
 Projects 中的 Linux Foundation 经历链接到 2018 年官方报道；标志使用[官方品牌资源](https://www.linuxfoundation.org/brand-guidelines)，其名称和标志属于 The Linux Foundation。
 
-Projects 的分组、经历、日期、个人角色和中英文文案集中在 `_data/projects.json`。分组使用稳定 `id` 生成页内导航；`layout: text` 用于不需要配图的研究、竞赛和分享记录。论文按正式会议年份标注，工作经历按实际任职期间标注，赛事年份与赛事报告发表年份分别说明。新增内容应附公开的论文、代码、赛事或活动链接，团队项目须明确个人角色。
+Projects 的经历、日期、个人角色和中英文文案集中在 `_data/projects.json`，按 `sort_key` 倒序维护为一个带图列表，不再按主题分组。`sort_key` 使用结束或发表年月（YYYYMM），只有年份时月份为 00；同年且月份不明的条目保留原有顺序。每项使用稳定 `id`，新增缩略图的原始资料链接记录在 `image_source`。论文按正式会议年份标注，工作经历按实际任职期间标注，赛事年份与报告发表年份分别说明。新增内容应附公开的论文、代码或赛事链接，团队项目须明确个人角色。
+
+演讲、奖项和里程碑统一进入 Updates。已有记录直接补充原动态，保留旧网址；中英文的 `summary` 用于列表中的简短说明。新奖项只有年份或半年时，`date` 仅作为 Jekyll 排序锚点，`date_precision` 记录精度，页面显示 `date_label`（列表可使用 `date_label_short`），不展示虚构的具体日期。时间不明的微创新奖在腾讯获奖记录中注明任职期间背景，不单独编造时间点。
 
 英文动态与长文保留在 `_posts/` 和 `life/_posts/`。对应的中文内容放在 `_translations/`，通过 `original_url` 对应英文网址，并设置 `permalink: /zh/原英文路径`。译文使用独立集合，不会重复计入动态数量。
 

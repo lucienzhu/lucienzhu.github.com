@@ -11,7 +11,7 @@ layout: default
     <ul class="update-entries archive-updates">
       {% for post in site.posts %}
       {% include localized-post.html post=post %}
-      <li class="update-entry"><time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time><div>{% include update-title.html %}</div></li>
+      <li class="update-entry">{% include update-date.html %}<div>{% include update-title.html %}</div></li>
       {% endfor %}
     </ul>
   </div></div>

@@ -6,3 +6,4 @@
   {{ post_view.title }}
 {%- endif -%}
 {% if post.tags contains 'blog' %}{% include blog-tag.html %}{% endif %}
+{% if post_view.summary %}<p class="update-summary">{{ post_view.summary }}</p>{% endif %}

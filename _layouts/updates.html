@@ -18,8 +18,8 @@ layout: default
       <ul class="update-entries">
         {% for post in year.items %}
         {% include localized-post.html post=post %}
-        <li class="update-entry" data-blog="{% if post.tags contains 'blog' %}true{% else %}false{% endif %}">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date short=true %}</time>
+        <li class="update-entry"{% if post.update_id %} id="{{ post.update_id }}"{% endif %} data-blog="{% if post.tags contains 'blog' %}true{% else %}false{% endif %}">
+          {% include update-date.html short=true %}
           <div>{% include update-title.html %}</div>
         </li>
         {% endfor %}

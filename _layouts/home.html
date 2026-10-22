@@ -20,7 +20,7 @@ layout: default
       {% for post in site.posts limit:10 %}
       {% include localized-post.html post=post %}
       <li class="update-entry post-{{ post.category }}">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time>
+        {% include update-date.html %}
         <div>{% include update-title.html %}</div>
       </li>
       {% endfor %}
