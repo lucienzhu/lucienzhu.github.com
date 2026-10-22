@@ -469,12 +469,12 @@
     "en": {
       "title": "Live Video Style Transfer",
       "date": "Mar. 2017",
-      "description": "Image filters for live video style transfer on iOS and Android smart phones."
+      "description": "Pioneered a mobile solution for real-time video style transfer, deployed in Mobile QQ as live artistic filters on iOS and Android phones."
     },
     "zh": {
       "title": "实时视频风格迁移",
       "date": "2017 年 3 月",
-      "description": "为 iOS 和 Android 手机提供实时视频风格迁移滤镜。"
+      "description": "首创移动端实时视频风格迁移方案，落地手机 QQ，为 iOS 和 Android 手机提供实时艺术风格滤镜。"
     },
     "id": "live-video-style",
     "sort_key": 201703
