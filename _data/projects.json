@@ -259,27 +259,6 @@
     "image_source": "https://arxiv.org/pdf/2301.01609"
   },
   {
-    "id": "elo-opponent-selection",
-    "info": {
-      "en": "Co-author · <a href=\"https://ieee-cog.org/2021/assets/papers/paper_299.pdf\">IEEE Conference on Games 2021</a>",
-      "zh": "论文共同作者 · <a href=\"https://ieee-cog.org/2021/assets/papers/paper_299.pdf\">IEEE Conference on Games 2021</a>"
-    },
-    "en": {
-      "title": "PPO with Elo-based opponent selection",
-      "date": "2021",
-      "description": "Co-authored work on opponent selection for reinforcement learning and its combination with rolling-horizon evolutionary planning in fighting games."
-    },
-    "zh": {
-      "title": "结合 Elo 对手选择的 PPO 博弈策略",
-      "date": "2021 年",
-      "description": "共同研究强化学习中的 Elo 对手选择，并与滚动时域进化规划结合，探索格斗游戏 AI 的训练和决策。"
-    },
-    "external_url": "https://ieee-cog.org/2021/assets/papers/paper_299.pdf",
-    "sort_key": 202100,
-    "image": "/img/projects/elo-opponent-selection.png",
-    "image_source": "https://ieee-cog.org/2021/assets/papers/paper_299.pdf"
-  },
-  {
     "image": "/projects/linuxfoundation/lf-stacked-color.svg",
     "external_url": "https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem",
     "info": {
