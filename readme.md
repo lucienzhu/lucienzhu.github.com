@@ -21,6 +21,8 @@ Projects 的经历、日期、个人角色和中英文文案集中在 `_data/pro
 
 外部项目有中英文版本时，可用 `external_urls.en` 与 `external_urls.zh` 指向对应语言，未设置时继续使用 `external_url`。
 
+FeatherCNN 条目描述个人参与的 FeatherCNN 及配套移动端推理适配工程，300 多款机型、高通／联发科平台、Cortex-A55／A72、Adreno／Mali 和 Metal 的范围由本人确认。Cortex-A53、A72 和 Qualcomm Kryo 同时有[官方历史基准](https://github.com/Tencent/FeatherCNN/wiki/Benchmarks)作为参考；OpenCL 与 NEON 路径结合 Feather 档案及开源资料维护。CPU 内核、GPU 系列和加速技术分行列出，使用正确拼写 Adreno；Metal 作为 Apple 的 GPU 计算 API，不列为 GPU 型号。此处为移动端落地工程范围，不把内部 GPU 方案或 300 款机型数字写成开源仓库的公开验证矩阵；不从第三方 AI-Bench 表推定本项目实测机型，也不补写未确认的 Adreno、Mali 子型号。原有开源链接保留。
+
 TurtleBot「小圆墩」按 2015 年的机器人原型研发经历维护，自主乘梯功能由本人确认，并结合当年的导航、地图切换和楼层识别记录描述。配图使用 US11242219B2 专利原始图 1（机器人乘梯场景示意），不作为原型实拍。楼层监测专利的中国首次申请日为 2016 年 5 月 5 日，中国授权号 CN107344688B（2019 年），美国授权号 US11242219B2（2022 年）；两种语言均保留两项专利链接，个人角色标为共同发明人，专利年份与原型研发年份分开。
 
 GAEA 配图使用超参数官网《活的长安城》演示视频第 10 秒的原始画面，保留字幕和原画面标记；来源视频、产品页与时间点记录在该项目的 `image_source`、`image_source_page` 和 `image_time_seconds`。Projects 中保留原发布链接，并附官方演示和技术讲解入口。
