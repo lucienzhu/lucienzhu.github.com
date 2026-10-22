@@ -614,6 +614,31 @@
     "sort_key": 201503
   },
   {
+    "id": "turtlebot-elevator",
+    "sort_key": 201500,
+    "image": "/img/projects/turtlebot-elevator.png",
+    "image_source": "https://patentimages.storage.googleapis.com/56/0d/be/d7f19dce7afff9/US11242219-20220208-D00001.png",
+    "image_source_page": "https://patents.google.com/patent/US11242219B2/en",
+    "image_source_note": "Original patent Figure 1: schematic of a robot riding an elevator; not a photograph of the TurtleBot prototype.",
+    "external_url": "https://patents.google.com/patent/US11242219B2/en",
+    "info": {
+      "en": "Tencent · Prototype development · Patent co-inventor<br><a href=\"https://patents.google.com/patent/CN107344688B/zh\">CN107344688B</a> (2019) · <a href=\"https://patents.google.com/patent/US11242219B2/en\">US11242219B2</a> (2022)",
+      "zh": "腾讯 · 原型研发 · 专利共同发明人<br><a href=\"https://patents.google.com/patent/CN107344688B/zh\">中国专利 CN107344688B</a>（2019 年）· <a href=\"https://patents.google.com/patent/US11242219B2/en\">美国专利 US11242219B2</a>（2022 年）"
+    },
+    "en": {
+      "title": "TurtleBot · Autonomous elevator navigation",
+      "date": "2015",
+      "description": "Built Xiaoyuandun, a ROS/TurtleBot service robot prototype for indoor navigation and autonomous elevator rides, with map switching between floors. Developed acceleration-based floor monitoring using motion-state tracking; the related method received Chinese and US patents.",
+      "image_alt": "Patent Figure 1: schematic of a robot riding an elevator"
+    },
+    "zh": {
+      "title": "TurtleBot 小圆墩：自主乘梯与跨楼层导航",
+      "date": "2015 年",
+      "description": "开发基于 ROS/TurtleBot 的「小圆墩」服务机器人原型，实现室内导航、自主乘坐电梯和跨楼层地图切换。通过加速度信号与运动状态识别判断所在楼层，相关楼层监测方案取得中美专利授权。",
+      "image_alt": "专利图 1：机器人乘坐电梯的场景示意图"
+    }
+  },
+  {
     "image": "/projects/sketchhand/fea1.png",
     "info": {
       "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/sketchhand/ivcnz2013.pdf\"><i class=\"fi-page-pdf\"><span>IVCNZ 2013</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>",
