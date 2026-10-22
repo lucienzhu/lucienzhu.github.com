@@ -490,6 +490,23 @@
         "external_url": "http://sched.co/FCNM"
       },
       {
+        "id": "tencent-award-rd-2018",
+        "info": {
+          "en": "Individual award · Tencent",
+          "zh": "个人奖项 · 腾讯"
+        },
+        "en": {
+          "title": "Tencent Outstanding R&D Award",
+          "date": "H1 2018",
+          "description": "Received Tencent’s Outstanding R&D Award in the first half of 2018."
+        },
+        "zh": {
+          "title": "腾讯卓越研发奖",
+          "date": "2018 年上半年",
+          "description": "2018 年上半年获腾讯卓越研发奖。"
+        }
+      },
+      {
         "id": "tencent-ai-forum",
         "info": {
           "en": "Speaker · <a href=\"https://ai.tencent.com/ailab/academicforum.html\">Tencent AI Forum</a>",
@@ -506,6 +523,40 @@
           "description": "在腾讯 AI 学术论坛分享围棋 AI 绝艺项目中的强化学习工作。"
         },
         "external_url": "https://ai.tencent.com/ailab/academicforum.html"
+      },
+      {
+        "id": "tencent-award-breakthrough-2017",
+        "info": {
+          "en": "Individual award · Tencent",
+          "zh": "个人奖项 · 腾讯"
+        },
+        "en": {
+          "title": "Tencent Technical Breakthrough Award",
+          "date": "2017",
+          "description": "Received Tencent’s annual Technical Breakthrough Award in 2017."
+        },
+        "zh": {
+          "title": "腾讯年度技术突破奖",
+          "date": "2017 年",
+          "description": "2017 年获腾讯年度技术突破奖。"
+        }
+      },
+      {
+        "id": "tencent-award-micro-innovation",
+        "info": {
+          "en": "Individual awards · Tencent",
+          "zh": "个人奖项 · 腾讯"
+        },
+        "en": {
+          "title": "Tencent Micro-Innovation Awards · Four times",
+          "date": "Tencent tenure",
+          "description": "Received Tencent’s Micro-Innovation Award four times within three years."
+        },
+        "zh": {
+          "title": "腾讯微创新奖（四次）",
+          "date": "腾讯任职期间",
+          "description": "在腾讯三年内四次获得微创新奖。"
+        }
       },
       {
         "id": "hku-poster-award",
