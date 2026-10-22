@@ -311,6 +311,31 @@
     "image_source_note": "Concept illustration based on the archived AI Economics environment design."
   },
   {
+    "id": "ruin-guardians",
+    "sort_key": 202100,
+    "detail": "/projects/ruin-guardians/",
+    "image": "/img/projects/ruin-guardians.jpg",
+    "en": {
+      "title": "Ruin Guardians · Asymmetric game design and AI",
+      "date": "2020–2021",
+      "description": "Worked on an asymmetric game prototype, combining character abilities, levels and item mechanics with multi-agent reinforcement learning to explore one-versus-many competition, teamwork and human–AI play. Demonstrated at ChinaJoy 2021.",
+      "image_alt": "Ruin Guardians prototype: four blue treasure hunters face a yellow defender among keys, ladders and treasure chests"
+    },
+    "zh": {
+      "title": "遗迹守护者：非对称游戏设计与 Game AI",
+      "date": "2020–2021 年",
+      "description": "参与研发非对称对抗游戏原型，将角色能力、关卡与道具设计和多智能体强化学习结合，探索一对多对抗、队友协作与人机共玩。原型于 ChinaJoy 2021 展示。",
+      "image_alt": "遗迹守护者原型：四名蓝色夺宝者与黄色守护者在包含钥匙、梯子和宝箱的关卡中对抗"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ruin-guardians/#demo\">Demo</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ruin-guardians/#demo\">演示视频</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>"
+    },
+    "image_source": "/media/projects/ruin-guardians-demo.mp4",
+    "image_time_seconds": 5,
+    "image_source_note": "Original frame from the archived March 8, 2021 prototype video, 2021-03-08-11-48-31_109_w_ex.mp4; an early development build, not the final ChinaJoy presentation."
+  },
+  {
     "id": "delta-game-ai",
     "sort_key": 202100,
     "image": "/img/projects/delta-chinajoy-2021.jpg",
