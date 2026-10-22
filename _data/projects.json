@@ -450,12 +450,12 @@
     "en": {
       "title": "Pose Estimation for Mobile QQ",
       "date": "Dec. 2017",
-      "description": "Real-time skeleton tracking and action recognition on iOS and Android smart phones shipped since 2014."
+      "description": "Pioneered a mobile solution for real-time skeleton tracking and action recognition, deployed in Mobile QQ’s ‘高能舞室’ dance game on iOS and Android phones released since 2014."
     },
     "zh": {
       "title": "手机 QQ 的姿态估计",
       "date": "2017 年 12 月",
-      "description": "在 2014 年以来上市的 iOS 和 Android 手机上，实现实时骨架追踪与动作识别。"
+      "description": "首创移动端实时骨架追踪与动作识别方案，落地手机 QQ「高能舞室」，支持 2014 年以来上市的 iOS 和 Android 手机。"
     },
     "id": "mobile-qq-pose",
     "sort_key": 201712
