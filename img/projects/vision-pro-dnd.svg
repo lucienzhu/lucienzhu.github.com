@@ -1,36 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-labelledby="title desc">
-  <title id="title">Spatial tabletop role-playing concept</title>
-  <desc id="desc">A tabletop adventure map, characters and a die in a shared room. A concept illustration of the XR and AI DnD project, not a prototype screenshot.</desc>
+  <title id="title">LLM-generated content and immersive combat</title>
+  <desc id="desc">Conversations with an LLM generate content around two combatants in an immersive space. A concept illustration, not a prototype screenshot.</desc>
   <defs>
-    <g id="character">
-      <ellipse cy="24" rx="20" ry="8" fill="#d7ddd8"/>
-      <path d="M-14 21V8C-14-10 14-10 14 8V21Z"/>
-      <circle cy="-15" r="11"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10Z" fill="#879b95"/>
+    </marker>
+    <g id="combatant">
+      <ellipse cy="39" rx="23" ry="9" fill="#d7ddd8"/>
+      <path d="M-16 22V5C-16-14 16-14 16 5V22L9 37H1V20H-1V37H-9Z"/>
+      <circle cy="-20" r="12"/>
     </g>
   </defs>
-  <path d="M78 312 360 145 642 312 360 470Z" fill="#f4f6f3"/>
+  <path d="M78 312 360 145 642 312 360 470Z" fill="#f2f5f1"/>
   <path d="M78 312V137L360 25V145Z" fill="#eef1ee"/>
   <path d="M360 25 642 137V312L360 145Z" fill="#f7f8f6"/>
-  <path d="M360 40V130M94 310 360 458 626 310" fill="none" stroke="#c7d0cb" stroke-width="3"/>
-  <path d="M191 274 358 178 535 274 367 371Z" fill="#d2b58c"/>
-  <path d="M191 274V291L367 389V371Z" fill="#aa855c"/>
-  <path d="M367 371 535 274V291L367 389Z" fill="#bd986f"/>
-  <path d="M226 275 359 198 500 275 367 351Z" fill="#e8e8d7"/>
-  <g fill="none" stroke="#c6ccb6" stroke-width="2">
-    <path d="M259 256 401 332M293 237 434 313M326 217 467 294"/>
-    <path d="M261 294 394 217M296 313 429 237M331 332 464 256"/>
+  <path d="M94 310 360 458 626 310" fill="none" stroke="#c7d0cb" stroke-width="3"/>
+  <path d="M284 70H436V150H379L351 174V150H284Z" fill="#314e63"/>
+  <text x="360" y="122" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="32" font-weight="600">LLM</text>
+  <g fill="none" stroke="#879b95" stroke-width="4" stroke-dasharray="7 7" marker-end="url(#arrow)">
+    <path d="M284 110C223 110 184 134 169 184"/>
+    <path d="M436 110C498 110 541 144 552 198"/>
   </g>
-  <path d="M287 276 331 250 367 270 412 244 449 265" fill="none" stroke="#8b9f85" stroke-width="7" stroke-dasharray="10 7"/>
-  <path d="M397 232V197L439 174 479 196V232L459 244V213L439 202 418 214V244Z" fill="#8a9b9e"/>
-  <path d="M439 174 479 196 459 207 419 185Z" fill="#b7c4c5"/>
-  <use href="#character" transform="translate(286 253) scale(.85)" fill="#bf6a49"/>
-  <use href="#character" transform="translate(365 293) scale(.85)" fill="#314e63"/>
-  <use href="#character" transform="translate(155 322) scale(1.6)" fill="#314e63"/>
-  <use href="#character" transform="translate(567 317) scale(1.6)" fill="#6d865b"/>
-  <g transform="translate(491 117)">
-    <path d="M0-42 41-18 41 27 0 51-41 27-41-18Z" fill="#bf6a49"/>
-    <path d="M0-42 24 15-24 15Z" fill="#d79a7e"/>
-    <path d="M-41-18-24 15-41 27M41-18 24 15 41 27M-24 15 0 51 24 15" fill="none" stroke="#f7e3d7" stroke-width="2"/>
-    <path d="M-24 15H24M-41-18 0-42 41-18M0-42V-10" fill="none" stroke="#f7e3d7" stroke-width="2"/>
+  <g transform="translate(163 237)">
+    <path d="M-4 0V65L6 70V0Z" fill="#b48b59"/>
+    <path d="M0-61-39 0H-20L-49 39H49L20 0H39Z" fill="#8da184"/>
+    <path d="M0-61V39H49L20 0H39Z" fill="#6d865b"/>
   </g>
+  <g transform="translate(551 237)">
+    <path d="M-43 43V-35L0-59 43-35V43L19 56V-9L0-20-19-9V56Z" fill="#8a9b9e"/>
+    <path d="M0-59 43-35 19-22-24-46Z" fill="#b7c4c5"/>
+    <path d="M0-20 19-9 0 2-19-9Z" fill="#c7d0cb"/>
+  </g>
+  <use href="#combatant" transform="translate(274 315) scale(1.8)" fill="#314e63"/>
+  <use href="#combatant" transform="translate(439 263) scale(1.8)" fill="#bf6a49"/>
+  <g fill="none" stroke-linecap="square">
+    <path d="M318 325 395 236M329 305 348 322" stroke="#6f858e" stroke-width="10"/>
+    <path d="M405 300 332 225M377 285 395 268" stroke="#aa855c" stroke-width="10"/>
+    <path d="M347 254 380 287M353 277 379 252" stroke="#e5c27d" stroke-width="5"/>
+  </g>
+  <path d="M132 178 147 169M604 199 617 208M187 357 180 370" fill="none" stroke="#b7c7be" stroke-width="3"/>
 </svg>
