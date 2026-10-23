@@ -70,12 +70,12 @@
     "en": {
       "title": "SuperIntern",
       "date": "2024–2025",
-      "description": "Built a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation."
+      "description": "Co-developed a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation."
     },
     "zh": {
       "title": "SuperIntern",
       "date": "2024–2025 年",
-      "description": "研发面向 Discord、Slack 的群聊 AI，直接在聊天中解决办公和营销问题。"
+      "description": "共同研发面向 Discord、Slack 的群聊 AI，直接在聊天中解决办公和营销问题。"
     },
     "tags": [
       "product",

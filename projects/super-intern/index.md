@@ -7,7 +7,7 @@ extra_css:
 - /css/project-detail.css
 ---
 
-SuperIntern is a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
+Co-developed SuperIntern, a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
 
 ## Multi-model platform
 
@@ -19,7 +19,7 @@ Worked on agent APIs, tool integrations and workflows organized around triggers,
 
 ## Model and agent alignment
 
-Performed supervised fine-tuning (SFT) on Stable Diffusion and applied direct preference optimization (DPO) for model alignment.
+We performed supervised fine-tuning (SFT) on Stable Diffusion and applied direct preference optimization (DPO) for model alignment.
 
 Explored group conversations as a source of shared context and human feedback for aligning agent behavior with community needs. The research direction includes human–AI co-alignment: how people and agents adapt to each other through ongoing interaction.
 
