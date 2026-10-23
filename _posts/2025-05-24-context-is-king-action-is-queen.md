@@ -7,6 +7,7 @@ lang: en
 section: updates
 show_url: true
 tags: ["blog", "ai", "agents"]
+summary: "Why understanding users and defining useful actions matter for building lasting AI products."
 permalink: /updates/2025/05/24/context-is-king-action-is-queen/
 ---
 

@@ -7,6 +7,7 @@ lang: en
 section: updates
 show_url: true
 tags: ["blog", "ai", "robotics"]
+summary: "Exploring how personal super apps and autonomous robots could change the way we interact with AI."
 permalink: /updates/2024/03/01/super-apps-and-general-purpose-robots/
 ---
 

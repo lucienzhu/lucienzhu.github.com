@@ -3,6 +3,7 @@ title: "AI 的未来，要么是超级应用，要么是通用机器人"
 date: "2024-03-01 00:00:00 +0800"
 author: "Xiaolong Zhu"
 tags: ["blog", "ai", "robotics"]
+summary: "从个人超级应用到自主机器人，探索 AI 的产品形态与交互体验。"
 original_url: "/updates/2024/03/01/super-apps-and-general-purpose-robots/"
 permalink: "/zh/updates/2024/03/01/super-apps-and-general-purpose-robots/"
 ---

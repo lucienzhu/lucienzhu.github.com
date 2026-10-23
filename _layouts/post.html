@@ -20,6 +20,9 @@ layout: default
 <main class="row post-content{% if page.tags contains 'blog' %} longform{% endif %}">
     <div class="large-12 columns">
         <h1 class="title">{% if page.external_url %}<a href="{{ page.external_url }}">{{ page.title }}</a>{% else %}{{ page.title }}{% endif %}</h1>
+        {% if page.tags contains 'blog' and page.summary %}
+        <p class="post-subtitle">{{ page.summary | escape }}</p>
+        {% endif %}
         <p id="subtitletrans" class="subtitlecontainer">
         <i class="fi-calendar"></i> {% if page.date_label %}<span>{{ page.date_label }}</span>{% else %}<time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time>{% endif %}
         {% if page.author %} | <i class="fi-torso"></i> <a class="subtitle" href="{{ locale_prefix | append: '/' | relative_url }}">{{ page.author }}</a>{% endif %}

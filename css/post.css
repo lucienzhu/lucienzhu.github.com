@@ -19,6 +19,13 @@ h1.title {
     margin-top: 1rem;
 }
 
+.post-subtitle {
+    margin: 0.5rem 0 0.75rem;
+    color: #666;
+    font-size: var(--text-body);
+    line-height: 1.7;
+}
+
 .subtitlecontainer {
     text-decoration: none;
     color: #666;

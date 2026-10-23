@@ -3,6 +3,7 @@ title: "AI 下半场：Context is King，Action is Queen"
 date: "2025-05-24 00:00:00 +0800"
 author: "Xiaolong Zhu"
 tags: ["blog", "ai", "agents"]
+summary: "理解用户、定义行动：AI Agent 产品如何建立持久的竞争力。"
 original_url: "/updates/2025/05/24/context-is-king-action-is-queen/"
 permalink: "/zh/updates/2025/05/24/context-is-king-action-is-queen/"
 ---
