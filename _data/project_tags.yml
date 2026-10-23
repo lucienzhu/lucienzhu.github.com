@@ -1,6 +1,6 @@
 - id: rl-mas
-  en: RL & MAS
-  zh: 强化学习与多智能体
+  en: Learning & Emergence
+  zh: 学习与涌现
   match_any:
     - rl
     - multi-agent
