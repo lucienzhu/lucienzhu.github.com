@@ -267,6 +267,33 @@
     ]
   },
   {
+    "id": "vision-pro-dnd",
+    "sort_key": 202300,
+    "detail": "/projects/vision-pro-dnd/",
+    "image": "/img/projects/vision-pro-dnd.svg",
+    "en": {
+      "title": "Vision Pro × DnD · Spatial role-playing prototype",
+      "date": "2023",
+      "description": "Developed a DnD-inspired spatial role-playing prototype that runs on Apple Vision Pro. Explored AI NPC interactions and a lobby–map–dungeon structure for adventures.",
+      "image_alt": "Concept illustration of a spatial tabletop adventure with a map, characters and a die"
+    },
+    "zh": {
+      "title": "Vision Pro × DnD：空间跑团原型",
+      "date": "2023 年",
+      "description": "将 DnD 跑团与 AI、空间计算结合，研发可在 Apple Vision Pro 上运行的原型，探索 AI NPC 交互与「大厅—地图—副本」衔接的冒险体验。",
+      "image_alt": "桌面地图、角色与骰子组成的空间跑团机制示意图"
+    },
+    "info": {
+      "en": "XR × AI · Runnable Vision Pro prototype",
+      "zh": "XR × AI · Vision Pro 可运行原型"
+    },
+    "image_source_note": "Concept illustration based on the archived XR and AI tabletop design, not a prototype screenshot. The owner confirmed a runnable Vision Pro prototype and the year 2023 on 2026-10-23.",
+    "tags": [
+      "product",
+      "games"
+    ]
+  },
+  {
     "id": "tree-lstm-mapf",
     "info": {
       "en": "Co-author · <a href=\"https://arxiv.org/abs/2210.12933\">Paper</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">Code</a>",

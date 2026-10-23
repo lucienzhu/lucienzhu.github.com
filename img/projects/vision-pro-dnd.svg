@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-labelledby="title desc">
+  <title id="title">Spatial tabletop role-playing concept</title>
+  <desc id="desc">A tabletop adventure map, characters and a die in a shared room. A concept illustration of the XR and AI DnD project, not a prototype screenshot.</desc>
+  <defs>
+    <g id="character">
+      <ellipse cy="24" rx="20" ry="8" fill="#d7ddd8"/>
+      <path d="M-14 21V8C-14-10 14-10 14 8V21Z"/>
+      <circle cy="-15" r="11"/>
+    </g>
+  </defs>
+  <path d="M78 312 360 145 642 312 360 470Z" fill="#f4f6f3"/>
+  <path d="M78 312V137L360 25V145Z" fill="#eef1ee"/>
+  <path d="M360 25 642 137V312L360 145Z" fill="#f7f8f6"/>
+  <path d="M360 40V130M94 310 360 458 626 310" fill="none" stroke="#c7d0cb" stroke-width="3"/>
+  <path d="M191 274 358 178 535 274 367 371Z" fill="#d2b58c"/>
+  <path d="M191 274V291L367 389V371Z" fill="#aa855c"/>
+  <path d="M367 371 535 274V291L367 389Z" fill="#bd986f"/>
+  <path d="M226 275 359 198 500 275 367 351Z" fill="#e8e8d7"/>
+  <g fill="none" stroke="#c6ccb6" stroke-width="2">
+    <path d="M259 256 401 332M293 237 434 313M326 217 467 294"/>
+    <path d="M261 294 394 217M296 313 429 237M331 332 464 256"/>
+  </g>
+  <path d="M287 276 331 250 367 270 412 244 449 265" fill="none" stroke="#8b9f85" stroke-width="7" stroke-dasharray="10 7"/>
+  <path d="M397 232V197L439 174 479 196V232L459 244V213L439 202 418 214V244Z" fill="#8a9b9e"/>
+  <path d="M439 174 479 196 459 207 419 185Z" fill="#b7c4c5"/>
+  <use href="#character" transform="translate(286 253) scale(.85)" fill="#bf6a49"/>
+  <use href="#character" transform="translate(365 293) scale(.85)" fill="#314e63"/>
+  <use href="#character" transform="translate(155 322) scale(1.6)" fill="#314e63"/>
+  <use href="#character" transform="translate(567 317) scale(1.6)" fill="#6d865b"/>
+  <g transform="translate(491 117)">
+    <path d="M0-42 41-18 41 27 0 51-41 27-41-18Z" fill="#bf6a49"/>
+    <path d="M0-42 24 15-24 15Z" fill="#d79a7e"/>
+    <path d="M-41-18-24 15-41 27M41-18 24 15 41 27M-24 15 0 51 24 15" fill="none" stroke="#f7e3d7" stroke-width="2"/>
+    <path d="M-24 15H24M-41-18 0-42 41-18M0-42V-10" fill="none" stroke="#f7e3d7" stroke-width="2"/>
+  </g>
+</svg>
