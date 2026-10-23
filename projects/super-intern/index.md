@@ -17,7 +17,9 @@ The project began as NeuroMesh and was later rebranded as Super Intern. Early wo
 
 Worked on agent APIs, tool integrations and workflows organized around triggers, jobs and agent tasks. Deployment, release management and logging supported the development of model-backed services and task execution.
 
-## Alignment in shared contexts
+## Model and agent alignment
+
+Performed supervised fine-tuning (SFT) on Stable Diffusion and applied direct preference optimization (DPO) for model alignment.
 
 Explored group conversations as a source of shared context and human feedback for aligning agent behavior with community needs. The research direction includes human–AI co-alignment: how people and agents adapt to each other through ongoing interaction.
 
