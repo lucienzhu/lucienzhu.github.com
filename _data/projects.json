@@ -64,38 +64,39 @@
     "image_source": "https://www.producthunt.com/products/super-intern-4",
     "external_url": "https://www.superintern.ai/",
     "info": {
-      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · #1 Product of the Day</a>",
-      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · 当日产品第 1 名</a>"
+      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"/projects/super-intern/\">Engineering & alignment</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · #1 Product of the Day</a>",
+      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"/zh/projects/super-intern/\">工程与对齐</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · 当日产品第 1 名</a>"
     },
     "en": {
       "title": "Super Intern",
       "date": "2024–2025",
-      "description": "Built an AI teammate for group chats, using shared context to answer questions, track tasks and take action across Discord and Slack."
+      "description": "Built an agent product for Discord and Slack, combining shared group context, question answering, task execution and alignment with community needs and preferences."
     },
     "zh": {
       "title": "Super Intern",
       "date": "2024–2025 年",
-      "description": "研发面向群聊的 AI 队友，基于共享上下文回答问题、跟踪任务并执行操作，支持 Discord 和 Slack。"
+      "description": "研发面向 Discord、Slack 群聊的 Agent 产品，基于共享上下文答疑、执行任务，探索与群体需求和偏好的 Alignment。"
     },
     "tags": [
-      "product"
+      "product",
+      "ai-systems"
     ]
   },
   {
     "id": "d3po",
     "info": {
-      "en": "Co-author · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">Code</a>",
-      "zh": "论文共同作者 · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">代码</a>"
+      "en": "Co-author · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">Code</a> · <a href=\"https://arxiv.org/abs/2311.13231\">arXiv</a>",
+      "zh": "论文共同作者 · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">代码</a> · <a href=\"https://arxiv.org/abs/2311.13231\">arXiv</a>"
     },
     "en": {
-      "title": "D3PO · Human feedback for diffusion models",
+      "title": "D3PO · Generative model alignment",
       "date": "2024",
-      "description": "Co-authored a method that uses pairwise human preferences to fine-tune diffusion policies directly, avoiding the need to train a separate reward model."
+      "description": "Co-authored D3PO, adapting direct preference optimization to align diffusion models with human feedback without training a separate reward model."
     },
     "zh": {
-      "title": "D3PO：基于人类反馈的扩散模型微调",
+      "title": "D3PO：生成式模型偏好对齐",
       "date": "2024 年",
-      "description": "共同研究利用成对人类偏好直接微调扩散策略的方法，无需额外训练奖励模型，探索生成式 AI 的偏好对齐。"
+      "description": "共同研究 D3PO，将直接偏好优化用于扩散模型，利用人类反馈进行生成式模型对齐，无需额外训练奖励模型。"
     },
     "external_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html",
     "sort_key": 202400,
