@@ -184,9 +184,7 @@ a:hover {
 }
 
 .recent-updates .update-entry time,
-.archive-updates .update-entry time,
-.recent-updates .update-date,
-.archive-updates .update-date {
+.recent-updates .update-date {
   flex-basis: 7rem;
 }
 
@@ -241,13 +239,8 @@ a:hover {
   outline-offset: 3px;
 }
 
-.updates-count,
-.updates-archive {
+.updates-count {
   color: #666;
-}
-
-.updates-archive {
-  margin-top: 36px;
 }
 
 .update-entry[hidden],
