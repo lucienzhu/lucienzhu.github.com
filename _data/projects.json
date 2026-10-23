@@ -68,12 +68,12 @@
       "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"/zh/projects/super-intern/\">工程与对齐</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · 当日产品第 1 名</a>"
     },
     "en": {
-      "title": "Super Intern",
+      "title": "SuperIntern",
       "date": "2024–2025",
       "description": "Built a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation."
     },
     "zh": {
-      "title": "Super Intern",
+      "title": "SuperIntern",
       "date": "2024–2025 年",
       "description": "研发面向 Discord、Slack 的群聊 AI，直接在聊天中解决办公和营销问题。"
     },

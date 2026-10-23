@@ -1,17 +1,17 @@
 ---
 layout: project-story
-title: Super Intern：群聊 AI
+title: SuperIntern：群聊 AI
 period: "2024–2025 年"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-Super Intern 是面向 Discord、Slack 的群聊 AI，利用共享上下文答疑、执行任务，直接在聊天中解决办公和营销问题。
+SuperIntern 是面向 Discord、Slack 的群聊 AI，利用共享上下文答疑、执行任务，直接在聊天中解决办公和营销问题。
 
-## 从 NeuroMesh 到 Super Intern
+## 多模型平台
 
-项目早期以 NeuroMesh 推进，后更名为 Super Intern。早期工作涵盖 Llama 3 对话、图像生成和 TTS 多模型平台，将模型服务接入可交互的产品体验。
+工作涵盖 Llama 3 对话、图像生成和 TTS 多模型平台，将模型服务接入可交互的产品体验。
 
 ## Agent 工程化
 

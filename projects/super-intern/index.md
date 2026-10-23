@@ -1,17 +1,17 @@
 ---
 layout: project-story
-title: Super Intern · Group chat AI
+title: SuperIntern · Group chat AI
 period: "2024–2025"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-Super Intern is a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
+SuperIntern is a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
 
-## From NeuroMesh to Super Intern
+## Multi-model platform
 
-The project began as NeuroMesh and was later rebranded as Super Intern. Early work covered a multi-model platform for Llama 3 chat, image generation and text-to-speech, connecting model services with a usable product experience.
+Work covered a multi-model platform for Llama 3 chat, image generation and text-to-speech, connecting model services with a usable product experience.
 
 ## Agent engineering
 
