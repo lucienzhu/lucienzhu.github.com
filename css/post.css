@@ -49,6 +49,15 @@ a {
     max-width: 52rem;
 }
 
+.post-content.longform p > code {
+    display: inline;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
 .longform img {
     display: block;
     width: auto;

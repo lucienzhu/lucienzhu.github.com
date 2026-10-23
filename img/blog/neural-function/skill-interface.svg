@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Neural Function interface</title>
+  <desc id="desc">A caller provides an observation and a goal to a learned skill. The skill produces an action for the environment and diagnostics for the caller. The environment returns the next observation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 8 4 0 8" fill="none" stroke="#526771" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="960" height="360" fill="#fff"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">
+    <path d="M110 115H845V227H110Z" fill="#f1f5f4"/>
+    <path d="M375 105H610V237H375Z" fill="#e0ece8"/>
+    <text x="175" y="161" fill="#263e47" font-size="24">Observation</text>
+    <text x="175" y="198" fill="#263e47" font-size="24">Goal</text>
+    <text x="492" y="156" fill="#263e47" font-size="24" font-weight="600">Learned skill</text>
+    <text x="492" y="196" fill="#526771" font-size="20">skill(obs, goal)</text>
+    <text x="770" y="176" fill="#263e47" font-size="24">Environment</text>
+    <text x="690" y="143" fill="#526771" font-size="20">Action</text>
+    <text x="492" y="57" fill="#526771" font-size="20">Info · value / progress / predictions</text>
+    <text x="467" y="305" fill="#526771" font-size="20">Next observation · caller may update the goal</text>
+  </g>
+  <g fill="none" stroke="#526771" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M276 172H353"/>
+    <path d="M625 172H690"/>
+    <path d="M492 103V75"/>
+    <path d="M845 249V275H110V249"/>
+  </g>
+</svg>
