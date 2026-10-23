@@ -26,7 +26,7 @@ en:
   dataset: Dataset is available upon request.
   reveal_email: Reveal this e-mail address
   home:
-    bio: Bio
+    bio: Making interesting AIs, sometimes useful.
     portrait: Portrait of Xiaolong Zhu
     intro: 'I build AI for games and explore <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">artificial general intelligence</a> and how intelligent agents interact with people. My work spans multi-agent systems, computer vision and applications of machine learning.'
     current_work: 'I built a <a href="%projects%#tennis-robot">tennis robot</a> that rallies with players, and <a href="%projects%super-intern/">SuperIntern</a>, a group chat AI for marketing and productivity.'
@@ -69,7 +69,7 @@ zh:
   dataset: 数据集可联系索取。
   reveal_email: 显示邮箱地址
   home:
-    bio: 简介
+    bio: 做有趣的 AI，偶尔也有用。
     portrait: 朱曉龍的照片
     intro: '我从事游戏 AI，探索<a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">通用人工智能（AGI）</a>及智能体与人的互动。我的工作涉及多智能体系统、计算机视觉和机器学习应用。'
     current_work: '我研发了能与球员对打的<a href="%projects%#tennis-robot">网球机器人</a>，以及直接在群聊中解决营销和办公问题的 AI 产品 <a href="%projects%super-intern/">SuperIntern</a>。'
