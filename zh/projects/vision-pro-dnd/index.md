@@ -1,7 +1,7 @@
 ---
 layout: project-story
 title: Vision Pro × DnD：沉浸式对战
-period: "约 2023 年 8 月"
+period: "2023 年 8 月"
 section: projects
 extra_css:
 - /css/project-detail.css

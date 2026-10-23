@@ -142,13 +142,13 @@
     "image": "/img/projects/vision-pro-dnd.svg",
     "en": {
       "title": "Vision Pro × DnD · Immersive combat",
-      "date": "c. August 2023",
+      "date": "August 2023",
       "description": "Developed an immersive combat prototype for Apple Vision Pro, with surrounding content generated through conversations with an LLM.",
       "image_alt": "Concept illustration of LLM conversations generating content around an immersive combat space"
     },
     "zh": {
       "title": "Vision Pro × DnD：沉浸式对战",
-      "date": "约 2023 年 8 月",
+      "date": "2023 年 8 月",
       "description": "研发可在 Apple Vision Pro 上运行的沉浸式对战原型，通过与 LLM 对话生成周围内容。",
       "image_alt": "通过 LLM 对话生成周围内容的沉浸式对战机制示意图"
     },
