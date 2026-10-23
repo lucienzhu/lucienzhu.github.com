@@ -9,50 +9,43 @@ tags: [blog]
 update_id: game-ai-from-models-to-systems
 summary: "Separating decisions from skills, and giving game developers useful ways to compose AI behavior."
 permalink: /updates/2021/08/game-ai-from-models-to-systems/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from my April and August 2021 notes. Edited for this website in October 2026; the architecture below describes the design direction at the time.*
+A model can play a game well and still be difficult to build a game around. A designer needs to change an encounter, interrupt a task or understand why a character failed. A policy that returns actions provides only part of that control.
 
-After working on several game AI integrations, I kept encountering the same difficulty: a model could play a game well, yet making its behavior useful to a game developer required a great deal of additional work.
+In game AI integrations, I repeatedly encountered this gap between a capable model and a usable system. A useful starting point is to separate the decision about what to do from the skill that carries it out.
 
-Different games exposed different observations, actions, timing and design constraints. A unified platform would have to find abstractions that survived those differences. Simply putting several trained models behind one service would leave much of the integration problem unsolved.
+## Give intentions an interface
 
-The useful starting point, I thought, was to separate decisions from the skills that carry them out.
+Consider a teammate sent to rescue a player. The decision layer selects the task, the player and its priority. A movement or combat skill handles the actions needed along the way. The caller expresses a goal such as reaching a position while staying alive; it does not have to specify every turn and step.
 
-## Decide what to do, then call a skill
+The skill can use pathfinding, a learned controller or a combination of both. What matters to its caller is a clear contract: what information it needs, what it can do, and how the system can tell whether the task is progressing.
 
-The decision layer chooses a task: move toward a destination, rescue a teammate, collect a resource or defend a position. The functional layer provides the operations needed to carry it out.
+{% include article-image.html src="/img/blog/game-ai-systems/architecture-notes.png" alt="Handwritten game AI architecture notes separating decision logic, functional APIs and primitive actions" width="1810" height="1922" caption="Game AI architecture sketch, August 2021: decisions, skill interfaces and primitive actions." %}
 
-Those operations can exist at different levels. A basic action might specify a movement direction. A higher-level function might mean “reach this position,” using a pathfinding algorithm or a learned controller underneath.
+This separates two kinds of change. A designer can change when rescue should take priority without retraining locomotion. A controller can improve its handling of obstacles while preserving the interface used by the decision layer. The separation earns its place when those changes can actually be made independently.
 
-The interface is valuable because it lets the caller express an intention without managing every movement. Its parameters might include a destination, a target or a condition such as staying alive along the way.
+## Decide when decisions happen
 
-{% include article-image.html src="/img/blog/game-ai-systems/architecture-notes.png" alt="Handwritten game AI architecture notes separating decision logic, functional APIs and primitive actions" width="1810" height="1922" caption="My August 2021 architecture sketch. Open the original image to read the annotations." %}
+Game systems run at different rhythms. A player issues an occasional command, a controller updates throughout a fight, and a turn-based game asks for a decision at a particular event.
 
-## Different games need different schedules
+A reusable skill interface therefore needs a lifecycle. The surrounding system must know when a skill starts, whether it is still active, how success or failure is reported, and what happens when a higher-priority task interrupts it. Without that information, composing several capable skills produces unpredictable behavior.
 
-A decision does not always happen on the same clock. A player can issue a command through language or an input device. A real-time controller can update repeatedly. A turn-based game can call its AI when a turn or event arrives.
+The decision layer can also take several forms. A behavior tree exposes conditions and task sequences; a state machine organizes longer activities; a learned policy handles decisions that depend on many interacting observations. Hybrid designs let developers choose where explicit control is valuable and where a trained response is more practical.
 
-This matters when designing a reusable interface. The surrounding game must know when a skill starts, whether it is still running and what happens when another task takes priority.
+## Split tasks where the split helps
 
-The decision layer can also take different forms. A behavior tree can express a clear sequence of conditions and tasks. A neural policy can handle decisions involving many interacting observations. A state machine can organize longer activities while a learned policy handles local control.
+A larger skill library is not automatically a better architecture. Choosing a destination and navigating there may be a useful division in a survival game. Splitting a tightly coupled fight into many independently trained pieces can make coordination and debugging harder.
 
-The choice should follow the behavior we need and the degree of control a designer wants over it.
+The practical test is whether a boundary helps someone change or understand the system. Can the designer tune a local encounter? Can the developer distinguish an unreachable goal from a poor controller? Can the same skill handle a new target without a new integration?
 
-## Composition has to earn its place
+Tools matter as much as interfaces. Programmers need inspectable calls and diagnostics. Designers need ways to arrange tasks and review their outcomes. Players may need a much smaller interface, such as a command menu or a sentence.
 
-Task decomposition is useful when the pieces remain meaningful. In a survival game, selecting a destination and handling movement along the way may form a useful division. In tightly coupled combat, an end-to-end policy may be easier to train and preserve than an artificial collection of tiny skills.
+## Composable behavior creates design options
 
-The questions I wrote down were practical ones. Can a designer change one part of the experience? Can we inspect why a task failed? Can a skill be reused under a different goal? Where do interfaces make the system easier to understand, and where do they get in the way?
+Once behavior can be selected and arranged, it can become part of play. Players might prepare a team, assign roles or revise a strategy after watching a match. The same interface that helps developers construct a character can give players something meaningful to control.
 
-A library of functions would need tools around it: code for programmers, a node graph for designers and perhaps language for players. Each interface would give a different person a way to compose behavior.
+This is also a useful way to approach agents beyond games: define the goal, expose a manageable set of capabilities, observe execution and make the next decision. Games make the engineering requirements especially visible. The environment keeps changing, interruptions are common, and a failure has to be understandable enough for someone to fix it.
 
-## The platform can become part of the game
-
-My April notes also explored a product possibility. If a platform lets people train, select and arrange AI characters, those activities could become content themselves. People could compete through their agents, play alongside them or watch their strategies develop.
-
-That made the engineering problem more interesting. A well-defined skill interface could support both game production and new ways of playing.
-
-The connection to today's agents is easy to see when revisiting these notes: someone expresses a goal, a decision process selects a capability, and the system executes it while observing what happens. Games gave us a concrete place to explore that loop.
-
-Related notes: [Neural Function](/updates/2021/10/neural-function/) · [YesSir: Giving AI Teammates Instructions](/updates/2021/10/yessir-language-and-teammates/).
+Related articles: [Neural Function](/updates/2021/10/neural-function/) · [YesSir: Giving AI Teammates Instructions](/updates/2021/10/yessir-language-and-teammates/).

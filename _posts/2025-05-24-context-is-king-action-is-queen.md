@@ -7,95 +7,53 @@ lang: en
 section: updates
 show_url: true
 tags: ["blog", "ai", "agents"]
-summary: "Why understanding users and defining useful actions matter for building lasting AI products."
+summary: "How relevant context and a well-designed action space turn model capability into dependable work."
 permalink: /updates/2025/05/24/context-is-king-action-is-queen/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-Agents have become one of the hottest keywords in AI in 2025.
+Two agents using the same model can produce very different results. One repeatedly asks for information the user has already supplied. Another understands the task but cannot take the action needed to complete it.
 
-In the previous wave of technically intensive AI, much of the funding went into foundational models and solution development. This time, entrepreneurs are building products. Once inference leaves room for a margin and product-market fit is validated, they can grow quickly. This has produced the first wave of successful commercialization.
+Both failures point to product work beyond model selection. **Context determines what the agent understands; its action space determines what it can deliver.** The quality of the connection between them shapes whether an agent becomes useful in everyday work.
 
-As Sequoia recently discussed, MaaS and SaaS are no longer compelling enough. Business models should move beyond subscriptions toward the more ambitious idea of charging for outcomes. By delivering value more frequently, AI companies can claim their share of the results.
+## Help the user get started
 
-Even Europe’s usually cautious startup scene attracted nearly 500 million in agent funding in the first six weeks of 2025—an unusual level of activity.
+A blank page is often an obstacle. An agent can produce a first draft, assemble relevant material or turn an ambiguous request into a plan that someone can inspect. That creates value before the entire task is automated.
 
-With the agent wave, AI has moved swiftly from its opening year into its second half.
+The environment matters. Booking travel involves a browser and booking services. Building a website involves files, an editor and a preview. The agent needs feedback from that environment to know whether its action had the intended effect.
 
-## What is AI worth? Half of your success.
+{% include article-image.html src="/img/blog/context-is-king-action-is-queen/human-agent-environment.png" alt="How humans and agents interact with their environment" width="1348" height="1198" caption="The task loop connects a person, an agent and the environment in which actions take effect." %}
 
-Put simply, an agent takes over work that a person would otherwise do to interact with an environment.
+A useful product makes this loop visible: the user's intention, the proposed action and the observed result. People need enough information to decide whether to continue or correct the course.
 
-When booking a flight online, the environment is a browser.
+## Context is king
 
-When building a website, it is a code editor.
+“Prepare a launch announcement” leaves many decisions unstated. Who is the audience? Which claims are approved? What tone fits the organization? Where will the announcement appear?
 
-When controlling a computer, it might be the command line.
+Relevant context can answer those questions without another round of explanation. It may come from the current conversation, working documents, previous decisions or explicit feedback. The product must retrieve the right parts and keep corrections from being overridden by stale assumptions.
 
-{% include article-image.html src="/img/blog/context-is-king-action-is-queen/human-agent-environment.png" alt="How humans and agents interact with their environment" width="1348" height="1198" %}
+The advantage accumulates when repeated use genuinely improves the work. A knowledge base full of irrelevant material adds little. A remembered preference applied to the wrong task can make the result worse. Context quality depends on relevance, accuracy and the user's ability to update it.
 
-The more complicated a task is, the more likely we are to procrastinate. The simpler it is, the easier it is to get distracted. Either way, getting started immediately seems almost impossible. Otherwise, why would systems like Getting Things Done and the Pomodoro Technique be so popular?
+{% include article-image.html src="/img/blog/context-is-king-action-is-queen/product-growth.png" alt="Time taken by different products to reach one million users, from the original article" width="1214" height="498" caption="The adoption-speed comparison included in the May 2025 essay. Adoption and continued usefulness measure different things." %}
 
-AI has changed this dramatically:
+A product's rate of adoption and its lasting usefulness also need separate evaluation. Repeated tasks offer a better test of accumulated context: does the user explain less, make fewer corrections and get a result that fits their needs?
 
-- ChatGPT lowers the barrier to asking questions, with a more natural interaction than a search engine.
-- DeepSeek lays out its reasoning clearly, making people more willing to trust its suggestions when making decisions.
-- Agents such as Manus combine browser and terminal use to cover a wider range of tasks.
+Continuity can make a product valuable enough to keep using. That value rests on effective service and trust, including understandable access boundaries and control over remembered information.
 
-AI helps people get past the cold start of work and opens up new ways to solve problems. If a good beginning is half the battle, isn’t that already worth half of your success?
+## Action is queen
 
-## Context Is King
+Context becomes productive when the agent can do something appropriate with it. A marketing assistant may need to create a draft and prepare channel-specific assets. A coding assistant may need to edit files, run checks and inspect the rendered result.
 
-The number of agent application companies keeps growing, with an energy reminiscent of the fierce competition among group-buying startups years ago.
+The action space is a design decision. Low-level controls offer flexibility but leave more execution steps to the agent. A well-designed higher-level tool can package domain knowledge and return feedback that helps determine whether the task succeeded.
 
-History does not repeat itself, but it rhymes.
+Useful tools also expose consequential distinctions. Saving a draft and publishing it have different effects. Editing a file and verifying the change are separate operations. The agent needs ways to recognize failure, recover where possible and involve a person when a decision requires them.
 
-Compared with the PC and mobile internet eras, competing for AI users involves more than becoming their point of entry. TikTok took nine months to reach 100 million monthly active users; ChatGPT took less than two. Creating a breakout product is no longer the hardest part.
+Domain expertise helps define these actions and their completion criteria. A larger collection of tools helps only if the agent can choose and use them effectively.
 
-{% include article-image.html src="/img/blog/context-is-king-action-is-queen/product-growth.png" alt="Time taken by different products to reach one million users, from the original article" width="1214" height="498" %}
+## Evaluate the completed loop
 
-Context matters more. Understanding users well enough to spare them unnecessary thought, producing the greatest value from the least input, and solving actual problems will determine which agent companies win this round.
+Context and action should be tested together on real tasks. Did the agent use the agreed constraints? Did its changes produce the intended result? How much review and repair did the person need to do?
 
-When it comes to a competitive moat, context is king.
+Those answers also inform business models. Charging for outcomes requires a clear definition of the outcome and a way to attribute delivery. A convincing demonstration or a long sequence of tool calls does not establish that value on its own.
 
-It will be hard to find another company in the near term with what OpenAI has: high-quality context from 500 million monthly active human users. The longer someone interacts with an AI product, the more costly it becomes to leave—and the less likely they are to do so.
-
-For products built around someone else’s model in particular, the question after validating product-market fit is how to accumulate context effectively, whether through a user’s knowledge base or their feedback. That is central to product design and customer success.
-
-## Action Is Queen
-
-Large models make today’s AI products powerful from the outset. But that single source of advantage is not enough.
-
-Looking at AI’s milestones and standout products:
-
-- AlphaGo achieved superhuman performance in Go, giving the world its first real sense of AI’s value.
-- GAME AGI has kept improving in Minecraft and can now reliably find diamonds, becoming a benchmark for multimodal models.
-- Cursor built an effective coding assistant on top of VS Code.
-- Manus combines browser operation and terminal use to extend an individual’s capabilities.
-- Lovable builds impressive personal websites on the mature React stack.
-- Lovart uses ComfyUI’s powerful workflows to produce striking creative work.
-
-How you define an agent’s action space directly affects how far the product can go.
-
-In a particular industry, your understanding of the domain and effective use of tools let you define high-quality actions. Those actions determine what your agent can deliver.
-
-Action is queen. A well-defined action space is like a strategic marriage: it can open up an enormous market at once.
-
-## Ahead Three
-
-At his final shareholder meeting, Buffett reflected that we should be grateful for the era we live in.
-
-After several waves of progress, AI is no longer a laboratory toy. It has entered society and is directly affecting all our lives.
-
-In the steam age, steel giants awakened through gears and connecting rods, opening the industrial era.
-
-In the electrical age, electricity became a kind of magic: control systems ran themselves, and cities and factories lit up.
-
-In the information age, bits formed a global nervous system, connecting billions of minds and reshaping communication and organization.
-
-In the age of intelligence, deep neural networks cross disciplinary boundaries and give each of us capabilities we have never had before.
-
-We are doing more than driving machines. We are learning to coexist with them.
-
-Step by step, we move toward a machine civilization: driving it, becoming it.
-
-xl · May 24, 2025
+The strongest product experience reduces the effort between a person's intention and a result they can accept. Understanding the person and providing dependable actions are the two connected pieces of that work.

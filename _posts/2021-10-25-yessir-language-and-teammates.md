@@ -9,56 +9,51 @@ tags: [blog]
 update_id: yessir-language-and-teammates
 summary: "Turning a player's words into subgoals, with learned policies handling the actions along the way."
 permalink: /updates/2021/10/yessir-language-and-teammates/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from our team's October 2021 YesSir design notes, which I helped collate. Edited for this website in October 2026; the examples describe the proposed interactions and architecture.*
+“Number two, come help me.”
 
-“Number two, come and help me.”
+A teammate hears a request, identifies who is speaking and interprets it against the current game. An AI needs the same connection between words and the world before the sentence can become useful behavior.
 
-People playing a team game understand that sentence as more than a request to move. It names a teammate, gives an intention and refers to the current situation. What would it take for an AI teammate to respond usefully?
+YesSir was a team design exploration in 2021, with which I helped organize the architecture. It considered a game assistant that could turn occasional spoken instructions into tasks for AI teammates.
 
-That was one of the questions behind YesSir, our exploration of a virtual game assistant. We wanted language to become a useful way to coordinate with game AI.
+## Give players a reason to speak
 
-## Choose the moments when speech helps
+Speech is well suited to a larger intention: send reinforcements, cover a route or rescue a teammate. Constantly narrating small movements is tiring, especially when a familiar controller already handles them well.
 
-Continuous voice control can be tiring. Fast, precise actions may also be easier with the controls a player already knows. The more interesting opportunity was a less frequent instruction that expressed a larger intention: send support, cover a route or help a teammate.
+A promising arrangement lets the player control one character directly while coordinating AI companions through occasional commands. The player can think about the squad without giving up immediate control of their own actions.
 
-The player could keep controlling their own character while giving AI companions a task. This suggested a way to combine direct control with a wider team strategy.
+An assistant might also explain a mechanic, change a setting or answer a question. Each interaction needs a clear role and response. A tactical command requires a visible behavioral result; a request for information needs an answer that does not interrupt play unnecessarily.
 
-The notes also considered looking up game information, changing settings, offering guidance and casual conversation. Those are different interactions, with different expectations. A helpful assistant would need to make its role clear in each one.
+## Ground language in the game state
 
-## From words to a subgoal
+For the FPS design, we separated language interpretation from real-time control. Speech recognition produces text; intent and slot parsing identify the request and addressee; game state resolves references such as “me” into an actual player and position.
 
-For an FPS example, we divided language understanding from moment-to-moment control.
+{% include article-image.html src="/img/blog/yessir/language-to-subgoal.png" alt="YesSir design pipeline from speech recognition through intent and slot parsing to a subgoal for reinforcement learning control" width="681" height="238" caption="YesSir FPS design: interpret the request, resolve its target in game state, then use an RL policy for control." %}
 
-Speech recognition would turn audio into text. Intent detection and slot filling would identify what the player wanted and whom they were addressing. Game state would resolve a phrase such as “me” to the speaker's current position. The system could then give the selected AI a subgoal.
+“Number two, rescue me” becomes a selected AI, a rescue intention and a destination derived from the speaker's state. A learned policy then handles movement and local decisions on the way.
 
-{% include article-image.html src="/img/blog/yessir/language-to-subgoal.png" alt="YesSir design pipeline from speech recognition through intent and slot parsing to a subgoal for reinforcement learning control" width="681" height="238" caption="The FPS pipeline from our original design notes: language identifies a task; game context resolves its target; an RL policy controls the response." %}
+The separation makes failures easier to locate. Selecting the wrong teammate is an interpretation problem. Moving toward the right player but failing to navigate is a control problem. Both affect the experience, but they need different remedies.
 
-For “number two, help me,” that would mean selecting the second AI, identifying the rescue intention and supplying the player's location as a destination. A learned policy would handle movement and the local decisions along the route.
+## Define the relationship before adding personality
 
-It is a useful division because the player can express the purpose without spelling out every step. The control policy still needs to react to what happens in the game.
+A tactical assistant needs predictable compliance. A fictional companion may hesitate, disagree or have competing priorities. Those behaviors support different games and create different expectations.
 
-## Obedience and personality create different games
+If a command is acknowledged but cannot be completed, the game should make the reason legible. If a character deliberately refuses, players need enough context to read that as characterization rather than a broken controller. Communication includes the response and its consequences.
 
-The notes distinguished two forms of interaction. In one, the AI is expected to follow the command as reliably as it can. In the other, the instruction influences behavior alongside the character's circumstances or personality.
+For MOBA, a further proposal was to feed encoded dialogue and its history into a policy alongside game features. Evaluating that approach would require testing whether changes in language reliably change the intended behavior across game situations.
 
-A tactical assistant needs predictable responses. A fictional companion might sometimes disagree, hesitate or prioritize something else. Both can be interesting, but the player should understand which relationship the game is offering.
+## Design the feedback as carefully as the command
 
-For MOBA games, we also considered feeding encoded dialogue and its history into the policy alongside game features. That was a proposal for letting conversation influence decisions more directly, with evaluation still needed to understand how reliably the policy would respond.
+A voice interface becomes worthwhile when the player can give a meaningful instruction, recognize its interpretation and see the squad respond. Vocabulary alone does not produce that loop.
 
-## The interaction is part of the game design
+The design opportunity is a game in which coordination matters: the player makes a tactical choice, companions carry it out, and the resulting situation invites another choice. Language can make that coordination feel direct when the underlying goals and skills are dependable.
 
-What interested me was the possibility of designing games around communication with AI companions. A player could control one character directly while coordinating a squad through language, or give a strategy and watch a team carry it out.
+Related articles: [Neural Function](/updates/2021/10/neural-function/) · [Game AI: From Models to Systems](/updates/2021/08/game-ai-from-models-to-systems/).
 
-The technical pipeline would be one part of that experience. Feedback to the player, understandable behavior and a good reason to speak would matter just as much.
+## Reference examples
 
-Related notes: [Neural Function](/updates/2021/10/neural-function/) · [Game AI: From Models to Systems](/updates/2021/08/game-ai-from-models-to-systems/).
-
-## Examples collected in the original notes
-
-These were reference material for the design exploration:
-
-- [Don't Stop! Eighth Note](https://www.bilibili.com/video/BV1P54y1d7gx/) · [Voice-cast spells](https://www.bilibili.com/video/BV1Sf4y1r7sV/).
-- [Tom Clancy's EndWar](https://www.bilibili.com/video/BV12s411D7tq/) · [Voice-magic example](https://www.bilibili.com/video/BV1Bs411v7Zn/) · [Lifeline](https://www.bilibili.com/video/BV1aW411H7HZ/).
+- [Don't Stop! Eighth Note](https://www.bilibili.com/video/BV1P54y1d7gx/) · [Voice-controlled play](https://www.bilibili.com/video/BV1Sf4y1r7sV/).
+- [Tom Clancy's EndWar](https://www.bilibili.com/video/BV12s411D7tq/) · [In Verbis Virtus](https://www.bilibili.com/video/BV1Bs411v7Zn/) · [Lifeline](https://www.bilibili.com/video/BV1aW411H7HZ/).
 - [Creating a voice assistant for FIFA](https://towardsdatascience.com/creating-voice-assistant-for-games-tutorial-for-fifa-71cfbe428bd1) · [Fridai](http://Fridai.ai).

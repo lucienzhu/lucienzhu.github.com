@@ -7,58 +7,51 @@ author: Xiaolong Zhu
 show_url: true
 tags: [blog]
 update_id: video-generation-world-models-and-ai-beings
-summary: "From generating a plausible future to choosing an action: why world models interest me as a game AI builder."
+summary: "What a video generator must preserve before its predictions can help an agent plan and act."
 permalink: /updates/2024/02/video-generation-world-models-and-ai-beings/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from my essay dated February 2024. Edited and technically revised for this website in October 2026; the product possibilities retain the original essay's perspective.*
+A character reaches a damaged bridge. Crossing is faster; taking a detour may be safer. A model that imagines what happens next could help make this decision, provided its predictions preserve the consequences of each action.
 
-When Sora appeared in February 2024, the phrase that caught my attention was the title of its technical report: [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators/).
+That is the connection between video generation and game AI raised by Sora's February 2024 report, [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators/). Generating a plausible continuation is an impressive capability. Using one to choose an action adds a different set of requirements.
 
-As someone who builds game AI, I read that title as a question about agents. Could a model that generates what happens next help an agent decide what to do now?
+## Predict the consequences that matter
 
-## Why an agent needs a model of what happens next
+Games with explicit rules provide convenient simulators. An agent can compare moves and examine their consequences. In a real environment, observations are partial, dynamics are uncertain and trial and error may be costly.
 
-When playing chess, I can choose a move from familiar patterns. I can also consider several continuations: if I move this piece, how might the opponent respond? That second process depends on a model of how the game works.
+A learned world model offers predictions from experience. Those predictions can concern future observations, rewards or compact internal states that help choose actions.
 
-Games with explicit rules give us a convenient simulator. Real environments are harder. An agent has partial observations, uncertain dynamics and limited opportunities to try an action safely.
+For the bridge decision, a planning model needs to preserve whether the character can cross, what crossing costs and how the alternative changes the task. Extra visual detail helps when it carries information relevant to those consequences.
 
-A learned world model offers a way to predict useful consequences from experience. The predictions might describe observations, rewards or a compact internal state that helps choose actions.
+## Connect predictions to actions
 
-The question that interests me is how those predictions can improve a decision.
+Sora's report explored broader simulation through video generation and documented limitations in physical interaction and consistency. Those limitations matter to agents because small errors can change which action is preferable.
 
-## Generating video and supporting decisions
+Three requirements become especially important. Predictions need to respond to the actions the agent could take. Relevant objects and task states need to persist across time. The system needs a way to assess uncertainty when comparing possible continuations.
 
-Sora's report explored video generation as a route toward broader simulation, while also documenting limitations in physical interactions and consistency. That combination mattered: convincing appearance and reliable action consequences are different things to evaluate.
+A bridge that changes shape between frames can spoil a video. A bridge whose predicted strength changes arbitrarily can invalidate a plan. Evaluation must test the features on which the decision depends.
 
-For an agent, I would want to ask more specific questions. Can we condition on the action it might take? Do important objects and task states persist over time? Can it compare several possible actions and notice when its prediction becomes unreliable?
+## A world model can take different forms
 
-Imagine a character choosing between crossing a bridge and taking a longer route. A beautiful continuation is useful for planning only if the model preserves the consequences that make one route better than the other.
+[World Models](https://worldmodels.github.io/), by David Ha and Jürgen Schmidhuber, explored compact learned environment models and training a controller in a generated dream environment. [MuZero](https://arxiv.org/abs/1911.08265) combined learned dynamics with search, predicting quantities useful for planning without reconstructing every pixel.
 
-## Games make the connection tangible
+These approaches illustrate a central design choice: what must the model predict for a particular task? A navigation agent may need reachability and travel cost. A team-game agent may also need consequences for teammates and shared resources.
 
-[World Models](https://worldmodels.github.io/), by David Ha and Jürgen Schmidhuber, explored learning compact models of environments and training a controller in a generated dream environment. [MuZero](https://arxiv.org/abs/1911.08265) used learned dynamics with search, predicting quantities relevant to planning rather than requiring a reconstruction of every pixel.
+The desired-state interface proposed in [Neural Function](/updates/2021/10/neural-function/) raises a related question. Once a goal can describe a future configuration, a model could help compare routes toward it. The contribution has to be demonstrated through better decisions under the task's constraints.
 
-These approaches make an important design choice visible: what does the agent need its model to predict?
+## Give an AI being a continuing role
 
-For navigation, the useful information might concern reaching a destination. For a team game, it might include what happens to teammates and shared resources. A more visually detailed prediction is valuable when that detail affects the task.
+“AI being” is a product metaphor here: an agent that perceives, acts and communicates while maintaining a continuing role in an environment. A game companion, a character in a persistent world or a robot working alongside people would each need a different version of that continuity.
 
-That connects to my earlier [Neural Function notes](/updates/2021/10/neural-function/): what if a goal described a desired state, and the system could reason about how to reach it?
+{% include article-image.html src="/img/blog/ai-beings/concept.png" alt="Concept illustration of researchers looking toward an imagined silicon-based AI being in space" width="1792" height="1024" caption="Concept illustration of a future AI being." %}
 
-## From a generator to an AI being
+For a companion, it may mean remembering a shared objective and responding coherently as the situation changes. For a robot, predictions have to connect to the physical effects of its actions. In both cases, useful behavior depends on perception, control and feedback working together.
 
-In the original essay, I used “AI being” to imagine a system that perceives, acts, communicates and learns through interaction. It was a product metaphor for an agent with a continuing role in its environment.
+A practical next step is to choose a bounded task and measure whether prediction improves action: fewer failed routes, better use of resources or more reliable coordination. That is how a generative component can earn a place in a system people interact with.
 
-That opens up forms I find interesting: game companions, characters inhabiting a persistent world, or robots that work alongside people. The hard part is connecting useful perception and prediction to actions, feedback and an experience people understand.
-
-{% include article-image.html src="/img/blog/ai-beings/concept.png" alt="Concept illustration of researchers looking toward an imagined silicon-based AI being in space" width="1792" height="1024" caption="A concept illustration from the original essay, imagining a future AI being." %}
-
-The longer-term possibility is what excites me about generative models. They could become components in systems that do interesting things with people and respond to the world around them.
-
-For me, the next question is a practical one: what would we let such an agent do, and how would we know that it was getting better at it?
-
-## Links retained from the original notebook
+## Further reading
 
 - [Game Emulation via Neural Network](https://madebyoll.in/posts/game_emulation_via_dnn/): an interactive Pokémon overworld experiment.
 - [Runway: Introducing General World Models](https://research.runwayml.com/introducing-general-world-models).
-- [World Models](https://worldmodels.github.io/) · [Sora's original technical report](https://openai.com/index/video-generation-models-as-world-simulators/).
+- [World Models](https://worldmodels.github.io/) · [Sora's February 2024 technical report](https://openai.com/index/video-generation-models-as-world-simulators/).

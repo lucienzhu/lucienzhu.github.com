@@ -9,58 +9,45 @@ tags: [blog]
 update_id: tables-and-spatial-computing
 summary: "Why shared tables, spatial interaction and telepresence could be a useful starting point for XR products."
 permalink: /updates/2024/01/tables-and-spatial-computing/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Notes from January 2024, revisiting ideas I began exploring in 2023. Edited for this website in October 2026; the predictions retain the perspective of the original notes.*
+A shared table solves several interaction problems before any software is written. It gives people a surface, a scale and a common frame of reference. A model placed between two people can be pointed at, turned around or passed across. Everyone has a way to understand what “this part” means.
 
-AR, VR and MR invite us to imagine another computing platform. The interesting question for me is what people would actually do together on it.
+That makes the table a promising starting point for spatial computing. A new device needs a repeatable activity that makes its form useful. Working, making things and playing together already bring people to tables.
 
-Fiction gives augmented reality a strong visual language. Think of Joi in *Blade Runner 2049*: a digital presence that seems to occupy the same world as a person. Building everyday products around that freedom is harder. A product that depends on every detail of its surroundings has a great deal to account for.
+## A useful constraint for a new interface
 
-My experience with Quest 2 also made the distance between a compelling demonstration and an everyday tool apparent. Passthrough suggested new uses for a headset, but the image quality I experienced was still a limitation for productive work.
+The freedom of AR and VR also creates a design problem: objects could go anywhere, at any size, in surroundings the application cannot fully predict. Starting with a defined workspace reduces those choices.
 
-So where might a useful, repeatable setting come from? I keep returning to the table.
+When I tried Quest 2 passthrough, the image quality limited its usefulness as an everyday work surface. The experience made the gap between a compelling demonstration and a comfortable tool quite concrete. A spatial product needs a setting in which its benefits justify the effort of using the device.
 
-## A familiar place for spatial interaction
+A tabletop gives that setting boundaries. Designers can choose a few objects, the actions people need and the reason they are gathered. They can test whether placing, rotating and grouping content helps the activity.
 
-Phones and PCs each serve situations in which their form makes sense. A phone travels with us. A computer gives us a larger working surface. A new device needs its own convincing combination of place, input and activity.
+## Put something worth sharing on the surface
 
-The history of those devices is also a history of interaction: watching a screen, controlling it through a keyboard and mouse, and touching it directly. Spatial computing opens another possibility: reaching into a three-dimensional space where digital objects have positions around us.
+[Apple's 2023 introduction of Vision Pro](https://www.apple.com/newsroom/2023/06/introducing-apple-vision-pro/) described input through eyes, hands and voice. Those inputs suggest ways to work with content that has a position in the room.
 
-A physical table already supplies a surface, a scale and a shared point of reference. We know what it means to place something between two people, slide it across, turn it around or arrange several things into groups. Those actions are familiar before anyone explains an interface.
+For example, two people reviewing a three-dimensional model could point to the same component and turn it to inspect a joint. Notes and alternatives could sit beside it. The spatial arrangement would carry information that otherwise has to be explained in conversation.
 
-Tables are also present in an enormous range of ordinary activities. We work, eat, make things, play games and spend time with others around them. That gives a product a concrete setting in which to begin.
+A board game supplies an even clearer starting point. Pieces, rules and turns already organize interaction on a shared surface. Players know why an object moved and when another person's action matters. The application has an existing activity to support, with recognizable signs of success and failure.
 
-## What would we put on the table?
+## Give remote presence a shared activity
 
-[Apple introduced Vision Pro](https://www.apple.com/newsroom/2023/06/introducing-apple-vision-pro/) with interaction through eyes, hands and voice. To me, that raised a design question: what happens when a digital workspace lines up with an actual tabletop?
+Telepresence becomes more useful when people have something to do together. A face and a conversation can be joined by a model to inspect, a game to play or an object to make.
 
-Imagine preparing a presentation with models, notes and a timeline arranged in front of you. Or reviewing a three-dimensional object with someone who can point to the same part you are looking at. Moving, rotating and grouping content could become part of a shared activity.
+{% include article-image.html src="/img/blog/tables-and-spatial-computing/shared-table.png" alt="Concept illustration of local and remote participants sharing a tabletop game" width="1792" height="1024" caption="Concept illustration: local and remote participants gathered around a shared tabletop game." %}
 
-The table would provide a useful constraint. A designer could start with a defined working area, a small set of objects and a reason for people to gather. The interface would grow out of that activity.
+A shared surface can connect speech to action. “Move this one here” becomes understandable when both people can identify the piece, the gesture and the destination. A pause before a move or a reaction afterward can remain part of the social experience.
 
-That is one reason board games interest me as an early setting for XR. They already organize objects, rules, turns and social interaction around a shared surface. There is a clear place for digital content to sit, and a clear reason to care about what another person does with it.
+This creates a different way to judge the value of a headset: which relationships and activities become easier to maintain across distance? The quality of time spent together matters alongside display quality and input precision.
 
-## Telepresence gives the space a purpose
+## Creation belongs in the same space
 
-The need I find most interesting is telepresence: the feeling that someone far away is present with you.
+A shared workspace also needs ways to introduce, edit and organize content. Spatial input could help with operations that are naturally three-dimensional. Language and generative tools could make it easier to add an object or describe a change.
 
-A shared table could give that presence something to do. Two people could look at the same model, move pieces in the same game or build something together. The conversation and the activity would support each other.
+AI characters could participate as well, provided their role contributes to the activity. A game companion needs understandable turns and actions; a helper in a design review needs to ground its suggestions in the object everyone is examining.
 
-{% include article-image.html src="/img/blog/tables-and-spatial-computing/shared-table.png" alt="Concept illustration of local and remote participants sharing a tabletop game" width="1792" height="1024" caption="Concept illustration from the original notes: local and remote participants gathered around a shared table." %}
-
-This also changes how I think about the value of a headset. Time spent together, travel avoided and the quality of a shared activity could all matter. The value would depend on who people want to be with and what they can do together.
-
-## Content, creation and play
-
-A shared three-dimensional workspace would create opportunities across the life of a piece of content: capturing it, editing it, showing it to others and interacting with it.
-
-For creators, spatial input could make some operations easier to express. Voice and generative tools could provide additional ways to introduce or change content. For participants, that content could become something to inspect and manipulate together.
-
-I am especially curious about the social experience. A table is a place where people can focus on one activity while still noticing each other: a gesture, a reaction, a pause before a move. Digital characters and AI agents could join that setting too. The design challenge would be to make their participation contribute to the game or conversation.
-
-In the original notes, I guessed that 2026 might be an interesting window for this direction. The more useful question is what would make the experience worth returning to: comfortable interaction, understandable rules, worthwhile shared content and a reason to invite someone else.
-
-That is the kind of product I would like to explore: a shared table where digital content, people and AI can do something interesting together.
+The test is concrete: can people stay comfortable, understand each other's actions and complete an activity they want to repeat? A table gives spatial computing a familiar place to answer those questions, one shared task at a time.
 
 Related project: [Vision Pro × DnD](/projects/vision-pro-dnd/), an immersive combat prototype with surrounding content generated through LLM conversations.

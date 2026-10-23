@@ -7,56 +7,51 @@ author: Xiaolong Zhu
 show_url: true
 tags: [blog]
 update_id: ai-and-new-experiences
-summary: "From Manus to games and physical products, thinking about what AI lets people make and experience."
+summary: "How AI-assisted creation can turn ideas into playable experiments, shared activities and physical products."
 permalink: /updates/2025/03/ai-and-new-experiences/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from my March 2025 essay, edited and fact-checked in October 2026. The questions and product possibilities retain the perspective of the original notes.*
+An AI that can use software can shorten the path from an intention to a result. It can also shorten the path from an idea to something other people can experience: a game to join, a shared scene to explore or a physical object with a useful behavior.
 
-When [Manus](https://manus.im/) became a topic of conversation in March 2025, friends asked what I thought. I was already working on agents, and the excitement brought back a question I had been considering for years: what becomes possible when an AI can act through software?
+The discussion around [Manus](https://manus.im/) in March 2025 made the first opportunity especially visible. The second deserves equal attention. AI products can help people create activities they want to take part in, alongside helping them complete existing work.
 
-An assistant that carries a task through several tools is an appealing product. It can reduce the distance between expressing an intention and getting something done. Making that dependable is substantial work, and understanding the person using it is part of the problem.
+## Interfaces decide what becomes possible
 
-I was also drawn to another possibility: using AI to create experiences that people would want to try for their own sake.
+In 2019, I worked on a cloud-native distributed reinforcement learning system. Games supplied a loop of observation, action and feedback. The interface defined what an agent could perceive and attempt.
 
-## The interface opens up the possibilities
+[AndroidEnv, published in 2021](https://arxiv.org/abs/2105.13231), extended that idea to Android applications through a touchscreen interface. Giving an agent access to a new environment opens a range of tasks, each with its own requirements for learning and evaluation.
 
-In 2019, I worked on a cloud-native distributed reinforcement learning system. Games gave us environments where an agent could observe, act and learn from the result.
+{% include article-image.html src="/img/blog/ai-and-new-experiences/androidenv.png" alt="AndroidEnv paper examples showing Android applications including maps, a calendar, a browser and a clock" width="1266" height="466" caption="Android applications exposed through AndroidEnv. Source: the 2021 research paper." %}
 
-Later, [AndroidEnv, published in 2021](https://arxiv.org/abs/2105.13231), offered another setting: agents interacting with Android applications through a touchscreen interface. I liked the question behind it. Once the interface gives an agent access to a wider world, what activities can it learn to carry out?
+An interface is therefore a product choice. The information available to the model, its possible actions and the way people direct it must fit the task. Personalization can help when it preserves useful preferences and working context, reducing repeated explanation.
 
-{% include article-image.html src="/img/blog/ai-and-new-experiences/androidenv.png" alt="AndroidEnv paper examples showing Android applications including maps, a calendar, a browser and a clock" width="1266" height="466" caption="AndroidEnv application examples, saved with the original notes. Source: the AndroidEnv research paper, 2021." %}
+The same principle applies to creation tools. They need to make the user's next experiment easy to express and its result easy to inspect.
 
-The interface is a product decision too. A model's abilities become useful through the information it receives, the actions it can take and the way people direct it. A particular task needs a good fit among all three.
+## Shorten the route to a playable experiment
 
-That is why personalization interests me. People have different working habits and different ideas of a useful result. A product should help them express what matters without repeatedly explaining everything from the beginning.
+[levels.io](http://levels.io)'s [browser flight game](https://fly.pieter.com/) offers a concrete example of an experiment made with AI coding tools. An idea becomes something people can enter and play, making feedback possible while the concept is still small.
 
-## Making a game can become easier
+{% include article-image.html src="/img/blog/ai-and-new-experiences/browser-flight-game.png" alt="The fly.pieter.com browser flight game entry screen, March 2025" width="2148" height="1202" caption="The browser flight game at fly.pieter.com, March 2025." %}
 
-One example in my March notes was [levels.io](http://levels.io)'s [browser flight game](https://fly.pieter.com/), presented as an experiment built with AI coding tools. What caught my attention was the short path from an idea to something people could join and play.
+For a game team, faster implementation can expand the set of combinations worth testing: a mechanic with several visual treatments, an unusual control scheme or a different way for players to cooperate. The useful gain is more opportunities to discover what works.
 
-{% include article-image.html src="/img/blog/ai-and-new-experiences/browser-flight-game.png" alt="The fly.pieter.com flight game entry screen as saved in the original March 2025 notes" width="2148" height="1202" caption="The flight game entry screen saved with the original March 2025 essay. An example of a small, playable experiment." %}
+A working prototype still needs playtesting. If players cannot understand a goal, a polished asset will not resolve it. If a rule creates an enjoyable decision, a rough version may already reveal that. Speed matters when the team uses it to learn about the experience.
 
-It prompted a design question: could we develop rules and interactions quickly, then give the experience different visual treatments? Could a small team explore more unusual combinations of mechanics, art and social play?
+## Move from content to activities
 
-Producing assets or code is part of that opportunity. Finding a game people enjoy returning to still takes design, testing and judgment. Faster iteration is valuable when it helps us discover that experience.
+Content, experiences and physical things suggest three connected levels of product design.
 
-## Content, experiences and things
+Content gives people material: an image, a scene, music or a character. An experience organizes material into an activity with choices and feedback. A shared spatial game, for example, needs rules for how people affect the scene and how it responds.
 
-In the original essay, I wrote down three directions: content generation, experience generation and thing generation.
+Physical products add a body and an environment. Perception, planning and control let an object behave, while design determines how that behavior fits the people around it. Movement, timing and feedback become part of the experience.
 
-Content can be an image, a scene, a piece of music or an interactive character. An experience emerges when that content is placed inside an activity: a game with friends, a shared spatial workspace or a conversation that changes what happens around you.
+Moving between these levels adds requirements. A generated scene needs interaction to become a game. A simulated behavior needs dependable physical control to become part of a robot. Each transition should be tested in the setting where people will use it.
 
-Physical things add another possibility. Perception, planning and control can give an object useful behavior and make interaction with it part of the experience. The design has to account for the body, the environment and the people around it.
+## Make the next test about the experience
 
-Those directions connect with the work I enjoy: agents that play, systems people can create with, and robots that take part in an activity. Each asks us to design what the AI does and why someone would care.
+A promising demonstration gives someone a reason to try it. A useful test observes what happens afterward: can they understand what to do, affect the result and find a reason to return or invite another person?
 
-## A reason to want it
+Those questions help distinguish a moment of novelty from an activity with lasting value. Faster creation is most valuable when it gives teams more chances to answer them.
 
-Saving time and reducing repetitive work are valuable. I also want to build things that create a reason to gather, play, explore or make something new.
-
-The question I took from the agent wave was therefore a product question: what would make someone see an unfamiliar AI system and immediately want to try it?
-
-Those are the products I want to build: things people see and want to try.
-
-Related notes: [When AI Becomes the Game](/updates/2021/12/ai-as-gameplay/) · [Vision Pro × DnD](/projects/vision-pro-dnd/).
+Related work: [When AI Becomes the Game](/updates/2021/12/ai-as-gameplay/) · [Vision Pro × DnD](/projects/vision-pro-dnd/).

@@ -9,16 +9,13 @@ tags: [blog]
 original_url: /updates/2022/collective-intelligence-in-lux/
 permalink: /zh/updates/2022/collective-intelligence-in-lux/
 update_id: collective-intelligence-in-lux
-summary: "共同研究智能体如何在自博弈中学会保护资源、封锁对手，以及维持群体协作。"
+summary: "共享策略如何在自博弈中学会保留资源、控制空间和维持协作阵形。"
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*基于 2022 年团队研究笔记，2026 年 10 月整理。原稿月份未确认，因此保留年份；我是相关研究论文的共同作者。*
+一排单位沿对角线分割地图。一个耗尽燃料，另一个补上缺口。另一处，工人把能够再生的木头留在原地，等需要时再采集。这些行为，都没有被我们写成规则交给它们。
 
-训练游戏 AI 的一个乐趣，是看到它做出没有被我们明确写进规则的行为。
-
-在 Lux 中，智能体最初只是采集资源、建造城市。继续训练后，我们看到了保留可再生资源、封锁对手、在防线上接力补位等行为。看这些对局，往往比只看最终分数更有意思。
-
-这篇文章整理了[《Emergent collective intelligence from massive-agent cooperation and competition》](https://arxiv.org/abs/2301.01609)背后的一些研究观察。相关论文发表于 NeurIPS 2022 Deep RL Workshop，预印本于 2023 年 1 月公开。
+这些观察来自我参与的 Lux 研究[《Emergent collective intelligence from massive-agent cooperation and competition》](https://arxiv.org/abs/2301.01609)。论文发表于 NeurIPS 2022 Deep RL Workshop，预印本于 2023 年 1 月公开。研究关心的是：围绕共同结果训练，怎样在大量单位之间产生有用的行为结构。
 
 ## 一个让合作有意义的世界
 
@@ -36,7 +33,7 @@ summary: "共同研究智能体如何在自博弈中学会保护资源、封锁�
 
 训练使用自博弈、[PPO](https://arxiv.org/abs/1707.06347) 和 [GAE](https://arxiv.org/abs/1506.02438)。分布式框架不断运行环境、采集轨迹，再用数据更新策略，形成循环。
 
-{% include article-image.html src="/img/blog/lux-collective-intelligence/training-framework.png" alt="包含环境运行、策略存储、样本存储与学习器的分布式训练循环" width="7600" height="4989" size="medium" caption="原研究笔记中的分布式训练循环。" %}
+{% include article-image.html src="/img/blog/lux-collective-intelligence/training-framework.png" alt="包含环境运行、策略存储、样本存储与学习器的分布式训练循环" width="7600" height="4989" size="medium" caption="分布式训练循环：环境运行器采集轨迹，学习器据此更新策略。" %}
 
 这里的集中式控制很重要：这些单位共享团队策略。我们没有给它们手写“排成一道墙”或“保护某片树林”的协作指令。
 
@@ -50,7 +47,7 @@ summary: "共同研究智能体如何在自博弈中学会保护资源、封锁�
 
 **基础技能。** 早期策略开始学会采集、建造、运送燃料与研究。它已经能做出局部有用的动作，但在团队整体上仍可能犯很贵的错误。
 
-**可持续扩张。** 后来的策略能更好地平衡建设与燃料。一场印象很深的自博弈中，双方几乎各自填满了一半地图。
+**可持续扩张。** 后来的策略能更好地平衡建设与燃料。一场自博弈中，双方几乎各自填满了一半地图。
 
 {% include article-image.html src="/img/blog/lux-collective-intelligence/peaceful-expansion.jpg" alt="Lux 自博弈中两队分别占据大部分各自半场的局面" width="1920" height="929" caption="可持续扩张阶段的一场自博弈示例。" %}
 
@@ -64,7 +61,7 @@ summary: "共同研究智能体如何在自博弈中学会保护资源、封锁�
 
 一个反复出现的例子是，单位沿对角线站位，把对方的活动区域切开。某个单位燃料耗尽，另一个单位又补上空位。这条线通过连续的动作被维持下来。
 
-{% include article-image.html src="/img/blog/lux-collective-intelligence/diagonal-blockade.png" alt="蓝色单位沿 Lux 地图对角线排列，限制对方的活动范围" width="1898" height="907" caption="原实验中观察到的对角线封锁。" %}
+{% include article-image.html src="/img/blog/lux-collective-intelligence/diagonal-blockade.png" alt="蓝色单位沿 Lux 地图对角线排列，限制对方的活动范围" width="1898" height="907" caption="训练中观察到的对角线封锁。" %}
 
 第二种，是对树木的处理。早期策略看到木头就尽快采集；后来的对局中，智能体会在受保护的区域保留能够再生的木头，争夺地图中间的树林，并在终局前收取预留资源。
 
@@ -77,16 +74,16 @@ summary: "共同研究智能体如何在自博弈中学会保护资源、封锁�
     <source src="/video/blog/lux-collective-intelligence/stage-four-vs-baseline.mp4" type="video/mp4">
     <a href="/video/blog/lux-collective-intelligence/stage-four-vs-baseline.mp4">观看对局录像</a>。
   </video>
-  <figcaption>原笔记中的示例对局：黄色为我们训练的策略，蓝色为 Toad Brigade 基线。</figcaption>
+  <figcaption>示例对局：黄色为我们训练的策略，蓝色为 Toad Brigade 基线。</figcaption>
 </figure>
 
-## 这些对局带来的启发
+## 在团队尺度上理解行为
 
 这些观察描述的是特定游戏与训练配置中的行为，本身不能证明网络内部学到了哪种表示。对局示例需要与量化评估、消融实验一起看，细节可以参考论文和[研究代码](https://github.com/hanmochen/lux-open)。
 
-对我来说，有趣的是：当一系列个体动作围绕共同结果学习时，行为中会出现很多结构。保留一片树林、留出一条道路、补上一个缺口，其意义都来自其他队友正在做什么。
+一片没有被采集的树林，可能支持之后的燃料需求；一个原地不动的单位，可能正在维持封锁线。这些动作的价值，取决于其他队友和后续局面。孤立地评价每个工人，就会漏掉其中的结构。
 
-这也让游戏成为研究学习与涌现的好场所。规则可以检查，结果可以度量，行为又足够直观，让我们能一边观察，一边提出更好的问题。
+分析学到的策略，可以从动作如何在时间上互相支持入手。录像帮助我们提出解释，受控比较则用来确认，哪些行为真正有助于获胜。
 
 ## 参考与材料
 

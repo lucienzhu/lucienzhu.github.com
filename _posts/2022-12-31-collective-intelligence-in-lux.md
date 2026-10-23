@@ -9,17 +9,14 @@ author: Xiaolong Zhu
 show_url: true
 tags: [blog]
 update_id: collective-intelligence-in-lux
-summary: "Research notes on agents learning to preserve resources, block opponents and coordinate through self-play."
+summary: "How a shared policy learned resource preservation, territorial control and coordinated formations through self-play."
 permalink: /updates/2022/collective-intelligence-in-lux/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from our team's 2022 research notes, edited in October 2026. The original manuscript's month is unconfirmed, so this entry retains the year. I am a co-author of the related research.*
+A line of units divides the map. One runs out of fuel; another fills the gap. Elsewhere, workers leave regenerating wood unharvested until it is needed. Neither behavior was a rule we wrote for them.
 
-One of the pleasures of training game AI is watching it do something you did not explicitly tell it to do.
-
-In Lux, our agents began by collecting resources and building cities. With further training, we saw them preserve renewable resources, block opponents and replace units along a defensive line. Looking through those games was often more interesting than looking at a single final score.
-
-This article collects observations from the research behind [Emergent collective intelligence from massive-agent cooperation and competition](https://arxiv.org/abs/2301.01609), published at the NeurIPS 2022 Deep RL Workshop. The preprint appeared in January 2023.
+These were observations from our Lux research, [Emergent collective intelligence from massive-agent cooperation and competition](https://arxiv.org/abs/2301.01609), which I co-authored. The work appeared at the NeurIPS 2022 Deep RL Workshop, with a preprint released in January 2023. It investigates how training toward a shared outcome can produce useful structures across many units.
 
 ## A world that makes cooperation matter
 
@@ -37,7 +34,7 @@ This follows the pixel-to-pixel approach discussed in [Toad Brigade's competitio
 
 The policy was trained through self-play using [PPO](https://arxiv.org/abs/1707.06347) and [generalized advantage estimation](https://arxiv.org/abs/1506.02438). Our distributed training framework ran environments, collected trajectories and updated the policy in a continuing loop.
 
-{% include article-image.html src="/img/blog/lux-collective-intelligence/training-framework.png" alt="Distributed training loop with runners, policy storage, sample storage and learners" width="7600" height="4989" size="medium" caption="The distributed training loop from the original research notes." %}
+{% include article-image.html src="/img/blog/lux-collective-intelligence/training-framework.png" alt="Distributed training loop with runners, policy storage, sample storage and learners" width="7600" height="4989" size="medium" caption="The distributed training loop: environment runners collect trajectories for policy updates." %}
 
 Centralized control matters to the interpretation: the units share a team policy. We did not give them a hand-written instruction to form a wall or protect a particular forest.
 
@@ -51,7 +48,7 @@ We observed several behavioral stages along the way. These were patterns in the 
 
 **Basic skills.** Early policies learned to collect, build, transfer fuel and research. They could perform useful actions while still making costly decisions about the team as a whole.
 
-**Sustainable expansion.** Later policies balanced construction and fuel more effectively. One memorable self-play game ended with both sides filling almost their entire half of the map.
+**Sustainable expansion.** Later policies balanced construction and fuel more effectively. In one self-play game, both sides filled almost their entire half of the map.
 
 {% include article-image.html src="/img/blog/lux-collective-intelligence/peaceful-expansion.jpg" alt="A Lux self-play game with the two teams occupying most of their respective halves of the map" width="1920" height="929" caption="A self-play example from the sustainable-expansion stage." %}
 
@@ -65,7 +62,7 @@ The first was how the agents used cities and units to control space. Early const
 
 In one recurring pattern, units stood along a diagonal line that divided the opponent's territory. When a unit ran out of fuel, another could fill the gap. The line was maintained through a sequence of actions.
 
-{% include article-image.html src="/img/blog/lux-collective-intelligence/diagonal-blockade.png" alt="Blue units arranged diagonally across a Lux map to restrict the opposing team" width="1898" height="907" caption="A diagonal blockade observed in the original experiments." %}
+{% include article-image.html src="/img/blog/lux-collective-intelligence/diagonal-blockade.png" alt="Blue units arranged diagonally across a Lux map to restrict the opposing team" width="1898" height="907" caption="A diagonal blockade observed during training." %}
 
 The second behavior involved trees. Early policies harvested available wood quickly. Later games showed agents preserving regenerating wood inside protected areas, contesting forests in the middle of the map and harvesting reserved resources near the end.
 
@@ -78,16 +75,16 @@ An action that looked wasteful in an early policy could become useful once the s
     <source src="/video/blog/lux-collective-intelligence/stage-four-vs-baseline.mp4" type="video/mp4">
     <a href="/video/blog/lux-collective-intelligence/stage-four-vs-baseline.mp4">Watch the replay</a>.
   </video>
-  <figcaption>Example replay from the original notes: our policy in yellow, the Toad Brigade baseline in blue.</figcaption>
+  <figcaption>Example replay: our policy in yellow, the Toad Brigade baseline in blue.</figcaption>
 </figure>
 
-## What I take from these games
+## Interpret behavior at the scale of the team
 
 These observations describe behavior in a particular game and training setup. They do not by themselves tell us which internal representations the network learned. Quantitative evaluation and ablations belong alongside the examples; they are available in the paper and [research code](https://github.com/hanmochen/lux-open).
 
-For me, the interesting result is how much structure can appear when individual actions are trained toward a shared outcome. Preserving a forest, leaving a route open or filling a gap all become meaningful through what the rest of the team is doing.
+A forest left standing may support future fuel needs; a unit standing still may maintain a blockade. The value of either action depends on the rest of the team and on what happens later. Evaluating each worker in isolation would miss that structure.
 
-That makes games a rewarding place to study learning and emergence. They provide rules we can inspect, outcomes we can measure and behavior we can watch closely enough to ask better questions.
+This suggests a practical lesson for analyzing learned strategies: inspect how actions support one another over time. Replays reveal candidate explanations; controlled comparisons are needed to establish which behaviors contribute to success.
 
 ## References and materials
 

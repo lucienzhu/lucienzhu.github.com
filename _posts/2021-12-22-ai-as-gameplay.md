@@ -9,60 +9,53 @@ tags: [blog]
 update_id: ai-as-gameplay
 summary: "From AI teammates to trainable game pieces, designing play around the behavior of agents."
 permalink: /updates/2021/12/ai-as-gameplay/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Adapted from my September and December 2021 product notes, edited in October 2026. The Ultra image below illustrates subsequent prototype work; the other game concepts are presented as design ideas.*
+An AI opponent can keep a match running. Let players shape its behavior, and it becomes something they can play with: a team to train, a companion to direct or a creature to teach.
 
-Working on game bots made me interested in a larger design question: what games would we make if the behavior of AI agents became something players could shape, share and play with?
+That changes the central design question. What decisions does the player make about the AI, and what feedback makes those decisions interesting? A stronger agent gives a game more possibilities only when people have meaningful ways to influence and understand it.
 
-An AI player can fill a missing seat, provide an opponent or help a match continue when someone leaves. Those are useful roles. I was especially curious about what would happen when players could influence the agent's goals, style and relationships with other characters.
+## Build a loop around behavior
 
-## Give the player something to direct
+Consider a game in which players prepare a squad, watch it compete and change their instructions for the next match. The decisions might concern roles, destinations or responses to an opponent. A satisfying loop lets players form a hypothesis, see what happened and make a useful adjustment.
 
-A capable AI becomes a different design material when someone can give it a task. The player might select a destination, arrange a sequence of goals or ask a teammate to provide cover.
+The interfaces explored in [Neural Function](/updates/2021/10/neural-function/) and [YesSir](/updates/2021/10/yessir-language-and-teammates/) provide possible building blocks: expose a skill, give it a goal and observe its execution. A game can then put those controls in players' hands.
 
-That connects to the [Neural Function](/updates/2021/10/neural-function/) and [YesSir](/updates/2021/10/yessir-language-and-teammates/) ideas we were exploring: expose a skill through an interface, then give a programmer, designer or player a way to call it.
+Readable behavior is essential. If the team wins for reasons the player cannot see, there is little to learn from changing a strategy. If every instruction dictates a fixed outcome, there is little left to discover. The design has to leave room for surprises while making the consequences of a choice recognizable.
 
-The activity could involve training a team, choosing among different styles or adapting instructions after watching a match. The player's decisions would concern how the agents behave and how well they work together.
+## Give a population something to do
 
-For that to be enjoyable, the behavior needs to be understandable enough to form expectations. Players should be able to recognize the effect of their decisions and have something interesting to change next time.
+A larger population can make a familiar map behave differently. Agents compete over resources, occupy routes and alter the conditions that other participants encounter. Their activity gives players situations to join and decisions that matter beyond a single fight.
 
-## A population can change the experience
+[Neural MMO](https://www.aicrowd.com/challenges/the-neural-mmo-challenge) provides a research environment for studying survival, competition and cooperation at that scale. Turning such activity into a game for people adds another requirement: players need to understand what they can influence and why they should care.
 
-My September notes used the phrase “GPU for GameCore” to ask what more computation could do for a game's logic and simulation. The interesting design question was the world that computation might support.
+Our later [Ultra](/projects/ultra/) work explored a multiplayer world where people and AI shared gathering, survival and combat. The team also organized an AI esports event around the prototype.
 
-With many agents, an encounter can depend on relationships, resources and activity elsewhere in the world. Different populations or strategies can give a familiar environment a different rhythm.
+{% include article-image.html src="/img/projects/ultra.jpg" alt="Ultra prototype characters sharing a real-time world of combat and exploration" width="1280" height="720" caption="Ultra prototype, 2022: humans and AI sharing a world of gathering, survival and combat." %}
 
-[Neural MMO](https://www.aicrowd.com/challenges/the-neural-mmo-challenge) provided a concrete research setting for questions about survival, competition and teamwork among many agents. I was interested in what the same ingredients could offer a human player: a world with activity to join, respond to and influence.
+Additional simulation is useful when it creates encounters, relationships or changing conditions that players can notice. The number of agents or amount of computation is a poor substitute for that experience.
 
-Our subsequent work on [Ultra](/projects/ultra/) explored humans and AI sharing a multiplayer world of gathering, survival and combat. We also organized an AI esports event around the prototype.
+## Give an agent a social role
 
-{% include article-image.html src="/img/projects/ultra.jpg" alt="Ultra prototype characters sharing a real-time world of combat and exploration" width="1280" height="720" caption="Ultra, from subsequent 2022 prototype material: humans and AI participating in the same game world." %}
+One possible design is an AI that joins a friend's game while its player is absent. Its behavior could carry a recognizable style, and the session could produce a story to share afterward.
 
-## A social role for your AI
+For that idea to work, the game would need to define what the absent player has delegated. Which choices belong to the agent? Can friends teach or help it? What consequences should carry back to its owner? These rules shape the relationship as much as the controller does.
 
-One possibility in the December notes was an AI that could join friends when its player was absent. The group could have a shared experience that the absent person would hear about later.
+The appeal lies in having something that connects one person's choices to another person's play. A character's presence alone does not establish that connection.
 
-That raises enjoyable design questions. Would friends recognize your AI's style? Could they help it improve? Would a story about what it did give everyone a reason to talk the next day?
+## Let players build something that learns
 
-The concept would need a clear relationship between the person and their agent. What can the player teach it, what can it do independently, and how does the group understand its participation?
+Another design direction combines modular bodies with learned behavior. Players assemble a creature, train it to move or manipulate an object, then compare and revise their designs.
 
-That was a product idea in the notes, rather than a claim that we had completed an asynchronous social game.
+Research such as [Evolution Gym](https://evolutiongym.github.io/) explores the joint design of morphology and control. A playable construction toy would need its own accessible feedback: show which part of a body or training setup helped, and make the next experiment easy to try.
 
-## AI, building blocks and social play
+The resulting loop is tangible: build, observe, adjust and share. Learning becomes visible through something the player made. A physical version could also give people a reason to bring their creations to the same table.
 
-Another idea was a kit of parts whose assembled bodies could learn to move or manipulate objects. Players could build, train, compare designs and exchange what they learned. A physical version might let them bring those creations to the same table.
+## Start with the player's next decision
 
-Research such as [Evolution Gym](https://evolutiongym.github.io/), on jointly optimizing robot design and control, offered related inspiration. A research benchmark and a playable construction toy have different requirements, but the combination of a body and learned behavior is a rich material for design.
+These directions lead to different games, but share a practical test. After watching the AI act, can the player identify a choice worth making next? Can they explain that choice to a friend, try it and see a consequence?
 
-The appeal was the loop: make something, see what it can do, change it and show someone else. Learning could become visible through the thing the player had made.
+Those moments give AI behavior a place in the game loop. They turn a technical capability into a material for strategy, creation and social play.
 
-## Begin with the activity people enjoy
-
-The test I would apply to these concepts is practical. What does the player decide? What feedback makes the decision understandable? Why would they invite a friend or want another round?
-
-The answers could lead to different kinds of games: directing a squad, preparing a team for a competition, inhabiting a lively world or teaching an assembled creature to move.
-
-Those were the possibilities I wanted to explore. AI behavior could give players another material to create with, and another reason to play together.
-
-References retained from the original notes: [The Neural-MMO Challenge](https://www.aicrowd.com/challenges/the-neural-mmo-challenge) · [Evolution Gym coverage collected at the time](https://mp.weixin.qq.com/s/P1_-aYUcQstbH4tlOUhbcg) · [Evolution Gym project](https://evolutiongym.github.io/).
+References: [Neural-MMO Challenge](https://www.aicrowd.com/challenges/the-neural-mmo-challenge) · [Evolution Gym coverage](https://mp.weixin.qq.com/s/P1_-aYUcQstbH4tlOUhbcg) · [Evolution Gym project](https://evolutiongym.github.io/).

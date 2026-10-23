@@ -9,42 +9,41 @@ tags: [blog]
 update_id: spatial-personas-and-shared-interaction
 summary: "Faces, hands and shared content: why spatial computing becomes interesting when people do something together."
 permalink: /updates/2024/04/spatial-personas-and-shared-interaction/
+last_modified_at: "2026-10-24 00:00:00 +0800"
 ---
 
-*Notes from April 2024, edited for this website in October 2026. The predictions retain the perspective of the original essay.*
+In a shared task, “look here” depends on more than a video connection. The other person needs to identify the same object, understand the gesture and see what changes next. Spatial interaction can make those references part of the interface.
 
-The arrival of spatial Personas on Vision Pro made the idea of telepresence more concrete for me: a face, a pair of hands, and someone to do something with in a shared space.
+The [April 2024 launch of spatial Personas in beta](https://9to5mac.com/2024/04/02/apple-vision-pro-spatial-persona-launch-beta/) on Vision Pro brought faces and hands into shared activities. A remote participant could have a position beside the content, giving gestures a place in the conversation.
 
-In my earlier [notes about tables and spatial computing](/updates/2024/01/tables-and-spatial-computing/), I wondered what would bring people together around digital content. Spatial Personas suggested a practical starting point. A remote participant could have a position in the activity, and their gestures could refer to something we both see.
+{% include article-image.html src="/img/blog/spatial-personas/shared-workspace.png" alt="Apple demonstration of a spatial Persona beside a shared digital workspace" width="1500" height="834" caption="Apple's spatial Persona demonstration: a remote participant beside shared content." %}
 
-{% include article-image.html src="/img/blog/spatial-personas/shared-workspace.png" alt="Apple demonstration of a spatial Persona beside a shared digital workspace" width="1500" height="834" caption="Apple's spatial Persona demonstration, saved with the original April 2024 notes." %}
+My earlier article on [tables and spatial computing](/updates/2024/01/tables-and-spatial-computing/) argued that a common surface could anchor this kind of activity. Spatial Personas add the other essential element: a person whose actions can refer to the things on that surface.
 
-## A place for people as well as content
+## Arrange people around the task
 
-A large virtual screen is useful for watching something alone. With other people present, I also care about where they are, what they are looking at and what they are pointing to.
+[Apple's spatial SharePlay design session](https://developer.apple.com/videos/play/wwdc2023/10075/) describes layouts for watching together, conversation and gathering around content. Each arrangement supports a different relationship between people and the shared object.
 
-[Apple's spatial SharePlay design session](https://developer.apple.com/videos/play/wwdc2023/10075/) describes arrangements for watching together, conversation and gathering around content. That gives app designers a concrete way to organize a shared activity.
+Watching a screen calls for a common viewing direction. Discussing a model may require everyone to see one another and the same component. A game might need seats around a board, with meaningful differences between each player's view.
 
-To me, the important design question becomes: what should people be able to do together in this space?
+The application still has to synchronize its content and interactions. Spatial placement provides a setting for collaboration; the product must decide how a person's action changes the state everyone shares.
 
-## Board games provide a familiar starting point
+## Board games make the requirements visible
 
-Board games already combine objects, rules, conversation and a reason to gather. The position of a piece matters, and so does another player's reaction to a move.
+Resolution Games brought [Game Room to Vision Pro](https://www.webwire.com/ViewPressRel.asp?aId=317258) with familiar board and card games. These activities already provide a reason to gather, a common object and clear rules for changing it.
 
-Resolution Games brought [Game Room to Vision Pro](https://www.webwire.com/ViewPressRel.asp?aId=317258) with familiar board and card games. I found that direction compelling: start with an activity people understand, then explore what a digital tabletop can add.
+{% include article-image.html src="/img/blog/spatial-personas/game-room-chess.png" alt="Game Room chess board positioned on a physical table in mixed reality" width="1650" height="928" caption="Game Room by Resolution Games: a chess board placed on a physical table." %}
 
-{% include article-image.html src="/img/blog/spatial-personas/game-room-chess.png" alt="Game Room chess board positioned on a physical table in mixed reality" width="1650" height="928" caption="Game Room by Resolution Games: a familiar board game placed on a shared surface. Image from the original notes." %}
+A board makes several design requirements easy to see. Players need to agree on where the pieces are. A move needs to be visible from other seats. A gesture toward a square should identify the same square for everyone. Reactions and conversation belong alongside the game state.
 
-The same starting point could serve other activities: inspecting a model, arranging ideas or making something together. Each activity needs its own decisions about scale, viewpoint and control.
+The same requirements appear in model review or joint planning, although the appropriate scale and viewpoint may differ. A shared space has to preserve enough common reference for people to coordinate.
 
-## An interaction language worth exploring
+## Make a small interaction vocabulary dependable
 
-When I wrote the original essay, I expected this approach to become an industry standard quickly. I would keep that as a prediction from April 2024. What interested me was the possibility of a common interaction language for shared three-dimensional experiences.
+Pointing, placing, passing and turning are familiar actions, but software must define how they work with digital objects. Who can manipulate an object? What happens if two people act together? How does someone notice and undo a change?
 
-That would open up work across the life of spatial content: capturing it, editing it, sharing it and interacting with it. AI could help people create or change that content through conversation, while shared space gives the result somewhere to live.
+Dependable answers let people focus on their activity. They also give AI a useful place to participate. A spoken request to create or modify content can produce something in the shared workspace, where everyone can inspect the result and respond.
 
-For the kinds of AI products I enjoy building, this is an appealing direction. People have something to do together, digital objects become part of the activity, and AI can participate through the same conversation.
+In our [Vision Pro × DnD](/projects/vision-pro-dnd/) prototype, LLM conversations generated content around an immersive combat experience. This is one way to connect language with spatial content. The broader design challenge is to make each generated change understandable in the activity people already share.
 
-Related project: [Vision Pro × DnD](/projects/vision-pro-dnd/), an immersive combat prototype with surrounding content generated through LLM conversations.
-
-Original news link: [Spatial Persona beta launch, April 2024](https://9to5mac.com/2024/04/02/apple-vision-pro-spatial-persona-launch-beta/).
+Spatial presence earns its value when it helps participants coordinate: identify the same thing, act on it and understand one another's response. A face and a pair of hands become useful through that shared work or play.
