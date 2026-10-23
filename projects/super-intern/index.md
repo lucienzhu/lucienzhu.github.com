@@ -1,13 +1,13 @@
 ---
 layout: project-story
-title: SuperIntern · Group chat AI
+title: SuperIntern · Group chat AI agent
 period: "2024–2025"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-Co-developed SuperIntern, a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
+Co-developed SuperIntern, a group chat AI agent for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
 
 ## Multi-model platform
 

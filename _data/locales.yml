@@ -29,7 +29,7 @@ en:
     bio: Making interesting AIs, sometimes useful.
     portrait: Portrait of Xiaolong Zhu
     intro: 'I build AI for games and explore <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">artificial general intelligence</a> and how intelligent agents interact with people. My work spans multi-agent systems, computer vision and applications of machine learning.'
-    current_work: 'I built a <a href="%projects%#tennis-robot">tennis robot</a> that rallies with players, and co-developed <a href="%projects%super-intern/">SuperIntern</a>, a group chat AI for marketing and productivity.'
+    current_work: 'I built a <a href="%projects%#tennis-robot">tennis robot</a> that rallies with players, and co-developed <a href="%projects%super-intern/">SuperIntern</a>, a group chat AI agent for marketing and productivity.'
     background: 'I previously served as Vice President at <a href="https://chaocanshu.cn/">Parametrix.ai</a>, working on game bots, NPCs, companions and large-scale simulations. At Tencent’s AI Platform Department, I led the vision engineering team and collaborated with Tencent AI Lab.'
     contributions: 'I contributed to the Go AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">Fine Art</a> and, in 2018, served on the Technical Advisory Council of the <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a>.'
     research: 'I earned my Ph.D. in the <a href="http://www.cs.hku.hk">Department of Computer Science</a> at <a href="http://www.hku.hk">the University of Hong Kong</a>, supervised by <a href="http://i.cs.hku.hk/~kykwong/">Dr. Kenneth Wong</a>. My research focused on hand detection and localization in color images, following earlier work on hand posture recognition with depth cameras. I enjoy solving real-world problems with economical, explainable and reproducible solutions.'
@@ -72,7 +72,7 @@ zh:
     bio: 做有趣的 AI，偶尔也有用。
     portrait: 朱曉龍的照片
     intro: '我从事游戏 AI，探索<a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">通用人工智能（AGI）</a>及智能体与人的互动。我的工作涉及多智能体系统、计算机视觉和机器学习应用。'
-    current_work: '我研发了能与球员对打的<a href="%projects%#tennis-robot">网球机器人</a>，并与伙伴共同研发了直接在群聊中解决营销和办公问题的 AI 产品 <a href="%projects%super-intern/">SuperIntern</a>。'
+    current_work: '我研发了能与球员对打的<a href="%projects%#tennis-robot">网球机器人</a>，并与伙伴共同研发了群聊 AI 智能体 <a href="%projects%super-intern/">SuperIntern</a>，直接在聊天中解决营销和办公问题。'
     background: '我曾任<a href="https://chaocanshu.cn/">超参数科技</a>副总裁，探索游戏机器人、NPC、伙伴角色和大规模仿真。在腾讯 AI 平台部，我负责视觉工程团队，并与腾讯 AI Lab 的研究人员合作。'
     contributions: '我参与过围棋 AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">绝艺</a>的研发，2018 年曾担任 <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> 技术顾问委员会成员。'
     research: '我在<a href="http://www.hku.hk">香港大学</a><a href="http://www.cs.hku.hk">计算机科学系</a>获得博士学位，导师是 <a href="http://i.cs.hku.hk/~kykwong/">Kenneth Wong 博士</a>。我的研究主要是彩色图像中的手部检测与定位，此前也研究过基于深度相机的手势识别。我喜欢用经济、可解释、可复现的方法解决现实问题。'

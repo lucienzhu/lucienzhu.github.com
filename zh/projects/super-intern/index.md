@@ -1,13 +1,13 @@
 ---
 layout: project-story
-title: SuperIntern：群聊 AI
+title: SuperIntern：群聊 AI 智能体
 period: "2024–2025 年"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-与伙伴共同研发 SuperIntern，一款面向 Discord、Slack 的群聊 AI，利用共享上下文答疑、执行任务，直接在聊天中解决办公和营销问题。
+与伙伴共同研发 SuperIntern，一款面向 Discord、Slack 的群聊 AI 智能体，利用共享上下文答疑、执行任务，直接在聊天中解决办公和营销问题。
 
 ## 多模型平台
 
