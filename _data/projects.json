@@ -543,18 +543,18 @@
   {
     "image": "/projects/mobileai/feathercnn.png",
     "info": {
-      "en": "Tencent TEG × Weishi<br><span>CPU: Arm Cortex-A53 / A55 / A72 · Qualcomm Kryo</span><br><span>GPU: Qualcomm Adreno · Arm Mali</span><br><span>Acceleration: Arm NEON · OpenCL · Apple Metal</span>",
-      "zh": "腾讯 TEG × 腾讯微视<br><span>CPU：Arm Cortex-A53 / A55 / A72 · Qualcomm Kryo</span><br><span>GPU：高通 Adreno · Arm Mali</span><br><span>加速技术：Arm NEON · OpenCL · Apple Metal</span>"
+      "en": "Tencent TEG × Weishi · NEON / OpenCL / Metal",
+      "zh": "腾讯 TEG × 腾讯微视 · NEON / OpenCL / Metal"
     },
     "en": {
-      "title": "FeatherCNN · Mobile inference across 300+ device models",
+      "title": "FeatherCNN · Mobile inference",
       "date": "2018",
-      "description": "Worked on development, deployment and performance optimization of <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> and related mobile inference solutions across more than 300 Android and iOS device models, covering Qualcomm Snapdragon and MediaTek platforms with diverse CPU and GPU configurations."
+      "description": "Optimized <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> and related inference solutions for 300+ Android/iOS device models across Qualcomm and MediaTek platforms."
     },
     "zh": {
-      "title": "FeatherCNN：移动端推理与 300 多款机型适配",
+      "title": "FeatherCNN：移动端推理",
       "date": "2018 年",
-      "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套移动端推理方案的研发、部署与性能优化，完成 300 多款 Android / iOS 机型适配，覆盖高通 Snapdragon、联发科等芯片平台及不同 CPU / GPU 组合。"
+      "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套推理方案优化，适配 300 多款 Android / iOS 机型，覆盖高通、联发科平台。"
     },
     "id": "feathercnn",
     "sort_key": 201800,
