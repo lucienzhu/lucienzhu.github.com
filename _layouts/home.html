@@ -11,9 +11,11 @@ layout: default
     <p>{{ t.home.intro }}</p>
     {% assign projects_url = locale_prefix | append: '/projects/' | relative_url %}
     {% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
+    <p>{{ t.home.current_work | replace: '%projects%', projects_url }}</p>
     <p>{{ t.home.background }}</p>
     <p>{{ t.home.contributions }}</p>
     <p>{{ t.home.research }}</p>
+    <p>{{ t.home.interests }}</p>
     <p>{{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
     <h2>{{ t.navigation.updates }}</h2>
     <ul class="update-entries recent-updates">
