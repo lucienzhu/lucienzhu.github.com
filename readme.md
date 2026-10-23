@@ -23,7 +23,7 @@ Projects 的经历、日期、个人角色和中英文文案集中在 `_data/pro
 
 Projects 顶部及条目内提供纯文字标签筛选，标签定义与译名集中在 `_data/project_tags.yml`，项目使用 `tags` 数组，可同时属于多类。当前五类为强化学习（`rl`）、多智能体（`multi-agent`）、产品（`product`）、机器人（`robotics`）和游戏（`games`）。依据已有项目内容分类，暂不匹配这五类的研究与社区经历留在全部列表。标签不改变原有时间顺序、项目网址或资料链接；`?tag=标签ID` 可直接访问、分享，并随语言切换和浏览器前进／后退保留。样式沿用无边框、无圆角、无下划线的文字链接，选中项以字重及颜色区分。
 
-FeatherCNN 条目描述个人参与的 FeatherCNN 及配套移动端推理适配工程，300 多款机型、高通／联发科平台、Cortex-A55／A72、Adreno／Mali 和 Metal 的范围由本人确认。Cortex-A53、A72 和 Qualcomm Kryo 同时有[官方历史基准](https://github.com/Tencent/FeatherCNN/wiki/Benchmarks)作为参考；OpenCL 与 NEON 路径结合 Feather 档案及开源资料维护。项目列表按本人要求精简为短标题、一句机型与平台覆盖说明，以及 NEON / OpenCL / Metal 技术摘要；具体 CPU / GPU 型号留在此处维护，不再逐行罗列：Arm Cortex-A53 / A55 / A72、Qualcomm Kryo、Qualcomm Adreno、Arm Mali。使用正确拼写 Adreno；Metal 作为 Apple 的 GPU 计算 API，不列为 GPU 型号。此处为移动端落地工程范围，不把内部 GPU 方案或 300 款机型数字写成开源仓库的公开验证矩阵；不从第三方 AI-Bench 表推定本项目实测机型，也不补写未确认的 Adreno、Mali 子型号。原有开源链接保留。
+FeatherCNN 条目描述个人参与的 FeatherCNN 及配套移动端推理适配工程，300 多款机型、高通／联发科平台、Cortex-A55／A72、Adreno／Mali 和 Metal 的范围由本人确认。Cortex-A53、A72 和 Qualcomm Kryo 同时有[官方历史基准](https://github.com/Tencent/FeatherCNN/wiki/Benchmarks)作为参考；OpenCL 与 NEON 路径结合 Feather 档案及开源资料维护。项目列表按本人要求精简为短标题、一句 iOS / Android 机型与多种移动 CPU / GPU 覆盖说明，以及 NEON / OpenCL / Metal 技术摘要；具体 CPU / GPU 型号留在此处维护，不再逐行罗列：Arm Cortex-A53 / A55 / A72、Qualcomm Kryo、Qualcomm Adreno、Arm Mali。使用正确拼写 Adreno；Metal 作为 Apple 的 GPU 计算 API，不列为 GPU 型号。此处为移动端落地工程范围，不把内部 GPU 方案或 300 款机型数字写成开源仓库的公开验证矩阵；不从第三方 AI-Bench 表推定本项目实测机型，也不补写未确认的 Adreno、Mali 子型号。原有开源链接保留。
 
 手机 QQ 姿态估计条目的“首创”依据本人确认，限定为落地「高能舞室」的移动端实时骨架追踪与动作识别方案；英文对应 pioneered，不扩写为人体姿态估计领域的全球首次。保留 2017 年 12 月日期、2014 年以来上市的 iOS／Android 手机适配范围与原配图。
 

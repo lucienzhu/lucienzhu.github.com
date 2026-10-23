@@ -549,12 +549,12 @@
     "en": {
       "title": "FeatherCNN · Mobile inference",
       "date": "2018",
-      "description": "Optimized <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> and related inference solutions for 300+ Android/iOS device models across Qualcomm and MediaTek platforms."
+      "description": "Optimized <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> and related inference solutions for 300+ iOS/Android device models across diverse mobile CPUs and GPUs."
     },
     "zh": {
       "title": "FeatherCNN：移动端推理",
       "date": "2018 年",
-      "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套推理方案优化，适配 300 多款 Android / iOS 机型，覆盖高通、联发科平台。"
+      "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套推理方案优化，适配 300 多款 iOS / Android 机型，覆盖多种移动 CPU 和 GPU。"
     },
     "id": "feathercnn",
     "sort_key": 201800,
