@@ -177,7 +177,9 @@ a:hover {
 
 .update-entry time,
 .update-date {
-  flex: 0 0 60px;
+  flex: 0 0 6em;
+  min-width: max-content;
+  white-space: nowrap;
   color: #666;
 }
 
