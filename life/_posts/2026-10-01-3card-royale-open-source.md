@@ -14,6 +14,6 @@ Designed 3Card Royale, a two-player game played with a standard deck, combining 
 
 Open-sourced the rules and portable game implementations in JavaScript, Python, Rust and C++, with a TypeScript API and a Gymnasium environment for reinforcement-learning experiments.
 
-[Play in English](https://lucienzhu.github.io/gk-royale-playtest/?lang=en) · [About the game](https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=en) · [Rules](https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=en) · [Code](https://github.com/lucienzhu/gk-royale-playtest)
+[Play in English](https://lucienzhu.github.io/3card-royale/?lang=en) · [About the game](https://lucienzhu.github.io/3card-royale/about.html?lang=en) · [Rules](https://lucienzhu.github.io/3card-royale/rules.html?lang=en) · [Code](https://github.com/lucienzhu/3card-royale)
 
-[Version 1.0 release](https://github.com/lucienzhu/gk-royale-playtest/releases/tag/gk-v1.0.0-finale1) (October 2026).
+[Version 1.0 release](https://github.com/lucienzhu/3card-royale/releases/tag/gk-v1.0.0-finale1) (October 2026).

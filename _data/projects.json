@@ -3,15 +3,15 @@
     "id": "3card-royale",
     "sort_key": 202610,
     "image": "/img/projects/3card-royale.svg",
-    "image_source": "https://lucienzhu.github.io/gk-royale-playtest/brand-mark.svg",
-    "external_url": "https://lucienzhu.github.io/gk-royale-playtest/about.html",
+    "image_source": "https://lucienzhu.github.io/3card-royale/brand-mark.svg",
+    "external_url": "https://lucienzhu.github.io/3card-royale/about.html",
     "external_urls": {
-      "en": "https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=en",
-      "zh": "https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=zh-CN"
+      "en": "https://lucienzhu.github.io/3card-royale/about.html?lang=en",
+      "zh": "https://lucienzhu.github.io/3card-royale/about.html?lang=zh-CN"
     },
     "info": {
-      "en": "Game design & development · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/?lang=en\">Play online</a> · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=en\">Rules</a> · <a href=\"https://github.com/lucienzhu/gk-royale-playtest\">Code</a>",
-      "zh": "玩法设计与开发 · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/?lang=zh-CN\">在线试玩</a> · <a href=\"https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=zh-CN\">规则</a> · <a href=\"https://github.com/lucienzhu/gk-royale-playtest\">代码</a>"
+      "en": "Game design & development · <a href=\"https://lucienzhu.github.io/3card-royale/?lang=en\">Play online</a> · <a href=\"https://lucienzhu.github.io/3card-royale/rules.html?lang=en\">Rules</a> · <a href=\"https://github.com/lucienzhu/3card-royale\">Code</a>",
+      "zh": "玩法设计与开发 · <a href=\"https://lucienzhu.github.io/3card-royale/?lang=zh-CN\">在线试玩</a> · <a href=\"https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN\">规则</a> · <a href=\"https://github.com/lucienzhu/3card-royale\">代码</a>"
     },
     "en": {
       "title": "3Card Royale",

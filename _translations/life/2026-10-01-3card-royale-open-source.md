@@ -12,6 +12,6 @@ summary: "原创设计双人扑克游戏，开放中英文在线试玩、多语�
 
 开源游戏规则与 JavaScript、Python、Rust、C++ 实现，提供 TypeScript API 和 Gymnasium 环境，供玩法实验与强化学习研究使用。
 
-[中文试玩](https://lucienzhu.github.io/gk-royale-playtest/?lang=zh-CN) · [游戏介绍](https://lucienzhu.github.io/gk-royale-playtest/about.html?lang=zh-CN) · [规则](https://lucienzhu.github.io/gk-royale-playtest/rules.html?lang=zh-CN) · [代码](https://github.com/lucienzhu/gk-royale-playtest)
+[中文试玩](https://lucienzhu.github.io/3card-royale/?lang=zh-CN) · [游戏介绍](https://lucienzhu.github.io/3card-royale/about.html?lang=zh-CN) · [规则](https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN) · [代码](https://github.com/lucienzhu/3card-royale)
 
-[1.0 版本发布记录](https://github.com/lucienzhu/gk-royale-playtest/releases/tag/gk-v1.0.0-finale1)（2026 年 10 月，北京时间）。
+[1.0 版本发布记录](https://github.com/lucienzhu/3card-royale/releases/tag/gk-v1.0.0-finale1)（2026 年 10 月，北京时间）。
