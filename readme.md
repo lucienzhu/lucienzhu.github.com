@@ -61,7 +61,7 @@ Neural MMO 原项目补充 AAMAS 2023 相关基准研究中的鲁棒性与泛化
 
 2026-10-23 整理 Updates：补入 3Card Royale 开源与试玩、网球机器人 EVT、SuperIntern Product Hunt 当日第 1 名、D3PO／Neural MMO 2.0 论文、Vision Pro × DnD 原型及机器人乘梯专利的中美授权；沿用原网址充实 2019 年加入超参数、2020／2021 ChinaJoy、GAEA、Jux 与四条竞赛发布动态。个人角色与阶段依据已确认的 Projects 资料，中英文同步，短动态不加 blog 标签，保留历史生活记录和原有链接。
 
-新动态的日期精度分别维护：SuperIntern 的 2025-10-03 来自 [Product Hunt 发布与奖项记录](https://www.producthunt.com/products/super-intern-4)；中国专利 2019-05-14 和美国专利 2022-02-08 来自对应授权记录，两者属于同一专利族。3Card Royale 的公开仓库于 2026 年 10 月建立，当前 README 提供试玩、规则及 SDK，按月份记录公开项目状态，不把仓库创建日当作完整功能的发布日。网球机器人按本人确认的 2025–2026 年阶段记录，`date_precision: year-range`，年初日期仅为排序锚点，列表用 `2025–26`，正文展示完整年份范围。D3PO 和 Neural MMO 2.0 按会议年份，DnD 按本人确认的原型年份；相应年末日期也仅作排序锚点，不表示确切的录用、发布或完成日。
+新动态的日期精度分别维护：SuperIntern 的 2025-10-03 来自 [Product Hunt 发布与奖项记录](https://www.producthunt.com/products/super-intern-4)；中国专利 2019-05-14 和美国专利 2022-02-08 来自对应授权记录，两者属于同一专利族。3Card Royale 的 1.0 release 于 2026-10-22 19:32:03 UTC（北京时间 2026-10-23）发布，以 [GitHub release](https://github.com/lucienzhu/gk-royale-playtest/releases/tag/gk-v1.0.0-finale1) 的 published_at 为日期，标题补充 1.0 版本，不把仓库创建日当作发布日。网球机器人按本人确认的 2025–2026 年阶段记录，`date_precision: year-range`，年初日期仅为排序锚点，列表用 `2025–26`，正文展示完整年份范围。D3PO 按 [CVPR 官方日程](https://media.eventhosts.cc/Conferences/CVPR2024/CVPR_main_conf_2024.pdf)中的 2024-06-19 Poster Session 2（402 号海报）记录，指会议展示日期，不作为预印本首发或录用日。Neural MMO 2.0 按 [NeurIPS 官方会期](https://neurips.cc/Conferences/2023/Dates)细化到 2023 年 12 月，未确认具体展示日，因此月初日期仅作排序锚点。三篇动态均通过显式 permalink 保留原网址及中英文对应关系。DnD 按本人确认的原型年份，年末日期仅作排序锚点。网球机器人记录只找到 2025 年 10–12 月的方向与技术笔记，未确认 EVT 的具体月份，继续保留本人确认的年份范围；Ultra 的 2022 年 8 月夏令营记录为计划，不据此推定实际电竞活动日期。授课、奖项和 RoboCup 记录也不以笔记编辑日或整个活动的日程冒充个人事件日期。
 
 2010 年中国 RoboCup 救援仿真组三等奖依据本人简历，不扩写未知的个人分工或算法贡献；日期仅作年份排序锚点。2023 年《海量智能体的算法及应用》演讲以简历确认标题，结合机器之心Pro 活动回顾确认人工智能论坛为 1 月 11 日，回顾报道发布日为 1 月 13 日。
 
@@ -72,6 +72,8 @@ Neural MMO 原项目补充 AAMAS 2023 相关基准研究中的鲁棒性与泛化
 英文动态与长文保留在 `_posts/` 和 `life/_posts/`。对应的中文内容放在 `_translations/`，通过 `original_url` 对应英文网址，并设置 `permalink: /zh/原英文路径`。译文使用独立集合，不会重复计入动态数量。
 
 新增页面时也要添加对应的 `/zh/` 页面。语言切换自动指向同一页面的另一个版本，并保留 Updates 的筛选条件。正文配图使用 `_includes/article-image.html`，继续共用尺寸限制。
+
+日期显示统一到月份：`_includes/date.html` 在按年分组的 Updates 列表显示 `October`／`10月`，在首页、文章日期和存档显示 `October 2026`／`2026年10月`。真实日期仍用于时间顺序、机器可读时间和固定链接；`date_label` 保留只有年份、半年或年份范围的粗略日期，不补造未知月份。
 
 全站排版集中维护在 `css/typography.css`，字号只使用 14、16、24、32px 四档（以默认根字号计算）。中英文共用系统无衬线字体栈，代码使用等宽字体；页面自己的 CSS 只处理布局，避免再定义额外字号。
 
