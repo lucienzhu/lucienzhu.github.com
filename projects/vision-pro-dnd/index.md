@@ -1,7 +1,7 @@
 ---
 layout: project-story
 title: Vision Pro × DnD · Immersive combat
-period: "2023"
+period: "c. August 2023"
 section: projects
 extra_css:
 - /css/project-detail.css

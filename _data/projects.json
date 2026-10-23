@@ -136,6 +136,33 @@
     ]
   },
   {
+    "id": "vision-pro-dnd",
+    "sort_key": 202308,
+    "detail": "/projects/vision-pro-dnd/",
+    "image": "/img/projects/vision-pro-dnd.svg",
+    "en": {
+      "title": "Vision Pro × DnD · Immersive combat",
+      "date": "c. August 2023",
+      "description": "Developed an immersive combat prototype for Apple Vision Pro, with surrounding content generated through conversations with an LLM.",
+      "image_alt": "Concept illustration of LLM conversations generating content around an immersive combat space"
+    },
+    "zh": {
+      "title": "Vision Pro × DnD：沉浸式对战",
+      "date": "约 2023 年 8 月",
+      "description": "研发可在 Apple Vision Pro 上运行的沉浸式对战原型，通过与 LLM 对话生成周围内容。",
+      "image_alt": "通过 LLM 对话生成周围内容的沉浸式对战机制示意图"
+    },
+    "info": {
+      "en": "XR × AI · Runnable Vision Pro prototype",
+      "zh": "XR × AI · Vision Pro 可运行原型"
+    },
+    "image_source_note": "Concept illustration of immersive combat and content generated through LLM conversations, not a prototype screenshot. The owner confirmed this interaction model, a runnable Vision Pro prototype and an approximate date of August 2023 on 2026-10-23.",
+    "tags": [
+      "product",
+      "games"
+    ]
+  },
+  {
     "id": "neural-mmo-challenges",
     "info": {
       "en": "Co-organizer · Research co-author · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
@@ -266,33 +293,6 @@
     "image_time_seconds": 10,
     "tags": [
       "multi-agent",
-      "product",
-      "games"
-    ]
-  },
-  {
-    "id": "vision-pro-dnd",
-    "sort_key": 202300,
-    "detail": "/projects/vision-pro-dnd/",
-    "image": "/img/projects/vision-pro-dnd.svg",
-    "en": {
-      "title": "Vision Pro × DnD · Immersive combat",
-      "date": "2023",
-      "description": "Developed an immersive combat prototype for Apple Vision Pro, with surrounding content generated through conversations with an LLM.",
-      "image_alt": "Concept illustration of LLM conversations generating content around an immersive combat space"
-    },
-    "zh": {
-      "title": "Vision Pro × DnD：沉浸式对战",
-      "date": "2023 年",
-      "description": "研发可在 Apple Vision Pro 上运行的沉浸式对战原型，通过与 LLM 对话生成周围内容。",
-      "image_alt": "通过 LLM 对话生成周围内容的沉浸式对战机制示意图"
-    },
-    "info": {
-      "en": "XR × AI · Runnable Vision Pro prototype",
-      "zh": "XR × AI · Vision Pro 可运行原型"
-    },
-    "image_source_note": "Concept illustration of immersive combat and content generated through LLM conversations, not a prototype screenshot. The owner confirmed this interaction model, a runnable Vision Pro prototype and the year 2023 on 2026-10-23.",
-    "tags": [
       "product",
       "games"
     ]
