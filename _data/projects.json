@@ -53,7 +53,8 @@
     "tags": [
       "rl",
       "product",
-      "robotics"
+      "robotics",
+      "ai-systems"
     ]
   },
   {
@@ -129,7 +130,8 @@
       "rl",
       "multi-agent",
       "product",
-      "games"
+      "games",
+      "ai-systems"
     ]
   },
   {
@@ -207,7 +209,8 @@
     "tags": [
       "rl",
       "multi-agent",
-      "games"
+      "games",
+      "ai-systems"
     ]
   },
   {
@@ -458,7 +461,8 @@
       "rl",
       "multi-agent",
       "product",
-      "games"
+      "games",
+      "ai-systems"
     ]
   },
   {
@@ -559,7 +563,8 @@
     "id": "feathercnn",
     "sort_key": 201800,
     "tags": [
-      "product"
+      "product",
+      "ai-systems"
     ]
   },
   {
@@ -713,7 +718,9 @@
     },
     "id": "distributed-learning",
     "sort_key": 201603,
-    "tags": []
+    "tags": [
+      "ai-systems"
+    ]
   },
   {
     "id": "reflective-face-regression",
