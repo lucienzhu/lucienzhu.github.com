@@ -71,6 +71,21 @@ a {
     max-width: 30rem;
 }
 
+.post-content .article-figure video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 24rem;
+    object-fit: contain;
+}
+
+.post-content .article-figure figcaption {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: var(--text-meta);
+    line-height: 1.6;
+}
+
 .post-content .article-figure--small {
     max-width: 22.5rem;
 }
