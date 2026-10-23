@@ -1,13 +1,13 @@
 ---
 layout: project-story
-title: Super Intern：Agent 产品与 Alignment
+title: Super Intern：群聊 AI
 period: "2024–2025 年"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-研发面向群聊的 Agent 产品，利用共享上下文在 Discord、Slack 中答疑并执行任务。与群体需求和偏好的 Alignment，是这条产品线的重要方向。
+Super Intern 是面向 Discord、Slack 的群聊 AI，利用共享上下文答疑、执行任务，直接在聊天中解决办公和营销问题。
 
 ## 从 NeuroMesh 到 Super Intern
 

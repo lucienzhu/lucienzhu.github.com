@@ -1,13 +1,13 @@
 ---
 layout: project-story
-title: Super Intern · Agent product with alignment
+title: Super Intern · Group chat AI
 period: "2024–2025"
 section: projects
 extra_css:
 - /css/project-detail.css
 ---
 
-Built an agent product for group chats, using shared context to answer questions and execute tasks across Discord and Slack. Alignment with community needs and preferences is a central part of the product direction.
+Super Intern is a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
 
 ## From NeuroMesh to Super Intern
 

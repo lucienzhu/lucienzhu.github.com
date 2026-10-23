@@ -70,12 +70,12 @@
     "en": {
       "title": "Super Intern",
       "date": "2024–2025",
-      "description": "Built a Discord/Slack agent product with shared context and task execution, alongside Stable Diffusion SFT and DPO-based preference alignment."
+      "description": "Built a group chat AI for Discord and Slack that handles work and marketing tasks directly in conversation."
     },
     "zh": {
       "title": "Super Intern",
       "date": "2024–2025 年",
-      "description": "研发基于共享上下文答疑、执行任务的 Discord／Slack Agent 产品，并开展 Stable Diffusion SFT 与 DPO 偏好对齐。"
+      "description": "研发面向 Discord、Slack 的群聊 AI，直接在聊天中解决办公和营销问题。"
     },
     "tags": [
       "product",
