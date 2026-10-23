@@ -8,16 +8,24 @@
     var filters = Array.from(root.querySelectorAll('.projects-filters [data-project-filter]'));
     var count = root.querySelector('[data-projects-count]');
     var empty = root.querySelector('[data-projects-empty]');
-    var tags = filters.map(function (filter) { return filter.dataset.projectFilter; });
+    function filterTags(filter) {
+        return (filter.dataset.projectFilterTags || filter.dataset.projectFilter).split(' ');
+    }
 
     function applyFilter() {
         var requested = new URLSearchParams(window.location.search).get('tag');
-        var active = tags.indexOf(requested) !== -1 ? requested : 'all';
+        var selected = filters.find(function (filter) {
+            return filter.dataset.projectFilter === requested || filterTags(filter).indexOf(requested) !== -1;
+        });
+        var active = selected ? selected.dataset.projectFilter : 'all';
+        var matchingTags = selected ? filterTags(selected) : [];
         var shown = 0;
 
         entries.forEach(function (entry) {
             var labels = entry.dataset.projectTags.split(' ');
-            entry.hidden = active !== 'all' && labels.indexOf(active) === -1;
+            entry.hidden = active !== 'all' && !matchingTags.some(function (tag) {
+                return labels.indexOf(tag) !== -1;
+            });
             if (!entry.hidden) shown++;
         });
 

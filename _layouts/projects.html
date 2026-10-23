@@ -8,7 +8,7 @@ layout: default
     <nav class="projects-filters" aria-label="{{ t.filter_projects }}">
       <a href="{{ projects_url }}" data-project-filter="all" aria-current="true">{{ t.all }}</a>
       {% for tag in site.data.project_tags %}
-      <a href="{{ projects_url }}?tag={{ tag.id }}" data-project-filter="{{ tag.id }}">{{ tag[locale] }}</a>
+      <a href="{{ projects_url }}?tag={{ tag.id }}" data-project-filter="{{ tag.id }}" data-project-filter-tags="{{ tag.match_any | join: ' ' | default: tag.id }}">{{ tag[locale] }}</a>
       {% endfor %}
     </nav>
     <p class="projects-count" aria-live="polite" aria-atomic="true" data-projects-count>{{ t.project_many | replace: '%count%', site.data.projects.size }}</p>
@@ -22,7 +22,12 @@ layout: default
         <p class="project-period">{{ text.date }}</p>
         {% if project.tags.size > 0 %}
         <ul class="project-tags" aria-label="{{ t.project_labels }}">
-          {% for tag in site.data.project_tags %}{% if project.tags contains tag.id %}
+          {% for tag in site.data.project_tags %}
+          {% assign matching_tags = tag.id | split: ',' %}
+          {% if tag.match_any %}{% assign matching_tags = tag.match_any %}{% endif %}
+          {% assign has_tag = false %}
+          {% for matching_tag in matching_tags %}{% if project.tags contains matching_tag %}{% assign has_tag = true %}{% endif %}{% endfor %}
+          {% if has_tag %}
           <li><a href="{{ projects_url }}?tag={{ tag.id }}" data-project-filter="{{ tag.id }}">{{ tag[locale] }}</a></li>
           {% endif %}{% endfor %}
         </ul>

@@ -1,9 +1,9 @@
-- id: rl
-  en: Reinforcement learning
-  zh: 强化学习
-- id: multi-agent
-  en: Multi-agent
-  zh: 多智能体
+- id: rl-mas
+  en: RL & MAS
+  zh: 强化学习与多智能体
+  match_any:
+    - rl
+    - multi-agent
 - id: ai-systems
   en: AI Systems
   zh: AI 系统
