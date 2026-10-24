@@ -10,12 +10,12 @@ summary: "From a replayable two-player card game to bougainvillea, green circuit
 permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
-article_image: "/img/blog/3card-royale/cover.png"
+article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css"]
 update_id: "3card-royale"
 ---
 
-{% include royale-figure.html src="/img/blog/3card-royale/cover.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
+{% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
 
 I wanted to make a two-player game worth returning to.
 
@@ -40,7 +40,7 @@ The game draws inspiration from Hanafuda, Zha Jin Hua, Guandan and Balatro: the 
 
 I eventually put the emphasis on the relationship between attack and defense. An attack should deal damage, but it also spends cards I may need to defend. The defender sees the attack before responding and can decide whether to beat it or preserve a more valuable combination while accepting some damage. A successful defense can then change the next encounter through a swap.
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-light.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in Chinese. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in English. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
 
 The same three cards can become an attack, a defense or the beginning of a better combination next round. Their value depends on the position.
 
@@ -67,7 +67,7 @@ Color also identifies the players. You are the red flower; your rival is gold. T
 
 There is a circuit-board mode in Settings too. Card zones become chips, traces connect the playing areas, and points of light move with the action. The green foundation takes part in the game.
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-pcb.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 4. The same position with Settings → Preferences → Circuit board enabled." %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-pcb-en.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 4. The same position with Settings → Preferences → Circuit board enabled." %}
 
 The skyline brings the city into the ending. Buildings appear in light linework; flowers can settle into corners of the city while the architecture remains in the background.
 
