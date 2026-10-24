@@ -16,7 +16,7 @@ A marketing lead asks for a livelier launch announcement. An engineer corrects a
 
 Group chat makes alignment a practical product problem. An agent has to understand a shared goal, distinguish preferences from factual corrections and recognize who is responsible for a decision. Counting positive reactions would lose much of that information.
 
-I co-developed [SuperIntern](/projects/super-intern/), a group chat AI agent for work and marketing tasks. That setting makes the interaction between shared context, individual preferences and useful action especially clear.
+We developed [SuperIntern](/projects/super-intern/), a group chat AI agent for work and marketing tasks. That setting makes the interaction between shared context, individual preferences and useful action especially clear.
 
 ## Keep the task inside the conversation
 

@@ -7,7 +7,7 @@ extra_css:
 - /css/project-detail.css
 ---
 
-Developed SuperIntern with my London-based co-founders. The group chat AI agent for Discord and Slack uses shared context to answer questions and take action, handling work and marketing tasks directly in conversation.
+We developed SuperIntern with our London-based co-founders. The group chat AI agent for Discord and Slack uses shared context to answer questions and take action, handling work and marketing tasks directly in conversation.
 
 ## Multi-model platform
 
