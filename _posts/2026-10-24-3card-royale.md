@@ -183,17 +183,19 @@ Five models use the same dataset. Each plays 1,000 evaluation games against Code
 
 {% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 15. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
 
-| Hidden layers | ONNX size | Win rate vs Code AI |
-| --- | ---: | ---: |
-| 64 → 32 | 0.11 MB | 45.2% |
-| 128 → 64 | 0.24 MB | 46.0% |
-| **256 → 128** | **0.55 MB** | **46.2%** |
-| 256 → 512 | 0.95 MB | 46.5% |
-| 512 → 256 | 1.37 MB | 45.0% |
+| Hidden layers | ONNX size | Latency p95 | Win rate vs Code AI |
+| --- | ---: | ---: | ---: |
+| 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
+| 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
+| **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
+| 256 → 512 | 0.95 MB | 1.8 ms | 46.5% |
+| 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
+
+Latency: scoring 220 candidates in Chrome on Mac, single-threaded WASM, FP32; 100 runs after 3 warmups. Inference only, excluding download, feature extraction and UI delay. Timings vary with browser/system load; phones are not yet measured. [Raw benchmark](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json).
 
 The highest result, 46.5%, differs from the deployed model by just three wins. That is not enough to conclude it is stronger. This experiment also does not show a consistent relationship between greater model size and higher win rate. Data, objectives and the decision representation matter alongside parameter count.
 
-Balancing size, measured latency and playing results, I chose `256 → 128` for the browser. In the recorded Mac Chrome, single-threaded WASM benchmark, scoring 220 candidates took about **1.1 ms at p95**. That measurement is specific to the test environment; mobile latency still needs a separate benchmark.
+Balancing size, measured latency and playing results, I chose `256 → 128` for the browser.
 
 After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Code AI so play can continue.
 
