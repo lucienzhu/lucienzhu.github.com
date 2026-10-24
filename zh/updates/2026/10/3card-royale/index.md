@@ -158,7 +158,9 @@ original_url: "/updates/2026/10/3card-royale/"
 
 六个牌区，各按固定的 52 张牌顺序记 0/1。再加 6 维阶段编码和 18 维局面数值或标记，得到 **336 维当前状态**。没有循环记忆，也不输入整段对局历史。
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg" width="560" height="1040" diagram=true alt="一个真实换牌观察的编码：六组 52 张牌的存在标记共 312 维，加 6 维阶段编码与 18 维局面信息，共 336 维；不含对手暗手牌、牌堆顺序或历史。" caption="图 12 · 状态编码示意，取自已保存的换牌决策。绿色为 1，空牌区全为 0。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg?v=values1" width="560" height="2434" diagram=true alt="真实换牌观察的完整编码：六组 52 维牌区、全部六个阶段位，以及其余 18 项状态的原始值、入模值和归一化公式。你是席位 1，对手是席位 0。" caption="图 12 · 同一份真实换牌样本的全部状态。牌区可有多个 1（multi-hot）；阶段只有一个 1（one-hot）；其余为归一化数值或 0/1 标记。" %}
+
+本例是第 1 局第 4 轮，你是席位 1，还剩 2 次换牌机会。等级和冲 A 失败数按固定席位 0/1 排列；身份与伤牌数则相对于“你”。例如，牌堆剩 29 张编码为 `29 / 52 ≈ 0.557692`，“轮到你行动”编码为 `1`；当前任务是小局，所以“整场任务”为 `0`。图中的序号和公式与[实际编码器](https://github.com/lucienzhu/3card-royale/blob/428df779a6335c5c1d7bf350637646324c6fda8b/sdk/features.js)一致。
 
 合法动作会随着牌和阶段变化。环境为当前决策生成候选动作，每个候选用 **72 维特征**表示。Gym 接口最多提供 512 个候选槽位，并用合法动作掩码排除空槽。
 

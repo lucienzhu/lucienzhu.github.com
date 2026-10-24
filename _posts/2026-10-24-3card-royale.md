@@ -155,7 +155,9 @@ The policy receives only information available to the acting player: their hand,
 
 Each of the six card zones records presence as 0 or 1 in a fixed 52-card order. Add 6 phase bits and 18 position values or flags for a **336-dimensional current observation**. There is no recurrent memory or full-history input.
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="1040" diagram=true alt="An actual swap observation: six 52-card binary sets give 312 values; six one-hot phase bits and 18 position features bring the total to 336. No private rival cards, deck order or history are included." caption="Figure 12. The observation encoding, using a saved swap decision. Each green mark is a 1; an empty card zone is all zeros." %}
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg?v=values1" width="560" height="2434" diagram=true alt="An actual swap observation: six 52-card sets, all six phase bits, and all 18 remaining features with raw values, encoded values and normalization formulas. You are seat 1; the rival is seat 0." caption="Figure 12. Every state feature, using the same saved swap decision. Card zones are multi-hot; the phase is one-hot. The remaining values are normalized numbers or binary flags." %}
+
+In this sample, it is game 1, round 4, and you are seat 1 with two swap chances left. Seat 0/1 levels and Ace-loss counts use fixed seat order; roles and wound counts are relative to you. For example, 29 cards in the deck becomes `29 / 52 ≈ 0.557692`; “your turn to act” becomes `1`. The task is one game, so the full-match flag is `0`. Indices and formulas in the figure follow the [actual encoder](https://github.com/lucienzhu/3card-royale/blob/428df779a6335c5c1d7bf350637646324c6fda8b/sdk/features.js).
 
 Legal actions vary with the cards and phase. The environment generates candidates for the current decision, encoding each with **72 features**. The Gym interface has up to 512 candidate slots; an action mask excludes unused slots.
 
