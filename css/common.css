@@ -198,13 +198,23 @@ a:hover {
   color: #666;
 }
 
-.updates-filters {
+.updates-toolbar {
   display: flex;
-  gap: 24px;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
   margin: 0 0 12px;
 }
 
+.updates-filters {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+}
+
 .updates-filters a,
+.updates-photos,
 .update-tag {
   display: inline-block;
   border: 0;
@@ -214,8 +224,13 @@ a:hover {
   color: #666;
 }
 
-.updates-filters a {
+.updates-filters a,
+.updates-photos {
   padding: 7px 0;
+}
+
+.updates-photos {
+  white-space: nowrap;
 }
 
 .updates-filters a[aria-current="true"] {
@@ -234,6 +249,7 @@ a:hover {
 }
 
 .update-tag:focus-visible,
+.updates-photos:focus-visible,
 .updates-filters a:focus-visible {
   outline: 2px solid #FF4019;
   outline-offset: 3px;

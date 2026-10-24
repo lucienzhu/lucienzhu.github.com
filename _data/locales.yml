@@ -8,6 +8,7 @@ en:
   back_to_top: Back to top
   show_blog: Show blog posts
   view_original: View original image (opens in a new tab)
+  flickr_photos: Photos on Flickr (opens in a new tab)
   all: All
   filter_updates: Filter updates
   filter_projects: Filter projects
@@ -45,6 +46,7 @@ zh:
   back_to_top: 返回顶部
   show_blog: 查看博客文章
   view_original: 查看原图（新标签页）
+  flickr_photos: 在 Flickr 查看照片（新标签页）
   all: 全部
   filter_updates: 筛选动态
   filter_projects: 筛选项目
