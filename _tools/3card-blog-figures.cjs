@@ -47,6 +47,19 @@ hands.forEach(([zh,en,cards],score)=>{
   const value = GK.evaluate(ids,2,'1.0.0');
   if(value.score!==score) throw Error(`${en}: expected ${score}, got ${value.score}`);
 });
+// Compact, language-neutral card strips for the bilingual comparison table.
+const handSlugs = ['high-card','pair','straight','flush','straight-flush','three-kind','four-kind','five-kind'];
+const suitNames = {s:['黑桃','spades'],h:['红桃','hearts'],c:['梅花','clubs'],d:['方块','diamonds']};
+const handRows = hands.map(([zh,en,cards],score)=>{
+  const slug=handSlugs[score], width=cards.length*60-4, height=78;
+  const alt_zh=cards.map(([r,s])=>suitNames[s][0]+r).join('、')+(score===7?'；红桃2为花牌，代替7。':'');
+  const alt_en=cards.map(([r,s])=>`${r} of ${suitNames[s][1]}`).join(', ')+(score===7?'; the heart 2 is wild and counts as a 7.':'');
+  const art=cards.map(([r,s],i)=>card(2+i*60,2,r,s,52,score===7&&i===4)).join('');
+  fs.writeFileSync(path.join(out,`hand-${slug}.svg`),`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><style>text{font-family:Arial,sans-serif}</style>${art}</svg>\n`);
+  return {slug,zh,en,score,count:cards.length,width,height,alt_zh,alt_en};
+});
+fs.mkdirSync(path.resolve(__dirname,'../_data'),{recursive:true});
+fs.writeFileSync(path.resolve(__dirname,'../_data/royale_hands.json'),JSON.stringify(handRows,null,2)+'\n');
 for (const lang of ['zh-CN','en']) {
   const en = lang==='en', tr = (zh,english)=>en?english:zh;
   // The same flat mark and identity colors in the two actual game themes.
@@ -116,4 +129,4 @@ for (const lang of ['zh-CN','en']) {
   s+=box(24,822,512,88,C.table,'none')+t(48,859,tr('已上线：学习 Code AI 的选择','Released: learns Code AI actions'),25,C.ink,600)+t(48,893,tr('下一步：用胜负奖励做强化学习','Next: RL from win/loss rewards'),24,C.muted);
   save('training-pipeline',936,tr('行为克隆基线的训练与部署流程','Training and deployment of the behavior-cloning baseline'),s,lang);
 }
-console.log('Generated 14 bilingual figures. All 8 hands pass Standard 1.0 evaluation.');
+console.log('Generated 14 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');

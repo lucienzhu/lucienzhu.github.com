@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "high-card",
+    "zh": "高牌",
+    "en": "High card",
+    "score": 0,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "黑桃2、红桃5、方块9",
+    "alt_en": "2 of spades, 5 of hearts, 9 of diamonds"
+  },
+  {
+    "slug": "pair",
+    "zh": "对子",
+    "en": "Pair",
+    "score": 1,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "黑桃7、梅花7、方块J",
+    "alt_en": "7 of spades, 7 of clubs, J of diamonds"
+  },
+  {
+    "slug": "straight",
+    "zh": "顺子",
+    "en": "Straight",
+    "score": 2,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "黑桃6、红桃7、方块8",
+    "alt_en": "6 of spades, 7 of hearts, 8 of diamonds"
+  },
+  {
+    "slug": "flush",
+    "zh": "同花",
+    "en": "Flush",
+    "score": 3,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "方块4、方块8、方块Q",
+    "alt_en": "4 of diamonds, 8 of diamonds, Q of diamonds"
+  },
+  {
+    "slug": "straight-flush",
+    "zh": "同花顺",
+    "en": "Straight flush",
+    "score": 4,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "黑桃6、黑桃7、黑桃8",
+    "alt_en": "6 of spades, 7 of spades, 8 of spades"
+  },
+  {
+    "slug": "three-kind",
+    "zh": "三炸",
+    "en": "Three of a kind",
+    "score": 5,
+    "count": 3,
+    "width": 176,
+    "height": 78,
+    "alt_zh": "黑桃9、红桃9、梅花9",
+    "alt_en": "9 of spades, 9 of hearts, 9 of clubs"
+  },
+  {
+    "slug": "four-kind",
+    "zh": "四炸",
+    "en": "Four of a kind",
+    "score": 6,
+    "count": 4,
+    "width": 236,
+    "height": 78,
+    "alt_zh": "黑桃7、红桃7、梅花7、方块7",
+    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds"
+  },
+  {
+    "slug": "five-kind",
+    "zh": "五炸",
+    "en": "Five of a kind",
+    "score": 7,
+    "count": 5,
+    "width": 296,
+    "height": 78,
+    "alt_zh": "黑桃7、红桃7、梅花7、方块7、红桃2；红桃2为花牌，代替7。",
+    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds, 2 of hearts; the heart 2 is wild and counts as a 7."
+  }
+]
