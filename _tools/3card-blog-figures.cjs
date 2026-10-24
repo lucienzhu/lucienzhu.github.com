@@ -63,9 +63,39 @@ fs.writeFileSync(path.resolve(__dirname,'../_data/royale_hands.json'),JSON.strin
 // The observation figure is an actual saved swap decision, encoded by the
 // production JS encoder and checked against the Python-generated fixture.
 const observationFixture=JSON.parse(fs.readFileSync(path.join(game,'tests/fixtures/nn-observations.json'),'utf8'))[9];
-const observationState=require(path.join(game,'sdk/features.js')).encode(observationFixture.observation).state;
+const observationEpisode='game';
+const observationState=require(path.join(game,'sdk/features.js')).encode(observationFixture.observation,observationEpisode).state;
 if(observationState.length!==336 || observationState.some((v,i)=>Math.abs(v-observationFixture.state[i])>1e-7)) throw Error('Observation fixture encoding mismatch');
 if(observationFixture.observation.phase!=='refresh') throw Error('Expected a swap decision for the observation figure');
+const o=observationFixture.observation;
+const phaseLabels=[['进攻','Attack'],['防守','Defend'],['换牌','Swap'],['已结算','Resolved'],['小局结束','Game over'],['整场结束','Match over']];
+// Exact vector order. Displayed raw values and formulas are verified against
+// the production encoder and the saved Python fixture above.
+const observationMeta=[
+  {labels:['席位 0 等级 · 对手','Seat 0 level · rival'],key:'levels[0]',raw:o.levels[0],div:14},
+  {labels:['席位 1 等级 · 你','Seat 1 level · you'],key:'levels[1]',raw:o.levels[1],div:14},
+  {labels:['花牌点数','Flower rank'],key:'flower_level',raw:o.flower_level,div:14},
+  {labels:['你的伤牌数','Your wound count'],key:'wounds.length',raw:o.wounds.length,cap:10,div:10},
+  {labels:['对手伤牌数','Rival wound count'],key:'enemy_wounds.length',raw:o.enemy_wounds.length,cap:10,div:10},
+  {labels:['对手手牌数','Rival hand count'],key:'enemy_hand_count',raw:o.enemy_hand_count,div:8},
+  {labels:['牌堆牌数','Deck count'],key:'deck_count',raw:o.deck_count,div:52},
+  {labels:['弃牌数','Discard count'],key:'discard.length',raw:o.discard.length,div:52},
+  {labels:['席位 0 冲 A 失败数','Seat 0 Ace losses'],key:'a_losses[0]',raw:o.a_losses[0],div:3},
+  {labels:['席位 1 冲 A 失败数','Seat 1 Ace losses'],key:'a_losses[1]',raw:o.a_losses[1],div:3},
+  {labels:['本轮由你先攻？','You go first this round?'],key:'first == player',raw:o.first===o.player},
+  {labels:['你是进攻方？','You are the attacker?'],key:'attacker == player',raw:o.attacker===o.player},
+  {labels:['本轮攻防序号（从 0 起）','Play index (zero-based)'],key:'battle_index',raw:o.battle_index},
+  {labels:['剩余换牌机会','Swap chances left'],key:'pending.remaining',raw:o.pending?.remaining||0,div:7},
+  {labels:['当前轮到你行动？','Your turn to act?'],key:'actor == player',raw:o.actor===o.player},
+  {labels:['当前轮数','Round number'],key:'round',raw:o.round,cap:1024,div:1024},
+  {labels:['当前小局数','Game number'],key:'game',raw:o.game,cap:1024,div:1024},
+  {labels:['任务是整场？','Full-match task?'],key:"episode == 'match'",raw:observationEpisode==='match'},
+];
+if(o.player!==1 || observationMeta.length!==18) throw Error('Unexpected observation example');
+observationMeta.forEach((m,i)=>{
+  const expected=(m.cap?Math.min(Number(m.raw),m.cap):Number(m.raw))/(m.div||1);
+  if(Math.abs(expected-observationState[318+i])>1e-7) throw Error(`Meta feature mismatch: ${m.key}`);
+});
 for (const lang of ['zh-CN','en']) {
   const en = lang==='en', tr = (zh,english)=>en?english:zh;
   // The same flat mark and identity colors in the two actual game themes.
@@ -148,7 +178,7 @@ for (const lang of ['zh-CN','en']) {
   save('system-architecture',884,tr('系统架构：四种核心、可见观察、网页与实验宿主','System architecture: four native cores, public observations and two hosts'),s,lang);
   // Six multi-hot card sets, followed by one-hot phase and 18 meta features.
   s=t(24,48,tr('336 维，模型看到了什么','Inside the 336-value state'),31,C.ink,700);
-  s+=t(24,82,tr('换牌阶段示例 · 当前玩家视角','Swap example · acting player’s view'),23,C.muted);
+  s+=t(24,82,tr('换牌示例 · 你是席位 1，对手是席位 0','Swap example · you: seat 1, rival: seat 0'),22,C.muted);
   s+=box(24,108,512,464,C.panel,C.line,16);
   s+=t(44,150,tr('六个牌区 × 52','Six card zones × 52'),27,C.ink,700)+t(516,150,'312',32,C.green,800,'end');
   const cardGroups=[['你的手牌','Your hand'],['你的伤牌','Your wounds'],['对手伤牌','Rival wounds'],['弃牌','Discards'],['你的已出牌','Your played cards'],['对手已出牌','Rival played cards']];
@@ -168,18 +198,36 @@ for (const lang of ['zh-CN','en']) {
   s+=box(44,520,14,14,C.green,'none',2)+t(68,534,tr('1 有牌','1 present'),22,C.muted);
   s+=box(232,520,14,14,C.paper,C.line,2)+t(256,534,tr('0 无牌 · 空区全 0','0 absent · empty = all 0'),22,C.muted);
   s+=box(24,596,512,216,C.panel,C.line,16);
-  s+=t(44,638,tr('局面信息','Position features'),27,C.ink,700)+t(516,638,'24',32,C.green,800,'end');
-  s+=box(44,658,140,130,C.table,'none',10)+t(60,690,tr('阶段','Phase'),25,C.ink,700);
-  for(let i=0;i<6;i++)s+=box(60+i*17,710,13,20,observationState[312+i]?C.green:C.paper,'none',2);
-  s+=t(60,768,tr('6 维 · 选一','6 · one-hot'),21,C.muted);
-  s+=box(200,658,316,130,C.table,'none',10)+t(216,690,tr('其余状态','Other state'),25,C.ink,700)+t(500,690,'18',26,C.green,700,'end');
-  s+=t(216,727,tr('等级 · 花牌 · 牌数','Levels · wild · counts'),22,C.muted);
-  s+=t(216,766,tr('身份 · 局轮 · 任务等','Roles · rounds · task…'),22,C.muted);
-  s+=down(280,824,26);
-  s+=box(24,866,512,110,C.dark,'none',16)+t(280,914,'312 + 24 = 336',36,C.darkInk,800,'middle');
-  s+=t(280,952,tr('当前状态 → 与候选动作一起评分','Current state + candidate → score'),23,C.darkInk,500,'middle');
-  s+=t(280,1014,tr('不含对手暗牌、牌堆顺序或历史。','No rival hand, deck order or history.'),23,C.muted,500,'middle');
-  save('observation-state',1040,tr('336 维状态编码：六组 52 维牌区，加 6 维阶段和 18 维局面信息','336-value state: six 52-card sets, six phase bits and 18 position features'),s,lang);
+  s+=t(44,638,tr('阶段 · One-hot','Phase · one-hot'),27,C.ink,700)+t(516,638,'6',32,C.green,800,'end');
+  phaseLabels.forEach((labels,i)=>{
+    const x=44+i*80, value=observationState[312+i];
+    s+=box(x,660,72,52,value?C.green:C.table,'none',8)+t(x+36,696,value,29,value?C.darkInk:C.muted,700,'middle');
+    const label=tr(...labels);
+    if(en&&label.includes(' ')){
+      const words=label.split(' ');s+=t(x+36,740,words[0],18,C.ink,500,'middle')+t(x+36,760,words[1],18,C.ink,500,'middle');
+    }else s+=t(x+36,744,label,en?16:18,C.ink,500,'middle');
+    s+=t(x+36,791,312+i,16,C.muted,500,'middle');
+  });
+  s+=box(24,836,512,1370,C.panel,C.line,16);
+  s+=t(44,878,tr('其余状态 · 完整 18 项','Other state · all 18 features'),27,C.ink,700);
+  s+=t(44,916,tr('序号从 0 开始 · 数值按本例实际状态','Zero-based indices · actual sample values'),21,C.muted);
+  s+=t(44,956,'#',18,C.muted)+t(88,956,tr('状态 / 字段','State / field'),20,C.muted)+t(386,956,tr('原值','Raw'),20,C.muted,500,'end')+t(516,956,tr('入模值','Encoded'),20,C.muted,500,'end');
+  observationMeta.forEach((m,i)=>{
+    const y=998+i*64, value=observationState[318+i];
+    const raw=typeof m.raw==='boolean'?tr(m.raw?'是':'否',m.raw?'yes':'no'):m.raw;
+    const displayed=Number(value.toFixed(6)).toString();
+    const formula=m.div?(m.cap?`min(n, ${m.cap}) / ${m.div}`:`n / ${m.div}`):typeof m.raw==='boolean'?tr('是 = 1，否 = 0','yes = 1, no = 0'):tr('原值','unchanged');
+    s+=line(44,y-24,516,y-24);
+    s+=t(44,y+3,318+i,17,C.muted)+t(88,y+3,tr(...m.labels),en?19:20,C.ink,600);
+    s+=t(386,y+3,raw,21,C.muted,500,'end')+t(516,y+3,displayed,22,C.green,700,'end');
+    s+=t(88,y+28,m.key,16,C.muted)+t(516,y+28,formula,16,C.muted,500,'end');
+  });
+  s+=t(44,2174,tr('入模值最多显示 6 位小数。','Encoded values rounded to 6 decimals.'),20,C.muted);
+  s+=down(280,2218,26);
+  s+=box(24,2260,512,110,C.dark,'none',16)+t(280,2308,'312 + 6 + 18 = 336',35,C.darkInk,800,'middle');
+  s+=t(280,2346,tr('当前状态 → 与候选动作一起评分','Current state + candidate → score'),23,C.darkInk,500,'middle');
+  s+=t(280,2408,tr('不含对手暗牌、牌堆顺序或历史。','No rival hand, deck order or history.'),23,C.muted,500,'middle');
+  save('observation-state',2434,tr('336 维状态：六个牌区、全部阶段编码与 18 项原值和入模值','336-value state: six card zones, every phase bit, and all 18 raw and encoded position values'),s,lang);
   const node=(y,n,title,details)=>box(24,y,512,112)+t(48,y+45,n,28,C.redText,700)+t(104,y+44,title,28,C.ink,700)+t(104,y+84,details,24,C.muted);
   s=t(24,48,tr('从自对弈到浏览器','From self-play to the browser'),31,C.ink,700);
   s+=node(80,'01','Code AI × Code AI',tr('10,000 小局 · 252,859 决策','10,000 games · 252,859 decisions'))+down(280,192,24);
