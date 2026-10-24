@@ -62,5 +62,7 @@ for lang in ("zh", "en"):
     fig.tight_layout()
     filename = "win-rates.svg" if zh else "win-rates-en.svg"
     fig.savefig(out / filename, metadata={"Date": None, "Description": "Uniform random and five MLPs versus Code AI; 500 paired seeds, both seats, level-2 starts."})
+    svg = out / filename
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     plt.close(fig)
     print(filename)
