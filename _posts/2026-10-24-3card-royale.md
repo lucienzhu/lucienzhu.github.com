@@ -36,7 +36,7 @@ I wanted familiar cards to make the basic actions easy to understand: choose, co
 
 An ordinary deck provides a shared vocabulary. Ranks, suits, pairs, straights and flushes are already familiar. That leaves more room to learn the mechanisms that give this particular game its character.
 
-The game draws inspiration from Hanafuda, Zha Jin Hua, Guandan and Balatro: the connection between flowers and cards, the immediacy of three-card combinations, the variation introduced by ranks and wild cards, and the pleasure of rearranging familiar hands.
+The game draws inspiration from [Hanafuda](https://en.wikipedia.org/wiki/Hanafuda), [Zha Jin Hua](https://baike.sogou.com/m/v7421269.htm "Sogou Baike · Chinese"), [Guandan](https://en.wikipedia.org/wiki/Guandan) and [Balatro](https://en.wikipedia.org/wiki/Balatro): the connection between flowers and cards, the immediacy of three-card combinations, the variation introduced by ranks and wild cards, and the pleasure of rearranging familiar hands.
 
 I eventually put the emphasis on the relationship between attack and defense. An attack should deal damage, but it also spends cards I may need to defend. The defender sees the attack before responding and can decide whether to beat it or preserve a more valuable combination while accepting some damage. A successful defense can then change the next encounter through a swap.
 
