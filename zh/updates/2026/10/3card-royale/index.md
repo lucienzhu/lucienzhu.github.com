@@ -150,7 +150,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 11 · 系统边界：完整状态归宿主管理，策略只拿到自己的玩家观察。" %}
 
-目前网页里的 **NN AI 是行为克隆基线**：它学习 Code AI 的动作选择。奖励驱动的强化学习训练，是在这份基线上继续探索的方向。
+目前网页里的 **NN AI 是行为克隆基线**：它学习 SDK Code AI 的动作选择。奖励驱动的强化学习训练，是在这份基线上继续探索的方向。
 
 ### 模型能看到什么，怎样选动作
 
@@ -168,9 +168,9 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 13 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
 
-### 先让 Code AI 对弈 10,000 局
+### 先让 SDK Code AI 对弈 10,000 局
 
-训练的第一步，是让两席 Code AI 完成 **10,000 个小局**，记录双方的决策，得到 **252,859 条样本**。
+训练的第一步，是让两席 SDK Code AI 完成 **10,000 个小局**，记录双方的决策，得到 **252,859 条样本**。
 
 数据按完整小局划分为 8,000 局训练、1,000 局验证和 1,000 局测试。同一局的双方决策始终放在同一个集合，避免把高度相关的局面拆到训练和测试两边。
 
@@ -178,15 +178,15 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 14 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
 
-最终上线模型有 **137,729 个参数**，ONNX 权重约 **0.55 MB**。留出测试集上，与 Code AI 的动作一致率为 **89.36%**。动作一致率说明模仿得有多接近；实际能赢多少，还需要单独对战。
+最终上线模型有 **137,729 个参数**，ONNX 权重约 **0.55 MB**。留出测试集上，与 SDK Code AI 的动作一致率为 **89.36%**。动作一致率说明模仿得有多接近；实际能赢多少，还需要单独对战。
 
-### 和 Code AI 打，结果如何
+### 和 SDK Code AI 打，结果如何
 
-五个模型使用同一批训练数据，另加无需训练的随机策略，以及最多比较 64 个候选的 Easy AI。七种策略都使用相同的 500 个评估种子与 Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
+五个模型使用同一批训练数据，另加无需训练的随机策略，以及最多比较 64 个候选的 Easy AI。七种策略都使用相同的 500 个评估种子与 SDK Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg?v=easy64" width="677" height="425" alt="对 Code AI，随机策略胜率 0.1%，64 候选的 Easy 为 36.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg?v=sdk-baseline1" width="677" height="425" alt="对 SDK Code AI，随机策略胜率 0.1%，64 候选的 Easy 为 36.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
 
-| 策略 | ONNX 大小 | 延迟 p95 | 对 Code AI 胜率 |
+| 策略 | ONNX 大小 | 延迟 p95 | 对 SDK Code AI 胜率 |
 | --- | ---: | ---: | ---: |
 | 随机策略 | — | — | 0.1% |
 | Easy · 64 | — | — | 36.1% |
@@ -209,7 +209,7 @@ Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此
 
 训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Easy AI 并显示提示，让对局可以继续。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 SDK Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
 
 ### 三档难度，三种对手
 
@@ -219,15 +219,27 @@ Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此
 | --- | --- | --- |
 | 简单 | Easy AI | 最多看 64 个出牌候选；从牌堆换牌 |
 | 中等 | NN AI | 上线的 256 → 128 MLP |
-| 困难 | Code AI | 按人工规则比较全部合法动作 |
+| 困难 | Code AI | 原牌桌策略，保留组合并评估换牌收益 |
 
-Code AI 进攻优先出当前最强的一手；防守优先少受伤，再争取更多换牌机会。条件相同时，多用伤牌、少用花牌。换牌时会考虑对手更好的公开伤牌，或从牌堆换掉低点牌。它根据眼前局面选择，不往后推演。
+困难档使用原牌桌 Code AI：进攻比较牌力，防守优先少受伤、争取换牌机会，并考虑剩余牌能否组成好牌。换牌比较组合收益，可以盲换对手手牌、交换公开伤牌，也可以从牌堆抽牌。它只读取己方可见信息，不知道对手暗牌，也不向后搜索。
 
-Easy 沿用相同的比较方式，但只抽取最多 **64** 个组合。防守时，如果存在不会立即输局的应对，就先排除致命选择；每次换牌机会都从牌堆抽牌。它会正常选牌，也会漏掉更好的组合。
+Easy 使用 SDK 基线的比较方式，但只抽取最多 **64** 个组合。防守时，如果存在不会立即输局的应对，就先排除致命选择；每次换牌机会都从牌堆抽牌。它会正常选牌，也会漏掉更好的组合。
 
-每组 1,000 局，Easy 对 Code AI **361 胜（36.1%）**，对 NN AI **441 胜（44.1%）**；NN 对 Code AI **462 胜（46.2%）**。所有对局正常结束，无非法动作。此前 48 候选的 Easy 在同一组种子上分别为 30.4% 和 39.0%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称用于区分对手，不代表实测真人难度。
+这里需要区分两个策略：**SDK Code AI** 是固定的训练教师与实验基线；**网页困难档 Code AI** 是原牌桌策略。接入 NN 时曾误用 SDK 策略，现已修复。上方七种策略的历史结果仍保留原基线，方便复现。
 
-[策略与复现](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.zh-CN.md) · [当前结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
+恢复后的困难档，使用实际网页引擎、相同 500 个种子、交换席位并平衡先攻，各评估 1,000 小局：
+
+| 策略 | 对困难档 Code AI 胜率 |
+| --- | ---: |
+| Easy · 64 | **31.5%**（315 / 1,000） |
+| NN · 256 → 128 | **41.2%**（412 / 1,000） |
+| SDK Code AI 基线 | **45.3%**（453 / 1,000） |
+
+另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。以上 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/table-code-evaluation.json)。
+
+Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候选版本在同一批种子上分别为 39.0% 和 30.4%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称不代表实测真人难度。
+
+[策略与复现](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
 
 ### 下一步，让奖励指导学习
 
@@ -237,7 +249,7 @@ Easy 沿用相同的比较方式，但只抽取最多 **64** 个组合。防守�
 
 这两种目标可能带来不同的策略。某次防守能否改善后续局面？是否值得冒险追求更大的终局伤势差？面对不同对手，怎样调整资源分配？这些都值得通过实验继续回答。
 
-复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
+复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 SDK Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
 
 [RL 页面与 checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/main/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md)
 

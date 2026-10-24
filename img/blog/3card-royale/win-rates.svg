@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:description>Uniform random, Easy (64 candidates), and five MLPs versus Code AI; 500 paired seeds, both seats, level-2 starts.</dc:description>
+    <dc:description>Uniform random, Easy (64 candidates), and five MLPs versus SDK Code AI; 500 paired seeds, both seats, level-2 starts.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -293,8 +293,8 @@ z
      </g>
     </g>
     <g id="text_6">
-     <!-- 对 Code AI 胜率 -->
-     <g style="fill: #4f665a" transform="translate(337.043125 408.148477) scale(0.13 -0.13)">
+     <!-- 对 SDK Code AI 胜率 -->
+     <g style="fill: #4f665a" transform="translate(321.871719 408.148477) scale(0.13 -0.13)">
       <defs>
        <path id="ArialUnicodeMS-2e88" d="M 5856 3616
 L 5247 3616
@@ -339,6 +339,78 @@ Q 4084 2334 4441 1453
 z
 " transform="scale(0.015625)"/>
        <path id="ArialUnicodeMS-3" transform="scale(0.015625)"/>
+       <path id="ArialUnicodeMS-36" d="M 3213 3238
+Q 3175 3675 2897 3895
+Q 2619 4116 2100 4116
+Q 1631 4116 1337 3941
+Q 1044 3766 1044 3431
+Q 1044 3134 1270 2989
+Q 1497 2844 2138 2700
+Q 2706 2575 3065 2444
+Q 3425 2313 3681 2036
+Q 3938 1759 3938 1294
+Q 3938 703 3467 312
+Q 2997 -78 2241 -78
+Q 1275 -78 795 353
+Q 316 784 288 1472
+L 863 1522
+Q 903 972 1287 720
+Q 1672 469 2216 469
+Q 2725 469 3039 678
+Q 3353 888 3353 1247
+Q 3353 1622 3025 1794
+Q 2697 1966 1923 2133
+Q 1150 2300 809 2603
+Q 469 2906 469 3391
+Q 469 3941 900 4300
+Q 1331 4659 2075 4659
+Q 2838 4659 3302 4301
+Q 3766 3944 3794 3284
+L 3213 3238
+z
+" transform="scale(0.015625)"/>
+       <path id="ArialUnicodeMS-27" d="M 513 4581
+L 2094 4581
+Q 2509 4581 2809 4539
+Q 3109 4497 3382 4333
+Q 3656 4169 3861 3881
+Q 4066 3594 4183 3220
+Q 4300 2847 4300 2316
+Q 4300 1303 3819 651
+Q 3338 0 2163 0
+L 513 0
+L 513 4581
+z
+M 1119 544
+L 2100 544
+Q 2400 544 2636 581
+Q 2872 619 3114 784
+Q 3356 950 3515 1328
+Q 3675 1706 3675 2328
+Q 3675 2672 3614 2970
+Q 3553 3269 3389 3514
+Q 3225 3759 3012 3873
+Q 2800 3988 2598 4013
+Q 2397 4038 2081 4038
+L 1119 4038
+L 1119 544
+z
+" transform="scale(0.015625)"/>
+       <path id="ArialUnicodeMS-2e" d="M 4256 0
+L 3456 0
+L 1831 2316
+L 1075 1588
+L 1075 0
+L 469 0
+L 469 4581
+L 1075 4581
+L 1075 2309
+L 3353 4581
+L 4172 4581
+L 2253 2725
+L 4256 0
+z
+" transform="scale(0.015625)"/>
        <path id="ArialUnicodeMS-26" d="M 4372 1453
 Q 4172 681 3673 301
 Q 3175 -78 2478 -78
@@ -596,16 +668,20 @@ z
       </defs>
       <use xlink:href="#ArialUnicodeMS-2e88"/>
       <use xlink:href="#ArialUnicodeMS-3" transform="translate(100 0)"/>
-      <use xlink:href="#ArialUnicodeMS-26" transform="translate(127.78125 0)"/>
-      <use xlink:href="#ArialUnicodeMS-52" transform="translate(200 0)"/>
-      <use xlink:href="#ArialUnicodeMS-47" transform="translate(255.609375 0)"/>
-      <use xlink:href="#ArialUnicodeMS-48" transform="translate(311.21875 0)"/>
-      <use xlink:href="#ArialUnicodeMS-3" transform="translate(366.828125 0)"/>
-      <use xlink:href="#ArialUnicodeMS-24" transform="translate(394.609375 0)"/>
-      <use xlink:href="#ArialUnicodeMS-2c" transform="translate(461.3125 0)"/>
-      <use xlink:href="#ArialUnicodeMS-3" transform="translate(489.09375 0)"/>
-      <use xlink:href="#ArialUnicodeMS-536b" transform="translate(516.875 0)"/>
-      <use xlink:href="#ArialUnicodeMS-4616" transform="translate(616.875 0)"/>
+      <use xlink:href="#ArialUnicodeMS-36" transform="translate(127.78125 0)"/>
+      <use xlink:href="#ArialUnicodeMS-27" transform="translate(194.484375 0)"/>
+      <use xlink:href="#ArialUnicodeMS-2e" transform="translate(266.703125 0)"/>
+      <use xlink:href="#ArialUnicodeMS-3" transform="translate(333.40625 0)"/>
+      <use xlink:href="#ArialUnicodeMS-26" transform="translate(361.1875 0)"/>
+      <use xlink:href="#ArialUnicodeMS-52" transform="translate(433.40625 0)"/>
+      <use xlink:href="#ArialUnicodeMS-47" transform="translate(489.015625 0)"/>
+      <use xlink:href="#ArialUnicodeMS-48" transform="translate(544.625 0)"/>
+      <use xlink:href="#ArialUnicodeMS-3" transform="translate(600.234375 0)"/>
+      <use xlink:href="#ArialUnicodeMS-24" transform="translate(628.015625 0)"/>
+      <use xlink:href="#ArialUnicodeMS-2c" transform="translate(694.71875 0)"/>
+      <use xlink:href="#ArialUnicodeMS-3" transform="translate(722.5 0)"/>
+      <use xlink:href="#ArialUnicodeMS-536b" transform="translate(750.28125 0)"/>
+      <use xlink:href="#ArialUnicodeMS-4616" transform="translate(850.28125 0)"/>
      </g>
     </g>
    </g>

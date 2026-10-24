@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:description>Uniform random, Easy (64 candidates), and five MLPs versus Code AI; 500 paired seeds, both seats, level-2 starts.</dc:description>
+    <dc:description>Uniform random, Easy (64 candidates), and five MLPs versus SDK Code AI; 500 paired seeds, both seats, level-2 starts.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -293,8 +293,8 @@ z
      </g>
     </g>
     <g id="text_6">
-     <!-- Win rate vs Code AI -->
-     <g style="fill: #4f665a" transform="translate(338.085703 407.434922) scale(0.13 -0.13)">
+     <!-- Win rate vs SDK Code AI -->
+     <g style="fill: #4f665a" transform="translate(322.625859 407.434922) scale(0.13 -0.13)">
       <defs>
        <path id="DejaVuSans-3a" d="M 213 4666
 L 850 4666
@@ -482,6 +482,70 @@ Q 2034 3584 2315 3537
 Q 2597 3491 2834 3397
 z
 " transform="scale(0.015625)"/>
+       <path id="DejaVuSans-36" d="M 3425 4513
+L 3425 3897
+Q 3066 4069 2747 4153
+Q 2428 4238 2131 4238
+Q 1616 4238 1336 4038
+Q 1056 3838 1056 3469
+Q 1056 3159 1242 3001
+Q 1428 2844 1947 2747
+L 2328 2669
+Q 3034 2534 3370 2195
+Q 3706 1856 3706 1288
+Q 3706 609 3251 259
+Q 2797 -91 1919 -91
+Q 1588 -91 1214 -16
+Q 841 59 441 206
+L 441 856
+Q 825 641 1194 531
+Q 1563 422 1919 422
+Q 2459 422 2753 634
+Q 3047 847 3047 1241
+Q 3047 1584 2836 1778
+Q 2625 1972 2144 2069
+L 1759 2144
+Q 1053 2284 737 2584
+Q 422 2884 422 3419
+Q 422 4038 858 4394
+Q 1294 4750 2059 4750
+Q 2388 4750 2728 4690
+Q 3069 4631 3425 4513
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-27" d="M 1259 4147
+L 1259 519
+L 2022 519
+Q 2988 519 3436 956
+Q 3884 1394 3884 2338
+Q 3884 3275 3436 3711
+Q 2988 4147 2022 4147
+L 1259 4147
+z
+M 628 4666
+L 1925 4666
+Q 3281 4666 3915 4102
+Q 4550 3538 4550 2338
+Q 4550 1131 3912 565
+Q 3275 0 1925 0
+L 628 0
+L 628 4666
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-2e" d="M 628 4666
+L 1259 4666
+L 1259 2694
+L 3353 4666
+L 4166 4666
+L 1850 2491
+L 4331 0
+L 3500 0
+L 1259 2247
+L 1259 0
+L 628 0
+L 628 4666
+z
+" transform="scale(0.015625)"/>
        <path id="DejaVuSans-26" d="M 4122 4306
 L 4122 3641
 Q 3803 3938 3442 4084
@@ -586,13 +650,17 @@ z
       <use xlink:href="#DejaVuSans-59" transform="translate(454.515625 0)"/>
       <use xlink:href="#DejaVuSans-56" transform="translate(513.703125 0)"/>
       <use xlink:href="#DejaVuSans-3" transform="translate(565.796875 0)"/>
-      <use xlink:href="#DejaVuSans-26" transform="translate(597.578125 0)"/>
-      <use xlink:href="#DejaVuSans-52" transform="translate(667.40625 0)"/>
-      <use xlink:href="#DejaVuSans-47" transform="translate(728.59375 0)"/>
-      <use xlink:href="#DejaVuSans-48" transform="translate(792.078125 0)"/>
-      <use xlink:href="#DejaVuSans-3" transform="translate(853.609375 0)"/>
-      <use xlink:href="#DejaVuSans-24" transform="translate(885.390625 0)"/>
-      <use xlink:href="#DejaVuSans-2c" transform="translate(953.796875 0)"/>
+      <use xlink:href="#DejaVuSans-36" transform="translate(597.578125 0)"/>
+      <use xlink:href="#DejaVuSans-27" transform="translate(661.0625 0)"/>
+      <use xlink:href="#DejaVuSans-2e" transform="translate(738.0625 0)"/>
+      <use xlink:href="#DejaVuSans-3" transform="translate(803.640625 0)"/>
+      <use xlink:href="#DejaVuSans-26" transform="translate(835.421875 0)"/>
+      <use xlink:href="#DejaVuSans-52" transform="translate(905.25 0)"/>
+      <use xlink:href="#DejaVuSans-47" transform="translate(966.4375 0)"/>
+      <use xlink:href="#DejaVuSans-48" transform="translate(1029.921875 0)"/>
+      <use xlink:href="#DejaVuSans-3" transform="translate(1091.453125 0)"/>
+      <use xlink:href="#DejaVuSans-24" transform="translate(1123.234375 0)"/>
+      <use xlink:href="#DejaVuSans-2c" transform="translate(1191.640625 0)"/>
      </g>
     </g>
    </g>
@@ -1359,37 +1427,6 @@ z
     <!-- Same opponent. 1,000 games per policy. -->
     <g style="fill: #10231b" transform="translate(159.24 26.28) scale(0.16 -0.16)">
      <defs>
-      <path id="DejaVuSans-36" d="M 3425 4513
-L 3425 3897
-Q 3066 4069 2747 4153
-Q 2428 4238 2131 4238
-Q 1616 4238 1336 4038
-Q 1056 3838 1056 3469
-Q 1056 3159 1242 3001
-Q 1428 2844 1947 2747
-L 2328 2669
-Q 3034 2534 3370 2195
-Q 3706 1856 3706 1288
-Q 3706 609 3251 259
-Q 2797 -91 1919 -91
-Q 1588 -91 1214 -16
-Q 841 59 441 206
-L 441 856
-Q 825 641 1194 531
-Q 1563 422 1919 422
-Q 2459 422 2753 634
-Q 3047 847 3047 1241
-Q 3047 1584 2836 1778
-Q 2625 1972 2144 2069
-L 1759 2144
-Q 1053 2284 737 2584
-Q 422 2884 422 3419
-Q 422 4038 858 4394
-Q 1294 4750 2059 4750
-Q 2388 4750 2728 4690
-Q 3069 4631 3425 4513
-z
-" transform="scale(0.015625)"/>
       <path id="DejaVuSans-53" d="M 1159 525
 L 1159 -1331
 L 581 -1331

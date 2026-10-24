@@ -58,7 +58,7 @@ for lang in ("zh", "en"):
     ax.axvline(50, linestyle="--", color="#A17C35", alpha=.65)
     ax.set_xlim(0, 100)
     ax.set_xticks([0, 25, 50, 75, 100], ["0%", "25%", "50%", "75%", "100%"])
-    ax.set_xlabel("对 Code AI 胜率" if zh else "Win rate vs Code AI", fontproperties=font, labelpad=10)
+    ax.set_xlabel("对 SDK Code AI 胜率" if zh else "Win rate vs SDK Code AI", fontproperties=font, labelpad=10)
     ax.set_axisbelow(True)
     ax.grid(axis="x", alpha=.16)
     ax.spines[["right", "top", "left"]].set_visible(False)
@@ -67,7 +67,7 @@ for lang in ("zh", "en"):
                  loc="left", pad=22, fontproperties=font, fontsize=16)
     fig.tight_layout()
     filename = "win-rates.svg" if zh else "win-rates-en.svg"
-    fig.savefig(out / filename, metadata={"Date": None, "Description": f"Uniform random, Easy ({budget} candidates), and five MLPs versus Code AI; 500 paired seeds, both seats, level-2 starts."})
+    fig.savefig(out / filename, metadata={"Date": None, "Description": f"Uniform random, Easy ({budget} candidates), and five MLPs versus SDK Code AI; 500 paired seeds, both seats, level-2 starts."})
     svg = out / filename
     svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     plt.close(fig)
