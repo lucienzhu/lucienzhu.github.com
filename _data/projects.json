@@ -40,13 +40,13 @@
     "en": {
       "title": "Tennis Robot",
       "date": "2025–2026",
-      "description": "Advanced a tennis robot from proof of concept to the EVT stage, supporting rally practice, ball serving and collection, coaching, and practice logging.",
+      "description": "As CTO, worked with algorithm, software, hardware and mechanical engineering teams to build our first 3-in-1 tennis robot for rally practice, serving and ball collection, advancing it from proof of concept to EVT.",
       "image_alt": "Concept illustration of a tennis ball and trajectory sensing"
     },
     "zh": {
       "title": "网球机器人",
       "date": "2025–2026 年",
-      "description": "将网球机器人从概念验证推进至 EVT 阶段，支持陪打、发球、捡球、教练指导与训练记录。",
+      "description": "担任 CTO，与算法、软件、硬件和结构团队共同研发首台集陪打、发球、捡球于一体的三合一网球机器人，并从概念验证推进至 EVT。",
       "image_alt": "网球与轨迹感知的概念示意图"
     },
     "external_url": "https://www.cedarobo.com/en",
