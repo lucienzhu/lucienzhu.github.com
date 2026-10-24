@@ -50,4 +50,4 @@ AI characters could participate as well, provided their role contributes to the 
 
 The test is concrete: can people stay comfortable, understand each other's actions and complete an activity they want to repeat? A table gives spatial computing a familiar place to answer those questions, one shared task at a time.
 
-Related project: [Vision Pro × DnD](/projects/vision-pro-dnd/), an immersive combat prototype with surrounding content generated through LLM conversations.
+Related project: [Vision Pro × DnD](/projects/vision-pro-dnd/), a generative AI gaming prototype with immersive narratives and surrounding content generated through LLM conversations.

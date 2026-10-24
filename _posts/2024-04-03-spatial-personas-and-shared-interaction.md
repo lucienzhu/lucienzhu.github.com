@@ -44,6 +44,6 @@ Pointing, placing, passing and turning are familiar actions, but software must d
 
 Dependable answers let people focus on their activity. They also give AI a useful place to participate. A spoken request to create or modify content can produce something in the shared workspace, where everyone can inspect the result and respond.
 
-In our [Vision Pro × DnD](/projects/vision-pro-dnd/) prototype, LLM conversations generated content around an immersive combat experience. This is one way to connect language with spatial content. The broader design challenge is to make each generated change understandable in the activity people already share.
+In our [Vision Pro × DnD](/projects/vision-pro-dnd/) prototype, LLM conversations dynamically generated narratives and surrounding content for an immersive gaming experience. This is one way to connect language with spatial content. The broader design challenge is to make each generated change understandable in the activity people already share.
 
 Spatial presence earns its value when it helps participants coordinate: identify the same thing, act on it and understand one another's response. A face and a pair of hands become useful through that shared work or play.

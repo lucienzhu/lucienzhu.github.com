@@ -141,22 +141,22 @@
     "detail": "/projects/vision-pro-dnd/",
     "image": "/img/projects/vision-pro-dnd.svg",
     "en": {
-      "title": "Vision Pro × DnD · Immersive combat",
+      "title": "Vision Pro × DnD · Generative AI for Gaming Prototype",
       "date": "August 2023",
-      "description": "Developed an immersive combat prototype for Apple Vision Pro, with surrounding content generated through conversations with an LLM.",
-      "image_alt": "Concept illustration of LLM conversations generating content around an immersive combat space"
+      "description": "Built a generative AI gaming prototype for Apple Vision Pro, using LLM conversations to dynamically generate immersive narratives and surrounding content.",
+      "image_alt": "Concept illustration of LLM-driven narrative and world content in an immersive game"
     },
     "zh": {
-      "title": "Vision Pro × DnD：沉浸式对战",
+      "title": "Vision Pro × DnD：沉浸式动态生成叙事",
       "date": "2023 年 8 月",
-      "description": "研发可在 Apple Vision Pro 上运行的沉浸式对战原型，通过与 LLM 对话生成周围内容。",
-      "image_alt": "通过 LLM 对话生成周围内容的沉浸式对战机制示意图"
+      "description": "研发可在 Apple Vision Pro 上运行的生成式游戏原型，通过 LLM 对话动态生成叙事与周围内容。",
+      "image_alt": "LLM 对话驱动沉浸式叙事与游戏内容生成的概念示意图"
     },
     "info": {
       "en": "XR × AI · Runnable Vision Pro prototype",
       "zh": "XR × AI · Vision Pro 可运行原型"
     },
-    "image_source_note": "Concept illustration of immersive combat and content generated through LLM conversations, not a prototype screenshot. The owner confirmed this interaction model, a runnable Vision Pro prototype and an approximate date of August 2023 on 2026-10-23.",
+    "image_source_note": "Concept illustration of LLM-driven narrative and surrounding content, not a prototype screenshot. The owner confirmed a runnable Vision Pro prototype and an approximate date of August 2023 on 2026-10-23, and clarified the focus as immersive, dynamically generated narratives and a Generative AI for Gaming Prototype on 2026-10-24.",
     "tags": [
       "product",
       "games"

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-labelledby="title desc">
-  <title id="title">LLM-generated content and immersive combat</title>
-  <desc id="desc">Conversations with an LLM generate content around two combatants in an immersive space. A concept illustration, not a prototype screenshot.</desc>
+  <title id="title">LLM-driven immersive narratives and game content</title>
+  <desc id="desc">Conversations with an LLM drive dynamically generated narratives and surrounding game content in an immersive space. A concept illustration, not a prototype screenshot.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0 0 10 5 0 10Z" fill="#879b95"/>
