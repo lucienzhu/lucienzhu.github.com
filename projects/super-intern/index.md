@@ -7,7 +7,7 @@ extra_css:
 - /css/project-detail.css
 ---
 
-Co-developed SuperIntern, a group chat AI agent for Discord and Slack that handles work and marketing tasks directly in conversation, using shared context to answer questions and take action.
+Co-developed SuperIntern with partners in London. The group chat AI agent for Discord and Slack uses shared context to answer questions and take action, handling work and marketing tasks directly in conversation.
 
 ## Multi-model platform
 

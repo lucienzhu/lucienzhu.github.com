@@ -11,6 +11,7 @@ layout: default
     <p>{{ t.home.intro }}</p>
     {% assign projects_url = locale_prefix | append: '/projects/' | relative_url %}
     {% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
+    <p>{{ t.home.robotics_work | replace: '%projects%', projects_url }}</p>
     <p>{{ t.home.current_work | replace: '%projects%', projects_url }}</p>
     <p>{{ t.home.background }}</p>
     <p>{{ t.home.contributions }}</p>
