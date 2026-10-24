@@ -51,7 +51,7 @@ I hope a player finishes a game remembering a particular decision: was that flus
 
 The Chinese name gives the game a home in Shenzhen.
 
-Bougainvillea, the city's skyline and my own visual impression of Shenzhen gradually found their way into the cards and interface. Three cards also connect naturally with the flower's three-part form.
+Bougainvillea is [Shenzhen's city flower](https://www.sz.gov.cn/ztfw/gysy/wyw_183970/ywzsk_184570/content/post_12660964.html). Its three-part form connects naturally with the game's three cards, while the city's skyline also finds its way into the interface.
 
 The mark is a flat gold card: a gold surface and border, a red flower in the center and small gold stamens. The same image runs through the logo, card backs and wild-card indicator.
 
