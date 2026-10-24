@@ -57,8 +57,8 @@ for (const lang of ['zh-CN','en']) {
     s+=logo(x+14,139,64)+t(x+88,178,'3Card',27,dark?C.darkInk:C.ink,700)+t(x+88,211,'Royale',27,dark?C.darkInk:C.ink,700);
     s+=flower(x+20,250,28)+flower(x+64,250,28,C.rival)+t(x+108,274,tr('你 / 对手','You / Rival'),22,dark?'#9DB5A8':C.muted);
   }
-  const swatches=[['红花','Flower',C.red],['金牌','Card',C.gold],['绿底','Board',C.dark],['品牌绿','Accent',C.green]];
-  swatches.forEach(([zh,eng,color],i)=>{const x=24+i*134;s+=box(x,340,110,48,color,'none',4)+t(x,420,en?eng:zh,24,C.ink,600)+t(x,450,color,20,C.muted);});
+  const swatches=[['红花','Flower',C.red],['金牌','Card',C.gold],['绿底','Board',C.dark],['电路板绿','Circuit-board',C.green]];
+  swatches.forEach(([zh,eng,color],i)=>{const x=24+i*134;s+=box(x,340,110,48,color,'none',4);if(en&&i===3)s+=t(x,416,eng,18,C.ink,600)+t(x,440,'green',18,C.ink,600);else s+=t(x,420,en?eng:zh,24,C.ink,600);s+=t(x,468,color,20,C.muted);});
   s+=line(24,478,536,478)+t(24,520,tr('相同的牌与身份','Shared cards and identities'),28,C.ink,700);
   s+=back(28,548,72)+card(124,548,'2','h',72,true)+flower(254,558,34)+t(302,585,tr('你','You'),28,C.redText,700)+flower(254,618,34,C.rival)+t(302,645,tr('对手','Rival'),28,'#866300',700);
   s+=t(28,682,tr('牌背','Back'),24,C.muted)+t(124,682,tr('花牌','Wild'),24,C.muted);
