@@ -76,16 +76,6 @@ for (const lang of ['zh-CN','en']) {
   s+=back(28,548,72)+card(124,548,'2','h',72,true)+flower(254,558,34)+t(302,585,tr('你','You'),28,C.redText,700)+flower(254,618,34,C.rival)+t(302,645,tr('对手','Rival'),28,'#866300',700);
   s+=t(28,682,tr('牌背','Back'),24,C.muted)+t(124,682,tr('花牌','Wild'),24,C.muted);
   save('design-system',712,tr('视觉系统：电路板绿底、金牌与红金花身份','Visual system: circuit-board greens, gold cards and player identities'),s,lang);
-  // UI diagrams deliberately use schematics rather than fabricated screenshots.
-  s=t(24,48,tr('一致的界面层级','A consistent UI hierarchy'),32,C.ink,700);
-  s+=t(24,102,tr('手机：右侧抽屉','Phone: right-side drawer'),28,C.ink,700);
-  s+=box(24,124,512,204,C.table,'none')+box(217,124,319,204,C.panel,C.line,0);
-  s+=flower(60,158,28,C.rival)+flower(60,264,28)+t(242,165,tr('规则 · 牌型','Rules · Ranks'),26,C.ink,600)+t(242,203,tr('设置 · 回放','Settings · Replay'),26,C.ink,600);
-  s+=`<path d="M493 272H263m12-8-12 8 12 8M481 264l12 8-12 8" fill="none" stroke="${C.red}" stroke-width="3"/>`+t(242,302,tr('从右进入，向右收回','In and out from the right'),21,C.muted);
-  s+=t(24,382,tr('桌面：居中浮层','Desktop: centered modal'),28,C.ink,700);
-  s+=box(24,404,512,204,C.table,'none')+box(122,434,316,144,C.panel)+t(280,483,tr('同一套内容','The same content'),28,C.ink,600,'middle')+t(280,532,tr('固定容器，内部滚动','Fixed shell · scroll within'),23,C.muted,500,'middle');
-  s+=line(24,640,536,640)+t(24,686,tr('单局胜利','A game win'),28,C.ink,700)+t(24,724,tr('轻结算 · 三种回顾','Compact result · 3 recaps'),24,C.muted)+t(24,784,tr('整场开花','A match win'),28,C.redText,700)+t(24,822,tr('全屏 · 绽放与城市','Full screen · bloom and city'),24,C.muted);
-  save('interface-system',854,tr('界面系统：手机抽屉、桌面浮层、分层结算','Interface system: phone drawer, desktop modal and distinct game/match results'),s,lang);
   for (const part of [0,1]) {
     s=t(24,48,tr('牌型与分数','Hands and scores'),32,C.ink,700)+t(536,48,part?'4—7':'0—3',28,C.redText,700,'end');
     hands.slice(part*4,part*4+4).forEach(([zh,eng,cards],i)=>{
@@ -129,4 +119,4 @@ for (const lang of ['zh-CN','en']) {
   s+=box(24,822,512,88,C.table,'none')+t(48,859,tr('已上线：学习 Code AI 的选择','Released: learns Code AI actions'),25,C.ink,600)+t(48,893,tr('下一步：用胜负奖励做强化学习','Next: RL from win/loss rewards'),24,C.muted);
   save('training-pipeline',936,tr('行为克隆基线的训练与部署流程','Training and deployment of the behavior-cloning baseline'),s,lang);
 }
-console.log('Generated 14 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');
+console.log('Generated 12 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');
