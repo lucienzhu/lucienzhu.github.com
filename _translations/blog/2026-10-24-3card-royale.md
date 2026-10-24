@@ -182,13 +182,14 @@ original_url: "/updates/2026/10/3card-royale/"
 
 ### 和 Code AI 打，结果如何
 
-五个模型使用同一批训练数据，另加一个无需训练的随机策略。六种策略都使用相同的 500 个留出种子与 Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
+五个模型使用同一批训练数据，另加无需训练的随机策略，以及最多比较 64 个候选的 Easy AI。七种策略都使用相同的 500 个评估种子与 Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="677" height="382" alt="对 Code AI，随机策略胜率 0.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg?v=easy64" width="677" height="425" alt="对 Code AI，随机策略胜率 0.1%，64 候选的 Easy 为 36.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
 
 | 策略 | ONNX 大小 | 延迟 p95 | 对 Code AI 胜率 |
 | --- | ---: | ---: | ---: |
 | 随机策略 | — | — | 0.1% |
+| Easy · 64 | — | — | 36.1% |
 | 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
 | 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
 | **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
@@ -198,15 +199,35 @@ original_url: "/updates/2026/10/3card-royale/"
 
 随机策略从合法候选中均匀抽取，包括换牌和跳过，最终 **1 胜、999 负**，无截断、无非法动作；两次完整运行的记录一致。它无需 ONNX，神经网络推理延迟不适用。[实验与复现](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [原始记录](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json)。
 
-延迟：Mac Chrome、单线程 WASM、FP32，对 220 个候选评分；预热 3 次后测量 100 次。仅计推理，不含下载、特征提取和界面等待。结果受浏览器与系统负载影响，手机端尚未实测。[原始记录](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json)。
+Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此处尚未测量规则策略耗时。
+
+神经模型延迟：Mac Chrome、单线程 WASM、FP32，对 220 个候选评分；预热 3 次后测量 100 次。仅计推理，不含下载、特征提取和界面等待。结果受浏览器与系统负载影响，手机端尚未实测。[原始记录](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json)。
 
 最高的 46.5% 与上线模型的 46.2%，在这次评估里只相差三局，不能据此认定前者更强。这次实验也没有显示出“模型越大，胜率就越高”的稳定趋势。数据、目标和决策方式，都值得和参数量一起考虑。
 
 综合模型大小、实测延迟和对战表现，网页采用了 `256 → 128`。
 
-训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Code AI，让对局可以继续。
+训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Easy AI 并显示提示，让对局可以继续。
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
+
+### 三档难度，三种对手
+
+网页现在提供三档难度：
+
+| 难度 | 策略 | 选牌方式 |
+| --- | --- | --- |
+| 简单 | Easy AI | 最多看 64 个出牌候选；从牌堆换牌 |
+| 中等 | NN AI | 上线的 256 → 128 MLP |
+| 困难 | Code AI | 按人工规则比较全部合法动作 |
+
+Code AI 进攻优先出当前最强的一手；防守优先少受伤，再争取更多换牌机会。条件相同时，多用伤牌、少用花牌。换牌时会考虑对手更好的公开伤牌，或从牌堆换掉低点牌。它根据眼前局面选择，不往后推演。
+
+Easy 沿用相同的比较方式，但只抽取最多 **64** 个组合。防守时，如果存在不会立即输局的应对，就先排除致命选择；每次换牌机会都从牌堆抽牌。它会正常选牌，也会漏掉更好的组合。
+
+每组 1,000 局，Easy 对 Code AI **361 胜（36.1%）**，对 NN AI **441 胜（44.1%）**；NN 对 Code AI **462 胜（46.2%）**。所有对局正常结束，无非法动作。此前 48 候选的 Easy 在同一组种子上分别为 30.4% 和 39.0%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称用于区分对手，不代表实测真人难度。
+
+[策略与复现](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.zh-CN.md) · [当前结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
 
 ### 下一步，让奖励指导学习
 
@@ -225,9 +246,9 @@ original_url: "/updates/2026/10/3card-royale/"
 
 规则本身可以用实体扑克进行双人对战。当前网页试玩提供的是人机对局，免费，无需注册，手机和桌面都可以打开。
 
-默认对手是 **Code AI**。想体验神经网络模型，可以进入：
+新玩家默认 **Easy AI**。切换难度或体验神经网络模型，可以进入：
 
-> 设置 → 偏好 → 对手 → NN AI
+> 设置 → 偏好 → 难度 → 简单 / 中等 · NN AI / 困难
 
 第一次玩，可以先跟着教学走一遍，留意牌从哪里来、用完之后去哪里，再尝试把公开伤牌也纳入组合。熟悉之后，攻守之间如何分配牌，会逐渐成为更有意思的部分。
 

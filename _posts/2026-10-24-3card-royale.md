@@ -179,13 +179,14 @@ The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weig
 
 ### How well does it play against Code AI?
 
-Five models use the same training dataset. I also evaluate an untrained random policy. All six play Code AI on the same 500 held-out seeds, with both seats and balanced first attackers: 1,000 individual games per policy, starting at level 2.
+Five models use the same training dataset. I also evaluate an untrained random policy and Easy AI, which compares up to 64 candidate plays. All seven play Code AI on the same 500 evaluation seeds, with both seats and balanced first attackers: 1,000 individual games per policy, starting at level 2.
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg" width="677" height="382" alt="Random wins 0.1% against Code AI; the five models win 45.0% to 46.5%, including 46.2% for the deployed model." caption="Figure 15. Same opponent and seeds, 1,000 games per policy. The axis spans 0–100%. Small differences among the five models do not establish a strength ranking." %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg?v=easy64" width="677" height="425" alt="Against Code AI, Random wins 0.1%, Easy with 64 candidates 36.1%, and the five models 45.0% to 46.5%, including 46.2% for the deployed model." caption="Figure 15. Same opponent and seeds, 1,000 games per policy. The axis spans 0–100%. Small differences among the five models do not establish a strength ranking." %}
 
 | Policy | ONNX size | Latency p95 | Win rate vs Code AI |
 | --- | ---: | ---: | ---: |
 | Random | — | — | 0.1% |
+| Easy · 64 | — | — | 36.1% |
 | 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
 | 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
 | **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
@@ -195,15 +196,35 @@ Five models use the same training dataset. I also evaluate an untrained random p
 
 Random chooses uniformly from legal candidate actions, including swaps and declines. It won **1/1,000 games**, with no truncations or illegal actions; two full runs produced identical records. It has no ONNX model or measured neural inference latency. [Experiment and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [Raw results](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json).
 
-Latency: scoring 220 candidates in Chrome on Mac, single-threaded WASM, FP32; 100 runs after 3 warmups. Inference only, excluding download, feature extraction and UI delay. Timings vary with browser/system load; phones are not yet measured. [Raw benchmark](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json).
+Easy’s 64 is a limit on candidate plays, not a neural-network width. It has no ONNX file; heuristic latency has not been measured here.
+
+Latency for the neural models: scoring 220 candidates in Chrome on Mac, single-threaded WASM, FP32; 100 runs after 3 warmups. Inference only, excluding download, feature extraction and UI delay. Timings vary with browser/system load; phones are not yet measured. [Raw benchmark](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json).
 
 The highest result, 46.5%, differs from the deployed model by just three wins. That is not enough to conclude it is stronger. This experiment also does not show a consistent relationship between greater model size and higher win rate. Data, objectives and the decision representation matter alongside parameter count.
 
 Balancing size, measured latency and playing results, I chose `256 → 128` for the browser.
 
-After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Code AI so play can continue.
+After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Easy AI with a visible notice so play can continue.
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 16. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
+
+### Three difficulties to play against
+
+The browser now offers three choices:
+
+| Difficulty | Policy | How it chooses |
+| --- | --- | --- |
+| Easy | Easy AI | Up to 64 candidate plays; deck redraws |
+| Medium | NN AI | The deployed 256 → 128 MLP |
+| Hard | Code AI | Every legal move, ranked by hand-written rules |
+
+Code AI attacks with the strongest current hand and defends to minimize wounds, then maximize swap opportunities. Ties favor using wound cards and saving the wild card. When swapping, it considers better visible rival wound cards or redraws a low card. It looks at the current position without searching future turns.
+
+Easy uses the same comparison on a sample of at most **64** plays. Before sampling defenses, it removes immediately losing responses if a safe one exists. Each swap opportunity redraws from the deck. It can recognize a useful hand while missing a stronger combination.
+
+In 1,000 games per matchup, Easy won **361 against Code AI (36.1%)** and **441 against NN AI (44.1%)**. NN won **462 against Code AI (46.2%)**. Every game completed without illegal actions. The earlier 48-candidate Easy won 30.4% and 39.0% respectively on the same seeds. We chose 64 after this comparison, so these seeds are not an untouched test of that choice. The labels describe the available opponents, not measured human difficulty.
+
+[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.md) · [Current results](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
 
 ### Next, let rewards guide learning
 
@@ -222,9 +243,9 @@ Reproducibility is part of the baseline. The compressed training dataset is abou
 
 The rules work for two people with a physical deck. The current browser playtest is human versus AI, free and available on mobile and desktop without registration.
 
-The default opponent is **Code AI**. To try the neural policy, select:
+New players start on **Easy AI**. Change the difficulty or try the neural policy here:
 
-> Settings → Preferences → Opponent → NN AI
+> Settings → Preferences → Difficulty → Easy / Medium · NN AI / Hard
 
 For a first game, follow the tutorial and watch where cards come from and where they go after use. Then start including public wound cards in combinations. As the rules become familiar, allocating cards between attack and defense becomes the more interesting problem.
 
