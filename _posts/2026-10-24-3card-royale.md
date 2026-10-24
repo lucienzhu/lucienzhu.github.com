@@ -40,6 +40,8 @@ I eventually put the emphasis on the relationship between attack and defense. An
 
 {% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in English. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
 
+{% include royale-figure.html src="/img/blog/3card-royale/card-zones-en.svg" width="560" height="868" diagram=true alt="Rival hand and public wounds above; attack cards, draw pile, discard pile and defense cards in the middle; your public wounds and private hand below." caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
+
 The same three cards can become an attack, a defense or the beginning of a better combination next round. Their value depends on the position.
 
 I hope a player finishes a game remembering a particular decision: was that flush played too early, should that wound card have been saved, was the swap worth taking? Wanting to try again with that question in mind is the result I am looking for.
@@ -53,7 +55,7 @@ Bougainvillea is [Shenzhen's city flower](https://www.sz.gov.cn/ztfw/gysy/wyw_18
 
 The mark is a flat gold card: a gold surface and border, a red flower in the center and small gold stamens. The same image runs through the logo, card backs and wild-card indicator.
 
-{% include royale-figure.html src="/img/blog/3card-royale/identity-en.svg" width="1200" height="400" alt="Three visual elements: a red bougainvillea, a gold card and a green circuit board." caption="Figure 2. The current production flower and card mark, with the green circuit board that supports them." %}
+{% include royale-figure.html src="/img/blog/3card-royale/identity-en.svg" width="1200" height="400" alt="Three visual elements: a red bougainvillea, a gold card and a green circuit board." caption="Figure 3. The current production flower and card mark, with the green circuit board that supports them." %}
 
 **The flower is the focal point. The green circuit board is the foundation.**
 
@@ -61,11 +63,11 @@ The green surface carries the cards and a little of Shenzhen's hardware characte
 
 Color also identifies the players. You are the red flower; your rival is gold. That distinction stays consistent across the table, progress track and shared images.
 
-{% include royale-figure.html src="/img/blog/3card-royale/design-system-en.svg" width="560" height="712" diagram=true alt="The same flat gold logo, card back and wild card on light and dark green themes; red identifies you and gold the rival." caption="Figure 3. Production colors and artwork. Both green themes come from the circuit-board idea." %}
+{% include royale-figure.html src="/img/blog/3card-royale/design-system-en.svg" width="560" height="712" diagram=true alt="The same flat gold logo, card back and wild card on light and dark green themes; red identifies you and gold the rival." caption="Figure 4. Production colors and artwork. Both green themes come from the circuit-board idea." %}
 
 There is a circuit-board mode in Settings too. Card zones become chips, traces connect the playing areas, and points of light move with the action. The green foundation takes part in the game.
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-pcb-en.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 4. The same position with Settings → Preferences → Circuit board enabled." %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-pcb-en.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 5. The same position with Settings → Preferences → Circuit board enabled." %}
 
 The skyline brings the city into the ending. Buildings appear in light linework; flowers can settle into corners of the city while the architecture remains in the background.
 
@@ -75,7 +77,7 @@ The fullest expression is the bloom at the end of a match. After the winner clea
 
 The animation grows out of the game that just happened. The final play becomes the beginning of the victory image.
 
-{% include royale-figure.html src="/img/blog/3card-royale/finale-en.svg" width="1080" height="1440" alt="The final match poster combines flowers, egrets, the Shenzhen skyline and a rank progression track." caption="Figure 5. A completed match generated with seed 0, rendered by the production sharing component. The winner and progression come from the recorded game." %}
+{% include royale-figure.html src="/img/blog/3card-royale/finale-en.svg" width="1080" height="1440" alt="The final match poster combines flowers, egrets, the Shenzhen skyline and a rank progression track." caption="Figure 6. A completed match generated with seed 0, rendered by the production sharing component. The winner and progression come from the recorded game." %}
 
 Winning a single game gets a lighter celebration. A good game deserves recognition; completing the journey from 2 through Ace deserves a fuller bloom. The visuals give those two achievements different weight.
 
@@ -100,7 +102,7 @@ For example, attack with the flush `4♦, 8♦, Q♦` against the pair `6♣, 6�
 
 If the defender answers a flush with three of a kind, the defender earns **two swap opportunities**. A win decided by ranks within the same hand type yields one wound or one swap opportunity. An exact tie yields neither.
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 7. Attacking advances the game toward its end; defending improves the next position. These examples use ♥2 as the wild card." %}
+{% include royale-figure.html src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 8. Attacking advances the game toward its end; defending improves the next position. These examples use ♥2 as the wild card." %}
 
 ### Wounds are playable cards
 
@@ -108,7 +110,7 @@ Cards received as wounds are placed face up in the wound area. They still belong
 
 Being wounded brings you closer to losing, but also gives you new cards to work with. Both players can see them and consider the combinations they make possible. A wound might offer a counterattack that your opponent can also see coming.
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds-en.svg" width="1200" height="420" alt="The public wound card 8♥ joins 6♠ and 7♣ from the hand to make a straight, then its wound slot is refilled." caption="Figure 8. Playing a wound card does not heal it. K♦ is an example refill; the replacement comes from the deck." %}
+{% include royale-figure.html src="/img/blog/3card-royale/wounds-en.svg" width="1200" height="420" alt="The public wound card 8♥ joins 6♠ and 7♣ from the hand to make a straight, then its wound slot is refilled." caption="Figure 9. Playing a wound card does not heal it. K♦ is an example refill; the replacement comes from the deck." %}
 
 ### A swap is an opportunity, not an obligation
 
@@ -118,7 +120,7 @@ Each opportunity can be skipped independently. With two opportunities, you can u
 
 Refills give the round its rhythm. A round finishes after both players have attacked once. Hands are not refilled between those two encounters. At the end of the round, unused cards are kept and hands refill to eight. The first play therefore needs to leave something for the second encounter.
 
-{% include royale-figure.html src="/img/blog/3card-royale/round-flow-en.svg" width="560" height="1000" diagram=true alt="Attack, defend, resolve; reaching five wounds ends the game. Otherwise switch roles for a second encounter, then refill both hands to eight." caption="Figure 9. One round contains two encounters. A terminal result stops the loop immediately." %}
+{% include royale-figure.html src="/img/blog/3card-royale/round-flow-en.svg" width="560" height="1000" diagram=true alt="Attack, defend, resolve; reaching five wounds ends the game. Otherwise switch roles for a second encounter, then refill both hands to eight." caption="Figure 10. One round contains two encounters. A terminal result stops the loop immediately." %}
 
 ### Reach Ace, then win once more
 
@@ -143,7 +145,7 @@ The project provides a Gymnasium environment and a shared observation/action int
 
 The rules core is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against the same replay sequences. The browser uses JavaScript; Gym and training use the native Python core.
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. Policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 10. System boundaries: full state belongs to the host; each policy sees only its player observation." %}
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. Policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 11. System boundaries: full state belongs to the host; each policy sees only its player observation." %}
 
 The browser's current **NN AI is a behavior-cloning baseline**. It learns to imitate Code AI's choices. Training through rewards is the next direction to explore from this starting point.
 
@@ -157,7 +159,7 @@ Legal actions vary with the cards and phase. The environment generates candidate
 
 The policy scores the legal candidates and chooses the highest score. Its two hidden layers have 256 and 128 units, with ReLU activations. Every candidate uses the same network. The 512 slots are a candidate capacity: an action index refers to the current candidate table, which is regenerated at the next decision.
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy-en.svg" width="1100" height="488" alt="A 336-feature observation and a 72-feature candidate action feed a shared MLP with 256 and 128 hidden units and one output score." caption="Figure 11. The deployed policy scores current legal candidates without access to hidden opponent information." %}
+{% include royale-figure.html src="/img/blog/3card-royale/policy-en.svg" width="1100" height="488" alt="A 336-feature observation and a 72-feature candidate action feed a shared MLP with 256 and 128 hidden units and one output score." caption="Figure 12. The deployed policy scores current legal candidates without access to hidden opponent information." %}
 
 ### Start with 10,000 games of Code AI self-play
 
@@ -167,7 +169,7 @@ The data is split by whole games: 8,000 for training, 1,000 for validation and 1
 
 Training uses PyTorch. TensorBoard records training and validation loss, action agreement and other metrics. Checkpoint selection uses validation loss.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="Training and validation cross-entropy over ten epochs; validation loss is lowest at epoch five." caption="Figure 12. Ten recorded training epochs. Epoch 5 has the lowest validation loss and supplies the deployed checkpoint. Further reductions in training loss did not improve validation loss." %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="Training and validation cross-entropy over ten epochs; validation loss is lowest at epoch five." caption="Figure 13. Ten recorded training epochs. Epoch 5 has the lowest validation loss and supplies the deployed checkpoint. Further reductions in training loss did not improve validation loss." %}
 
 The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weights. Its agreement with Code AI on the held-out test set is **89.36%**. Agreement measures imitation; winning requires a separate evaluation.
 
@@ -175,7 +177,7 @@ The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weig
 
 Five models use the same dataset. Each plays 1,000 evaluation games against Code AI, using 500 held-out seeds, swapping model seats and balancing the first attacker. Games start normally at level 2.
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 13. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 14. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
 
 | Hidden layers | ONNX size | Latency p95 | Win rate vs Code AI |
 | --- | ---: | ---: | ---: |
@@ -193,7 +195,7 @@ Balancing size, measured latency and playing results, I chose `256 → 128` for 
 
 After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Code AI so play can continue.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 14. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 15. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
 
 ### Next, let rewards guide learning
 
@@ -220,11 +222,11 @@ For a first game, follow the tutorial and watch where cards come from and where 
 
 After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 15. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 16. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 16. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 17. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 17. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 18. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
 
 The source, rules, design system, environment and model materials are open. Come and play, or try your own policy, model or rule idea.
 
