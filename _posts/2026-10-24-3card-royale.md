@@ -17,7 +17,7 @@ update_id: "3card-royale"
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
 
-I wanted to make a two-player game worth returning to.
+I wanted to make a replayable two-player game using a single ordinary deck of cards.
 
 Two people and an ordinary deck should be enough to get started. After a few games, there should still be choices worth thinking about. Luck brings variety; judgment changes the outcome; an opponent's move changes what I want to do next.
 
@@ -25,10 +25,8 @@ That idea became **3Card Royale**, or **深圳花牌** in Chinese: a 1v1 game bu
 
 The project now includes a browser playtest, a complete rulebook, a Shenzhen-inspired visual identity, a reproducible neural policy baseline and a reinforcement-learning environment.
 
-## 1. The starting point: a deck worth playing again
+## 1. The starting point: a replayable duel with one deck
 {: #origin}
-
-Replayability was the starting point.
 
 I wanted familiar cards to make the basic actions easy to understand: choose, compare, attack and defend. The rules should fit into a few sentences, while the interesting decisions emerge through play.
 
