@@ -13,6 +13,7 @@ article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
+release_tag: "v1.0.0"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
@@ -194,7 +195,7 @@ Five models use the same training dataset. I also evaluate an untrained random p
 | 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
 {: .royale-policy-results }
 
-Random chooses uniformly from legal candidate actions, including swaps and declines. It won **1/1,000 games**, with no truncations or illegal actions; two full runs produced identical records. It has no ONNX model or measured neural inference latency. [Experiment and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [Raw results](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json).
+Random chooses uniformly from legal candidate actions, including swaps and declines. It won **1/1,000 games**, with no truncations or illegal actions; two full runs produced identical records. It has no ONNX model or measured neural inference latency. [Experiment and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md#uniform-random-baseline) · [Raw results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/nn-policy-v1/random-baseline.json).
 
 Easy’s 64 is a limit on candidate plays, not a neural-network width. It has no ONNX file; heuristic latency has not been measured here.
 
@@ -232,11 +233,11 @@ Against restored Hard, using the actual browser engine, the same 500 seeds, pair
 | NN · 256 → 128 | **41.2%** (412 / 1,000) |
 | SDK Code AI baseline | **45.3%** (453 / 1,000) |
 
-An additional NN/SDK control reproduces every earlier outcome: 462 wins (46.2%). All 4,000 games complete without illegal actions. [Browser-policy evaluation records](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/table-code-evaluation.json).
+An additional NN/SDK control reproduces every earlier outcome: 462 wins (46.2%). All 4,000 games complete without illegal actions. [Browser-policy evaluation records](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json).
 
 Easy still wins **44.1%** against NN; its historical 36.1% against SDK Code is unchanged. The earlier 48-candidate version won 39.0% and 30.4%, respectively, on the same seeds. We chose 64 after this comparison, so these seeds are not an untouched test of that choice. The labels do not measure human difficulty.
 
-[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.md) · [SDK baseline results](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
+[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.md) · [SDK baseline results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
 
 ### Next, let rewards guide learning
 
@@ -248,7 +249,7 @@ Those objectives may favor different choices. Can a defense improve the next pos
 
 Reproducibility is part of the baseline. The compressed training dataset is about 112.5 MB, so the repository stores fixed seeds, generation instructions, dependencies, checksums and reports, then regenerates the data through SDK Code AI self-play. The best ONNX model is version-controlled for the browser. In the recorded environment, both the dataset and deployed model have been reproduced byte for byte.
 
-[RL overview and checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=en) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/main/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md)
+[RL overview and checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=en) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
 
 ## 5. Try it: open the page and play a few games
 {: #play}
