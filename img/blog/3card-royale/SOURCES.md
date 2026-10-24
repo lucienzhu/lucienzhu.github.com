@@ -39,3 +39,8 @@ conformance, not one shared executable. Policies receive their player's visible
 observation; private full state remains with the host. The released model uses
 behavior cloning; reward-trained RL is explicitly future work. UI schematics
 follow `app/drawer.js` and the current game/match settlement components.
+
+The in-article hand table uses eight compact `hand-*.svg` strips generated from
+the same card renderer and validated hand examples. `_data/royale_hands.json`
+provides bilingual names and alt text. The final row shows the physical ♥2
+with the shared wildcard highlight; it is not a fifth natural seven.
