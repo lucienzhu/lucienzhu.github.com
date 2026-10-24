@@ -1,0 +1,18 @@
+{% assign hands_zh = false %}{% assign hands_suffix = '-en' %}
+{% if page.lang == 'zh-CN' %}{% assign hands_zh = true %}{% assign hands_suffix = '' %}{% endif %}
+<figure class="royale-hands-showcase" id="figure-hands">
+  <table class="royale-hands-table" aria-describedby="hands-caption">
+    <colgroup><col class="hand-name-col"><col class="hand-example-col"><col class="hand-score-col"></colgroup>
+    <thead><tr><th scope="col">{% if hands_zh %}牌型{% else %}Hand{% endif %}</th><th scope="col">{% if hands_zh %}示例{% else %}Example{% endif %}</th><th scope="col" class="hand-score">{% if hands_zh %}分数{% else %}Score{% endif %}</th></tr></thead>
+    <tbody>
+      {% for hand in site.data.royale_hands %}
+      <tr{% if hand.score == 0 %} id="figure-hands-basic{{ hands_suffix }}"{% elsif hand.score == 4 %} id="figure-hands-strong{{ hands_suffix }}"{% endif %}>
+        <th scope="row">{% if hands_zh %}{{ hand.zh }}{% else %}{{ hand.en }}{% endif %}</th>
+        <td><img class="royale-hand-cards" src="{{ '/img/blog/3card-royale/hand-' | append: hand.slug | append: '.svg' | relative_url }}" alt="{% if hands_zh %}{{ hand.alt_zh | escape }}{% else %}{{ hand.alt_en | escape }}{% endif %}" width="{{ hand.width }}" height="{{ hand.height }}" style="--hand-cards:{{ hand.count }}" loading="lazy" decoding="async"></td>
+        <td class="hand-score">{{ hand.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <figcaption id="hands-caption">{% if hands_zh %}图 7 · 标准 1.0。金边 ♥2 是花牌，在最后一行代替 7。{% else %}Figure 7. Standard 1.0. Gold-bordered ♥2 is wild; it counts as a 7 in the final row.{% endif %}</figcaption>
+</figure>
