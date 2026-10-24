@@ -156,13 +156,15 @@ original_url: "/updates/2026/10/3card-royale/"
 
 策略只能使用当前玩家有权知道的信息：自己的手牌、双方公开伤牌、弃牌、当前已出牌，以及阶段、等级、花牌和牌数等状态。它看不到对手暗手牌，也看不到牌堆顺序。
 
-六个牌区各用 52 维表示，再加 24 维局面信息，得到 **336 维当前状态**。这个版本只读取当前观察，没有循环记忆，也没有把整段对局历史作为输入。
+六个牌区，各按固定的 52 张牌顺序记 0/1。再加 6 维阶段编码和 18 维局面数值或标记，得到 **336 维当前状态**。没有循环记忆，也不输入整段对局历史。
+
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg" width="560" height="1040" diagram=true alt="一个真实换牌观察的编码：六组 52 张牌的存在标记共 312 维，加 6 维阶段编码与 18 维局面信息，共 336 维；不含对手暗手牌、牌堆顺序或历史。" caption="图 12 · 状态编码示意，取自已保存的换牌决策。绿色为 1，空牌区全为 0。" %}
 
 合法动作会随着牌和阶段变化。环境为当前决策生成候选动作，每个候选用 **72 维特征**表示。Gym 接口最多提供 512 个候选槽位，并用合法动作掩码排除空槽。
 
 模型为每个合法候选评分，选择最高分。两层隐藏层分别为 256 和 128，使用 ReLU；所有候选共享同一个网络。512 是候选容量，动作索引的含义由当次候选表决定，下一次决策会重新生成。
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 12 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 13 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
 
 ### 先让 Code AI 对弈 10,000 局
 
@@ -172,7 +174,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 模型用 PyTorch 训练，TensorBoard 记录训练与验证的损失、动作一致率等曲线，按验证集损失选择 checkpoint。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 13 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 14 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
 
 最终上线模型有 **137,729 个参数**，ONNX 权重约 **0.55 MB**。留出测试集上，与 Code AI 的动作一致率为 **89.36%**。动作一致率说明模仿得有多接近；实际能赢多少，还需要单独对战。
 
@@ -180,7 +182,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 五个模型都使用同一批数据，并分别与 Code AI 评估 1,000 局。评估使用 500 个留出种子，交换模型席位并平衡先攻，从正常的 2 级开始。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="五个模型对 Code AI 的胜率在 45.0% 到 46.5% 之间，上线的 256 到 128 模型为 46.2%。" caption="图 14 · 每个模型 1,000 局，横轴为完整的 0–100%。这些小幅差异不足以证明模型强弱。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="五个模型对 Code AI 的胜率在 45.0% 到 46.5% 之间，上线的 256 到 128 模型为 46.2%。" caption="图 15 · 每个模型 1,000 局，横轴为完整的 0–100%。这些小幅差异不足以证明模型强弱。" %}
 
 | 隐藏层 | ONNX 大小 | 延迟 p95 | 对 Code AI 胜率 |
 | --- | ---: | ---: | ---: |
@@ -198,7 +200,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Code AI，让对局可以继续。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 15 · 当前流程学习 Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
 
 ### 下一步，让奖励指导学习
 
@@ -225,11 +227,11 @@ original_url: "/updates/2026/10/3card-royale/"
 
 一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 16 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 17 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 17 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 18 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 18 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 19 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
 
 项目的源码、规则、设计规范、环境和模型资料都已经开放。可以来玩，也可以带着自己的策略、模型或者规则想法继续尝试。
 

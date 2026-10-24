@@ -153,13 +153,15 @@ The browser's current **NN AI is a behavior-cloning baseline**. It learns to imi
 
 The policy receives only information available to the acting player: their hand, both public wound areas, discards, the current played cards, and state such as the phase, levels, wild card and card counts. It cannot see the rival's private hand or the deck order.
 
-Six card zones each use 52 features, with another 24 features for the position, giving a **336-dimensional current observation**. This version has no recurrent memory or full-history input.
+Each of the six card zones records presence as 0 or 1 in a fixed 52-card order. Add 6 phase bits and 18 position values or flags for a **336-dimensional current observation**. There is no recurrent memory or full-history input.
+
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="1040" diagram=true alt="An actual swap observation: six 52-card binary sets give 312 values; six one-hot phase bits and 18 position features bring the total to 336. No private rival cards, deck order or history are included." caption="Figure 12. The observation encoding, using a saved swap decision. Each green mark is a 1; an empty card zone is all zeros." %}
 
 Legal actions vary with the cards and phase. The environment generates candidates for the current decision, encoding each with **72 features**. The Gym interface has up to 512 candidate slots; an action mask excludes unused slots.
 
 The policy scores the legal candidates and chooses the highest score. Its two hidden layers have 256 and 128 units, with ReLU activations. Every candidate uses the same network. The 512 slots are a candidate capacity: an action index refers to the current candidate table, which is regenerated at the next decision.
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy-en.svg" width="1100" height="488" alt="A 336-feature observation and a 72-feature candidate action feed a shared MLP with 256 and 128 hidden units and one output score." caption="Figure 12. The deployed policy scores current legal candidates without access to hidden opponent information." %}
+{% include royale-figure.html src="/img/blog/3card-royale/policy-en.svg" width="1100" height="488" alt="A 336-feature observation and a 72-feature candidate action feed a shared MLP with 256 and 128 hidden units and one output score." caption="Figure 13. The deployed policy scores current legal candidates without access to hidden opponent information." %}
 
 ### Start with 10,000 games of Code AI self-play
 
@@ -169,7 +171,7 @@ The data is split by whole games: 8,000 for training, 1,000 for validation and 1
 
 Training uses PyTorch. TensorBoard records training and validation loss, action agreement and other metrics. Checkpoint selection uses validation loss.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="Training and validation cross-entropy over ten epochs; validation loss is lowest at epoch five." caption="Figure 13. Ten recorded training epochs. Epoch 5 has the lowest validation loss and supplies the deployed checkpoint. Further reductions in training loss did not improve validation loss." %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="Training and validation cross-entropy over ten epochs; validation loss is lowest at epoch five." caption="Figure 14. Ten recorded training epochs. Epoch 5 has the lowest validation loss and supplies the deployed checkpoint. Further reductions in training loss did not improve validation loss." %}
 
 The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weights. Its agreement with Code AI on the held-out test set is **89.36%**. Agreement measures imitation; winning requires a separate evaluation.
 
@@ -177,7 +179,7 @@ The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weig
 
 Five models use the same dataset. Each plays 1,000 evaluation games against Code AI, using 500 held-out seeds, swapping model seats and balancing the first attacker. Games start normally at level 2.
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 14. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 15. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
 
 | Hidden layers | ONNX size | Latency p95 | Win rate vs Code AI |
 | --- | ---: | ---: | ---: |
@@ -195,7 +197,7 @@ Balancing size, measured latency and playing results, I chose `256 → 128` for 
 
 After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Code AI so play can continue.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 15. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 16. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
 
 ### Next, let rewards guide learning
 
@@ -222,11 +224,11 @@ For a first game, follow the tutorial and watch where cards come from and where 
 
 After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 16. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 17. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 17. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 18. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 18. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 19. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
 
 The source, rules, design system, environment and model materials are open. Come and play, or try your own policy, model or rule idea.
 

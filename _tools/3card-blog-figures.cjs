@@ -60,6 +60,12 @@ const handRows = hands.map(([zh,en,cards],score)=>{
 });
 fs.mkdirSync(path.resolve(__dirname,'../_data'),{recursive:true});
 fs.writeFileSync(path.resolve(__dirname,'../_data/royale_hands.json'),JSON.stringify(handRows,null,2)+'\n');
+// The observation figure is an actual saved swap decision, encoded by the
+// production JS encoder and checked against the Python-generated fixture.
+const observationFixture=JSON.parse(fs.readFileSync(path.join(game,'tests/fixtures/nn-observations.json'),'utf8'))[9];
+const observationState=require(path.join(game,'sdk/features.js')).encode(observationFixture.observation).state;
+if(observationState.length!==336 || observationState.some((v,i)=>Math.abs(v-observationFixture.state[i])>1e-7)) throw Error('Observation fixture encoding mismatch');
+if(observationFixture.observation.phase!=='refresh') throw Error('Expected a swap decision for the observation figure');
 for (const lang of ['zh-CN','en']) {
   const en = lang==='en', tr = (zh,english)=>en?english:zh;
   // The same flat mark and identity colors in the two actual game themes.
@@ -140,6 +146,40 @@ for (const lang of ['zh-CN','en']) {
   s+=box(24,692,512,116)+t(48,734,tr('实验 · Python 核心','Experiments · Python core'),28,C.ink,700)+t(48,775,'Gymnasium / PyTorch',27,C.muted);
   s+=t(24,856,tr('全状态留在宿主，用于存档与校验','Full state stays with the host'),23,C.muted);
   save('system-architecture',884,tr('系统架构：四种核心、可见观察、网页与实验宿主','System architecture: four native cores, public observations and two hosts'),s,lang);
+  // Six multi-hot card sets, followed by one-hot phase and 18 meta features.
+  s=t(24,48,tr('336 维，模型看到了什么','Inside the 336-value state'),31,C.ink,700);
+  s+=t(24,82,tr('换牌阶段示例 · 当前玩家视角','Swap example · acting player’s view'),23,C.muted);
+  s+=box(24,108,512,464,C.panel,C.line,16);
+  s+=t(44,150,tr('六个牌区 × 52','Six card zones × 52'),27,C.ink,700)+t(516,150,'312',32,C.green,800,'end');
+  const cardGroups=[['你的手牌','Your hand'],['你的伤牌','Your wounds'],['对手伤牌','Rival wounds'],['弃牌','Discards'],['你的已出牌','Your played cards'],['对手已出牌','Rival played cards']];
+  for(let suit=0;suit<4;suit++){
+    const x=218+suit*72, ink=suit===1||suit===3?C.redText:C.ink;
+    s+=`<svg x="${x}" y="172" width="18" height="18" viewBox="0 0 24 24" fill="${ink}">${inside(suits.svg('shcd'[suit]))}</svg>`;
+    s+=t(x+24,189,'2–A',18,C.muted);
+  }
+  cardGroups.forEach(([zh,eng],row)=>{
+    const y=216+row*50;
+    s+=t(44,y+20,tr(zh,eng),en?20:24,C.ink,600);
+    for(let c=0;c<52;c++){
+      const x=218+Math.floor(c/13)*72+(c%13)*5;
+      s+=box(x,y,4,22,observationState[row*52+c]?C.green:C.paper,'none',1);
+    }
+  });
+  s+=box(44,520,14,14,C.green,'none',2)+t(68,534,tr('1 有牌','1 present'),22,C.muted);
+  s+=box(232,520,14,14,C.paper,C.line,2)+t(256,534,tr('0 无牌 · 空区全 0','0 absent · empty = all 0'),22,C.muted);
+  s+=box(24,596,512,216,C.panel,C.line,16);
+  s+=t(44,638,tr('局面信息','Position features'),27,C.ink,700)+t(516,638,'24',32,C.green,800,'end');
+  s+=box(44,658,140,130,C.table,'none',10)+t(60,690,tr('阶段','Phase'),25,C.ink,700);
+  for(let i=0;i<6;i++)s+=box(60+i*17,710,13,20,observationState[312+i]?C.green:C.paper,'none',2);
+  s+=t(60,768,tr('6 维 · 选一','6 · one-hot'),21,C.muted);
+  s+=box(200,658,316,130,C.table,'none',10)+t(216,690,tr('其余状态','Other state'),25,C.ink,700)+t(500,690,'18',26,C.green,700,'end');
+  s+=t(216,727,tr('等级 · 花牌 · 牌数','Levels · wild · counts'),22,C.muted);
+  s+=t(216,766,tr('身份 · 局轮 · 任务等','Roles · rounds · task…'),22,C.muted);
+  s+=down(280,824,26);
+  s+=box(24,866,512,110,C.dark,'none',16)+t(280,914,'312 + 24 = 336',36,C.darkInk,800,'middle');
+  s+=t(280,952,tr('当前状态 → 与候选动作一起评分','Current state + candidate → score'),23,C.darkInk,500,'middle');
+  s+=t(280,1014,tr('不含对手暗牌、牌堆顺序或历史。','No rival hand, deck order or history.'),23,C.muted,500,'middle');
+  save('observation-state',1040,tr('336 维状态编码：六组 52 维牌区，加 6 维阶段和 18 维局面信息','336-value state: six 52-card sets, six phase bits and 18 position features'),s,lang);
   const node=(y,n,title,details)=>box(24,y,512,112)+t(48,y+45,n,28,C.redText,700)+t(104,y+44,title,28,C.ink,700)+t(104,y+84,details,24,C.muted);
   s=t(24,48,tr('从自对弈到浏览器','From self-play to the browser'),31,C.ink,700);
   s+=node(80,'01','Code AI × Code AI',tr('10,000 小局 · 252,859 决策','10,000 games · 252,859 decisions'))+down(280,192,24);
@@ -150,4 +190,4 @@ for (const lang of ['zh-CN','en']) {
   s+=box(24,822,512,88,C.table,'none')+t(48,859,tr('已上线：学习 Code AI 的选择','Released: learns Code AI actions'),25,C.ink,600)+t(48,893,tr('下一步：用胜负奖励做强化学习','Next: RL from win/loss rewards'),24,C.muted);
   save('training-pipeline',936,tr('行为克隆基线的训练与部署流程','Training and deployment of the behavior-cloning baseline'),s,lang);
 }
-console.log('Generated 14 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');
+console.log('Generated 16 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');
