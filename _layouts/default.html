@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ page.lang | default: 'en' }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ page.lang | default: 'en' }}"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title }}</title>
+  {% if page.article_url %}
+  <meta name="description" content="{{ page.summary | escape }}">
+  <link rel="canonical" href="{{ page.article_url }}">
+  <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.article_url }}">
+  <link rel="alternate" hreflang="{% if page.lang == 'zh-CN' %}en{% else %}zh-CN{% endif %}" href="https://lucienzhu.github.io{{ page.alternate_url }}">
+  <meta property="og:type" content="article"><meta property="og:title" content="{{ page.title | escape }}"><meta property="og:description" content="{{ page.summary | escape }}">
+  <meta property="og:url" content="{{ page.article_url }}"><meta property="og:image" content="https://lucienzhu.github.io{{ page.article_image }}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image"><meta property="article:published_time" content="2026-10-24T00:00:00+08:00">
+  {% endif %}
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="/css/foundation.css">
