@@ -13,3 +13,5 @@
 @media(max-width:600px){.royale-article .royale-hands-showcase{--hand-card-width:clamp(24px,7.5vw,36px);--hand-card-gap:4px}.royale-hands-table .hand-name-col{width:31%}.royale-hands-table .hand-example-col{width:auto}.royale-hands-table .hand-score-col{width:3.5rem}}
 @media(max-width:480px){.post-content.royale-article{margin-top:1.5rem}.royale-article .columns{padding:0 1.25rem}.royale-article table th,.royale-article table td{padding:.5rem .3rem}.royale-article h2{margin-top:2.5rem}.royale-article .royale-toc{gap:.5rem 1rem}}
 @media print{.royale-article .royale-toc{display:none}.royale-article .royale-figure,.royale-article table{break-inside:avoid}.royale-article h2,.royale-article h3{break-after:avoid}}
+
+.royale-article .royale-policy-results td:first-child{white-space:nowrap}

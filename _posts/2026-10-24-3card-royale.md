@@ -11,7 +11,7 @@ permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
-extra_css: ["/css/royale-article.css"]
+extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 ---
 
@@ -177,17 +177,21 @@ The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weig
 
 ### How well does it play against Code AI?
 
-Five models use the same dataset. Each plays 1,000 evaluation games against Code AI, using 500 held-out seeds, swapping model seats and balancing the first attacker. Games start normally at level 2.
+Five models use the same training dataset. I also evaluate an untrained random policy. All six play Code AI on the same 500 held-out seeds, with both seats and balanced first attackers: 1,000 individual games per policy, starting at level 2.
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="Win rates for five models range from 45.0% to 46.5%; the deployed 256-to-128 model wins 46.2%." caption="Figure 15. Each model plays 1,000 games. The axis spans the full 0–100% range; these small differences do not establish a reliable strength ranking." %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg" width="677" height="382" alt="Random wins 0.1% against Code AI; the five models win 45.0% to 46.5%, including 46.2% for the deployed model." caption="Figure 15. Same opponent and seeds, 1,000 games per policy. The axis spans 0–100%. Small differences among the five models do not establish a strength ranking." %}
 
-| Hidden layers | ONNX size | Latency p95 | Win rate vs Code AI |
+| Policy | ONNX size | Latency p95 | Win rate vs Code AI |
 | --- | ---: | ---: | ---: |
+| Random | — | — | 0.1% |
 | 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
 | 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
 | **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
 | 256 → 512 | 0.95 MB | 1.8 ms | 46.5% |
 | 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
+{: .royale-policy-results }
+
+Random chooses uniformly from legal candidate actions, including swaps and declines. It won **1/1,000 games**, with no truncations or illegal actions; two full runs produced identical records. It has no ONNX model or measured neural inference latency. [Experiment and reproduction](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [Raw results](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json).
 
 Latency: scoring 220 candidates in Chrome on Mac, single-threaded WASM, FP32; 100 runs after 3 warmups. Inference only, excluding download, feature extraction and UI delay. Timings vary with browser/system load; phones are not yet measured. [Raw benchmark](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json).
 
