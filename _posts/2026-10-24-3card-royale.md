@@ -40,7 +40,7 @@ I eventually put the emphasis on the relationship between attack and defense. An
 
 {% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in English. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones-en.svg" width="560" height="868" diagram=true alt="Rival hand and public wounds above; attack cards, draw pile, discard pile and defense cards in the middle; your public wounds and private hand below." caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
+{% include royale-figure.html src="/img/blog/3card-royale/card-zones-en.svg?v=boxes1" width="560" height="868" diagram=true alt="Eight outlined card zones: rival hand and public wounds above; attack, draw pile, discard pile and defense in the middle; your public wounds and hand below." caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
 
 The same three cards can become an attack, a defense or the beginning of a better combination next round. Their value depends on the position.
 

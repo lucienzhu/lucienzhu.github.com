@@ -116,33 +116,38 @@ for (const lang of ['zh-CN','en']) {
   // then your wounds/hand. Card values illustrate areas, not a recorded state.
   s=t(24,48,tr('牌区一览','Card zones'),32,C.ink,700);
   s+=box(24,76,512,720,C.table,'none',20);
+  const zoneFrame=(x,y,w,h,color,label)=>`<rect data-card-zone="${esc(label)}" x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="none" stroke="${color}" stroke-width="2.5"/>`;
+  s+=zoneFrame(36,88,488,146,'#866300','rival-hand');
   s+=flower(44,96,26,C.rival)+t(82,119,tr('对手','Rival'),27,'#866300',700);
   s+=t(516,119,tr('手牌 · 保密','Hand · private'),24,C.muted,500,'end');
   for(let i=0;i<5;i++)s+=back(154+i*48,140,60);
-  const woundRow=(y,values)=>{
+  const woundRow=(y,values,color,label)=>{
     let row=box(44,y,472,94,C.panel,C.line,12);
+    row+=zoneFrame(44,y,472,94,color,label);
     row+=t(60,y+37,tr('伤牌','Wounds'),25,C.ink,700);
     row+=t(60,y+69,tr('双方可见','Public'),23,C.muted);
     values.forEach(([rank,suit],i)=>row+=card(350+i*58,y+13,rank,suit,48));
     return row;
   };
-  s+=woundRow(244,[['K','d'],['3','c']]);
+  s+=woundRow(244,[['K','d'],['3','c']],'#866300','rival-wounds');
   s+=line(44,360,516,360);
-  const columns=[[106,'进攻牌','Attack'],[236,'牌堆','Draw'],[324,'弃牌','Discard'],[448,'防守牌','Defense']];
-  columns.forEach(([x,zh,eng])=>s+=t(x,394,tr(zh,eng),23,C.ink,600,'middle'));
+  for(const [x,w,label] of [[36,144,'attack'],[188,88,'draw'],[284,88,'discard'],[380,144,'defense']])s+=zoneFrame(x,372,w,114,C.green,label);
+  const columns=[[108,'进攻牌','Attack'],[232,'牌堆','Draw'],[328,'弃牌','Discard'],[452,'防守牌','Defense']];
+  columns.forEach(([x,zh,eng])=>s+=t(x,398,tr(zh,eng),en?20:23,C.ink,600,'middle'));
   [['2','s'],['4','s'],['A','s']].forEach(([rank,suit],i)=>s+=card(44+i*43,414,rank,suit,38));
-  s+=back(219,420,42)+back(216,417,42)+back(213,414,42);
-  s+=box(307,420,42,59,C.paper,C.line,6)+box(304,417,42,59,C.paper,C.line,6)+box(301,414,42,59,C.panel,C.line,6);
-  s+=t(322,454,'↘',25,C.muted,500,'middle');
+  s+=back(214,420,42)+back(211,417,42)+back(208,414,42);
+  s+=box(310,420,42,59,C.paper,C.line,6)+box(307,417,42,59,C.paper,C.line,6)+box(304,414,42,59,C.panel,C.line,6);
+  s+=t(325,454,'↘',25,C.muted,500,'middle');
   [['6','c'],['6','s'],['J','h']].forEach(([rank,suit],i)=>s+=card(386+i*43,414,rank,suit,38));
   s+=t(280,510,tr('出牌区：进攻与防守公开比较','Played cards: attack vs defense'),23,C.muted,500,'middle');
   s+=line(44,532,516,532);
-  s+=woundRow(552,[['8','h'],['K','c']]);
+  s+=woundRow(552,[['8','h'],['K','c']],C.redText,'your-wounds');
+  s+=zoneFrame(36,660,488,122,C.redText,'your-hand');
   s+=flower(44,670,26)+t(82,693,tr('你','You'),27,C.redText,700);
   s+=t(516,693,tr('手牌 · 保密','Hand · private'),24,C.muted,500,'end');
   [['5','s'],['9','s'],['3','h'],['Q','h'],['8','c'],['3','d'],['5','d'],['10','d']].forEach(([rank,suit],i)=>s+=card(92+i*48,712,rank,suit,42));
   s+=t(280,838,tr('手牌、伤牌，都能出牌。','Play from your hand or wounds.'),25,C.ink,600,'middle');
-  save('card-zones',868,tr('牌区示意：对手在上，你在下；手牌保密，伤牌公开','Card zones: rival above, you below; private hands and public wounds'),s,lang);
+  save('card-zones',868,tr('框选八个牌区：对手手牌与伤牌在上，进攻、牌堆、弃牌、防守在中间，你的伤牌与手牌在下','Eight outlined card zones: rival hand and wounds above; attack, draw, discard and defense in the middle; your wounds and hand below'),s,lang);
   for (const part of [0,1]) {
     s=t(24,48,tr('牌型与分数','Hands and scores'),32,C.ink,700)+t(536,48,part?'4—7':'0—3',28,C.redText,700,'end');
     hands.slice(part*4,part*4+4).forEach(([zh,eng,cards],i)=>{
