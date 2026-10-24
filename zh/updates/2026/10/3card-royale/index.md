@@ -43,7 +43,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/table-light.jpg" width="1000" height="900" alt="浅色牌桌：对手在上、玩家在下，中间展示当前攻防。" caption="图 1 · 实际试玩画面。对手已亮出同花，轮到你防守；暗手牌始终只显示牌背。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones.svg" width="560" height="868" diagram=true alt="上方是对手手牌和公开伤牌；中间是进攻牌、牌堆、弃牌和防守牌；下方是你的公开伤牌和手牌。" caption="图 2 · 牌区示意。手牌保密；伤牌公开，也能出牌。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/card-zones.svg?v=boxes1" width="560" height="868" diagram=true alt="用边框标出八个牌区：上方是对手手牌和公开伤牌；中间是进攻牌、牌堆、弃牌和防守牌；下方是你的公开伤牌和手牌。" caption="图 2 · 牌区示意。手牌保密；伤牌公开，也能出牌。" %}
 
 一手牌的价值会随着局面变化。同样三张牌，在不同的时候，可能是一次进攻、一道防线，也可能是下一轮更好组合的基础。
 
