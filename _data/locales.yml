@@ -1,4 +1,5 @@
 en:
+  site_description: 'Xiaolong Zhu builds AI for games, multi-agent systems and robotics. Projects, research and notes on making interesting AIs, sometimes useful.'
   navigation: { home: Home, projects: Projects, updates: Updates }
   language_switch: Language
   main_navigation: Main navigation
@@ -35,6 +36,7 @@ en:
     links_html: 'Explore my <a href="%projects%">projects and research</a>, read my <a href="%updates%">updates</a>, or find my code on <a href="https://github.com/lucienzhu">GitHub</a>.'
     more: More updates…
 zh:
+  site_description: '朱曉龍的个人网站：游戏 AI、多智能体、机器学习系统与机器人项目、研究和文章。做有趣的 AI，偶尔也有用。'
   navigation: { home: 首页, projects: 项目, updates: 动态 }
   language_switch: 切换语言
   main_navigation: 主导航

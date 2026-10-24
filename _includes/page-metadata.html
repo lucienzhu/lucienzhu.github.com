@@ -1,0 +1,13 @@
+{%- assign page_description = page.description | default: page.summary | default: page.excerpt | strip_html | strip_newlines | strip -%}
+{%- assign page_description = page_description | default: t.site_description | truncate: 200 -%}
+{%- assign social_image = page.image | default: page.featured_images.first | default: '/img/feature/zxl.png' -%}
+<meta name="description" content="{{ page_description | escape }}">
+<meta property="og:title" content="{{ page.title | strip_html | escape }}">
+<meta property="og:description" content="{{ page_description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="Xiaolong Zhu 朱曉龍">
+<meta property="og:type" content="{% if page.tags contains 'blog' %}article{% else %}website{% endif %}">
+<meta property="og:locale" content="{% if locale == 'zh' %}zh_CN{% else %}en_US{% endif %}">
+<meta property="og:image" content="{{ social_image | absolute_url }}">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/atom+xml" title="Xiaolong Zhu · Updates (English)" hreflang="en" href="{{ '/feed.xml' | relative_url }}">

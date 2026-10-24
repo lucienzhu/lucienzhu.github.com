@@ -11,6 +11,7 @@
     }
 
     window.addEventListener('popstate', updateLanguageLinks);
+    window.addEventListener('hashchange', updateLanguageLinks);
     window.addEventListener('site:filterchange', updateLanguageLinks);
     updateLanguageLinks();
 }());

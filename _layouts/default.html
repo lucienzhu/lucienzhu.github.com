@@ -8,6 +8,7 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title | strip_html | escape }}</title>
+  {% include page-metadata.html %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="alternate" hreflang="en" href="{{ english_url | absolute_url }}">
   <link rel="alternate" hreflang="zh-CN" href="{{ chinese_url | absolute_url }}">
