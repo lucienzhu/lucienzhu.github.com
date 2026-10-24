@@ -7,19 +7,29 @@ layout: default
     <div class="slideshow-wrapper"><div><img src="/img/feature/zxl.png" alt="{{ t.home.portrait }}" width="1204" height="498" decoding="async"></div></div>
   </div></div>
   <div class="row"><div class="large-12 columns">
-    <h2>{{ t.home.bio }}</h2>
-    <p>{{ t.home.intro }}</p>
     {% assign projects_url = locale_prefix | append: '/projects/' | relative_url %}
     {% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
-    <p>{{ t.home.robotics_work | replace: '%projects%', projects_url }}</p>
-    <p>{{ t.home.current_work | replace: '%projects%', projects_url }}</p>
-    <p>{{ t.home.background }}</p>
-    <p>{{ t.home.tencent_background }}</p>
-    <p>{{ t.home.contributions }}</p>
-    <p>{{ t.home.research }}</p>
-    <p>{{ t.home.undergraduate_research }}</p>
-    <p>{{ t.home.interests }}</p>
-    <p>{{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
+    <div class="home-bio">
+      <h2>{{ t.home.bio }}</h2>
+      <p>{{ t.home.intro }}</p>
+      <div class="bio-group" role="group" aria-label="{{ t.home.groups.recent }}">
+        <p>{{ t.home.robotics_work | replace: '%projects%', projects_url }}</p>
+        <p>{{ t.home.current_work | replace: '%projects%', projects_url }}</p>
+      </div>
+      <div class="bio-group" role="group" aria-label="{{ t.home.groups.career }}">
+        <p>{{ t.home.background }}</p>
+        <p>{{ t.home.tencent_background }}</p>
+        <p>{{ t.home.contributions }}</p>
+      </div>
+      <div class="bio-group" role="group" aria-label="{{ t.home.groups.education }}">
+        <p>{{ t.home.research }}</p>
+        <p>{{ t.home.undergraduate_research }}</p>
+      </div>
+      <div class="bio-group" role="group" aria-label="{{ t.home.groups.personal }}">
+        <p>{{ t.home.interests }}</p>
+        <p>{{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
+      </div>
+    </div>
     <h2>{{ t.navigation.updates }}</h2>
     <ul class="update-entries recent-updates">
       {% for post in site.posts limit:10 %}
