@@ -11,7 +11,7 @@ permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
-extra_css: ["/css/royale-article.css"]
+extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 original_url: "/updates/2026/10/3card-royale/"
 ---
@@ -180,17 +180,21 @@ original_url: "/updates/2026/10/3card-royale/"
 
 ### 和 Code AI 打，结果如何
 
-五个模型都使用同一批数据，并分别与 Code AI 评估 1,000 局。评估使用 500 个留出种子，交换模型席位并平衡先攻，从正常的 2 级开始。
+五个模型使用同一批训练数据，另加一个无需训练的随机策略。六种策略都使用相同的 500 个留出种子与 Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="五个模型对 Code AI 的胜率在 45.0% 到 46.5% 之间，上线的 256 到 128 模型为 46.2%。" caption="图 15 · 每个模型 1,000 局，横轴为完整的 0–100%。这些小幅差异不足以证明模型强弱。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="677" height="382" alt="对 Code AI，随机策略胜率 0.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
 
-| 隐藏层 | ONNX 大小 | 延迟 p95 | 对 Code AI 胜率 |
+| 策略 | ONNX 大小 | 延迟 p95 | 对 Code AI 胜率 |
 | --- | ---: | ---: | ---: |
+| 随机策略 | — | — | 0.1% |
 | 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
 | 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
 | **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
 | 256 → 512 | 0.95 MB | 1.8 ms | 46.5% |
 | 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
+{: .royale-policy-results }
+
+随机策略从合法候选中均匀抽取，包括换牌和跳过，最终 **1 胜、999 负**，无截断、无非法动作；两次完整运行的记录一致。它无需 ONNX，神经网络推理延迟不适用。[实验与复现](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [原始记录](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json)。
 
 延迟：Mac Chrome、单线程 WASM、FP32，对 220 个候选评分；预热 3 次后测量 100 次。仅计推理，不含下载、特征提取和界面等待。结果受浏览器与系统负载影响，手机端尚未实测。[原始记录](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json)。
 
