@@ -1,4 +1,4 @@
-<figure class="royale-figure">
+<figure id="figure-{{ include.src | split: '/' | last | split: '.' | first }}" class="royale-figure{% if include.diagram %} royale-figure--diagram{% endif %}">
   <a href="{{ include.full | default: include.src }}" target="_blank" rel="noopener" aria-label="{{ include.alt | escape }} — {% if page.lang == 'zh-CN' %}查看原图{% else %}View full image{% endif %}">
     <img src="{{ include.src }}" alt="{{ include.alt | escape }}" width="{{ include.width }}" height="{{ include.height }}" loading="lazy" decoding="async">
   </a>
