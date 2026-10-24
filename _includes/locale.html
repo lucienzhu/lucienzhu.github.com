@@ -1,0 +1,14 @@
+{%- assign locale = 'en' -%}
+{%- assign locale_prefix = '' -%}
+{%- if page.lang == 'zh-CN' -%}
+  {%- assign locale = 'zh' -%}
+  {%- assign locale_prefix = '/zh' -%}
+{%- endif -%}
+{%- assign t = site.data.locales[locale] -%}
+{%- if locale == 'zh' -%}
+  {%- assign english_url = page.original_url | default: page.url | remove_first: '/zh' -%}
+  {%- assign chinese_url = page.url -%}
+{%- else -%}
+  {%- assign english_url = page.url -%}
+  {%- assign chinese_url = '/zh' | append: page.url -%}
+{%- endif -%}

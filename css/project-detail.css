@@ -1,0 +1,58 @@
+.project-story {
+  max-width: 52rem;
+  padding-bottom: 30px;
+}
+
+.project-story h1 {
+  margin-top: 0;
+}
+
+.project-story .project-period {
+  color: #666;
+  font-size: var(--text-meta);
+  margin-bottom: 1.5rem;
+}
+
+.project-demo,
+.project-diagram {
+  max-width: 35rem;
+  margin: 1.5rem auto;
+}
+
+.project-demo video,
+.project-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-demo video {
+  width: auto;
+  max-width: 100%;
+  max-height: 24rem;
+  margin: 0 auto;
+}
+
+.project-demo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.project-demo-pair .project-demo {
+  min-width: 0;
+  margin: 0;
+}
+
+@media (max-width: 40em) {
+  .project-demo-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-demo figcaption,
+.project-diagram figcaption {
+  margin-top: 0.5rem;
+  color: #666;
+}

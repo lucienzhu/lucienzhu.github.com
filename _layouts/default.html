@@ -1,3 +1,4 @@
+{% include locale.html %}
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ page.lang | default: 'en' }}"> <![endif]-->
@@ -6,16 +7,12 @@
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }}</title>
-  {% if page.article_url %}
-  <meta name="description" content="{{ page.summary | escape }}">
-  <link rel="canonical" href="{{ page.article_url }}">
-  <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.article_url }}">
-  <link rel="alternate" hreflang="{% if page.lang == 'zh-CN' %}en{% else %}zh-CN{% endif %}" href="https://lucienzhu.github.io{{ page.alternate_url }}">
-  <meta property="og:type" content="article"><meta property="og:title" content="{{ page.title | escape }}"><meta property="og:description" content="{{ page.summary | escape }}">
-  <meta property="og:url" content="{{ page.article_url }}"><meta property="og:image" content="https://lucienzhu.github.io{{ page.article_image }}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="640">
-  <meta name="twitter:card" content="summary_large_image"><meta property="article:published_time" content="2026-10-24T00:00:00+08:00">
-  {% endif %}
+  <title>{{ page.title | strip_html | escape }}</title>
+  {% include page-metadata.html %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ english_url | absolute_url }}">
+  <link rel="alternate" hreflang="zh-CN" href="{{ chinese_url | absolute_url }}">
+  {% assign style_version = site.time | date: '%s' %}
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="/css/foundation.css">
@@ -23,19 +20,16 @@
   <!-- Included CSS Files (Compressed) -->
   <link rel="stylesheet" type="text/css" media="all" href="/css/foundation.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="/css/foundation-icons.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/css/common.css">
+  <link rel="stylesheet" type="text/css" media="all" href="{{ '/css/common.css' | relative_url }}?v={{ style_version }}">
   <link rel="stylesheet" type="text/css" media="all" href="/css/slick.css"/>
   
-  <link rel="stylesheet" type="text/css" media="all" href="/css/index.css"/>
-  <link rel="stylesheet" type="text/css" media="all" href="/css/post.css"/>
-
-  <script type="text/javascript" src="//use.typekit.net/jnp1zqh.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+  <link rel="stylesheet" type="text/css" media="all" href="{{ '/css/index.css' | relative_url }}?v={{ style_version }}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="{{ '/css/post.css' | relative_url }}?v={{ style_version }}"/>
 
   {% for css_name in page.extra_css %}
-  <link rel="stylesheet" href="{{ css_name }}">
+  <link rel="stylesheet" href="{{ css_name | relative_url }}?v={{ style_version }}">
   {% endfor %}
+  <link rel="stylesheet" href="{{ '/css/typography.css' | relative_url }}?v={{ style_version }}">
   {% for js_name in page.extra_js %}
   <script type="text/javascript" src="{{js_name}}"></script>
   {% endfor %}
@@ -49,8 +43,6 @@
   <link rel="apple-touch-icon" href="/css/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/css/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="/css/apple-touch-icon-114x114.png">
-
-  <script type="text/javascript" src="/js/default.js"></script>
 
   <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -76,5 +68,7 @@
   {% for js_name in page.extra_js_bottom %}
   <script type="text/javascript" src="{{js_name}}"></script>
   {% endfor %}
+  <script type="text/javascript" src="/js/default.js"></script>
+  <script src="{{ '/js/language.js' | relative_url }}"></script>
 </body>
 </html>

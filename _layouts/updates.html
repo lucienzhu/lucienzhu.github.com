@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% include locale.html %}
+{% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
+<main class="row page-content" aria-label="{{ t.navigation.updates }}" data-updates data-entry-one="{{ t.entry_one }}" data-entry-many="{{ t.entry_many }}" data-blog-one="{{ t.blog_one }}" data-blog-many="{{ t.blog_many }}">
+  <div class="large-12 columns">
+    <div class="updates-toolbar">
+      <nav class="updates-filters" aria-label="{{ t.filter_updates }}">
+        <a href="{{ updates_url }}" data-updates-filter="all" aria-current="true">{{ t.all }}</a>
+        <a href="{{ updates_url }}?tag=blog" data-updates-filter="blog">blog</a>
+      </nav>
+      <a class="updates-photos" href="https://www.flickr.com/photos/xlzhu/" target="_blank" rel="noopener" aria-label="{{ t.flickr_photos }}">Flickr <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="updates-count" aria-live="polite" aria-atomic="true" data-updates-count>{{ t.entry_many | replace: '%count%', site.posts.size }}</p>
+    <p hidden data-updates-empty>{{ t.no_blog }} <a href="{{ updates_url }}" data-updates-filter="all">{{ t.show_all }}</a></p>
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+    <section class="updates-year" aria-labelledby="year-{{ year.name }}">
+      <h2 id="year-{{ year.name }}">{{ year.name }}</h2>
+      <ul class="update-entries">
+        {% for post in year.items %}
+        {% include localized-post.html post=post %}
+        <li class="update-entry"{% if post.update_id %} id="{{ post.update_id }}"{% endif %} data-blog="{% if post.tags contains 'blog' %}true{% else %}false{% endif %}">
+          {% include update-date.html short=true %}
+          <div>{% include update-title.html %}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+</main>

@@ -1,0 +1,7 @@
+<figure class="project-demo" id="{{ include.id | default: 'demo' }}">
+  <video controls playsinline preload="none" poster="{{ include.poster | relative_url }}" width="{{ include.width | default: '640' }}" height="{{ include.height | default: '360' }}" aria-label="{{ include.label | escape }}">
+    <source src="{{ include.src | relative_url }}" type="video/mp4">
+    <a href="{{ include.src | relative_url }}">{{ include.label }}</a>
+  </video>
+  <figcaption>{{ include.label }}</figcaption>
+</figure>

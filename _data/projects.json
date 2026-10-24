@@ -1,0 +1,966 @@
+[
+  {
+    "id": "3card-royale",
+    "sort_key": 202610,
+    "image": "/img/projects/3card-royale.svg",
+    "image_source": "https://lucienzhu.github.io/3card-royale/brand-mark.svg",
+    "external_url": "https://lucienzhu.github.io/3card-royale/about.html",
+    "external_urls": {
+      "en": "https://lucienzhu.github.io/3card-royale/about.html?lang=en",
+      "zh": "https://lucienzhu.github.io/3card-royale/about.html?lang=zh-CN"
+    },
+    "info": {
+      "en": "Game design & development · <a href=\"https://lucienzhu.github.io/3card-royale/?lang=en\">Play online</a> · <a href=\"https://lucienzhu.github.io/3card-royale/rules.html?lang=en\">Rules</a> · <a href=\"https://github.com/lucienzhu/3card-royale\">Code</a>",
+      "zh": "玩法设计与开发 · <a href=\"https://lucienzhu.github.io/3card-royale/?lang=zh-CN\">在线试玩</a> · <a href=\"https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN\">规则</a> · <a href=\"https://github.com/lucienzhu/3card-royale\">代码</a>"
+    },
+    "en": {
+      "title": "3Card Royale",
+      "date": "2024–2026",
+      "description": "Designed and open-sourced a two-player card game using a standard deck, with attack, defense and a race from 2 to Ace. Built a bilingual browser demo, portable game SDKs and a reinforcement-learning environment."
+    },
+    "zh": {
+      "title": "深圳花牌 · 3Card Royale",
+      "date": "2024–2026 年",
+      "description": "原创设计并开源双人扑克游戏，以一副普通扑克牌展开从 2 到 A 的攻防升级。提供中英文在线试玩、多语言游戏 SDK 与强化学习环境。"
+    },
+    "tags": [
+      "rl",
+      "product",
+      "games"
+    ]
+  },
+  {
+    "id": "tennis-robot",
+    "sort_key": 202600,
+    "image": "/img/projects/tennis-robot.svg",
+    "info": {
+      "en": "Sim2Real reinforcement learning · Real-time SLAM · Low-latency perception · SoC design and acceleration · <a href=\"https://www.cedarobo.com/en\">Website</a>",
+      "zh": "强化学习 Sim2Real · 实时 SLAM · 低延迟感知 · SoC 设计与加速 · <a href=\"https://www.cedarobo.com/en\">官网</a>"
+    },
+    "en": {
+      "title": "Tennis Robot",
+      "date": "2025–2026",
+      "description": "As CTO, worked with algorithm, software, hardware and mechanical engineering teams to build our first 3-in-1 tennis robot for rally practice, serving and ball collection, advancing it from proof of concept to EVT.",
+      "image_alt": "Concept illustration of a tennis ball and trajectory sensing"
+    },
+    "zh": {
+      "title": "网球机器人",
+      "date": "2025–2026 年",
+      "description": "担任 CTO，与算法、软件、硬件和结构团队共同研发首台集陪打、发球、捡球于一体的三合一网球机器人，并从概念验证推进至 EVT。",
+      "image_alt": "网球与轨迹感知的概念示意图"
+    },
+    "external_url": "https://www.cedarobo.com/en",
+    "tags": [
+      "rl",
+      "product",
+      "robotics",
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "super-intern",
+    "sort_key": 202500,
+    "image": "/img/projects/super-intern.png",
+    "image_source": "https://www.producthunt.com/products/super-intern-4",
+    "external_url": "https://www.superintern.ai/",
+    "info": {
+      "en": "<a href=\"https://www.superintern.ai/\">Website</a> · <a href=\"/projects/super-intern/\">Engineering & alignment</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · #1 Product of the Day</a>",
+      "zh": "<a href=\"https://www.superintern.ai/\">官网</a> · <a href=\"/zh/projects/super-intern/\">工程与对齐</a> · <a href=\"https://www.producthunt.com/products/super-intern-4\">Product Hunt · 当日产品第 1 名</a>"
+    },
+    "en": {
+      "title": "SuperIntern",
+      "date": "2024–2025",
+      "description": "We developed a group chat AI agent with our London-based co-founders, helping Discord and Slack groups handle work and marketing tasks directly in conversation."
+    },
+    "zh": {
+      "title": "SuperIntern",
+      "date": "2024–2025 年",
+      "description": "我与伦敦的联合创始人共同研发面向 Discord、Slack 的群聊 AI 智能体，直接在聊天中解决办公和营销问题。"
+    },
+    "tags": [
+      "product",
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "d3po",
+    "info": {
+      "en": "Co-author · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">Code</a> · <a href=\"https://arxiv.org/abs/2311.13231\">arXiv</a>",
+      "zh": "论文共同作者 · <a href=\"https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html\">CVPR 2024</a> · <a href=\"https://github.com/yk7333/D3PO\">代码</a> · <a href=\"https://arxiv.org/abs/2311.13231\">arXiv</a>"
+    },
+    "en": {
+      "title": "D3PO · Generative model alignment",
+      "date": "2024",
+      "description": "Co-authored D3PO, adapting direct preference optimization to align diffusion models with human feedback without training a separate reward model."
+    },
+    "zh": {
+      "title": "D3PO：生成式模型偏好对齐",
+      "date": "2024 年",
+      "description": "共同研究 D3PO，将直接偏好优化用于扩散模型，利用人类反馈进行生成式模型对齐，无需额外训练奖励模型。"
+    },
+    "external_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.html",
+    "sort_key": 202400,
+    "image": "/img/projects/d3po.png",
+    "image_source": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Using_Human_Feedback_to_Fine-tune_Diffusion_Models_without_Any_Reward_CVPR_2024_paper.pdf",
+    "tags": [
+      "rl"
+    ]
+  },
+  {
+    "image": "/projects/gameai/parametrix.png",
+    "info": {
+      "en": "Parametrix.ai · Founding member · Later Vice President",
+      "zh": "超参数科技 · 创始成员 · 后任副总裁"
+    },
+    "en": {
+      "title": "Game AI and multi-agent systems",
+      "date": "2019–2024",
+      "description": "As a founding member and later Vice President at Parametrix.ai, worked on game AI architecture, reinforcement learning infrastructure, NPCs and multi-agent simulation across MOBA, FPS, strategy and card games. Supported commercial deployments generating tens of millions of RMB in revenue.",
+      "image_alt": "Parametrix.ai logo"
+    },
+    "zh": {
+      "title": "游戏 AI 与多智能体系统",
+      "date": "2019–2024 年",
+      "description": "作为超参数科技创始成员、后任副总裁，参与游戏 AI 技术架构、强化学习基础设施、NPC 与多智能体仿真的研发及商业落地，覆盖 MOBA、FPS、策略和卡牌游戏，支撑数千万元营收。",
+      "image_alt": "超参数科技标志"
+    },
+    "id": "game-ai-and-agents",
+    "sort_key": 202400,
+    "external_url": "https://www.parametrix.ai/about",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games",
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "vision-pro-dnd",
+    "sort_key": 202308,
+    "detail": "/projects/vision-pro-dnd/",
+    "image": "/img/projects/vision-pro-dnd.svg",
+    "en": {
+      "title": "Vision Pro × DnD · Generative AI for Gaming Prototype",
+      "date": "August 2023",
+      "description": "Built a generative AI gaming prototype for Apple Vision Pro, using LLM conversations to dynamically generate immersive narratives and surrounding content.",
+      "image_alt": "Concept illustration of LLM-driven narrative and world content in an immersive game"
+    },
+    "zh": {
+      "title": "Vision Pro × DnD：沉浸式动态生成叙事",
+      "date": "2023 年 8 月",
+      "description": "研发可在 Apple Vision Pro 上运行的生成式游戏原型，通过 LLM 对话动态生成叙事与周围内容。",
+      "image_alt": "LLM 对话驱动沉浸式叙事与游戏内容生成的概念示意图"
+    },
+    "info": {
+      "en": "XR × AI · Runnable Vision Pro prototype",
+      "zh": "XR × AI · Vision Pro 可运行原型"
+    },
+    "image_source_note": "Concept illustration of LLM-driven narrative and surrounding content, not a prototype screenshot. The owner confirmed a runnable Vision Pro prototype and an approximate date of August 2023 on 2026-10-23, and clarified the focus as immersive, dynamically generated narratives and a Generative AI for Gaming Prototype on 2026-10-24.",
+    "tags": [
+      "product",
+      "games"
+    ]
+  },
+  {
+    "id": "neural-mmo-challenges",
+    "info": {
+      "en": "Co-organizer · Research co-author · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 paper</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 report</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 competition report (2025)</a>",
+      "zh": "联合筹办 · 相关研究共同作者 · <a href=\"https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge\">IJCAI 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2022-the-neural-mmo-challenge\">NeurIPS 2022</a> · <a href=\"https://www.aicrowd.com/challenges/neurips-2023-the-neural-mmo-challenge\">NeurIPS 2023</a><br><a href=\"https://arxiv.org/abs/2308.15802\">AAMAS 2023 论文</a> · <a href=\"https://arxiv.org/abs/2311.03707\">NeurIPS 2022 赛事报告</a> · <a href=\"https://arxiv.org/abs/2508.12524\">2023 赛事报告（2025 年发表）</a>"
+    },
+    "en": {
+      "title": "Neural MMO · Multi-agent challenges & generalization",
+      "date": "2022–2023",
+      "description": "Co-organized Neural MMO competitions at IJCAI 2022 and NeurIPS 2022–2023, including promotion and university collaboration. Co-authored the associated benchmark research on how agent teams complete multiple objectives and remain effective against opponents not seen during training."
+    },
+    "zh": {
+      "title": "Neural MMO：多智能体竞赛与泛化研究",
+      "date": "2022–2023 年",
+      "description": "联合筹办 IJCAI 2022、NeurIPS 2022 和 2023 的 Neural MMO 竞赛，参与赛事推广与高校合作。共同参与相关基准研究，探索智能体团队在面对训练中未见过的对手时，完成多任务目标的鲁棒性与泛化能力。"
+    },
+    "external_url": "https://www.aicrowd.com/challenges/ijcai-2022-the-neural-mmo-challenge",
+    "sort_key": 202300,
+    "image": "/img/projects/neural-mmo-challenges.png",
+    "image_source": "https://arxiv.org/pdf/2311.03707",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "lux-ai-season-2",
+    "info": {
+      "en": "Co-organizer · <a href=\"https://neurips.cc/Conferences/2023/CompetitionTrack\">NeurIPS competition track</a> · <a href=\"https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2\">Kaggle</a>",
+      "zh": "联合筹办 · <a href=\"https://neurips.cc/Conferences/2023/CompetitionTrack\">NeurIPS 官方竞赛单元</a> · <a href=\"https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2\">Kaggle</a>"
+    },
+    "en": {
+      "title": "Lux AI Challenge Season 2 · NeurIPS",
+      "date": "2023",
+      "description": "Co-organized the NeurIPS edition of Lux AI Challenge Season 2, a benchmark for long-horizon planning and large-scale multi-agent learning, hosted on Kaggle."
+    },
+    "zh": {
+      "title": "Lux AI Challenge 第二季 · NeurIPS",
+      "date": "2023 年",
+      "description": "参与联合筹办 Lux AI Challenge 第二季 NeurIPS 赛事，在 Kaggle 上面向长时程规划与大规模多智能体学习建立开放挑战。"
+    },
+    "external_url": "https://www.kaggle.com/competitions/lux-ai-season-2-neurips-stage-2",
+    "sort_key": 202300,
+    "image": "/img/projects/lux-ai-season-2.png",
+    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "jux",
+    "info": {
+      "en": "Team open-source release · <a href=\"https://github.com/RoboEden/jux\">Code & benchmarks</a>",
+      "zh": "团队开源项目 · <a href=\"https://github.com/RoboEden/jux\">代码与性能基准</a>"
+    },
+    "en": {
+      "title": "Jux · Lux on JAX",
+      "date": "2023",
+      "description": "Our team released a JAX implementation of the Lux AI Season 2 game core, moving simulation onto GPUs to support parallel environments and faster reinforcement learning experiments."
+    },
+    "zh": {
+      "title": "Jux：基于 JAX 的 Lux 游戏引擎",
+      "date": "2023 年",
+      "description": "团队开源了基于 JAX 的 Lux AI 第二季游戏内核，将游戏仿真搬到 GPU 上，支持大批量并行环境与更高效的强化学习实验。"
+    },
+    "external_url": "https://github.com/RoboEden/jux",
+    "sort_key": 202300,
+    "image": "/img/projects/jux.png",
+    "image_source": "https://github.com/RoboEden/jux/blob/main/tutorial.ipynb",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games",
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "neural-mmo-2",
+    "info": {
+      "en": "Co-author · <a href=\"https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html\">NeurIPS 2023 · Datasets and Benchmarks</a> · <a href=\"https://neuralmmo.github.io/\">Project</a>",
+      "zh": "论文共同作者 · <a href=\"https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html\">NeurIPS 2023 · 数据集与基准单元</a> · <a href=\"https://neuralmmo.github.io/\">项目</a>"
+    },
+    "en": {
+      "title": "Neural MMO 2.0",
+      "date": "2023",
+      "description": "Co-authored an open research environment with a flexible task system for studying how agents generalize to unfamiliar tasks, maps and opponents."
+    },
+    "zh": {
+      "title": "Neural MMO 2.0",
+      "date": "2023 年",
+      "description": "共同参与开放研究环境 Neural MMO 2.0 的论文工作，通过灵活的任务系统研究智能体对新任务、地图与对手的泛化能力。"
+    },
+    "external_url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/9ca22870ae0ba55ee50ce3e2d269e5de-Abstract-Datasets_and_Benchmarks.html",
+    "sort_key": 202300,
+    "image": "/img/projects/neural-mmo-2.png",
+    "image_source": "https://proceedings.neurips.cc/paper_files/paper/2023/file/9ca22870ae0ba55ee50ce3e2d269e5de-Paper-Datasets_and_Benchmarks.pdf",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "gaea",
+    "info": {
+      "en": "Parametrix.ai · <a href=\"https://www.chaocanshu.cn/new.html?291\">Release</a> · <a href=\"https://www.bilibili.com/video/BV14L411Q7QC/\">Living Chang'an demo</a> · <a href=\"https://www.bilibili.com/video/BV1fY4y1S76L/\">Technical overview</a>",
+      "zh": "超参数科技 · <a href=\"https://www.chaocanshu.cn/new.html?291\">发布介绍</a> · <a href=\"https://www.bilibili.com/video/BV14L411Q7QC/\">长安城演示</a> · <a href=\"https://www.bilibili.com/video/BV1fY4y1S76L/\">技术讲解</a>"
+    },
+    "en": {
+      "title": "GAEA · Living Chang'an City",
+      "date": "2023",
+      "description": "Worked on and released GAEA, demonstrated through Living Chang'an City: a virtual society of hundreds of autonomous NPCs with distinct identities, memories and short- and long-term goals.",
+      "image_alt": "Living Chang'an City demo: autonomous NPCs in a city street"
+    },
+    "zh": {
+      "title": "GAEA：活的长安城",
+      "date": "2023 年",
+      "description": "参与研发并发布 GAEA，以「活的长安城」技术演示呈现自主 NPC 生态：数百名拥有身份、记忆和长短期目标的 NPC，在持续运转的虚拟社会中自主生活、相互影响。",
+      "image_alt": "活的长安城实机演示：城市街道中的自主 NPC"
+    },
+    "external_url": "https://www.chaocanshu.cn/product/game_npc",
+    "image": "/img/projects/gaea-living-changan.jpg",
+    "sort_key": 202300,
+    "image_source": "https://guanwang-dev.obs.cn-south-1.myhuaweicloud.com/static-video/changan-city.mp4",
+    "image_source_page": "https://www.chaocanshu.cn/product/game_npc",
+    "image_time_seconds": 10,
+    "tags": [
+      "multi-agent",
+      "product",
+      "games"
+    ]
+  },
+  {
+    "id": "tree-lstm-mapf",
+    "info": {
+      "en": "Co-author · <a href=\"https://arxiv.org/abs/2210.12933\">Paper</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">Code</a>",
+      "zh": "论文共同作者 · <a href=\"https://arxiv.org/abs/2210.12933\">论文</a> · <a href=\"https://github.com/RoboEden/flatland-marl\">代码</a>"
+    },
+    "en": {
+      "title": "Flatland · Multi-agent railway coordination",
+      "date": "2022",
+      "description": "Co-authored an early Flatland reinforcement learning alternative to classical operations research for railway scheduling and path finding. Tree LSTM rail observations, phased training and centralized control brought learned policies into competition with leading OR methods."
+    },
+    "zh": {
+      "title": "Flatland：多列车协同调度与路径规划",
+      "date": "2022 年",
+      "description": "面向传统由运筹学求解的铁路调度与路径规划，参与早期以强化学习探索经典求解替代路线的研究。将 Tree LSTM 用于轨道拓扑观测，结合分阶段训练与集中控制，使学习型策略达到可与领先运筹方法竞争的水平。"
+    },
+    "external_url": "https://arxiv.org/abs/2210.12933",
+    "detail": "/projects/flatland/",
+    "sort_key": 202200,
+    "image": "/img/projects/tree-lstm-mapf.png",
+    "image_source": "https://arxiv.org/pdf/2210.12933",
+    "tags": [
+      "rl",
+      "multi-agent"
+    ]
+  },
+  {
+    "id": "emergent-collective-intelligence",
+    "info": {
+      "en": "Co-author · <a href=\"https://openreview.net/pdf?id=KCWm-HV0PQT\">NeurIPS 2022 Deep RL Workshop</a> · <a href=\"https://arxiv.org/abs/2301.01609\">arXiv</a>",
+      "zh": "论文共同作者 · <a href=\"https://openreview.net/pdf?id=KCWm-HV0PQT\">NeurIPS 2022 Deep RL Workshop</a> · <a href=\"https://arxiv.org/abs/2301.01609\">arXiv</a>"
+    },
+    "en": {
+      "title": "Emergent collective intelligence in Lux",
+      "date": "2022",
+      "description": "Co-authored research on how group strategies emerge through self-play and curriculum learning among large populations of cooperating and competing agents."
+    },
+    "zh": {
+      "title": "Lux 中的群体智能涌现",
+      "date": "2022 年",
+      "description": "共同研究大量智能体在合作与竞争中的自博弈训练，观察个体技能如何逐步发展为群体策略。"
+    },
+    "external_url": "https://openreview.net/pdf?id=KCWm-HV0PQT",
+    "sort_key": 202200,
+    "image": "/img/projects/emergent-collective-intelligence.png",
+    "image_source": "https://arxiv.org/pdf/2301.01609",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "ultra",
+    "sort_key": 202200,
+    "detail": "/projects/ultra/",
+    "image": "/img/projects/ultra.jpg",
+    "en": {
+      "title": "Ultra · Humans and AI in one game",
+      "date": "2021–2022",
+      "description": "Worked on a multiplayer world where humans and AI explore, gather, survive and fight together, and helped organize an AI esports event around the prototype.",
+      "image_alt": "Ultra concept demonstration: human and AI characters in a shared voxel world"
+    },
+    "zh": {
+      "title": "Ultra：人和 AI 一起玩的游戏",
+      "date": "2021–2022 年",
+      "description": "参与研发人机共玩的多人世界，让真人玩家与 AI 在探索、采集、生存和战斗中合作与竞争，并与团队组织了一场 AI 电竞活动。",
+      "image_alt": "Ultra 概念演示：真人与 AI 共享的体素游戏世界"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ultra/#demo\">Demo</a> · <a href=\"/life/2022/12/31/ultra-neural-esports.html\">AI esports</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ultra/#demo\">演示视频</a> · <a href=\"/zh/life/2022/12/31/ultra-neural-esports.html\">AI 电竞</a>"
+    },
+    "image_source": "/media/projects/ultra-demo.mp4",
+    "image_time_seconds": 29.56,
+    "image_source_note": "Original frame from the archived January 2022 Ultra concept video; the website includes its first 70 seconds.",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "ai-economics",
+    "sort_key": 202200,
+    "detail": "/projects/ai-economics/",
+    "image": "/img/projects/ai-economics.svg",
+    "en": {
+      "title": "AI Economics · Multi-agent exchange",
+      "date": "2022",
+      "description": "Worked on an independent, runnable economic simulation prototype with resource exchange between agents, exploring how individual needs and differences in production ability can connect through trade.",
+      "image_alt": "Concept illustration of agents exchanging food, timber and stone"
+    },
+    "zh": {
+      "title": "AI Economics：多智能体经济交换",
+      "date": "2022 年",
+      "description": "参与构建独立的多智能体经济仿真项目，已形成支持资源交换的可运行原型，探索个体需求、生产能力差异与交换如何连接成分工和交易。",
+      "image_alt": "智能体交换食物、木材与石料的机制示意图"
+    },
+    "info": {
+      "en": "Parametrix.ai · Working prototype · Resource exchange · <a href=\"https://guanwang-dev.obs.cn-south-1.myhuaweicloud.com/static-video/agent-en.mp4\">Official video</a>",
+      "zh": "超参数科技 · 可运行原型 · 资源交换 · <a href=\"https://guanwang-dev.obs.cn-south-1.myhuaweicloud.com/static-video/agent-cn.mp4\">官方视频</a>"
+    },
+    "image_source_note": "Concept illustration based on the archived AI Economics environment design.",
+    "tags": [
+      "multi-agent"
+    ]
+  },
+  {
+    "id": "ruin-guardians",
+    "sort_key": 202100,
+    "detail": "/projects/ruin-guardians/",
+    "image": "/img/projects/ruin-guardians.jpg",
+    "en": {
+      "title": "Ruin Guardians · Asymmetric game design and AI",
+      "date": "2020–2021",
+      "description": "Worked on an asymmetric game prototype, combining character abilities, levels and item mechanics with multi-agent reinforcement learning to explore one-versus-many competition, teamwork and human–AI play. Demonstrated at ChinaJoy 2021.",
+      "image_alt": "Ruin Guardians prototype: four blue treasure hunters face a yellow defender among keys, ladders and treasure chests"
+    },
+    "zh": {
+      "title": "遗迹守护者：非对称游戏设计与 Game AI",
+      "date": "2020–2021 年",
+      "description": "参与研发非对称对抗游戏原型，将角色能力、关卡与道具设计和多智能体强化学习结合，探索一对多对抗、队友协作与人机共玩。原型于 ChinaJoy 2021 展示。",
+      "image_alt": "遗迹守护者原型：四名蓝色夺宝者与黄色守护者在包含钥匙、梯子和宝箱的关卡中对抗"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ruin-guardians/#demo\">Demo</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ruin-guardians/#demo\">演示视频</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>"
+    },
+    "image_source": "/media/projects/ruin-guardians-demo.mp4",
+    "image_time_seconds": 5,
+    "image_source_note": "Original frame from the archived March 8, 2021 prototype video, 2021-03-08-11-48-31_109_w_ex.mp4; an early development build, not the final ChinaJoy presentation.",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "games"
+    ]
+  },
+  {
+    "id": "delta-game-ai",
+    "sort_key": 202100,
+    "image": "/img/projects/delta-chinajoy-2021.jpg",
+    "external_url": "https://m.tgbus.com/chinajoy/news/129540",
+    "info": {
+      "en": "Parametrix.ai · Deeply involved · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">Platform overview</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">2021 showcase</a>",
+      "zh": "超参数科技 · 深度参与 · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">平台介绍</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">2021 年展示</a>"
+    },
+    "en": {
+      "title": "Delta · Game AI platform and MOBA AI",
+      "date": "2021",
+      "description": "Deeply involved in Delta and MOBA game AI engineering, working on game integration, model iteration and training-to-deployment workflows to bring reinforcement learning into commercial games.",
+      "image_alt": "Parametrix.ai game AI demonstrations at ChinaJoy 2021"
+    },
+    "zh": {
+      "title": "Delta：游戏 AI 平台与 MOBA 工程化",
+      "date": "2021 年",
+      "description": "深度参与 Delta 游戏 AI 平台与 MOBA AI 工程化，围绕游戏接入、模型迭代和训练到部署的流程建设，推动强化学习在商业游戏中的落地。",
+      "image_alt": "超参数科技在 ChinaJoy 2021 展示游戏 AI 产品"
+    },
+    "image_source": "https://img.36krcdn.com/20210914/v2_d62f71bd970849b4a7adb82196e30e07_img_000?x-oss-process=image/resize,w_960/format,jpg/quality,q_85",
+    "image_source_page": "https://www.36kr.com/p/1398066247517828",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games",
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "ai-jianghu",
+    "sort_key": 202100,
+    "detail": "/projects/ai-jianghu/",
+    "image": "/img/projects/ai-jianghu.jpg",
+    "en": {
+      "title": "AI Jianghu · Generative wuxia adventure",
+      "date": "2021",
+      "description": "Worked on a text-adventure prototype where players choose a character, type their own actions and let AI continue a wuxia story, exploring generative language models as an interactive game mechanic.",
+      "image_alt": "AI Jianghu prototype demonstration: character-driven stories and open text input"
+    },
+    "zh": {
+      "title": "AI 江湖录：生成式武侠文字冒险",
+      "date": "2021 年",
+      "description": "参与研发武侠文字冒险原型，让玩家选择角色、自由输入行动，由 AI 续写故事，探索语言模型与开放式叙事玩法的结合。",
+      "image_alt": "AI 江湖录原型演示：角色故事与自由文本输入"
+    },
+    "info": {
+      "en": "Parametrix.ai · <a href=\"/projects/ai-jianghu/#demo\">Demo</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>",
+      "zh": "超参数科技 · <a href=\"/zh/projects/ai-jianghu/#demo\">演示视频</a> · <a href=\"https://www.36kr.com/p/1398066247517828\">ChinaJoy 2021</a>"
+    },
+    "image_source": "/media/projects/ai-jianghu-demo.mp4",
+    "image_time_seconds": 16.8,
+    "image_source_note": "Original frame from the archived 2021 prototype demonstration.",
+    "tags": [
+      "games"
+    ]
+  },
+  {
+    "id": "your-turn-ai",
+    "sort_key": 202000,
+    "image": "/img/projects/your-turn-ai.jpg",
+    "external_url": "https://www.36kr.com/p/1352881510378887",
+    "info": {
+      "en": "Parametrix.ai · Deeply involved · <a href=\"https://www.36kr.com/p/1352881510378887\">AI technical overview</a> · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">2020 interview</a>",
+      "zh": "超参数科技 · 深度参与 · <a href=\"https://www.36kr.com/p/1352881510378887\">AI 技术介绍</a> · <a href=\"https://m.tgbus.com/chinajoy/news/129540\">2020 年访谈</a>"
+    },
+    "en": {
+      "title": "Your Turn · AI social deduction game",
+      "date": "2020",
+      "description": "Deeply involved in developing AI for Your Turn (轮到你了揭秘篇), a five-player social deduction game selected as a WeChat Creative Mini Game. Its AI players use different skill levels and play styles to support human-like play and matchmaking under hidden information.",
+      "image_alt": "Your Turn gameplay and match history from the official game introduction"
+    },
+    "zh": {
+      "title": "《轮到你了揭秘篇》：AI 推理游戏",
+      "date": "2020 年",
+      "description": "深度参与五人身份推理游戏《轮到你了揭秘篇》的 AI 研发，以不同段位和风格的 AI 玩家支撑非完美信息下的博弈与匹配体验，探索围绕 AI 设计游戏；产品入选微信创意小游戏。",
+      "image_alt": "官方介绍中的《轮到你了揭秘篇》游戏界面与对局记录"
+    },
+    "image_source": "https://img.36krcdn.com/20210813/v2_13f6153df9ba4b7ba362225a6ce58b90_img_000",
+    "image_source_page": "https://www.36kr.com/p/1352881510378887",
+    "tags": [
+      "rl",
+      "multi-agent",
+      "product",
+      "games"
+    ]
+  },
+  {
+    "image": "/projects/linuxfoundation/lf-stacked-color.svg",
+    "external_url": "https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem",
+    "info": {
+      "en": "Tencent × Linux Foundation · <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Official news · 27 Aug 2018</a> · <a href=\"https://github.com/Angel-ML/angel\">Angel source</a>",
+      "zh": "腾讯 × Linux Foundation · <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">官方新闻 · 2018-08-27</a> · <a href=\"https://github.com/Angel-ML/angel\">Angel 代码</a>"
+    },
+    "en": {
+      "title": "Linux Foundation / LF Deep Learning TAC",
+      "date": "2018",
+      "description": "Represented Tencent on the Technical Advisory Council (TAC) of the <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a>. Supported open-source AI collaboration and Tencent’s contribution of <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel</a> to the foundation. The Linux Foundation’s August 27, 2018 announcement quoted me as a Tencent senior AI researcher and TAC member."
+    },
+    "zh": {
+      "title": "Linux Foundation / LFDL 技术顾问委员会",
+      "date": "2018 年",
+      "description": "作为腾讯代表，担任 <a href=\"https://deeplearningfoundation.org/\">LF Deep Learning Foundation</a> 技术顾问委员会（TAC）成员，参与推进 <a href=\"https://www.linuxfoundation.org/press/press-release/lf-deep-learning-adds-two-new-framework-projects-to-expand-community-and-ecosystem\">Angel 项目加入基金会</a>，与社区合作建设开源 AI 生态。2018 年 8 月 27 日，Linux Foundation 官方新闻以腾讯高级 AI 研究员及 TAC 成员身份引用我的发言。"
+    },
+    "id": "linux-foundation",
+    "sort_key": 201800,
+    "tags": []
+  },
+  {
+    "image": "/projects/mobileai/feathercnn.png",
+    "info": {
+      "en": "Tencent TEG × Weishi · NEON / OpenCL / Metal",
+      "zh": "腾讯 TEG × 腾讯微视 · NEON / OpenCL / Metal"
+    },
+    "en": {
+      "title": "FeatherCNN · Mobile inference",
+      "date": "2018",
+      "description": "Optimized <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> and related inference solutions for 300+ iOS/Android device models across diverse mobile CPUs and GPUs."
+    },
+    "zh": {
+      "title": "FeatherCNN：移动端推理",
+      "date": "2018 年",
+      "description": "参与 <a href=\"https://github.com/Tencent/FeatherCNN\">FeatherCNN</a> 及配套推理方案优化，适配 300 多款 iOS / Android 机型，覆盖多种移动 CPU 和 GPU。"
+    },
+    "id": "feathercnn",
+    "sort_key": 201800,
+    "tags": [
+      "product",
+      "ai-systems"
+    ]
+  },
+  {
+    "image": "/projects/goai/fineart.png",
+    "info": {
+      "en": "Tencent TEG · <a href=\"/life/work/2018/03/15/2nd-ailab-academic-forum.html\">2018 talk · Learning Go from Scratch</a>",
+      "zh": "腾讯 TEG · <a href=\"/zh/life/work/2018/03/15/2nd-ailab-academic-forum.html\">2018 年演讲《从零开始学围棋》</a>"
+    },
+    "en": {
+      "title": "Go AI FineArt",
+      "date": "2018",
+      "description": "Worked on reinforcement learning research and training for <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">FineArt (绝艺)</a>, Tencent’s Go AI, and shared the training approach in “Learning Go from Scratch” at the 2018 Tencent AI Lab Academic Forum."
+    },
+    "zh": {
+      "title": "围棋 AI 绝艺",
+      "date": "2018 年",
+      "description": "参与围棋 AI <a href=\"https://ai.tencent.com/ailab/zh/together/detial3/\">绝艺（FineArt）</a>的强化学习算法研究与训练，并在 2018 年腾讯 AI Lab 学术论坛以《从零开始学围棋》分享训练过程与技术探索。"
+    },
+    "id": "fineart",
+    "sort_key": 201800,
+    "tags": [
+      "rl",
+      "games"
+    ]
+  },
+  {
+    "image": "/projects/humanpose/gaonengwushi.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x QQ Mobile</i>\n        <br>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × 手机 QQ</i>\n        <br>"
+    },
+    "en": {
+      "title": "Pose Estimation for Mobile QQ",
+      "date": "Dec. 2017",
+      "description": "Pioneered a mobile solution for real-time skeleton tracking and action recognition, deployed in Mobile QQ’s ‘高能舞室’ dance game on iOS and Android phones released since 2014."
+    },
+    "zh": {
+      "title": "手机 QQ 的姿态估计",
+      "date": "2017 年 12 月",
+      "description": "首创移动端实时骨架追踪与动作识别方案，落地手机 QQ「高能舞室」，支持 2014 年以来上市的 iOS 和 Android 手机。"
+    },
+    "id": "mobile-qq-pose",
+    "sort_key": 201712,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/styletransfer/videostyle.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x QQ Mobile</i>\n        <br> <a href=\"https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Real-Time_Neural_Style_CVPR_2017_paper.html\">CVPR 2017 paper</a>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × 手机 QQ</i>\n        <br> <a href=\"https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Real-Time_Neural_Style_CVPR_2017_paper.html\">CVPR 2017 论文</a>"
+    },
+    "en": {
+      "title": "Live Video Style Transfer",
+      "date": "Mar. 2017",
+      "description": "Pioneered a mobile solution for real-time video style transfer, deployed in Mobile QQ as live artistic filters on iOS and Android phones."
+    },
+    "zh": {
+      "title": "实时视频风格迁移",
+      "date": "2017 年 3 月",
+      "description": "首创移动端实时视频风格迁移方案，落地手机 QQ，为 iOS 和 Android 手机提供实时艺术风格滤镜。"
+    },
+    "id": "live-video-style",
+    "sort_key": 201703,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/semanticsegmentation/people.jpg",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group</i>\n        <br>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG</i>\n        <br>"
+    },
+    "en": {
+      "title": "Portrait Cutout · Chinese New Year H5",
+      "date": "Jan. 2017",
+      "description": "Pioneered an automatic portrait cutout solution for a Chinese New Year H5 experience, separating people from photo backgrounds and replacing the backgrounds with festive greeting scenes."
+    },
+    "zh": {
+      "title": "人像抠图与新春祝福 H5",
+      "date": "2017 年 1 月",
+      "description": "首创人像自动抠图方案，落地新春祝福 H5，将照片中的人物与背景分离，并替换为新春祝福场景。"
+    },
+    "id": "new-year-h5",
+    "sort_key": 201701,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/semanticsegmentation/sky.jpg",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x PTu</i>\n        <br>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × PTu</i>\n        <br>"
+    },
+    "en": {
+      "title": "Your Name",
+      "date": "Oct. 2016",
+      "description": "An interesting content-aware photo filter."
+    },
+    "zh": {
+      "title": "你的名字",
+      "date": "2016 年 10 月",
+      "description": "根据图像内容生成效果的照片滤镜。"
+    },
+    "id": "your-name-filter",
+    "sort_key": 201610,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/styletransfer/styletransfer.jpg",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group x PTu</i>\n        <br>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG × PTu</i>\n        <br>"
+    },
+    "en": {
+      "title": "Neural Style Photo Filter",
+      "date": "Mar. 2016",
+      "description": "Pioneered neural style photo filters, transforming photos into artistic styles in milliseconds."
+    },
+    "zh": {
+      "title": "神经网络风格化照片滤镜",
+      "date": "2016 年 3 月",
+      "description": "首创神经网络照片风格化滤镜，在毫秒级时间内完成照片的艺术风格迁移。"
+    },
+    "id": "neural-style-filter",
+    "sort_key": 201603,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/tencent/teg_logo.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Tencent TEG Group</i>\n        <br>",
+      "zh": "<i class=\"fi-torsos-all\">腾讯 TEG</i>\n        <br>"
+    },
+    "en": {
+      "title": "Distributed Learning System",
+      "date": "Aug. 2015 to Mar. 2016",
+      "description": "I develop algorithms for distributed training of acoustic models."
+    },
+    "zh": {
+      "title": "分布式学习系统",
+      "date": "2015 年 8 月至 2016 年 3 月",
+      "description": "研发声学模型的分布式训练算法。"
+    },
+    "id": "distributed-learning",
+    "sort_key": 201603,
+    "tags": [
+      "ai-systems"
+    ]
+  },
+  {
+    "id": "reflective-face-regression",
+    "info": {
+      "en": "Co-author · <a href=\"https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf\">BMVC 2016</a>",
+      "zh": "论文共同作者 · <a href=\"https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf\">BMVC 2016</a>"
+    },
+    "en": {
+      "title": "Reflective regression of 2D–3D face shape",
+      "date": "2016",
+      "description": "Co-authored a face-alignment method that incorporates 3D face geometry and a reflective consistency measure to improve robustness under large pose changes."
+    },
+    "zh": {
+      "title": "大姿态下的 2D–3D 人脸形状回归",
+      "date": "2016 年",
+      "description": "共同研究结合三维人脸几何与反射一致性度量的人脸对齐方法，提高大姿态变化下的鲁棒性。"
+    },
+    "external_url": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf",
+    "sort_key": 201600,
+    "image": "/img/projects/reflective-face-regression.png",
+    "image_source": "https://bmva-archive.org.uk/bmvc/2016/papers/paper135/abstract135.pdf",
+    "tags": []
+  },
+  {
+    "image": "/projects/e2ehand/f1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Wei Liu, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/e2ehand/wacv2016.pdf\"><i class=\"fi-page-pdf\"><span>WACV 2016</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>",
+      "zh": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Wei Liu, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/e2ehand/wacv2016.pdf\"><i class=\"fi-page-pdf\"><span>WACV 2016</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>"
+    },
+    "en": {
+      "title": "End-to-end Hand Detection",
+      "date": "Mar. 2015 to Aug. 2015",
+      "description": "Now the end-to-end hand detection is possible via multi-task learning for CNN."
+    },
+    "zh": {
+      "title": "端到端手部检测",
+      "date": "2015 年 3 月至 8 月",
+      "description": "通过卷积神经网络的多任务学习，实现端到端的手部检测。"
+    },
+    "id": "end-to-end-hand-detection",
+    "sort_key": 201508,
+    "tags": []
+  },
+  {
+    "image": "/projects/handdetection/fea1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/handdetection/accv2014.pdf\"><i class=\"fi-page-pdf\"><span>ACCV 2014</span></i></a>\n        <a href=\"/projects/handdetection/cviu2015.pdf\"><i class=\"fi-page-pdf\"><span>CVIU 2015</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>",
+      "zh": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/handdetection/accv2014.pdf\"><i class=\"fi-page-pdf\"><span>ACCV 2014</span></i></a>\n        <a href=\"/projects/handdetection/cviu2015.pdf\"><i class=\"fi-page-pdf\"><span>CVIU 2015</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>"
+    },
+    "en": {
+      "title": "Pixel-level Hand Detection",
+      "date": "Jan. 2014 to Mar. 2015",
+      "description": "Pixel level hand detection using structured forests. It is very efficient and robust."
+    },
+    "zh": {
+      "title": "像素级手部检测",
+      "date": "2014 年 1 月至 2015 年 3 月",
+      "description": "使用结构化森林实现高效、稳健的像素级手部检测。"
+    },
+    "id": "pixel-hand-detection",
+    "sort_key": 201503,
+    "tags": []
+  },
+  {
+    "id": "turtlebot-elevator",
+    "sort_key": 201500,
+    "image": "/img/projects/turtlebot-elevator.png",
+    "image_source": "https://patentimages.storage.googleapis.com/56/0d/be/d7f19dce7afff9/US11242219-20220208-D00001.png",
+    "image_source_page": "https://patents.google.com/patent/US11242219B2/en",
+    "image_source_note": "Original patent Figure 1: schematic of a robot riding an elevator; not a photograph of the TurtleBot prototype.",
+    "external_url": "https://patents.google.com/patent/US11242219B2/en",
+    "info": {
+      "en": "Tencent · Prototype development · Patent co-inventor<br><a href=\"https://patents.google.com/patent/CN107344688B/zh\">CN107344688B</a> (2019) · <a href=\"https://patents.google.com/patent/US11242219B2/en\">US11242219B2</a> (2022)",
+      "zh": "腾讯 · 原型研发 · 专利共同发明人<br><a href=\"https://patents.google.com/patent/CN107344688B/zh\">中国专利 CN107344688B</a>（2019 年）· <a href=\"https://patents.google.com/patent/US11242219B2/en\">美国专利 US11242219B2</a>（2022 年）"
+    },
+    "en": {
+      "title": "TurtleBot · Autonomous elevator navigation",
+      "date": "2015",
+      "description": "Built Xiaoyuandun, a ROS/TurtleBot service robot prototype for indoor navigation and autonomous elevator rides, with map switching between floors. Developed acceleration-based floor monitoring using motion-state tracking; the related method received Chinese and US patents.",
+      "image_alt": "Patent Figure 1: schematic of a robot riding an elevator"
+    },
+    "zh": {
+      "title": "TurtleBot 小圆墩：自主乘梯与跨楼层导航",
+      "date": "2015 年",
+      "description": "开发基于 ROS/TurtleBot 的「小圆墩」服务机器人原型，实现室内导航、自主乘坐电梯和跨楼层地图切换。通过加速度信号与运动状态识别判断所在楼层，相关楼层监测方案取得中美专利授权。",
+      "image_alt": "专利图 1：机器人乘坐电梯的场景示意图"
+    },
+    "tags": [
+      "robotics"
+    ]
+  },
+  {
+    "image": "/projects/sketchhand/fea1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/sketchhand/ivcnz2013.pdf\"><i class=\"fi-page-pdf\"><span>IVCNZ 2013</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>",
+      "zh": "<i class=\"fi-torsos-all\">Xiaolong Zhu, Ruoxin Sang, Xuhui Jia and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/sketchhand/ivcnz2013.pdf\"><i class=\"fi-page-pdf\"><span>IVCNZ 2013</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>"
+    },
+    "en": {
+      "title": "Sketch a Hand Shape Recognizer",
+      "date": "Sep. 2012 to Sep. 2013",
+      "description": "Provide possibility to sketch a hand shape recognizer using a customized Boltzmann machine."
+    },
+    "zh": {
+      "title": "用草图构建手形识别器",
+      "date": "2012 年 9 月至 2013 年 9 月",
+      "description": "借助定制的玻尔兹曼机，让用户通过简单草图构建手形识别器。"
+    },
+    "detail": "/projects/sketchhand/",
+    "id": "sketch-hand",
+    "sort_key": 201309,
+    "tags": []
+  },
+  {
+    "image": "/projects/imagesearch/fea1.png",
+    "info": {
+      "en": "",
+      "zh": ""
+    },
+    "en": {
+      "title": "Touch-based Image Search for Mobile Scenario",
+      "date": "Jun. 2013 to Aug. 2013",
+      "description": "Internship in Lenovo IVC Lab."
+    },
+    "zh": {
+      "title": "面向移动场景的触控图像搜索",
+      "date": "2013 年 6 月至 8 月",
+      "description": "在联想 IVC 实验室实习。"
+    },
+    "id": "touch-image-search",
+    "sort_key": 201308,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/visualfeedback/fea1.png",
+    "info": {
+      "en": "",
+      "zh": ""
+    },
+    "en": {
+      "title": "Gesture Recognition with Visual Feedback",
+      "date": "Jun. 2012 to Sep. 2012",
+      "description": "Internship in MSRA HCI Group."
+    },
+    "zh": {
+      "title": "带视觉反馈的手势识别",
+      "date": "2012 年 6 月至 9 月",
+      "description": "在微软亚洲研究院人机交互组实习。"
+    },
+    "id": "visual-feedback",
+    "sort_key": 201209,
+    "tags": []
+  },
+  {
+    "image": "/projects/kernelposture/fea1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/kernelposture/icpr2012.pdf\"><i class=\"fi-page-pdf\"><span>ICPR 2012</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>",
+      "zh": "<i class=\"fi-torsos-all\">Xiaolong Zhu and <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a></i>\n        <br>\n        <a href=\"/projects/kernelposture/icpr2012.pdf\"><i class=\"fi-page-pdf\"><span>ICPR 2012</span></i></a>\n        <i class=\"fi-info inactive\"><span>Dataset is available upon request.</span></i>"
+    },
+    "en": {
+      "title": "Hand Posture Recognition",
+      "date": "Jan. 2012 to Jul. 2012",
+      "description": "Single frame hand posture recognition by kernel descriptor for efficient SVM prediction."
+    },
+    "zh": {
+      "title": "手势识别",
+      "date": "2012 年 1 月至 7 月",
+      "description": "利用核描述子表示单帧手势，通过支持向量机高效完成分类。"
+    },
+    "detail": "/projects/kernelposture/",
+    "id": "hand-posture",
+    "sort_key": 201207,
+    "tags": []
+  },
+  {
+    "image": "/projects/depthfromrefraction/fea1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Zhihu Chen, <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a>, <a href=\"http://research.microsoft.com/en-us/people/yasumat/\">Yasuyuki Matsushita</a>, Xiaolong Zhu and <a href=\"http://www.nicta.com.au/people/mliu\">Miaomiao Liu</a></i>\n        <br>\n        <a href=\"http://i.cs.hku.hk/~kykwong/publications/zchen_iccv11.pdf\"><i class=\"fi-page-pdf\"><span>ICCV 2011</span></i></a>\n        <a href=\"http://i.cs.hku.hk/~kykwong/publications/zchen_ijcv13.pdf\"><i class=\"fi-page-pdf\"><span>IJCV 2013</span></i></a>",
+      "zh": "<i class=\"fi-torsos-all\">Zhihu Chen, <a href=\"http://www.cs.hku.hk/~kykwong\">Kwan-Yee K. Wong</a>, <a href=\"http://research.microsoft.com/en-us/people/yasumat/\">Yasuyuki Matsushita</a>, Xiaolong Zhu and <a href=\"http://www.nicta.com.au/people/mliu\">Miaomiao Liu</a></i>\n        <br>\n        <a href=\"http://i.cs.hku.hk/~kykwong/publications/zchen_iccv11.pdf\"><i class=\"fi-page-pdf\"><span>ICCV 2011</span></i></a>\n        <a href=\"http://i.cs.hku.hk/~kykwong/publications/zchen_ijcv13.pdf\"><i class=\"fi-page-pdf\"><span>IJCV 2013</span></i></a>"
+    },
+    "en": {
+      "title": "Self-Calibrating Depth from Refraction",
+      "date": "Oct. 2010 to Apr. 2011",
+      "description": "Obtain the depth of the image by refraction. Easy setup, promising results!"
+    },
+    "zh": {
+      "title": "基于折射的自标定深度恢复",
+      "date": "2010 年 10 月至 2011 年 4 月",
+      "description": "通过光的折射恢复场景深度，装置简单，效果良好。"
+    },
+    "detail": "/projects/depthfromrefraction/",
+    "id": "depth-from-refraction",
+    "sort_key": 201104,
+    "tags": []
+  },
+  {
+    "image": "/projects/youdao2010/fea1.png",
+    "info": {
+      "en": "",
+      "zh": ""
+    },
+    "en": {
+      "title": "Internship in Youdao.com",
+      "date": "Jun. 2010 to Aug. 2010",
+      "description": "Front-end development for an LBS application."
+    },
+    "zh": {
+      "title": "网易有道实习",
+      "date": "2010 年 6 月至 8 月",
+      "description": "为基于位置的服务（LBS）应用开发前端。"
+    },
+    "id": "youdao",
+    "sort_key": 201008,
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "image": "/projects/rangeimage/fea1.png",
+    "info": {
+      "en": "<i class=\"fi-torsos-all\">Xiaolong Zhu, <a href=\"http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm\">Huijing Zhao</a>, Yiming Liu, <a href=\"http://www.poss.pku.edu.cn/people/zhaoyp/\">Yipu Zhao</a> and <a href=\"http://www.cis.pku.edu.cn/vision/Visual%26Robot/people/zha/\">Hongbin Zha</a></i>\n        <br>\n        <a href=\"/projects/rangeimage/iros2010.pdf\"><i class=\"fi-page-pdf\"><span>IROS 2010</span></i></a>\n        <a href=\"http://www.poss.pku.edu.cn/Data/publications/icra10.pdf\"><i class=\"fi-page-pdf\"><span>ICRA 2010</span></i></a>",
+      "zh": "<i class=\"fi-torsos-all\">Xiaolong Zhu, <a href=\"http://www.cis.pku.edu.cn/faculty/vision/zhaohj/index-e.htm\">Huijing Zhao</a>, Yiming Liu, <a href=\"http://www.poss.pku.edu.cn/people/zhaoyp/\">Yipu Zhao</a> and <a href=\"http://www.cis.pku.edu.cn/vision/Visual%26Robot/people/zha/\">Hongbin Zha</a></i>\n        <br>\n        <a href=\"/projects/rangeimage/iros2010.pdf\"><i class=\"fi-page-pdf\"><span>IROS 2010</span></i></a>\n        <a href=\"http://www.poss.pku.edu.cn/Data/publications/icra10.pdf\"><i class=\"fi-page-pdf\"><span>ICRA 2010</span></i></a>"
+    },
+    "en": {
+      "title": "Autonomous Scene Labeling using LIDAR on a Car",
+      "date": "Oct. 2008 to Jul. 2010",
+      "description": "Semantic labelling for range data. Good segmentation is the key."
+    },
+    "zh": {
+      "title": "车载激光雷达的自主场景标注",
+      "date": "2008 年 10 月至 2010 年 7 月",
+      "description": "对距离数据进行语义标注，其中准确的分割是关键。"
+    },
+    "detail": "/projects/rangeimage/",
+    "id": "lidar-scene-labeling",
+    "sort_key": 201007,
+    "tags": [
+      "robotics"
+    ]
+  }
+]

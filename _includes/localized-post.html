@@ -1,0 +1,4 @@
+{%- assign post_view = include.post -%}
+{%- if locale == 'zh' -%}
+  {%- assign post_view = site.translations | where: 'original_url', include.post.url | first -%}
+{%- endif -%}

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.slideshow-wrapper').slick({
+    $('.slideshow-wrapper').not('.slick-initialized').slick({
         autoplay: true
     });
 });

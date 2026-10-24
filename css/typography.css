@@ -1,0 +1,120 @@
+/* Four shared text sizes, used by both language versions. */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --text-meta: 0.875rem;
+  --text-body: 1rem;
+  --text-section: 1.5rem;
+  --text-title: 2rem;
+}
+
+html { font-size: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.35;
+  text-align: left;
+  margin: 1.5em 0 0.6em;
+  overflow-wrap: break-word;
+}
+
+h1 { font-size: var(--text-title); margin-top: 1rem; }
+h2, h3 { font-size: var(--text-section); }
+h4, h5, h6 { font-size: var(--text-body); }
+
+p, ul, ol, dl {
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 1.25rem;
+}
+
+strong, b { font-weight: 600; }
+abbr, acronym { font-size: inherit; text-transform: none; }
+small, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
+figcaption, caption, cite, sup, sub {
+  font-size: var(--text-meta);
+  line-height: inherit;
+}
+
+small { font-weight: 400; }
+sup, sub { line-height: 0; }
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  font-weight: 400;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: var(--text-body);
+}
+
+table tr td, table tbody tr td { font-size: var(--text-body); line-height: 1.7; }
+table thead tr th, table thead tr td,
+table tfoot tr th, table tfoot tr td { font-size: var(--text-meta); font-weight: 600; line-height: 1.5; }
+table tbody tr th { font-weight: 600; }
+
+.site-name {
+  display: inline-block;
+  font-size: var(--text-section);
+  font-weight: 600;
+  line-height: 38px;
+  white-space: nowrap;
+}
+
+.site-menu > li > a:first-child,
+.language-switch,
+.subtitlecontainer,
+.updates-count,
+.projects-count,
+.project-tags,
+.updates-more,
+.update-entry time,
+.update-date,
+.update-summary,
+.update-tag,
+.projects .info,
+.project-period,
+.paper-authors {
+  font-size: var(--text-meta);
+}
+
+.site-menu a[aria-current="page"],
+.language-switch a[aria-current="true"],
+.footer-menu a[aria-current="page"],
+.updates-filters a[aria-current="true"] { font-weight: 600; }
+
+.site-footer p, .site-footer ul { font-size: var(--text-meta); }
+.language-switch a { line-height: 38px; }
+.update-tag { line-height: inherit; }
+
+.post-content h1 { font-size: var(--text-title); }
+.post-content h2, .post-content h3 { font-size: var(--text-section); }
+.post-content h4, .post-content h5, .post-content h6 { font-size: var(--text-body); }
+.post-content h1.title, .subtitlecontainer { text-align: left; }
+.longform p, .longform li { line-height: 1.85; }
+.subtitlecontainer { line-height: 1.7; }
+
+.projects .info, .paper-authors { line-height: 1.6; }
+.project-heading .project-title { font-size: var(--text-body); }
+.projects .info i { font-style: normal; }
+
+.paper-content svg text {
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  font-weight: 400;
+}
+.paper-content svg .value { font-weight: 600; }
+
+.slick-prev:before, .slick-next:before { font-size: var(--text-body); }
+.slick-dots li button:before { font-size: var(--text-meta); }

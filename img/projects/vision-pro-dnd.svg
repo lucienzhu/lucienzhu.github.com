@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-labelledby="title desc">
+  <title id="title">LLM-driven immersive narratives and game content</title>
+  <desc id="desc">Conversations with an LLM drive dynamically generated narratives and surrounding game content in an immersive space. A concept illustration, not a prototype screenshot.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10Z" fill="#879b95"/>
+    </marker>
+    <g id="combatant">
+      <ellipse cy="39" rx="23" ry="9" fill="#d7ddd8"/>
+      <path d="M-16 22V5C-16-14 16-14 16 5V22L9 37H1V20H-1V37H-9Z"/>
+      <circle cy="-20" r="12"/>
+    </g>
+  </defs>
+  <path d="M78 312 360 145 642 312 360 470Z" fill="#f2f5f1"/>
+  <path d="M78 312V137L360 25V145Z" fill="#eef1ee"/>
+  <path d="M360 25 642 137V312L360 145Z" fill="#f7f8f6"/>
+  <path d="M94 310 360 458 626 310" fill="none" stroke="#c7d0cb" stroke-width="3"/>
+  <path d="M284 70H436V150H379L351 174V150H284Z" fill="#314e63"/>
+  <text x="360" y="122" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="32" font-weight="600">LLM</text>
+  <g fill="none" stroke="#879b95" stroke-width="4" stroke-dasharray="7 7" marker-end="url(#arrow)">
+    <path d="M284 110C223 110 184 134 169 184"/>
+    <path d="M436 110C498 110 541 144 552 198"/>
+  </g>
+  <g transform="translate(163 237)">
+    <path d="M-4 0V65L6 70V0Z" fill="#b48b59"/>
+    <path d="M0-61-39 0H-20L-49 39H49L20 0H39Z" fill="#8da184"/>
+    <path d="M0-61V39H49L20 0H39Z" fill="#6d865b"/>
+  </g>
+  <g transform="translate(551 237)">
+    <path d="M-43 43V-35L0-59 43-35V43L19 56V-9L0-20-19-9V56Z" fill="#8a9b9e"/>
+    <path d="M0-59 43-35 19-22-24-46Z" fill="#b7c4c5"/>
+    <path d="M0-20 19-9 0 2-19-9Z" fill="#c7d0cb"/>
+  </g>
+  <use href="#combatant" transform="translate(274 315) scale(1.8)" fill="#314e63"/>
+  <use href="#combatant" transform="translate(439 263) scale(1.8)" fill="#bf6a49"/>
+  <g fill="none" stroke-linecap="square">
+    <path d="M318 325 395 236M329 305 348 322" stroke="#6f858e" stroke-width="10"/>
+    <path d="M405 300 332 225M377 285 395 268" stroke="#aa855c" stroke-width="10"/>
+    <path d="M347 254 380 287M353 277 379 252" stroke="#e5c27d" stroke-width="5"/>
+  </g>
+  <path d="M132 178 147 169M604 199 617 208M187 357 180 370" fill="none" stroke="#b7c7be" stroke-width="3"/>
+</svg>

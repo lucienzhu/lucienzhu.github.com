@@ -1,11 +1,15 @@
-url: http://xiaolongzhu.org
+url: https://lucienzhu.github.io
 markdown: kramdown
 permalink: date
 highlighter: rouge
 github: [Repository metadata]
-exclude: ['Rakefile.rb', 'CNAME', 'README.markdown']
+exclude: ['Rakefile.rb', 'CNAME', 'README.markdown', 'life/_posts/0001-01-01-title.md.example.md']
 gems:
   - jekyll-feed
+
+collections:
+  translations:
+    output: true
 
 defaults:
   -
@@ -13,3 +17,28 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: "default"
+      lang: en
+  -
+    scope:
+      path: "projects"
+    values:
+      section: projects
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      section: updates
+  -
+    scope:
+      path: ""
+      type: translations
+    values:
+      layout: post
+      lang: zh-CN
+      section: updates
+  -
+    scope:
+      path: "zh"
+    values:
+      lang: zh-CN

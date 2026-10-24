@@ -1,0 +1,7 @@
+{% include locale.html %}
+<figure class="article-figure{% if include.size %} article-figure--{{ include.size }}{% endif %}">
+  <a href="{{ include.src | relative_url }}" target="_blank" rel="noopener" aria-label="{{ include.alt | escape }} — {{ t.view_original }}">
+    <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" width="{{ include.width }}" height="{{ include.height }}" loading="lazy" decoding="async">
+  </a>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

@@ -16,21 +16,25 @@ h6.post-time {
 }
 
 h1.title { 
-    font-size: 2em;
-    line-height: 1.125;
-    text-align: center;
+    margin-top: 1rem;
+}
+
+.post-subtitle {
+    margin: 0.5rem 0 0.75rem;
+    color: #666;
+    font-size: var(--text-body);
+    line-height: 1.7;
 }
 
 .subtitlecontainer {
     text-decoration: none;
-    color: #9B9B9B;
+    color: #666;
     font-weight: normal;
     padding-top: .5em;
-    text-align: center;
 }
 
 .subtitle {
-    color: #9B9B9B;
+    color: #666;
 }
 
 #subtitletrans a {
@@ -41,9 +45,63 @@ a {
     background-color: transparent;
 }
 
-.post-content h1 {font-size: 2em;}
-.post-content h2 {font-size: 1.8em;}
-.post-content h3 {font-size: 1.5em;}
-.post-content h4 {font-size: 1.2em;}
-.post-content h5 {font-size: 1em;}
-.post-content h6 {font-size: 0.8em;}
+.post-content.longform {
+    max-width: 52rem;
+}
+
+.post-content.longform p > code {
+    display: inline;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.longform img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 35rem);
+    max-height: 24rem;
+    object-fit: contain;
+    margin: 1.5rem auto;
+}
+
+.post-content .article-figure {
+    max-width: 35rem;
+    margin: 1.5rem auto;
+}
+
+.post-content .article-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 24rem;
+    object-fit: contain;
+    margin: 0 auto;
+    cursor: zoom-in;
+}
+
+.post-content .article-figure--medium {
+    max-width: 30rem;
+}
+
+.post-content .article-figure video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 24rem;
+    object-fit: contain;
+}
+
+.post-content .article-figure figcaption {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: var(--text-meta);
+    line-height: 1.6;
+}
+
+.post-content .article-figure--small {
+    max-width: 22.5rem;
+}

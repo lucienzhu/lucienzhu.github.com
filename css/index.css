@@ -17,3 +17,7 @@ table {
 .notice-bold {
     font-weight: bold;
 }
+
+.home-bio .bio-group {
+  margin-top: 1.5rem;
+}

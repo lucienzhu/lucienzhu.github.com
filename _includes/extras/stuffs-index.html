@@ -1,0 +1,59 @@
+{% if locale == "zh" %}
+
+<!--content-->
+<div class="row">
+  <div class="large-12 columns">
+    <!-- start of header -->
+    <div class="row">
+      <div class="stuffs-header large-12 columns">
+        <h1>我的物品</h1>
+        <p>这里记录了一些我喜欢的物品。</p>
+        <p>人生太短，没法把它们一直留在身边。</p>
+        <p>于是有了这些页面。</p>
+      </div>
+    </div>
+    <!-- end of header -->
+    <div class="row stuffs-container">
+      <div class="large-4 columns stuffs-item">
+        <div>
+          <a class="th" href="/zh/stuffs/t420s.html">
+          <img src="http://placehold.it/400x300/F2F2F2/0D0D0D&text=t420s">
+          </a>
+
+          <h5>ThinkPad T420s <small>购于 2011 年 7 月</small></h5>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+
+<!--content-->
+<div class="row">
+  <div class="large-12 columns">
+    <!-- start of header -->
+    <div class="row">
+      <div class="stuffs-header large-12 columns">
+        <h1>My stuffs</h1>
+        <p>Here are some of my favorite stuffs.</p>
+        <p>Life is too short to have them always by my side.</p>
+        <p>Then come these pages.</p>
+      </div>
+    </div>
+    <!-- end of header -->
+    <div class="row stuffs-container">
+      <div class="large-4 columns stuffs-item">
+        <div>
+          <a class="th" href="/stuffs/t420s.html">
+          <img src="http://placehold.it/400x300/F2F2F2/0D0D0D&text=t420s">
+          </a>
+
+          <h5>ThinkPad T420s <small>Bought on Jul, 2011</small></h5>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

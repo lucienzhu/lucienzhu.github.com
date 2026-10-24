@@ -1,0 +1,82 @@
+en:
+  site_description: 'Xiaolong Zhu builds AI for games, multi-agent systems and robotics. Projects, research and notes on making interesting AIs.'
+  navigation: { home: Home, projects: Projects, updates: Updates }
+  language_switch: Language
+  main_navigation: Main navigation
+  footer_navigation: Footer navigation
+  copyright: © Copyright 2010 by Xiaolong ZHU.
+  back_to_top: Back to top
+  show_blog: Show blog posts
+  view_original: View original image (opens in a new tab)
+  flickr_photos: Photos on Flickr (opens in a new tab)
+  all: All
+  filter_updates: Filter updates
+  filter_projects: Filter projects
+  project_labels: Project labels
+  project_one: '%count% project'
+  project_many: '%count% projects'
+  no_projects: No projects with this label yet.
+  show_all_projects: Show all projects
+  entry_one: '%count% entry'
+  entry_many: '%count% entries'
+  blog_one: '%count% blog post'
+  blog_many: '%count% blog posts'
+  no_blog: No blog posts yet.
+  show_all: Show all updates
+  dataset: Dataset is available upon request.
+  reveal_email: Reveal this e-mail address
+  home:
+    bio: Making interesting AIs
+    portrait: Portrait of Xiaolong Zhu
+    intro: 'I build AI agents that learn, play and work with people. My interests span multi-agent learning, computer vision, machine learning systems, robotics and <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">AGI</a>.'
+    robotics_work: 'I developed a <a href="%projects%#tennis-robot">tennis robot</a> for rallies, ball collection, practice video recording and coaching to help players improve.'
+    current_work: 'With our London-based co-founders, we developed <a href="%projects%super-intern/">SuperIntern</a>, a group chat AI agent for work and marketing.'
+    background: 'I helped found <a href="https://chaocanshu.cn/">Parametrix.ai</a> and later served as VP for game AI R&D and commercialization.'
+    tencent_background: 'Earlier, I worked at Tencent AI Lab and led AI Platform’s vision team.'
+    contributions: 'I worked on Go AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">Fine Art</a> and served on the <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> TAC in 2018.'
+    research: 'I earned my Ph.D. in <a href="http://www.cs.hku.hk">Computer Science</a> at the <a href="http://www.hku.hk">University of Hong Kong</a> under <a href="https://i.cs.hku.hk/~kykwong/" target="_blank" rel="noopener">Prof. Kenneth Wong</a>, studying hand detection and recognition.'
+    undergraduate_research: 'Prior to that, I studied intelligent vehicle perception as a Peking University undergraduate with <a href="https://www.ai.pku.edu.cn/info/1312/2843.htm" target="_blank" rel="noopener">Prof. Huijing Zhao</a>.'
+    interests: 'I play board games in person and sometimes design them, including <a href="https://lucienzhu.github.io/3card-royale/?lang=en">3Card Royale</a>. I share photos on <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>.'
+    links_html: 'Explore my <a href="%projects%">projects and research</a> or read my <a href="%updates%">updates</a>.'
+    more: More updates…
+zh:
+  site_description: '朱曉龍的个人网站：游戏 AI、多智能体、机器学习系统与机器人项目、研究和文章。做有趣的 AI。'
+  navigation: { home: 首页, projects: 项目, updates: 动态 }
+  language_switch: 切换语言
+  main_navigation: 主导航
+  footer_navigation: 页脚导航
+  copyright: © 2010 朱曉龍。
+  back_to_top: 返回顶部
+  show_blog: 查看博客文章
+  view_original: 查看原图（新标签页）
+  flickr_photos: 在 Flickr 查看照片（新标签页）
+  all: 全部
+  filter_updates: 筛选动态
+  filter_projects: 筛选项目
+  project_labels: 项目标签
+  project_one: '%count% 个项目'
+  project_many: '%count% 个项目'
+  no_projects: 暂无带此标签的项目。
+  show_all_projects: 查看全部项目
+  entry_one: '%count% 条动态'
+  entry_many: '%count% 条动态'
+  blog_one: '%count% 篇博客'
+  blog_many: '%count% 篇博客'
+  no_blog: 暂无博客文章。
+  show_all: 查看全部动态
+  dataset: 数据集可联系索取。
+  reveal_email: 显示邮箱地址
+  home:
+    bio: 做有趣的 AI
+    portrait: 朱曉龍的照片
+    intro: '我研发能学习、能玩、能与人协作的 AI，关注多智能体、计算机视觉、机器学习系统、机器人与<a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">通用人工智能（AGI）</a>。'
+    robotics_work: '我研发了集对打、捡球、训练录像和教练指导于一体的<a href="%projects%#tennis-robot">网球机器人产品</a>，帮助玩家提高球技。'
+    current_work: '我与伦敦的联合创始人共同研发群聊 AI 智能体 <a href="%projects%super-intern/">SuperIntern</a>，在聊天中解决办公和营销问题。'
+    background: '我参与创办<a href="https://chaocanshu.cn/">超参数科技</a>，后任副总裁，从事游戏 AI 研发与商业化。'
+    tencent_background: '此前在腾讯 AI Lab 工作，负责腾讯 AI 平台部的视觉工程团队。'
+    contributions: '参与围棋 AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">绝艺</a>研发，2018 年担任 <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> 技术顾问委员会成员。'
+    research: '我在<a href="http://www.hku.hk">香港大学</a><a href="http://www.cs.hku.hk">计算机科学系</a>获得博士学位，导师是 <a href="https://i.cs.hku.hk/~kykwong/" target="_blank" rel="noopener">Kenneth Wong 教授</a>，研究手部检测与识别。'
+    undergraduate_research: '此前在北京大学读本科，跟随<a href="https://www.ai.pku.edu.cn/info/1312/2843.htm" target="_blank" rel="noopener">赵卉菁教授</a>研究智能车感知。'
+    interests: '我喜欢线下玩桌游，也设计游戏，比如<a href="https://lucienzhu.github.io/3card-royale/?lang=zh-CN">深圳花牌</a>；照片分享在 <a href="http://www.flickr.com/photos/xlzhu/">Flickr</a>。'
+    links_html: '你可以浏览我的<a href="%projects%">项目与研究</a>，或阅读<a href="%updates%">动态</a>。'
+    more: 更多动态…

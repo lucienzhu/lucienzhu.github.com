@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% include locale.html %}
+<main>
+  <div class="row"><div class="large-12 columns">
+    <div class="slideshow-wrapper"><div><img src="/img/feature/zxl.png" alt="{{ t.home.portrait }}" width="1204" height="498" decoding="async"></div></div>
+  </div></div>
+  <div class="row"><div class="large-12 columns">
+    {% assign projects_url = locale_prefix | append: '/projects/' | relative_url %}
+    {% assign updates_url = locale_prefix | append: '/updates/' | relative_url %}
+    <div class="home-bio">
+      <h2>{{ t.home.bio }}</h2>
+      <p>{{ t.home.intro }}</p>
+      <p class="bio-group">{{ t.home.robotics_work | replace: '%projects%', projects_url }} {{ t.home.current_work | replace: '%projects%', projects_url }}</p>
+      <p class="bio-group">{{ t.home.background }} {{ t.home.tencent_background }} {{ t.home.contributions }}</p>
+      <p class="bio-group">{{ t.home.research }} {{ t.home.undergraduate_research }}</p>
+      <p class="bio-group">{{ t.home.interests }} {{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
+    </div>
+    <h2>{{ t.navigation.updates }}</h2>
+    <ul class="update-entries recent-updates">
+      {% for post in site.posts limit:10 %}
+      {% include localized-post.html post=post %}
+      <li class="update-entry post-{{ post.category }}">
+        {% include update-date.html %}
+        <div>{% include update-title.html %}</div>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="updates-more"><a href="{{ updates_url }}">{{ t.home.more }}</a></p>
+  </div></div>
+</main>

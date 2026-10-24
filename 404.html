@@ -1,30 +1,10 @@
 ---
 layout: default
-title: 404 Page not found.
+title: Page not found
+lang: en
 extra_css:
-- /css/index.css
 - /css/404.css
-extra_js_bottom:
-- /js/index.js
 ---
 <script>{% include 3card-royale-redirect.js %}</script>
-<!--hero unit-->
-<div class="row">
-  <div class="large-12 columns">
-    <div class="slideshow-wrapper">
-      <div><img src="/img/feature/404.png" alt="slide image"></div>
-    </div>
-  </div>
-</div>
-<!--content-->
-<div class="row">
-  <div class="large-12 columns" id="re_co_404">
-    <p>Error: 404</p>
-    <p>Page not found.</p>
-    <p>&nbsp;</p>
-    <p><i>Cause it's <a href="http://youtu.be/1lyu1KKwC74">a bittersweet symphony</a>, </i></p>
-    <p><i>this life.</i></p>
-    <p>&nbsp;</p>
-    <p>-<i>The Verve</i></p>
-  </div>
-</div>
+{% include locale.html %}
+{% include extras/404.html %}

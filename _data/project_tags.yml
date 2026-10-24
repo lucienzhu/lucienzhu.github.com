@@ -1,0 +1,18 @@
+- id: rl-mas
+  en: Learning & Emergence
+  zh: 学习与涌现
+  match_any:
+    - rl
+    - multi-agent
+- id: ai-systems
+  en: AI Systems
+  zh: AI 系统
+- id: product
+  en: Product
+  zh: 产品
+- id: robotics
+  en: Robotics
+  zh: 机器人
+- id: games
+  en: Games & AI
+  zh: 游戏与 AI
