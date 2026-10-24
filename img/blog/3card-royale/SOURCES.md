@@ -44,3 +44,17 @@ The in-article hand table uses eight compact `hand-*.svg` strips generated from
 the same card renderer and validated hand examples. `_data/royale_hands.json`
 provides bilingual names and alt text. The final row shows the physical ♥2
 with the shared wildcard highlight; it is not a fifth natural seven.
+
+## Stable release audit · 2026-10-25
+
+The article's experiment and source links are pinned to
+[`v1.0.0`](https://github.com/lucienzhu/3card-royale/releases/tag/v1.0.0).
+The historical figure source revision above is retained. Rebuilding the current
+bilingual diagrams, eight hand strips and hand table data against the release
+source produced 25 byte-identical files. Observations and all 18 metadata values
+are checked against the saved fixture by the generator.
+
+The NN/SDK study and the restored browser Hard comparisons remain separate;
+no old win rate is relabeled as a result against Hard. The audit did not retrain
+models or invent new latency measurements. See the game repository's
+`docs/releases/v1.0.0.md` for the full release checks and scope.

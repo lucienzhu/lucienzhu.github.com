@@ -13,6 +13,7 @@ article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
+release_tag: "v1.0.0"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
@@ -197,7 +198,7 @@ original_url: "/updates/2026/10/3card-royale/"
 | 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
 {: .royale-policy-results }
 
-随机策略从合法候选中均匀抽取，包括换牌和跳过，最终 **1 胜、999 负**，无截断、无非法动作；两次完整运行的记录一致。它无需 ONNX，神经网络推理延迟不适用。[实验与复现](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md#uniform-random-baseline) · [原始记录](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/nn-policy-v1/random-baseline.json)。
+随机策略从合法候选中均匀抽取，包括换牌和跳过，最终 **1 胜、999 负**，无截断、无非法动作；两次完整运行的记录一致。它无需 ONNX，神经网络推理延迟不适用。[实验与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md#uniform-random-baseline) · [原始记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/nn-policy-v1/random-baseline.json)。
 
 Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此处尚未测量规则策略耗时。
 
@@ -235,11 +236,11 @@ Easy 使用 SDK 基线的比较方式，但只抽取最多 **64** 个组合。�
 | NN · 256 → 128 | **41.2%**（412 / 1,000） |
 | SDK Code AI 基线 | **45.3%**（453 / 1,000） |
 
-另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。以上 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/table-code-evaluation.json)。
+另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。以上 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json)。
 
 Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候选版本在同一批种子上分别为 39.0% 和 30.4%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称不代表实测真人难度。
 
-[策略与复现](https://github.com/lucienzhu/3card-royale/blob/main/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/main/docs/experiments/difficulty-v1/evaluation-48.json)
+[策略与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
 
 ### 下一步，让奖励指导学习
 
@@ -251,7 +252,7 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 SDK Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
 
-[RL 页面与 checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/main/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/main/training/README.md)
+[RL 页面与 checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
 
 ## 5. 体验：打开网页，先打几局
 {: #play}
