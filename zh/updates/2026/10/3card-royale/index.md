@@ -66,9 +66,11 @@ original_url: "/updates/2026/10/3card-royale/"
 
 颜色也承担着识别任务。玩家是红花，对手是金花；无论在牌桌、进度轨道还是分享图里，身份都保持一致。
 
+{% include royale-figure.html src="/img/blog/3card-royale/design-system.svg" width="560" height="712" diagram=true alt="明暗主题共用平涂金牌标志、牌背与花牌；红花是你，金花是对手。" caption="图 3 · 正式配色与素材。明暗两种绿底，都来自电路板。" %}
+
 设置里还藏着一个电路板模式：牌区化作芯片，走线连接攻守，亮点随着行动流动。绿色底盘于是也参与了对局。
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-pcb.jpg" width="1000" height="900" alt="同一局牌在电路板模式下，牌区周围出现芯片引脚和连通的走线。" caption="图 3 · 同一牌局，打开「设置 → 偏好 → 电路板」后的实际画面。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-pcb.jpg" width="1000" height="900" alt="同一局牌在电路板模式下，牌区周围出现芯片引脚和连通的走线。" caption="图 4 · 同一牌局，打开「设置 → 偏好 → 电路板」后的实际画面。" %}
 
 天际线把城市带进了游戏的结尾。建筑以较轻的线条出现，花可以停在城市的角落，城市也能安静地留在背景里。
 
@@ -78,9 +80,11 @@ original_url: "/updates/2026/10/3card-royale/"
 
 这段动画与刚才的对局相连。最后出手的牌，成了胜利画面的起点。
 
-{% include royale-figure.html src="/img/blog/3card-royale/finale.svg" width="1080" height="1440" alt="完整对局结束后的开花海报，花群、白鹭、深圳天际线与升级轨道组成终局画面。" caption="图 4 · 用种子 0 完成整场对局后，由正式分享组件生成的结算图。每次对局的赢家和历程都来自真实记录。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/finale.svg" width="1080" height="1440" alt="完整对局结束后的开花海报，花群、白鹭、深圳天际线与升级轨道组成终局画面。" caption="图 5 · 用种子 0 完成整场对局后，由正式分享组件生成的结算图。每次对局的赢家和历程都来自真实记录。" %}
 
 单局胜利保留更轻的反馈。一小局打得漂亮，值得高兴；从 2 打到 A、完成整场挑战，值得一次更完整的绽放。两种胜利有不同的分量，画面也应该表达出来。
+
+{% include royale-figure.html src="/img/blog/3card-royale/interface-system.svg" width="560" height="854" diagram=true alt="手机使用右侧抽屉，桌面使用居中浮层；单局轻结算，整场全屏开花。" caption="图 6 · 界面示意：统一导航方式，区分两种胜利。" %}
 
 ## 3. 规则与对局：进攻掉血，防守换牌
 {: #rules}
@@ -95,16 +99,9 @@ original_url: "/updates/2026/10/3card-royale/"
 
 每次攻防，由进攻者先亮牌，防守者看到之后再回应。通常出三张，也可以出四张的“四炸”或五张的“五炸”。攻守双方不必出相同张数，也不必跟相同花色或牌型。
 
-| 牌型 | 分数 |
-| --- | ---: |
-| 高牌 | 0 |
-| 对子 | 1 |
-| 顺子 | 2 |
-| 同花 | 3 |
-| 同花顺 | 4 |
-| 三炸 | 5 |
-| 四炸 | 6 |
-| 五炸 | 7 |
+{% include royale-figure.html src="/img/blog/3card-royale/hands-basic.svg" width="560" height="756" diagram=true alt="高牌 0 分、对子 1 分、顺子 2 分、同花 3 分，各配三张实例牌。" caption="图 7 · 标准 1.0：四种常见的三张组合。" %}
+
+{% include royale-figure.html src="/img/blog/3card-royale/hands-strong.svg" width="560" height="756" diagram=true alt="同花顺 4 分、三炸 5 分、四炸 6 分、五炸 7 分。五炸示例为四张 7 加本局花牌 ♥2。" caption="图 8 · 更强的组合。♥2 保留实际牌面，在五炸中代替一张 7。八种示例均通过正式引擎校验。" %}
 
 这里的“三炸”就是三张同点牌，四炸是四张同点牌；五炸需要四张自然同点牌，再加本局花牌。先比较牌型分数，同牌型再比较点数。花色没有大小之分。
 
@@ -112,7 +109,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 如果防守者用三炸接住同花，就获得 **2 次换牌机会**。同牌型只靠点数获胜时，按 1 伤或 1 次换牌机会结算；完全相同则没有收益。
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 5 · 进攻推动小局结束，防守改善接下来的牌。示例牌中，本局花牌为 ♥2。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 9 · 进攻推动小局结束，防守改善接下来的牌。示例牌中，本局花牌为 ♥2。" %}
 
 ### 伤牌，也是可用的牌
 
@@ -120,7 +117,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 所以，受伤会让你更接近败局，同时也会带来新的可用牌。它们公开可见，双方都能据此判断后续组合。你可能从伤牌里找到一次反击，对手也可能提前看见这个机会。
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds.svg" width="1200" height="420" alt="将公开伤牌 8♥ 与手牌 6♠、7♣ 组成顺子；出牌后原位置补入一张新伤牌，仍为 1 伤。" caption="图 6 · 伤牌参与出牌的流程示意。K♦ 仅为补牌示例；补牌来自牌堆，出伤牌不会回血。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/wounds.svg" width="1200" height="420" alt="将公开伤牌 8♥ 与手牌 6♠、7♣ 组成顺子；出牌后原位置补入一张新伤牌，仍为 1 伤。" caption="图 10 · 伤牌参与出牌的流程示意。K♦ 仅为补牌示例；补牌来自牌堆，出伤牌不会回血。" %}
 
 ### 换牌机会，可以选择不用
 
@@ -129,6 +126,8 @@ original_url: "/updates/2026/10/3card-royale/"
 每次机会都可以独立跳过。拿到两次机会，可以换一次、跳过一次，也可以两次都保留原状。拥有选择，本身就是防守的收益。
 
 补牌的节奏同样重要。双方各进攻一次，才算完成一轮；两次攻防之间不补手牌，轮末保留未用牌，再补到 8 张。因此，第一次出手时，就需要想着第二次交锋。
+
+{% include royale-figure.html src="/img/blog/3card-royale/round-flow.svg" width="560" height="1000" diagram=true alt="进攻、回应、结算；达到 5 伤立即结束小局。否则交换攻守，再做一次攻防，轮末双方补到 8 张。" caption="图 11 · 一轮包含两次攻防；出现终局条件时立即停止。" %}
 
 ### 从 2 到 A，最后再赢一次
 
@@ -151,6 +150,10 @@ original_url: "/updates/2026/10/3card-royale/"
 
 项目提供了 Gymnasium 环境，也保留了可以训练、评估和部署的统一观察与动作接口。
 
+规则核心与界面、策略分开。JavaScript、Python、Rust 和 C++ 各有独立实现，通过同一套回放校验；网页使用 JavaScript，Gym 与训练使用原生 Python 核心。
+
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 12 · 系统边界：完整状态归宿主管理，策略只拿到自己的玩家观察。" %}
+
 目前网页里的 **NN AI 是行为克隆基线**：它学习 Code AI 的动作选择。奖励驱动的强化学习训练，是在这份基线上继续探索的方向。
 
 ### 模型能看到什么，怎样选动作
@@ -163,7 +166,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 模型为每个合法候选评分，选择最高分。两层隐藏层分别为 256 和 128，使用 ReLU；所有候选共享同一个网络。512 是候选容量，动作索引的含义由当次候选表决定，下一次决策会重新生成。
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 7 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 13 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
 
 ### 先让 Code AI 对弈 10,000 局
 
@@ -173,7 +176,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 模型用 PyTorch 训练，TensorBoard 记录训练与验证的损失、动作一致率等曲线，按验证集损失选择 checkpoint。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 8 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 14 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
 
 最终上线模型有 **137,729 个参数**，ONNX 权重约 **0.55 MB**。留出测试集上，与 Code AI 的动作一致率为 **89.36%**。动作一致率说明模仿得有多接近；实际能赢多少，还需要单独对战。
 
@@ -181,7 +184,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 五个模型都使用同一批数据，并分别与 Code AI 评估 1,000 局。评估使用 500 个留出种子，交换模型席位并平衡先攻，从正常的 2 级开始。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="五个模型对 Code AI 的胜率在 45.0% 到 46.5% 之间，上线的 256 到 128 模型为 46.2%。" caption="图 9 · 每个模型 1,000 局，横轴为完整的 0–100%。这些小幅差异不足以证明模型强弱。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="707" height="319" alt="五个模型对 Code AI 的胜率在 45.0% 到 46.5% 之间，上线的 256 到 128 模型为 46.2%。" caption="图 15 · 每个模型 1,000 局，横轴为完整的 0–100%。这些小幅差异不足以证明模型强弱。" %}
 
 | 隐藏层 | ONNX 大小 | 对 Code AI 胜率 |
 | --- | ---: | ---: |
@@ -196,6 +199,8 @@ original_url: "/updates/2026/10/3card-royale/"
 综合模型大小、实测延迟和对战表现，网页采用了 `256 → 128`。在记录的 Mac Chrome 单线程 WASM 测量中，它对 220 个候选评分的 p95 推理延迟约为 **1.1 毫秒**。这是该测试环境里的结果，手机端还需要独立实测。
 
 训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Code AI，让对局可以继续。
+
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
 
 ### 下一步，让奖励指导学习
 
@@ -222,11 +227,11 @@ original_url: "/updates/2026/10/3card-royale/"
 
 一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 10 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 17 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 10 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 18 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 10 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 19 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
 
 项目的源码、规则、设计规范、环境和模型资料都已经开放。可以来玩，也可以带着自己的策略、模型或者规则想法继续尝试。
 
