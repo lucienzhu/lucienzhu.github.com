@@ -12,23 +12,10 @@ layout: default
     <div class="home-bio">
       <h2>{{ t.home.bio }}</h2>
       <p>{{ t.home.intro }}</p>
-      <div class="bio-group" role="group" aria-label="{{ t.home.groups.recent }}">
-        <p>{{ t.home.robotics_work | replace: '%projects%', projects_url }}</p>
-        <p>{{ t.home.current_work | replace: '%projects%', projects_url }}</p>
-      </div>
-      <div class="bio-group" role="group" aria-label="{{ t.home.groups.career }}">
-        <p>{{ t.home.background }}</p>
-        <p>{{ t.home.tencent_background }}</p>
-        <p>{{ t.home.contributions }}</p>
-      </div>
-      <div class="bio-group" role="group" aria-label="{{ t.home.groups.education }}">
-        <p>{{ t.home.research }}</p>
-        <p>{{ t.home.undergraduate_research }}</p>
-      </div>
-      <div class="bio-group" role="group" aria-label="{{ t.home.groups.personal }}">
-        <p>{{ t.home.interests }}</p>
-        <p>{{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
-      </div>
+      <p class="bio-group">{{ t.home.robotics_work | replace: '%projects%', projects_url }} {{ t.home.current_work | replace: '%projects%', projects_url }}</p>
+      <p class="bio-group">{{ t.home.background }} {{ t.home.tencent_background }} {{ t.home.contributions }}</p>
+      <p class="bio-group">{{ t.home.research }} {{ t.home.undergraduate_research }}</p>
+      <p class="bio-group">{{ t.home.interests }} {{ t.home.links_html | replace: '%projects%', projects_url | replace: '%updates%', updates_url }}</p>
     </div>
     <h2>{{ t.navigation.updates }}</h2>
     <ul class="update-entries recent-updates">
