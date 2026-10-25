@@ -13,7 +13,7 @@ article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
-release_tag: "v1.0.0"
+release_tag: "v1.1.0"
 last_modified_at: "2026-10-26 00:00:00 +0800"
 ---
 
@@ -255,6 +255,10 @@ Those objectives may favor different choices. Can a defense improve the next pos
 Reproducibility is part of the baseline. The compressed training dataset is about 112.5 MB, so the repository stores fixed seeds, generation instructions, dependencies, checksums and reports, then regenerates the data through SDK Code AI self-play. The best ONNX model is version-controlled for the browser. In the recorded environment, both the dataset and deployed model have been reproduced byte for byte.
 
 [RL overview and checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=en) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
+
+**Update · 1.1:** [AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) now accepts pure JavaScript and ONNX policies through PRs. The first season has five policies and 2,000 individual games, with paired seats and balanced first movers; its Elo is separate from the historical benchmarks above. Godlike is excluded. Pick an opponent on the leaderboard, or choose **Settings → Preferences → Difficulty → Arena**.
+
+Python or other code can be ported with Codex / Claude Code and checked against saved reference actions before submission. [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/v1.1.0/policies) · [Evaluation protocol](https://github.com/lucienzhu/3card-royale/blob/v1.1.0/arena/README.md).
 
 ## 5. Try it: open the page and play a few games
 {: #play}
