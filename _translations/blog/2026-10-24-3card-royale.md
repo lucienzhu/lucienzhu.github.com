@@ -13,7 +13,7 @@ article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
-release_tag: "v1.0.0"
+release_tag: "v1.1.0"
 last_modified_at: "2026-10-26 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
@@ -258,6 +258,10 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 SDK Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
 
 [RL 页面与 checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
+
+**1.1 更新：**[AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 开放纯 JavaScript 和 ONNX 策略投稿。首赛季 5 个策略、2,000 小局，交换座位并平衡先攻，Elo 与上面的历史实验分开统计；Godlike 不参赛。可以在榜单挑选对手，也可以从**设置 → 偏好 → 难度 → 天梯**进入。
+
+Python 等语言的策略可先用 Codex / Claude Code 转成 JS，对照固定样本验证动作一致，再提交 PR。[接口与模板](https://github.com/lucienzhu/3card-royale/tree/v1.1.0/policies) · [评估协议](https://github.com/lucienzhu/3card-royale/blob/v1.1.0/arena/README.md)。
 
 ## 5. 体验：打开网页，先打几局
 {: #play}
