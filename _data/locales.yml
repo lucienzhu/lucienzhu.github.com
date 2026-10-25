@@ -30,7 +30,7 @@ en:
     portrait: Portrait of Xiaolong Zhu
     intro: 'I build AI agents that learn, play and work with people. My interests span multi-agent learning, computer vision, machine learning systems, robotics and <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">AGI</a>.'
     robotics_work: 'I developed a <a href="%projects%#tennis-robot">tennis robot</a> for rallies, ball collection, practice video recording and coaching to help players improve.'
-    current_work: 'With our London-based co-founders, we developed <a href="%projects%super-intern/">SuperIntern</a>, a group chat AI agent for work and marketing.'
+    current_work: 'With our London-based co-founders, we developed <a href="https://www.superintern.ai/">SuperIntern</a>, a group chat AI agent for work and marketing.'
     background: 'I helped found <a href="https://chaocanshu.cn/">Parametrix.ai</a> and later served as VP for game AI R&D and commercialization.'
     tencent_background: 'Earlier, I worked at Tencent AI Lab and led AI Platform’s vision team.'
     contributions: 'I worked on Go AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">Fine Art</a> and served on the <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> TAC in 2018.'
@@ -71,7 +71,7 @@ zh:
     portrait: 朱曉龍的照片
     intro: '我研发能学习、能玩、能与人协作的 AI，关注多智能体、计算机视觉、机器学习系统、机器人与<a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence">通用人工智能（AGI）</a>。'
     robotics_work: '我研发了集对打、捡球、训练录像和教练指导于一体的<a href="%projects%#tennis-robot">网球机器人产品</a>，帮助玩家提高球技。'
-    current_work: '我与伦敦的联合创始人共同研发群聊 AI 智能体 <a href="%projects%super-intern/">SuperIntern</a>，在聊天中解决办公和营销问题。'
+    current_work: '我与伦敦的联合创始人共同研发群聊 AI 智能体 <a href="https://www.superintern.ai/">SuperIntern</a>，在聊天中解决办公和营销问题。'
     background: '我参与创办<a href="https://chaocanshu.cn/">超参数科技</a>，后任副总裁，从事游戏 AI 研发与商业化。'
     tencent_background: '此前在腾讯 AI Lab 工作，负责腾讯 AI 平台部的视觉工程团队。'
     contributions: '参与围棋 AI <a href="https://zh.wikipedia.org/wiki/%E7%BB%9D%E8%89%BA">绝艺</a>研发，2018 年担任 <a href="https://deeplearningfoundation.org/">LF Deep Learning Foundation</a> 技术顾问委员会成员。'
