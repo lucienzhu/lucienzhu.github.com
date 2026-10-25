@@ -14,6 +14,7 @@ article_image: "/img/blog/3card-royale/cover.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.0.0"
+last_modified_at: "2026-10-25 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
@@ -149,13 +150,13 @@ original_url: "/updates/2026/10/3card-royale/"
 
 规则核心与界面、策略分开。JavaScript、Python、Rust 和 C++ 各有独立实现，通过同一套回放校验；网页使用 JavaScript，Gym 与训练使用原生 Python 核心。
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 11 · 系统边界：完整状态归宿主管理，策略只拿到自己的玩家观察。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；SDK／NN 策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 11 · SDK／NN 的信息边界。Godlike 使用独立的明牌接口。" %}
 
 目前网页里的 **NN AI 是行为克隆基线**：它学习 SDK Code AI 的动作选择。奖励驱动的强化学习训练，是在这份基线上继续探索的方向。
 
 ### 模型能看到什么，怎样选动作
 
-策略只能使用当前玩家有权知道的信息：自己的手牌、双方公开伤牌、弃牌、当前已出牌，以及阶段、等级、花牌和牌数等状态。它看不到对手暗手牌，也看不到牌堆顺序。
+NN 策略只能使用当前玩家有权知道的信息：自己的手牌、双方公开伤牌、弃牌、当前已出牌，以及阶段、等级、花牌和牌数等状态。它看不到对手暗手牌，也看不到牌堆顺序。
 
 六个牌区，各按固定的 52 张牌顺序记 0/1。再加 6 维阶段编码和 18 维局面数值或标记，得到 **336 维当前状态**。没有循环记忆，也不输入整段对局历史。
 
@@ -212,15 +213,16 @@ Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 SDK Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
 
-### 三档难度，三种对手
+### 四档难度，四种对手
 
-网页现在提供三档难度：
+前三档只看己方可见信息；超凡额外看到你的手牌：
 
 | 难度 | 策略 | 选牌方式 |
 | --- | --- | --- |
 | 简单 | Easy AI | 最多看 64 个出牌候选；从牌堆换牌 |
 | 中等 | NN AI | 上线的 256 → 128 MLP |
 | 困难 | Code AI | 原牌桌策略，保留组合并评估换牌收益 |
+| 超凡 | Godlike AI | 看当前双方手牌；不记已出牌 |
 
 困难档使用原牌桌 Code AI：进攻比较牌力，防守优先少受伤、争取换牌机会，并考虑剩余牌能否组成好牌。换牌比较组合收益，可以盲换对手手牌、交换公开伤牌，也可以从牌堆抽牌。它只读取己方可见信息，不知道对手暗牌，也不向后搜索。
 
@@ -242,6 +244,16 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 [策略与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
 
+### 明牌挑战：Godlike AI
+
+Godlike 是另一个可选实验：它能看到你的当前手牌，但不读取弃牌历史或牌堆顺序。进攻时枚举自己的出牌和对方回应，选最坏应对下评分最好的一手；防守遍历合法出牌；换牌比较预期组合收益。它只优化当前步骤的启发式评分，不保证整局最优，盲换仍由规则随机抽牌。
+
+对网页困难档 Code AI，Godlike **650 胜 / 1,000 小局，胜率 65.0%**。使用另一组 500 个独立种子，交换席位、平衡先攻，从 2 级开局。它有额外手牌信息，种子协议也不同，因此不与上面的 NN 基线作等信息比较。
+
+Apple M1 / Node 24 上，决策 p95 为 **进攻 13.1 ms、防守 8.2 ms、换牌 30.1 ms**；这不是手机或浏览器延迟。网页在独立 Worker 中运行，失败时显示提示并回退到困难档 Code AI。
+
+[策略与复现](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/DIFFICULTY.zh-CN.md) · [1,000 局原始记录](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json)
+
 ### 下一步，让奖励指导学习
 
 这份基线打通了从环境、数据、训练、评估到网页部署的流程，也留下了一个可比较的起点。
@@ -261,9 +273,11 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 新玩家默认 **Easy AI**。切换难度或体验神经网络模型，可以进入：
 
-> 设置 → 偏好 → 难度 → 简单 / 中等 · NN AI / 困难
+> 设置 → 偏好 → 难度 → 简单 / 中等 · NN AI / 困难 / 超凡 · Godlike AI（明牌）
 
-第一次玩，可以先跟着教学走一遍，留意牌从哪里来、用完之后去哪里，再尝试把公开伤牌也纳入组合。熟悉之后，攻守之间如何分配牌，会逐渐成为更有意思的部分。
+首次进入会显示一页引导：**起手 8 张，从手牌和公开伤牌中混选 3 张，进攻一次、防守一次；5 伤输局。** 图中用两张手牌和一张伤牌组成一手，让第一次选牌就有方向。
+
+同一浏览器记住已看状态，下次不再自动弹出；在 **设置 → 偏好 → 新手引导** 中可以重看或关闭。完整规则和进阶教学仍在「规则」里。
 
 一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
 

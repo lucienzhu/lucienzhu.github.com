@@ -58,3 +58,7 @@ The NN/SDK study and the restored browser Hard comparisons remain separate;
 no old win rate is relabeled as a result against Hard. The audit did not retrain
 models or invent new latency measurements. See the game repository's
 `docs/releases/v1.0.0.md` for the full release checks and scope.
+
+## 2026-10-25 · Current-hand AI and quick start
+
+The architecture diagrams explicitly label the SDK / NN observation boundary; Godlike uses its own allowlisted current-hand interface. The article keeps historical experiment links pinned to `v1.0.0` and cites Godlike policy/results at `1887d08e29e4e6cb88e646b43308f18e1b9a57d2`. The first-visit guide description follows `51cfd7bdc3b57833ca2db93fc80c21f8b9ba57d3`: hand and public wound cards can be selected together. No experimental measurements were rerun or changed for this documentation update.
