@@ -14,6 +14,7 @@ article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.0.0"
+last_modified_at: "2026-10-25 00:00:00 +0800"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
@@ -146,13 +147,13 @@ The project provides a Gymnasium environment and a shared observation/action int
 
 The rules core is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against the same replay sequences. The browser uses JavaScript; Gym and training use the native Python core.
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. Policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 11. System boundaries: full state belongs to the host; each policy sees only its player observation." %}
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. SDK / NN policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 11. SDK / NN information boundary. Godlike uses a separate open-hand route." %}
 
 The browser's current **NN AI is a behavior-cloning baseline**. It learns to imitate SDK Code AI's choices. Training through rewards is the next direction to explore from this starting point.
 
-### What the policy observes and how it acts
+### What the NN policy observes and how it acts
 
-The policy receives only information available to the acting player: their hand, both public wound areas, discards, the current played cards, and state such as the phase, levels, wild card and card counts. It cannot see the rival's private hand or the deck order.
+The NN policy receives only information available to the acting player: their hand, both public wound areas, discards, the current played cards, and state such as the phase, levels, wild card and card counts. It cannot see the rival's private hand or the deck order.
 
 Each of the six card zones records presence as 0 or 1 in a fixed 52-card order. Add 6 phase bits and 18 position values or flags for a **336-dimensional current observation**. There is no recurrent memory or full-history input.
 
@@ -209,15 +210,16 @@ After training, the model is exported to ONNX and runs through JavaScript in a b
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 SDK Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 16. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
 
-### Three difficulties to play against
+### Four difficulties to play against
 
-The browser now offers three choices:
+The first three use only information visible to their seat. Godlike also sees your hand:
 
 | Difficulty | Policy | How it chooses |
 | --- | --- | --- |
 | Easy | Easy AI | Up to 64 candidate plays; deck redraws |
 | Medium | NN AI | The deployed 256 → 128 MLP |
 | Hard | Code AI | Original table policy; preserves combinations and evaluates swaps |
+| Godlike | Current-hand search | Sees both current hands; no memory of past plays |
 
 Hard uses the original table Code AI. It compares attacking hands, minimizes damage when defending and seeks swap opportunities, while considering useful combinations left in hand. It evaluates swap gains, including blind rival-hand swaps, visible wound swaps and deck redraws. It sees only information available to its seat and does not search future turns.
 
@@ -239,6 +241,16 @@ Easy still wins **44.1%** against NN; its historical 36.1% against SDK Code is u
 
 [Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.md) · [SDK baseline results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
 
+### Godlike: an open-hand challenge
+
+Godlike is an optional experiment. It sees your current hand, but reads neither discard history nor deck order. Attacks enumerate plays and rival responses, selecting the best worst-case score; defenses check every legal play; swaps compare expected combination value. This is a current-step heuristic, not a solved game. Blind swaps still draw randomly under the rules.
+
+Against browser Hard Code AI, Godlike won **650 / 1,000 individual games: 65.0%**. The evaluation uses another 500 independent paired seeds, swapped seats, balanced first attackers and level-2 starts. Its extra hand information and different seed protocol make this a separate experiment, not an equal-information comparison with the NN baseline above.
+
+On Apple M1 / Node 24, decision p95 was **13.1 ms for attack, 8.2 ms for defense and 30.1 ms for swaps**; these are not mobile or browser timings. The browser runs it in a separate Worker and visibly falls back to Hard Code AI if it fails.
+
+[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/DIFFICULTY.md#godlike-current-hand-advantage) · [1,000-game raw results](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json)
+
 ### Next, let rewards guide learning
 
 This baseline connects the environment, data generation, training, evaluation and browser deployment. It provides a concrete point of comparison.
@@ -258,9 +270,11 @@ The rules work for two people with a physical deck. The current browser playtest
 
 New players start on **Easy AI**. Change the difficulty or try the neural policy here:
 
-> Settings → Preferences → Difficulty → Easy / Medium · NN AI / Hard
+> Settings → Preferences → Difficulty → Easy / Medium · NN AI / Hard / Godlike · Sees your hand
 
-For a first game, follow the tutorial and watch where cards come from and where they go after use. Then start including public wound cards in combinations. As the rules become familiar, allocating cards between attack and defense becomes the more interesting problem.
+A one-page guide appears on your first visit: **start with 8 cards, mix hand and face-up wound cards to pick 3, attack once and defend once; 5 wounds lose the game.** Its example combines two hand cards and one wound card.
+
+The same browser remembers that you have seen it and will not show it automatically again. Reopen or disable it in **Settings → Preferences → Quick start**. The full rules and guided walkthrough remain under Rules.
 
 After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
 
