@@ -230,29 +230,22 @@ Easy 使用 SDK 基线的比较方式，但只抽取最多 **64** 个组合。�
 
 这里需要区分两个策略：**SDK Code AI** 是固定的训练教师与实验基线；**网页困难档 Code AI** 是原牌桌策略。接入 NN 时曾误用 SDK 策略，现已修复。上方七种策略的历史结果仍保留原基线，方便复现。
 
-恢复后的困难档，使用实际网页引擎、相同 500 个种子、交换席位并平衡先攻，各评估 1,000 小局：
+对网页困难档 Code AI，各评估 1,000 小局，交换席位并平衡先攻；前三组使用相同的 500 个种子：
 
 | 策略 | 对困难档 Code AI 胜率 |
 | --- | ---: |
 | Easy · 64 | **31.5%**（315 / 1,000） |
 | NN · 256 → 128 | **41.2%**（412 / 1,000） |
 | SDK Code AI 基线 | **45.3%**（453 / 1,000） |
+| [Godlike · 明牌](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json) | **65.0%**（650 / 1,000） |
 
-另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。以上 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json)。
+Godlike 可看手牌、不记牌；使用独立种子，非同等信息比较。
+
+另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。前三组加对照组的 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json)。
 
 Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候选版本在同一批种子上分别为 39.0% 和 30.4%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称不代表实测真人难度。
 
 [策略与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
-
-### 明牌挑战：Godlike AI
-
-Godlike 是另一个可选实验：它能看到你的当前手牌，但不读取弃牌历史或牌堆顺序。进攻时枚举自己的出牌和对方回应，选最坏应对下评分最好的一手；防守遍历合法出牌；换牌比较预期组合收益。它只优化当前步骤的启发式评分，不保证整局最优，盲换仍由规则随机抽牌。
-
-对网页困难档 Code AI，Godlike **650 胜 / 1,000 小局，胜率 65.0%**。使用另一组 500 个独立种子，交换席位、平衡先攻，从 2 级开局。它有额外手牌信息，种子协议也不同，因此不与上面的 NN 基线作等信息比较。
-
-Apple M1 / Node 24 上，决策 p95 为 **进攻 13.1 ms、防守 8.2 ms、换牌 30.1 ms**；这不是手机或浏览器延迟。网页在独立 Worker 中运行，失败时显示提示并回退到困难档 Code AI。
-
-[策略与复现](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/DIFFICULTY.zh-CN.md) · [1,000 局原始记录](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json)
 
 ### 下一步，让奖励指导学习
 

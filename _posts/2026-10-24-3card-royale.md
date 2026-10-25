@@ -227,29 +227,22 @@ Easy uses the SDK baseline comparison on a sample of at most **64** plays. Befor
 
 There are two distinct policies: **SDK Code AI** is the frozen training teacher and experimental baseline; **browser Hard Code AI** is the original table policy. NN integration had accidentally routed Hard to the SDK policy; that regression is now fixed. The seven-policy results above retain their original opponent for reproducibility.
 
-Against restored Hard, using the actual browser engine, the same 500 seeds, paired seats and balanced first attackers, each policy plays 1,000 individual games:
+Against browser Hard Code AI, each policy plays 1,000 individual games, with paired seats and balanced first attackers. The first three share the same 500 seeds:
 
 | Policy | Win rate vs Hard Code AI |
 | --- | ---: |
 | Easy · 64 | **31.5%** (315 / 1,000) |
 | NN · 256 → 128 | **41.2%** (412 / 1,000) |
 | SDK Code AI baseline | **45.3%** (453 / 1,000) |
+| [Godlike · Open hand](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json) | **65.0%** (650 / 1,000) |
 
-An additional NN/SDK control reproduces every earlier outcome: 462 wins (46.2%). All 4,000 games complete without illegal actions. [Browser-policy evaluation records](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json).
+Godlike sees your hand without card memory; independent seeds and extra information make this a separate comparison.
+
+An additional NN/SDK control reproduces every earlier outcome: 462 wins (46.2%). The first three groups plus this control complete all 4,000 games without illegal actions. [Browser-policy evaluation records](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json).
 
 Easy still wins **44.1%** against NN; its historical 36.1% against SDK Code is unchanged. The earlier 48-candidate version won 39.0% and 30.4%, respectively, on the same seeds. We chose 64 after this comparison, so these seeds are not an untouched test of that choice. The labels do not measure human difficulty.
 
 [Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.md) · [SDK baseline results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
-
-### Godlike: an open-hand challenge
-
-Godlike is an optional experiment. It sees your current hand, but reads neither discard history nor deck order. Attacks enumerate plays and rival responses, selecting the best worst-case score; defenses check every legal play; swaps compare expected combination value. This is a current-step heuristic, not a solved game. Blind swaps still draw randomly under the rules.
-
-Against browser Hard Code AI, Godlike won **650 / 1,000 individual games: 65.0%**. The evaluation uses another 500 independent paired seeds, swapped seats, balanced first attackers and level-2 starts. Its extra hand information and different seed protocol make this a separate experiment, not an equal-information comparison with the NN baseline above.
-
-On Apple M1 / Node 24, decision p95 was **13.1 ms for attack, 8.2 ms for defense and 30.1 ms for swaps**; these are not mobile or browser timings. The browser runs it in a separate Worker and visibly falls back to Hard Code AI if it fails.
-
-[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/DIFFICULTY.md#godlike-current-hand-advantage) · [1,000-game raw results](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json)
 
 ### Next, let rewards guide learning
 
