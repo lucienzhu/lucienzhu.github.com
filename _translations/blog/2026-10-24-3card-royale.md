@@ -14,7 +14,7 @@ article_image: "/img/blog/3card-royale/cover.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.0.0"
-last_modified_at: "2026-10-25 00:00:00 +0800"
+last_modified_at: "2026-10-26 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
@@ -24,7 +24,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 两个人，一副普通扑克牌，能很快开始；玩过几局之后，依然会遇到值得想一想的选择。运气带来变化，判断影响结果，对手的每一步都会改变自己的下一步。
 
-这个想法慢慢变成了**深圳花牌，3Card Royale**：一个围绕三张牌展开的 1v1 游戏。进攻造成伤害，防守赢得换牌机会，受伤后留下的牌也能重新参与战斗。两个人从 2 级一路打到 A，最后赢下自己的 A 局，就算“开花”。
+这个想法慢慢变成了**深圳花牌（3Card Royale，aka Shenzhen Flower Cards）**：一个围绕三张牌展开的 1v1 游戏。进攻造成伤害，防守赢得换牌机会，受伤后留下的牌也能重新参与战斗。两个人从 2 级一路打到 A，最后赢下自己的 A 局，就算“开花”。
 
 如今，它有了可以直接打开的网页试玩、完整规则、深圳主题的视觉设计，也有了一套可复现的神经网络策略基线和强化学习环境。
 
