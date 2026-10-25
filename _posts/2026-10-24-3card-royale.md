@@ -14,7 +14,7 @@ article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.0.0"
-last_modified_at: "2026-10-25 00:00:00 +0800"
+last_modified_at: "2026-10-26 00:00:00 +0800"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
@@ -23,7 +23,7 @@ I wanted to make a replayable two-player game using a single ordinary deck of ca
 
 Two people and an ordinary deck should be enough to get started. After a few games, there should still be choices worth thinking about. Luck brings variety; judgment changes the outcome; an opponent's move changes what I want to do next.
 
-That idea became **3Card Royale**, or **深圳花牌** in Chinese: a 1v1 game built around three-card combinations. Attacks deal wounds, successful defenses earn opportunities to swap cards, and the cards received as wounds can re-enter play. Both players climb from 2 to Ace. Win your own Ace challenge, and you bloom.
+That idea became **3Card Royale**, aka **Shenzhen Flower Cards** (深圳花牌): a 1v1 game built around three-card combinations. Attacks deal wounds, successful defenses earn opportunities to swap cards, and the cards received as wounds can re-enter play. Both players climb from 2 to Ace. Win your own Ace challenge, and you bloom.
 
 The project now includes a browser playtest, a complete rulebook, a Shenzhen-inspired visual identity, a reproducible neural policy baseline and a reinforcement-learning environment.
 
