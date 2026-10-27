@@ -6,7 +6,7 @@ author: "Xiaolong Zhu"
 show_url: true
 tags: ["blog"]
 lang: "en"
-summary: "From a replayable two-player card game to bougainvillea, green circuit boards and a neural policy in the browser."
+summary: "One deck, two players: Shenzhen-inspired design, a neural baseline and an open AI Arena."
 permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
@@ -14,7 +14,7 @@ article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.1.0"
-last_modified_at: "2026-10-26 00:00:00 +0800"
+last_modified_at: "2026-10-27 00:00:00 +0800"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
@@ -25,7 +25,7 @@ Two people and an ordinary deck should be enough to get started. After a few gam
 
 That idea became **3Card Royale**, aka **Shenzhen Flower Cards** (深圳花牌): a 1v1 game built around three-card combinations. Attacks deal wounds, successful defenses earn opportunities to swap cards, and the cards received as wounds can re-enter play. Both players climb from 2 to Ace. Win your own Ace challenge, and you bloom.
 
-The project now includes a browser playtest, a complete rulebook, a Shenzhen-inspired visual identity, a reproducible neural policy baseline and a reinforcement-learning environment.
+The project now includes a browser playtest, a complete rulebook, a Shenzhen-inspired visual identity, a reproducible neural baseline and an open AI Arena. Play against a policy, or submit one of your own.
 
 ## 1. The starting point: a replayable duel with one deck
 {: #origin}
@@ -204,13 +204,13 @@ Latency for the neural models: scoring 220 candidates in Chrome on Mac, single-t
 
 The highest result, 46.5%, differs from the deployed model by just three wins. That is not enough to conclude it is stronger. This experiment also does not show a consistent relationship between greater model size and higher win rate. Data, objectives and the decision representation matter alongside parameter count.
 
-Balancing size, measured latency and playing results, I chose `256 → 128` for the browser.
+Balancing size, measured latency and playing results, I chose `256 → 128` for the built-in Medium opponent. The `512 → 256` checkpoint is also available through Arena.
 
 After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Easy AI with a visible notice so play can continue.
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 SDK Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 16. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
 
-### Four difficulties to play against
+### The built-in opponents
 
 The first three use only information visible to their seat. Godlike also sees your hand:
 
@@ -225,7 +225,7 @@ Hard uses the original table Code AI. It compares attacking hands, minimizes dam
 
 Easy uses the SDK baseline comparison on a sample of at most **64** plays. Before sampling defenses, it removes immediately losing responses if a safe one exists. Each swap opportunity redraws from the deck. It can recognize a useful hand while missing a stronger combination.
 
-There are two distinct policies: **SDK Code AI** is the frozen training teacher and experimental baseline; **browser Hard Code AI** is the original table policy. NN integration had accidentally routed Hard to the SDK policy; that regression is now fixed. The seven-policy results above retain their original opponent for reproducibility.
+There are two distinct policies: **SDK Code AI** is the frozen training teacher and experimental baseline; **browser Hard Code AI** is the original table policy. The seven-policy results above retain their original opponent for reproducibility.
 
 Against browser Hard Code AI, each policy plays 1,000 individual games, with paired seats and balanced first attackers. The first three share the same 500 seeds:
 
@@ -254,32 +254,62 @@ Those objectives may favor different choices. Can a defense improve the next pos
 
 Reproducibility is part of the baseline. The compressed training dataset is about 112.5 MB, so the repository stores fixed seeds, generation instructions, dependencies, checksums and reports, then regenerates the data through SDK Code AI self-play. The best ONNX model is version-controlled for the browser. In the recorded environment, both the dataset and deployed model have been reproduced byte for byte.
 
-[RL overview and checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=en) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
+[RL environment and checkpoint](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#research) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
 
-**Update · 1.1:** [AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) now accepts pure JavaScript and ONNX policies through PRs. The first season has five policies and 2,000 individual games, with paired seats and balanced first movers; its Elo is separate from the historical benchmarks above. Godlike is excluded. Pick an opponent on the leaderboard, or choose **Settings → Preferences → Difficulty → Arena**.
+## 5. Arena: bring a policy to the table
+{: #arena}
 
-Python or other code can be ported with Codex / Claude Code and checked against saved reference actions before submission. [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/v1.1.0/policies) · [Evaluation protocol](https://github.com/lucienzhu/3card-royale/blob/v1.1.0/arena/README.md).
+A game becomes more interesting when other people bring different ways to play it. **Arena** makes that possible for code: submit a strategy, earn a reference Elo, and let players challenge the same policy in their browsers. You can start with a few rules or a trained network.
 
-## 5. Try it: open the page and play a few games
+[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together. Click **Play** beside a policy, or choose **Settings → Preferences → AI opponent → Arena AI**. Each entry credits its author's GitHub handle. As of October 27, six policies are available, including the original Code AI, Easy, Random, the SDK teacher and both NN checkpoints.
+
+### One folder, two ways to play
+
+A submission lives in `policies/entries/your-policy-v1/`, with a manifest, source or weights, a README and a generated validation receipt. Add it to the registry with your GitHub handle. Use a new ID for each revision so a score always refers to the exact evaluated policy.
+
+| Format | Interface |
+| --- | --- |
+| JavaScript | `createPolicy → act(observation) → legal action index` |
+| ONNX | `state [1,336] + candidates [1,N,72] → logits [1,N]` |
+
+Both receive the acting player's information: their own hand and public cards, without the rival's hidden hand or deck order. JS strategies may remember public observations within a game. The current ONNX contract has no recurrent state. **Godlike is excluded from the ladder.**
+
+No training is required for a JS policy. If your strategy is in Python or another language, port it with Codex or Claude Code and compare actions on saved observations before submitting. Each policy artifact is limited to 5 MB. GitHub Pages serves the reviewed files; a browser Worker runs the policy locally. The site loads registered submissions, not arbitrary uploads.
+
+### Validate first, rate at release
+
+1. **Local:** run `npm run arena:validate`, then `npm run arena:submit -- --policy your-policy-v1`. This plays four games against Code AI, covering both seats and first movers. Commit the resulting `validation.json`.
+2. **PR:** CI replays those games and checks matching results, legal actions and time limits. It checks playability; it does not award Elo.
+3. **Publication:** after review and merge, the policy appears as **Unrated**. A GitHub Release or a manual **Publish Arena** run evaluates pending policies, commits the results and rebuilds Pages. The leaderboard updates automatically.
+
+{% include royale-figure.html src="/img/blog/3card-royale/arena-flow-en.svg" width="560" height="690" diagram=true alt="JS or ONNX policy: four local validation games, PR replay checks, 60 rated games at publication, then automatic leaderboard and browser play." caption="Figure 17. The submitted policy is shared by local evaluation and browser play. PR checks and rating are separate steps." %}
+
+Each new entry plays **20 games against each of three frozen references: Easy, NN 256 and Code AI**. That is 60 rated individual games, starting at level 2, with paired seats and balanced first attackers. Including fresh validation, publication costs **64 games per pending policy**, independent of the number already on the board. Unchanged scores are reused; browser games never change ratings.
+
+The references stay at **1387, 1440 and 1500**. The evaluator fits one rating to the 60 outcomes using the Elo win-probability curve, with a declared prior that keeps all-win or all-loss results finite. This is a **provisional reference Elo**, without a K-factor update or game-order effect. Small gaps do not establish strength; a fixed panel and public seeds can also be overfit. [Exact calculation and limits](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md).
+
+NN512 has now completed this full submission route: the **512 → 256** checkpoint scored **1443**, winning **30/60** games across the reference panel. Its per-opponent results were 13/20 against Easy, 9/20 against NN256 and 8/20 against Code AI. This is a dated example, not a replacement for its earlier 1,000-game SDK benchmark or evidence that it beats NN256. [PR](https://github.com/lucienzhu/3card-royale/pull/52) · [Saved rating](https://github.com/lucienzhu/3card-royale/blob/9fbb4d5b0933b493545a321c92e7d8c15ec69494/arena/results/leaderboard.json).
+
+[Live leaderboard](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder) · [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
+
+## 6. Try it: open the page and play a few games
 {: #play}
 
 The rules work for two people with a physical deck. The current browser playtest is human versus AI, free and available on mobile and desktop without registration.
 
-New players start on **Easy AI**. Change the difficulty or try the neural policy here:
+New players start on **Easy AI**. Choose another opponent under **Settings → Preferences → AI opponent**: Easy, Medium · NN AI, Hard · Code AI, Godlike, or **Arena AI** for registered policies.
 
-> Settings → Preferences → Difficulty → Easy / Medium · NN AI / Hard / Godlike · Sees your hand
+The first visit begins with a short practice: **8 cards → attack with three Aces → resolve → defend with a flush → take 1 wound**. Wound icons show what happened. The first real game then introduces playable wound cards and swapping with contextual hints.
 
-A one-page guide appears on your first visit: **start with 8 cards, mix hand and face-up wound cards to pick 3, attack once and defend once; 5 wounds lose the game.** Its example combines two hand cards and one wound card.
-
-The same browser remembers that you have seen it and will not show it automatically again. Reopen or disable it in **Settings → Preferences → Quick start**. The full rules and guided walkthrough remain under Rules.
+The browser remembers completion. **Quick start** in Settings lets you disable hints or **Practice again**. On mobile, swipe across cards to select them. Resolved encounters advance automatically to the next attack or defense; choices such as swapping remain yours.
 
 After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 17. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 18. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 18. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 19. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 19. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 20. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
 
 The source, rules, design system, environment and model materials are open. Come and play, or try your own policy, model or rule idea.
 
@@ -287,4 +317,4 @@ I hope this becomes a game that two people can begin at any time, learn somethin
 
 **One deck. Two players. Three cards. Make them bloom.**
 
-[Play](https://lucienzhu.github.io/3card-royale/?lang=en) · [RL and policy baseline](https://lucienzhu.github.io/3card-royale/rl.html?lang=en) · [GitHub](https://github.com/lucienzhu/3card-royale)
+[Play](https://lucienzhu.github.io/3card-royale/?lang=en) · [AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) · [GitHub](https://github.com/lucienzhu/3card-royale)
