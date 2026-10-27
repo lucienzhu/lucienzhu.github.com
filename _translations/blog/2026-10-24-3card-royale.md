@@ -6,7 +6,7 @@ author: "Xiaolong Zhu"
 show_url: true
 tags: ["blog"]
 lang: "zh-CN"
-summary: "从耐玩的双人对战，到三角梅与绿色电路板，再到浏览器里的神经网络策略。"
+summary: "从一副牌的双人对战、三角梅与绿色电路板，到神经网络基线与开放 AI 天梯。"
 permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
@@ -14,7 +14,7 @@ article_image: "/img/blog/3card-royale/cover.png"
 extra_css: ["/css/royale-article.css?v=random-baseline1"]
 update_id: "3card-royale"
 release_tag: "v1.1.0"
-last_modified_at: "2026-10-26 00:00:00 +0800"
+last_modified_at: "2026-10-27 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
@@ -26,7 +26,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 这个想法慢慢变成了**深圳花牌（3Card Royale，aka Shenzhen Flower Cards）**：一个围绕三张牌展开的 1v1 游戏。进攻造成伤害，防守赢得换牌机会，受伤后留下的牌也能重新参与战斗。两个人从 2 级一路打到 A，最后赢下自己的 A 局，就算“开花”。
 
-如今，它有了可以直接打开的网页试玩、完整规则、深圳主题的视觉设计，也有了一套可复现的神经网络策略基线和强化学习环境。
+如今，它有了网页试玩、完整规则、深圳主题的视觉设计、可复现的神经网络基线，以及开放的 AI 天梯。可以来挑战一个策略，也可以提交自己的打法。
 
 ## 1. 起心动念：用一副扑克牌，做一个耐玩的双人对战游戏
 {: #origin}
@@ -207,13 +207,13 @@ Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此
 
 最高的 46.5% 与上线模型的 46.2%，在这次评估里只相差三局，不能据此认定前者更强。这次实验也没有显示出“模型越大，胜率就越高”的稳定趋势。数据、目标和决策方式，都值得和参数量一起考虑。
 
-综合模型大小、实测延迟和对战表现，网页采用了 `256 → 128`。
+综合模型大小、实测延迟和对战表现，内置中等档采用 `256 → 128`；`512 → 256` checkpoint 也已通过 Arena 提供。
 
 训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Easy AI 并显示提示，让对局可以继续。
 
 {% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 SDK Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
 
-### 四档难度，四种对手
+### 内置的四种对手
 
 前三档只看己方可见信息；超凡额外看到你的手牌：
 
@@ -228,7 +228,7 @@ Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此
 
 Easy 使用 SDK 基线的比较方式，但只抽取最多 **64** 个组合。防守时，如果存在不会立即输局的应对，就先排除致命选择；每次换牌机会都从牌堆抽牌。它会正常选牌，也会漏掉更好的组合。
 
-这里需要区分两个策略：**SDK Code AI** 是固定的训练教师与实验基线；**网页困难档 Code AI** 是原牌桌策略。接入 NN 时曾误用 SDK 策略，现已修复。上方七种策略的历史结果仍保留原基线，方便复现。
+这里需要区分两个策略：**SDK Code AI** 是固定的训练教师与实验基线；**网页困难档 Code AI** 是原牌桌策略。上方七种策略的历史结果仍保留原基线，方便复现。
 
 对网页困难档 Code AI，各评估 1,000 小局，交换席位并平衡先攻；前三组使用相同的 500 个种子：
 
@@ -257,32 +257,62 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 SDK Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
 
-[RL 页面与 checkpoint](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
+[RL 环境与 checkpoint](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#research) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
 
-**1.1 更新：**[AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 开放纯 JavaScript 和 ONNX 策略投稿。首赛季 5 个策略、2,000 小局，交换座位并平衡先攻，Elo 与上面的历史实验分开统计；Godlike 不参赛。可以在榜单挑选对手，也可以从**设置 → 偏好 → 难度 → 天梯**进入。
+## 5. Arena：带一个策略来打天梯
+{: #arena}
 
-Python 等语言的策略可先用 Codex / Claude Code 转成 JS，对照固定样本验证动作一致，再提交 PR。[接口与模板](https://github.com/lucienzhu/3card-royale/tree/v1.1.0/policies) · [评估协议](https://github.com/lucienzhu/3card-royale/blob/v1.1.0/arena/README.md)。
+一个游戏有趣，也因为不同的人会带来不同的打法。**Arena** 把这件事开放给代码：提交一个策略，获得基准 Elo，再让玩家在浏览器里挑战同一份策略。可以从几条判断规则开始，也可以训练一个网络。
 
-## 5. 体验：打开网页，先打几局
+[AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。在榜单点「挑战」，或进入 **设置 → 偏好 → AI 对手 → Arena AI**，就能挑选策略。每个条目都带作者的 GitHub handle。截至 10 月 27 日，已有六个策略：牌桌 Code AI、Easy、Random、SDK 训练教师，以及两个 NN checkpoint。
+
+### 一个目录，两种策略
+
+投稿放在 `policies/entries/your-policy-v1/`：版本声明、代码或权重、README，以及本地验证生成的回执。再把策略和 GitHub handle 加入注册表。修改策略时使用新 ID，让每个分数都对应实际评估过的那一版。
+
+| 格式 | 接口 |
+| --- | --- |
+| JavaScript | `createPolicy → act(observation) → 合法动作序号` |
+| ONNX | `state [1,336] + candidates [1,N,72] → logits [1,N]` |
+
+两种策略都只能获得当前座位的信息：自己的手牌和公开牌，看不到对手暗牌或牌堆顺序。JS 可以在一小局内记忆公开观察；当前 ONNX 接口没有循环状态。**明牌 Godlike 不进天梯。**
+
+纯代码策略无需训练。Python 等语言的策略可以先用 Codex 或 Claude Code 转成 JS，再用保存的观察样本核对动作一致性。单个策略文件不超过 5 MB。GitHub Pages 提供审核后的文件，浏览器 Worker 在玩家设备上执行；网页加载已注册的策略，不接受任意文件上传。
+
+### 先验证，再在发版时评分
+
+1. **本地：**运行 `npm run arena:validate`，再运行 `npm run arena:submit -- --policy your-policy-v1`。与 Code AI 打四小局，覆盖两个座位和先攻，把生成的 `validation.json` 一起提交。
+2. **PR：**CI 重放这四局，核对结果、合法动作和运行时限。这里只验证能否对战，不算 Elo。
+3. **发布：**审核合并后先显示「暂未评分」。发布 GitHub Release，或手动运行 **Publish Arena**，才为待评分策略打分、提交结果并重建 Pages，榜单随之自动更新。
+
+{% include royale-figure.html src="/img/blog/3card-royale/arena-flow.svg" width="560" height="690" diagram=true alt="JS 或 ONNX 策略：本地四局验证，PR 重放检查，发布时六十局评分，自动更新天梯并供网页挑战。" caption="图 17 · 同一份策略用于本地评估和网页试玩；PR 验证与发布评分分开进行。" %}
+
+每个新策略分别与三个固定基准 **Easy、NN256、Code AI 各打 20 小局**，共 60 局，从 2 级开始，交换座位并平衡先攻。加上重新验证的四局，每次发布是 **每个待评分策略 64 局**，不随已有策略数量增加。已有评分复用；玩家在网页上的胜负不影响 Elo。
+
+三个基准固定在 **1387、1440、1500**。评估器用 Elo 胜率公式，一次拟合 60 局的结果；加入已声明的先验，避免全胜、全败产生无穷分数。这是**暂定的基准 Elo**，不使用逐局 K 值更新，也不受对局顺序影响。小分差不代表强弱已定；固定对手和公开种子也可能被针对优化。[完整算法与限制](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md)。
+
+NN512 已经走完一次完整投稿：**512 → 256** checkpoint 在这套基准中获得 **1443 分、30/60 胜**，其中对 Easy 为 13/20、NN256 为 9/20、Code AI 为 8/20。这是当次发布的记录，不替代前面的千局 SDK 实验，也不能据此断言它强于 NN256。[PR](https://github.com/lucienzhu/3card-royale/pull/52) · [当次评分](https://github.com/lucienzhu/3card-royale/blob/9fbb4d5b0933b493545a321c92e7d8c15ec69494/arena/results/leaderboard.json)。
+
+[实时天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder) · [接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
+
+## 6. 体验：打开网页，先打几局
 {: #play}
 
 规则本身可以用实体扑克进行双人对战。当前网页试玩提供的是人机对局，免费，无需注册，手机和桌面都可以打开。
 
-新玩家默认 **Easy AI**。切换难度或体验神经网络模型，可以进入：
+新玩家默认 **Easy AI**。在 **设置 → 偏好 → AI 对手** 中可以选择简单、中等 NN、困难 Code、明牌 Godlike，或选择 **Arena AI** 体验已注册的策略。
 
-> 设置 → 偏好 → 难度 → 简单 / 中等 · NN AI / 困难 / 超凡 · Godlike AI（明牌）
+第一次先练一小段：**8 张牌 → 三个 A 进攻 → 结算 → 同花防守 → 受 1 伤**，用受伤图标显示结果。正式首局再通过气泡提示，介绍伤牌也能出、换牌怎么选。
 
-首次进入会显示一页引导：**起手 8 张，从手牌和公开伤牌中混选 3 张，进攻一次、防守一次；5 伤输局。** 图中用两张手牌和一张伤牌组成一手，让第一次选牌就有方向。
-
-同一浏览器记住已看状态，下次不再自动弹出；在 **设置 → 偏好 → 新手引导** 中可以重看或关闭。完整规则和进阶教学仍在「规则」里。
+浏览器会记住完成状态。「新手引导」可以关闭，也能点「再练一次」。手机上可以划过多张牌进行选择；攻防结算后自动进入下一步，换牌等选择仍由你决定。
 
 一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 17 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 18 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 18 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 19 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 19 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
+{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 20 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
 
 项目的源码、规则、设计规范、环境和模型资料都已经开放。可以来玩，也可以带着自己的策略、模型或者规则想法继续尝试。
 
@@ -290,4 +320,4 @@ Python 等语言的策略可先用 Codex / Claude Code 转成 JS，对照固定�
 
 **一副牌，两个人，三张牌，打出花。**
 
-[开始玩](https://lucienzhu.github.io/3card-royale/?lang=zh-CN) · [RL 与策略基线](https://lucienzhu.github.io/3card-royale/rl.html?lang=zh-CN) · [GitHub](https://github.com/lucienzhu/3card-royale)
+[开始玩](https://lucienzhu.github.io/3card-royale/?lang=zh-CN) · [AI 天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) · [GitHub](https://github.com/lucienzhu/3card-royale)

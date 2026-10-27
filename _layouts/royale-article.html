@@ -9,7 +9,7 @@ layout: default
       <p class="royale-deck">{{ page.summary | escape }}</p>
       <p class="royale-meta"><a href="{{ locale_prefix | append: '/' | relative_url }}">{{ page.author }}</a> · <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time> · <a href="{{ page.alternate_url }}" lang="{% if page.lang == 'zh-CN' %}en{% else %}zh-CN{% endif %}">{% if page.lang == 'zh-CN' %}English{% else %}中文{% endif %}</a>{% if page.release_tag %} · <a href="https://github.com/lucienzhu/3card-royale/releases/tag/{{ page.release_tag }}">{{ page.release_tag }}</a>{% endif %}</p>
       <nav class="royale-toc" aria-label="{% if page.lang == 'zh-CN' %}文章目录{% else %}In this article{% endif %}">
-        {% if page.lang == 'zh-CN' %}<a href="#origin">起心动念</a><a href="#design">设计理念</a><a href="#rules">规则与对局</a><a href="#rl">强化学习</a><a href="#play">体验</a>{% else %}<a href="#origin">Motivation</a><a href="#design">Design</a><a href="#rules">The game</a><a href="#rl">Reinforcement learning</a><a href="#play">Try it</a>{% endif %}
+        {% if page.lang == 'zh-CN' %}<a href="#origin">起心动念</a><a href="#design">设计理念</a><a href="#rules">规则与对局</a><a href="#rl">强化学习</a><a href="#arena">AI 天梯</a><a href="#play">体验</a>{% else %}<a href="#origin">Motivation</a><a href="#design">Design</a><a href="#rules">The game</a><a href="#rl">Reinforcement learning</a><a href="#arena">AI Arena</a><a href="#play">Try it</a>{% endif %}
       </nav>
     </header>
     {{ content }}
