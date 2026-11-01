@@ -230,7 +230,7 @@ for (const lang of ['zh-CN','en']) {
   s+=t(44,2174,tr('入模值最多显示 6 位小数。','Encoded values rounded to 6 decimals.'),20,C.muted);
   s+=down(280,2218,26);
   s+=box(24,2260,512,110,C.dark,'none',16)+t(280,2308,'312 + 6 + 18 = 336',35,C.darkInk,800,'middle');
-  s+=t(280,2346,tr('当前状态 → 与候选动作一起评分','Current state + candidate → score'),23,C.darkInk,500,'middle');
+  s+=t(280,2346,tr('固定顺序的 336 维当前状态','336 fixed state features'),23,C.darkInk,500,'middle');
   s+=t(280,2408,tr('不含对手暗牌、牌堆顺序或历史。','No rival hand, deck order or history.'),23,C.muted,500,'middle');
   save('observation-state',2434,tr('336 维状态：六个牌区、全部阶段编码与 18 项原值和入模值','336-value state: six card zones, every phase bit, and all 18 raw and encoded position values'),s,lang);
   const node=(y,n,title,details)=>box(24,y,512,112)+t(48,y+45,n,28,C.redText,700)+t(104,y+44,title,28,C.ink,700)+t(104,y+84,details,24,C.muted);

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" role="img"><title>Fixed actions and conditional masks</title><rect width="1000" height="650" fill="#EDF4EF"/><g font-family="Arial, sans-serif" fill="#10251C">
+<text x="32" y="42" font-size="25" font-weight="700" text-anchor="start" fill="#10251C">Fixed meanings. Build one complete move.</text>
+<text x="32" y="76" font-size="17" font-weight="400" text-anchor="start" fill="#526B60">Card IDs 0–51 · play 3 / 4 / 5 cards · swaps and progression</text>
+<rect x="32" y="101" width="936" height="144" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="52" y="131" font-size="18" font-weight="700" text-anchor="start" fill="#10251C">Three Aces: choose the count, then the physical cards</text>
+<rect x="52" y="151" width="140" height="70" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="122" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#FFFFFF">PLAY_3</text>
+<text x="122" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#FFFFFF">[52]</text>
+<text x="206" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="221" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="291" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#10251C">A♠</text>
+<text x="291" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[12]</text>
+<text x="375" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="390" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="460" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#C5416B">A♥</text>
+<text x="460" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[25]</text>
+<text x="544" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="559" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="629" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#10251C">A♣</text>
+<text x="629" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[38]</text>
+<text x="713" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<text x="752" y="178" font-size="20" font-weight="700" text-anchor="start" fill="#16765F">Submit once</text>
+<text x="752" y="205" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">One GameCore step</text>
+<rect x="32" y="263" width="455" height="222" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="52" y="296" font-size="19" font-weight="700" text-anchor="start" fill="#10251C">Selected prefix → next mask</text>
+<text x="52" y="326" font-size="19" font-weight="400" text-anchor="start" fill="#526B60">PLAY_3 → A♠ → A♥</text>
+<rect x="52" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="77" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="77" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[0]</text>
+<rect x="119" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="144" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="144" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[12]</text>
+<rect x="186" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="211" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="211" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[18]</text>
+<rect x="253" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="278" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="278" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[25]</text>
+<rect x="320" y="345" width="50" height="46" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="345" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="white">1</text>
+<text x="345" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[38]</text>
+<rect x="387" y="345" width="50" height="46" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="412" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="white">1</text>
+<text x="412" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[48]</text>
+<text x="52" y="443" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">Excerpt: 1 allowed; 0 unavailable</text>
+<text x="52" y="467" font-size="15" font-weight="400" text-anchor="start" fill="#526B60">Used cards / lower IDs turn 0; IDs stay fixed</text>
+<rect x="507" y="263" width="461" height="222" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="527" y="296" font-size="19" font-weight="700" text-anchor="start" fill="#10251C">Swap: source → destination → target</text>
+<text x="527" y="333" font-size="17" font-weight="700" text-anchor="start" fill="#16765F">SWAP → 10♣ → RIVAL_WOUNDS → 3♠</text>
+<text x="527" y="365" font-size="18" font-weight="400" text-anchor="start" fill="#526B60">[55, 34, 64, 1]</text>
+<text x="527" y="401" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">Deck / blind: no hidden target-card ID</text>
+<text x="527" y="434" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">SKIP: one chance · STOP: remaining chances</text>
+<text x="527" y="466" font-size="15" font-weight="400" text-anchor="start" fill="#526B60">At most 6 tokens; remaining slots use PAD = 65</text>
+<rect x="32" y="508" width="936" height="110" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="52" y="544" font-size="20" font-weight="700" text-anchor="start" fill="#10251C">Current state 336 + prefix 396</text>
+<text x="512" y="544" font-size="25" font-weight="700" text-anchor="start" fill="#16765F">→ 256 → 128 → 65</text>
+<text x="52" y="586" font-size="17" font-weight="400" text-anchor="start" fill="#526B60">Shared MLP · conditional mask at every step · advance only after the complete move</text>
+</g></svg>
