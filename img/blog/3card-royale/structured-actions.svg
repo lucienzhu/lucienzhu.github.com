@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" role="img"><title>固定动作与条件掩码</title><rect width="1000" height="650" fill="#EDF4EF"/><g font-family="Arial, sans-serif" fill="#10251C">
+<text x="32" y="42" font-size="25" font-weight="700" text-anchor="start" fill="#10251C">固定含义，逐步构造一个完整动作</text>
+<text x="32" y="76" font-size="17" font-weight="400" text-anchor="start" fill="#526B60">牌 ID 0–51 · 出 3 / 4 / 5 张 · 换牌与流程操作</text>
+<rect x="32" y="101" width="936" height="144" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="52" y="131" font-size="18" font-weight="700" text-anchor="start" fill="#10251C">三个 A：先选张数，再选实体牌</text>
+<rect x="52" y="151" width="140" height="70" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="122" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#FFFFFF">PLAY_3</text>
+<text x="122" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#FFFFFF">[52]</text>
+<text x="206" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="221" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="291" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#10251C">A♠</text>
+<text x="291" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[12]</text>
+<text x="375" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="390" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="460" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#C5416B">A♥</text>
+<text x="460" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[25]</text>
+<text x="544" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<rect x="559" y="151" width="140" height="70" rx="10" fill="#FFFFFF" stroke="#C4D7CB"/>
+<text x="629" y="179" font-size="22" font-weight="700" text-anchor="middle" fill="#10251C">A♣</text>
+<text x="629" y="205" font-size="15" font-weight="400" text-anchor="middle" fill="#526B60">[38]</text>
+<text x="713" y="191" font-size="23" font-weight="400" text-anchor="middle" fill="#526B60">→</text>
+<text x="752" y="178" font-size="20" font-weight="700" text-anchor="start" fill="#16765F">完整提交一次</text>
+<text x="752" y="205" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">GameCore 推进一步</text>
+<rect x="32" y="263" width="455" height="222" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="52" y="296" font-size="19" font-weight="700" text-anchor="start" fill="#10251C">当前前缀 → 下一步 mask</text>
+<text x="52" y="326" font-size="19" font-weight="400" text-anchor="start" fill="#526B60">PLAY_3 → A♠ → A♥</text>
+<rect x="52" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="77" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="77" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[0]</text>
+<rect x="119" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="144" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="144" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[12]</text>
+<rect x="186" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="211" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="211" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[18]</text>
+<rect x="253" y="345" width="50" height="46" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="278" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="#526B60">0</text>
+<text x="278" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[25]</text>
+<rect x="320" y="345" width="50" height="46" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="345" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="white">1</text>
+<text x="345" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[38]</text>
+<rect x="387" y="345" width="50" height="46" rx="10" fill="#16765F" stroke="#C4D7CB"/>
+<text x="412" y="375" font-size="22" font-weight="700" text-anchor="middle" fill="white">1</text>
+<text x="412" y="413" font-size="14" font-weight="400" text-anchor="middle" fill="#526B60">[48]</text>
+<text x="52" y="443" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">节选：1 可选；0 不可选</text>
+<text x="52" y="467" font-size="15" font-weight="400" text-anchor="start" fill="#526B60">已选牌 / 更小 ID 变 0，ID 含义不变</text>
+<rect x="507" y="263" width="461" height="222" rx="10" fill="#F7FBF8" stroke="#C4D7CB"/>
+<text x="527" y="296" font-size="19" font-weight="700" text-anchor="start" fill="#10251C">换牌：来源 → 目标区域 → 目标牌</text>
+<text x="527" y="333" font-size="17" font-weight="700" text-anchor="start" fill="#16765F">SWAP → 10♣ → RIVAL_WOUNDS → 3♠</text>
+<text x="527" y="365" font-size="18" font-weight="400" text-anchor="start" fill="#526B60">[55, 34, 64, 1]</text>
+<text x="527" y="401" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">换牌堆 / 盲换：不指定暗牌 ID</text>
+<text x="527" y="434" font-size="16" font-weight="400" text-anchor="start" fill="#526B60">SKIP：跳过一次 · STOP：结束换牌</text>
+<text x="527" y="466" font-size="15" font-weight="400" text-anchor="start" fill="#526B60">最多 6 个 token；其余补 PAD = 65</text>
+<rect x="32" y="508" width="936" height="110" rx="10" fill="#E2ECE5" stroke="#C4D7CB"/>
+<text x="52" y="544" font-size="20" font-weight="700" text-anchor="start" fill="#10251C">当前状态 336 + 前缀 396</text>
+<text x="512" y="544" font-size="25" font-weight="700" text-anchor="start" fill="#16765F">→ 256 → 128 → 65</text>
+<text x="52" y="586" font-size="17" font-weight="400" text-anchor="start" fill="#526B60">共享 MLP 逐步预测 · 每步应用条件 mask · 完整动作才推进游戏</text>
+</g></svg>

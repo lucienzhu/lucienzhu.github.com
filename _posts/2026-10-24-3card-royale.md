@@ -11,10 +11,10 @@ permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
-extra_css: ["/css/royale-article.css?v=random-baseline1"]
+extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
 update_id: "3card-royale"
 release_tag: "v1.1.0"
-last_modified_at: "2026-10-27 00:00:00 +0800"
+last_modified_at: "2026-11-01 00:00:00 +0800"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
@@ -136,132 +136,92 @@ Private hands, public wounds, a shared wild card and decisions that carry betwee
 
 [Full rules](https://lucienzhu.github.io/3card-royale/rules.html?lang=en) · [A4 rules card](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.en.pdf)
 
-## 4. Reinforcement learning: begin with a small baseline
+## 4. Reinforcement learning: one environment, different policies
 {: #rl}
 
-Once the rules were playable, I wanted to see how a model would learn the game.
+The game combines hidden information, random deals and connected decisions about attack, defense and resources. A reproducible environment makes those decisions testable: fix the deals, change the policy, and compare outcomes.
 
-It has hidden information, random deals and connected decisions about attack, defense and resources. Spending a card changes the current comparison, the following defense and the combinations available next round. A reproducible environment lets us run these decisions repeatedly, fix the seeds and compare policies.
+GameCore is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against shared replay sequences. The browser and self-play collector use JavaScript; Gymnasium uses the native Python core, and PyTorch trains on saved examples.
 
-The project provides a Gymnasium environment and a shared observation/action interface for training, evaluation and deployment.
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Four native rules cores with replay parity, public observations for policies, and separate browser and training hosts." caption="Figure 11. One ruleset, shared contracts. Godlike has a separate, explicitly open-hand interface." %}
 
-The rules core is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against the same replay sequences. The browser uses JavaScript; Gym and training use the native Python core.
+### What a policy can see
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. SDK / NN policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 11. SDK / NN information boundary. Godlike uses a separate open-hand route." %}
+The neural policies receive their own hand, both public wound areas, discards, current played cards and position metadata. Each of the **six card zones** uses 52 presence bits in fixed card order. Another **6 phase bits + 18 values** give a **336-dimensional observation**. Neither network receives the rival's private hand, deck order or a history sequence.
 
-The browser's current **NN AI is a behavior-cloning baseline**. It learns to imitate SDK Code AI's choices. Training through rewards is the next direction to explore from this starting point.
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="2434" diagram=true alt="A saved swap observation: all six 52-card zones, six phase bits, and 18 metadata values, with their raw values and normalization." caption="Figure 12. Every observation feature. Card zones are multi-hot; phase is one-hot. This example has 29 cards in the deck, encoded as 29 / 52." %}
 
-### What the NN policy observes and how it acts
+### Stable meanings, conditional choices
 
-The NN policy receives only information available to the acting player: their hand, both public wound areas, discards, the current played cards, and state such as the phase, levels, wild card and card counts. It cannot see the rival's private hand or the deck order.
+All policies submit the same complete action through **actions-v2**. Physical card IDs stay fixed: suits ♠, ♥, ♣, ♦, each ordered 2 through Ace. Token IDs 0–51 identify those cards; 52–54 mean `PLAY_3`, `PLAY_4`, `PLAY_5`; 55–64 cover swaps, destinations and progression. `PAD = 65` fills unused sequence positions.
 
-Each of the six card zones records presence as 0 or 1 in a fixed 52-card order. Add 6 phase bits and 18 position values or flags for a **336-dimensional current observation**. There is no recurrent memory or full-history input.
+For three Aces, the sequence is `PLAY_3 → A♠ → A♥ → A♣`. Selected cards cannot repeat. Ascending card IDs give every play a unique representation, regardless of click order. Four- and five-card plays must form valid bombs. A swap names its source and destination, plus a target card for a visible card area. `SKIP` uses one opportunity; `STOP` ends the remaining opportunities.
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg?v=values1" width="560" height="2434" diagram=true alt="An actual swap observation: six 52-card sets, all six phase bits, and all 18 remaining features with raw values, encoded values and normalization formulas. You are seat 1; the rival is seat 0." caption="Figure 12. Every state feature, using the same saved swap decision. Card zones are multi-hot; the phase is one-hot. The remaining values are normalized numbers or binary flags." %}
+The **65-bit conditional mask** marks tokens that can still complete a legal move. Its values change with the state and selected prefix; token meanings do not. Gym accepts the completed move as six padded tokens, `MultiDiscrete([66] × 6)`, and advances the game once. [Action contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md).
 
-In this sample, it is game 1, round 4, and you are seat 1 with two swap chances left. Seat 0/1 levels and Ace-loss counts use fixed seat order; roles and wound counts are relative to you. For example, 29 cards in the deck becomes `29 / 52 ≈ 0.557692`; “your turn to act” becomes `1`. The task is one game, so the full-match flag is `0`. Indices and formulas in the figure follow the [actual encoder](https://github.com/lucienzhu/3card-royale/blob/428df779a6335c5c1d7bf350637646324c6fda8b/sdk/features.js).
+{% include royale-figure.html src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed token IDs form a three-card play or swap. A conditional mask filters each continuation before the complete move is submitted." caption="Figure 13. One action protocol for code, whole-move scoring and autoregressive policies." %}
 
-Legal actions vary with the cards and phase. The environment generates candidates for the current decision, encoding each with **72 features**. The Gym interface has up to 512 candidate slots; an action mask excludes unused slots.
+### Two ways to model a decision
 
-The policy scores the legal candidates and chooses the highest score. Its two hidden layers have 256 and 128 units, with ReLU activations. Every candidate uses the same network. The 512 slots are a candidate capacity: an action index refers to the current candidate table, which is regenerated at the next decision.
+**Whole-move scoring** enumerates legal moves. A shared MLP scores each `336-value state + 72-value move descriptor`; the highest-scoring move is submitted. Its internal list position may change, but the selected move is converted to stable card IDs.
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy-en.svg" width="1100" height="488" alt="A 336-feature observation and a 72-feature candidate action feed a shared MLP with 256 and 128 hidden units and one output score." caption="Figure 13. The deployed policy scores current legal candidates without access to hidden opponent information." %}
+**Autoregressive generation** starts with an operation and predicts one token at a time. A shared MLP receives the same state plus a 396-value prefix encoding, then outputs 65 token scores. Masked decoding takes at most six calls to build one move.
 
-### Start with 10,000 games of SDK Code AI self-play
+| Policy | Network | Parameters | ONNX |
+| --- | --- | ---: | ---: |
+| Whole-move scoring | 408 → 256 → 128 → 1 | 137,729 | 0.55 MB |
+| Autoregressive | 732 → 256 → 128 → 65 | 228,929 | 0.92 MB |
 
-Two SDK Code AI players completed **10,000 individual games**, producing **252,859 decisions**.
+The protocol constrains valid actions, not how a policy learns or searches. Both models currently use **behavior cloning from SDK Code AI**, a frozen teacher distinct from browser Hard Code AI. Neither has been trained from rewards. The scorer also uses handcrafted hand features, so this comparison does not isolate architecture alone.
 
-The data is split by whole games: 8,000 for training, 1,000 for validation and 1,000 for testing. Decisions from both seats of the same game stay in the same split, avoiding leakage between closely related positions.
+### Training and reproduction
 
-Training uses PyTorch. TensorBoard records training and validation loss, action agreement and other metrics. Checkpoint selection uses validation loss.
+Each recipe generates **10,000 SDK self-play games**, split by whole game into **8,000 training / 1,000 validation / 1,000 test**. The scorer has 252,859 decision samples; the autoregressive dataset has 252,906 decisions and 988,571 target tokens. Separate recipes and seeds account for the different counts.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="Training and validation cross-entropy over ten epochs; validation loss is lowest at epoch five." caption="Figure 14. Ten recorded training epochs. Epoch 5 has the lowest validation loss and supplies the deployed checkpoint. Further reductions in training loss did not improve validation loss." %}
+The scorer uses cross-entropy over legal complete moves. The generator uses masked, teacher-forced token cross-entropy, weighting each complete decision equally. PyTorch trains both; TensorBoard records train/validation curves. Validation loss selects epoch **5** for the scorer and **16** for the generator.
 
-The deployed model has **137,729 parameters** and about **0.55 MB** of ONNX weights. Its agreement with SDK Code AI on the held-out test set is **89.36%**. Agreement measures imitation; winning requires a separate evaluation.
+{% include royale-figure.html src="/img/blog/3card-royale/structured-training-en.svg" width="1000" height="420" alt="Autoregressive training and validation loss over 40 epochs; minimum validation loss selects epoch 16." caption="Figure 14. Autoregressive training. Checkpoint selection uses validation loss, not playing results." %}
 
-### How well does it play against SDK Code AI?
+The scorer matches the teacher's **whole move 89.36%** of the time on its test split. The generator reaches **90.44% teacher-forced token accuracy**. These are different metrics: correct tokens under a supplied prefix do not guarantee a correct free-running move. The generator's teacher also supplies no positive `SKIP` or `STOP` examples.
 
-Five models use the same training dataset. I also evaluate an untrained random policy and Easy AI, which compares up to 64 candidate plays. All seven play SDK Code AI on the same 500 evaluation seeds, with both seats and balanced first attackers: 1,000 individual games per policy, starting at level 2.
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="SDK Code AI self-play, whole-game split, whole-move scoring or autoregressive training, validation checkpoint selection, and ONNX browser deployment." caption="Figure 15. Both recipes connect self-play, training and browser inference through one action protocol." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg?v=sdk-baseline1" width="677" height="425" alt="Against SDK Code AI, Random wins 0.1%, Easy with 64 candidates 36.1%, and the five models 45.0% to 46.5%, including 46.2% for the deployed model." caption="Figure 15. Same opponent and seeds, 1,000 games per policy. The axis spans 0–100%. Small differences among the five models do not establish a strength ranking." %}
+Data exceeds the repository's 10 MB budget, so deterministic generation recipes and hashes replace dataset downloads. The best ONNX weights, histories, runtime versions and evaluation records are checked in. To evaluate newly trained weights, register a new immutable policy ID and validate it; the supplied baseline evaluation command loads the checked-in entries. [Scoring recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [Autoregressive recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured).
 
-| Policy | ONNX size | Latency p95 | Win rate vs SDK Code AI |
-| --- | ---: | ---: | ---: |
-| Random | — | — | 0.1% |
-| Easy · 64 | — | — | 36.1% |
-| 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
-| 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
-| **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
-| 256 → 512 | 0.95 MB | 1.8 ms | 46.5% |
-| 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
+### Baseline evaluation
+
+Each cell below uses **1,000 individual games**, with the same 500 seeds, swapped seats, balanced first attackers and level-2 starts. **Code AI** is the browser's Hard opponent; **SDK Code AI** is the training teacher. All **19,000 games** completed with no illegal actions or truncations.
+
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg" width="864" height="576" alt="Win rates for eight public-information policies against browser Code AI and SDK Code AI, on the same 500 paired seeds." caption="Figure 16. Same deals, two opponents. Each bar covers 1,000 games; the full 0–100% axis keeps differences in perspective." %}
+
+| Policy | ONNX | Latency p95 | vs Code AI | vs SDK Code AI |
+| --- | ---: | ---: | ---: | ---: |
+| Random | — | 0.21 ms | 0.0% | 0.0% |
+| Easy · 64 | — | 0.59 ms | 34.1% | 35.6% |
+| SDK Code AI | — | 0.66 ms | 48.0% | Self |
+| Scoring · 64 → 32 | 0.11 MB | 0.73 ms | 41.9% | 47.8% |
+| Scoring · 128 → 64 | 0.24 MB | 0.88 ms | 42.5% | 44.4% |
+| Scoring · 256 → 128 | 0.55 MB | 1.32 ms | 42.6% | 45.5% |
+| Scoring · 256 → 512 | 0.95 MB | 2.54 ms | 43.6% | 44.7% |
+| Scoring · 512 → 256 | 1.37 MB | 2.71 ms | 40.3% | 45.8% |
+| Autoregressive · 256 → 128 | 0.92 MB | 0.87 ms | 23.9% | 26.6% |
+| Godlike · open hand | — | 18.12 ms | 67.0% | 67.5% |
 {: .royale-policy-results }
 
-Random chooses uniformly from legal candidate actions, including swaps and declines. It won **1/1,000 games**, with no truncations or illegal actions; two full runs produced identical records. It has no ONNX model or measured neural inference latency. [Experiment and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md#uniform-random-baseline) · [Raw results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/nn-policy-v1/random-baseline.json).
+Latency is the highest opponent-batch p95 for a complete policy decision on **Apple M1 / Node 22 / single-thread WASM**. It includes encoding and all inference calls, excluding initial loading and inter-thread messaging. It is not a mobile benchmark. ONNX sizes cover weights; code policies have no ONNX artifact. [Reports, hashes and reproduction](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline).
 
-Easy’s 64 is a limit on candidate plays, not a neural-network width. It has no ONNX file; heuristic latency has not been measured here.
+The scorer wins **42.6%** against Hard, while the autoregressive checkpoint wins **23.9%**. In their direct matchup, the generator wins **28.8%**. A fixed protocol makes policies interoperable; it does not make one model stronger. Small differences between scoring widths do not establish a strength ranking. Godlike sees the rival's hand and is excluded from the public-information ladder.
 
-Latency for the neural models: scoring 220 candidates in Chrome on Mac, single-threaded WASM, FP32; 100 runs after 3 warmups. Inference only, excluding download, feature extraction and UI delay. Timings vary with browser/system load; phones are not yet measured. [Raw benchmark](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json).
+An [11,000-game neural comparison](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines) also covers Easy, Random and the registered NN512 scorer. It shares 4,000 games with the table above: together these reports contain **26,000 distinct games**, not 30,000.
 
-The highest result, 46.5%, differs from the deployed model by just three wins. That is not enough to conclude it is stronger. This experiment also does not show a consistent relationship between greater model size and higher win rate. Data, objectives and the decision representation matter alongside parameter count.
-
-Balancing size, measured latency and playing results, I chose `256 → 128` for the built-in Medium opponent. The `512 → 256` checkpoint is also available through Arena.
-
-After training, the model is exported to ONNX and runs through JavaScript in a browser Worker. The 0.55 MB figure covers weights; the WASM runtime is cached separately. If loading or inference fails, the game falls back to Easy AI with a visible notice so play can continue.
-
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="10,000 SDK Code AI self-play games produce 252,859 decisions, split by whole games into 8,000 training, 1,000 validation and 1,000 test games. PyTorch trains the 256/128 policy, epoch 5 is selected by validation loss, and ONNX runs in a browser Worker." caption="Figure 16. The shipped pipeline uses imitation labels. Reward-based RL remains the next experiment." %}
-
-### The built-in opponents
-
-The first three use only information visible to their seat. Godlike also sees your hand:
-
-| Difficulty | Policy | How it chooses |
-| --- | --- | --- |
-| Easy | Easy AI | Up to 64 candidate plays; deck redraws |
-| Medium | NN AI | The deployed 256 → 128 MLP |
-| Hard | Code AI | Original table policy; preserves combinations and evaluates swaps |
-| Godlike | Current-hand search | Sees both current hands; no memory of past plays |
-
-Hard uses the original table Code AI. It compares attacking hands, minimizes damage when defending and seeks swap opportunities, while considering useful combinations left in hand. It evaluates swap gains, including blind rival-hand swaps, visible wound swaps and deck redraws. It sees only information available to its seat and does not search future turns.
-
-Easy uses the SDK baseline comparison on a sample of at most **64** plays. Before sampling defenses, it removes immediately losing responses if a safe one exists. Each swap opportunity redraws from the deck. It can recognize a useful hand while missing a stronger combination.
-
-There are two distinct policies: **SDK Code AI** is the frozen training teacher and experimental baseline; **browser Hard Code AI** is the original table policy. The seven-policy results above retain their original opponent for reproducibility.
-
-Against browser Hard Code AI, each policy plays 1,000 individual games, with paired seats and balanced first attackers. The first three share the same 500 seeds:
-
-| Policy | Win rate vs Hard Code AI |
-| --- | ---: |
-| Easy · 64 | **31.5%** (315 / 1,000) |
-| NN · 256 → 128 | **41.2%** (412 / 1,000) |
-| SDK Code AI baseline | **45.3%** (453 / 1,000) |
-| [Godlike · Open hand](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json) | **65.0%** (650 / 1,000) |
-
-Godlike sees your hand without card memory; independent seeds and extra information make this a separate comparison.
-
-An additional NN/SDK control reproduces every earlier outcome: 462 wins (46.2%). The first three groups plus this control complete all 4,000 games without illegal actions. [Browser-policy evaluation records](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json).
-
-Easy still wins **44.1%** against NN; its historical 36.1% against SDK Code is unchanged. The earlier 48-candidate version won 39.0% and 30.4%, respectively, on the same seeds. We chose 64 after this comparison, so these seeds are not an untouched test of that choice. The labels do not measure human difficulty.
-
-[Policy and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.md) · [SDK baseline results](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48-candidate archive](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
-
-### Next, let rewards guide learning
-
-This baseline connects the environment, data generation, training, evaluation and browser deployment. It provides a concrete point of comparison.
-
-A next step is to initialize from these behavior-cloning weights and continue learning from win/loss rewards. The environment distinguishes individual-game and full-match tasks: the former ends after one game, while the latter continues through the Ace challenge. The deployed model was trained for the individual-game setting; a reward-driven RL trainer has not yet been implemented.
-
-Those objectives may favor different choices. Can a defense improve the next position? Is it worth taking a risk for a larger final wound difference? How should resource allocation change against different opponents? These are questions for further experiments.
-
-Reproducibility is part of the baseline. The compressed training dataset is about 112.5 MB, so the repository stores fixed seeds, generation instructions, dependencies, checksums and reports, then regenerates the data through SDK Code AI self-play. The best ONNX model is version-controlled for the browser. In the recorded environment, both the dataset and deployed model have been reproduced byte for byte.
-
-[RL environment and checkpoint](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#research) · [Experiment reports](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [Training and reproduction](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
+A next experiment is to learn from several good moves or continue from these checkpoints using win/loss rewards. Gym supports both individual games and full matches through the Ace challenge; the current baselines train on individual games. Reward-driven RL remains future work.
 
 ## 5. Arena: bring a policy to the table
 {: #arena}
 
 A game becomes more interesting when other people bring different ways to play it. **Arena** makes that possible for code: submit a strategy, earn a reference Elo, and let players challenge the same policy in their browsers. You can start with a few rules or a trained network.
 
-[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together. Click **Play** beside a policy, or choose **Settings → Preferences → AI opponent → Arena AI**. Each entry credits its author's GitHub handle. As of October 27, six policies are available, including the original Code AI, Easy, Random, the SDK teacher and both NN checkpoints.
+[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together. Click **Play** beside a policy, or choose **Settings → Preferences → AI opponent → Arena AI**. Each entry credits its author's GitHub handle. Seven policies are registered, spanning code, whole-move scoring and autoregressive models.
 
 ### One folder, two ways to play
 
@@ -269,8 +229,11 @@ A submission lives in `policies/entries/your-policy-v1/`, with a manifest, sourc
 
 | Format | Interface |
 | --- | --- |
-| JavaScript | `createPolicy → act(observation) → legal action index` |
-| ONNX | `state [1,336] + candidates [1,N,72] → logits [1,N]` |
+| JavaScript | `createPolicy → act(observation) → complete semantic action` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → move scores [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token scores [B,65]` |
+
+Both ONNX profiles and JS declare `royale-policy-v2` and `actions-v2`. Model-specific outputs map to the same complete semantic action before validation. The neural policies are separate rated entries; the 256 → 128 scorer remains a fixed Elo reference.
 
 Both receive the acting player's information: their own hand and public cards, without the rival's hidden hand or deck order. JS strategies may remember public observations within a game. The current ONNX contract has no recurrent state. **Godlike is excluded from the ladder.**
 
@@ -288,7 +251,7 @@ Each new entry plays **20 games against each of three frozen references: Easy, N
 
 The references stay at **1387, 1440 and 1500**. The evaluator fits one rating to the 60 outcomes using the Elo win-probability curve, with a declared prior that keeps all-win or all-loss results finite. This is a **provisional reference Elo**, without a K-factor update or game-order effect. Small gaps do not establish strength; a fixed panel and public seeds can also be overfit. [Exact calculation and limits](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md).
 
-NN512 has now completed this full submission route: the **512 → 256** checkpoint scored **1443**, winning **30/60** games across the reference panel. Its per-opponent results were 13/20 against Easy, 9/20 against NN256 and 8/20 against Code AI. This is a dated example, not a replacement for its earlier 1,000-game SDK benchmark or evidence that it beats NN256. [PR](https://github.com/lucienzhu/3card-royale/pull/52) · [Saved rating](https://github.com/lucienzhu/3card-royale/blob/9fbb4d5b0933b493545a321c92e7d8c15ec69494/arena/results/leaderboard.json).
+Whole-move scoring **512 → 256** has provisional Elo **1443** (30/60 wins); autoregressive **256 → 128** has **1237** (14/60). Both use the same frozen reference panel. These 60-game ratings are separate from the 1,000-game baseline evaluation above. [Rating records](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1).
 
 [Live leaderboard](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder) · [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
 
@@ -297,7 +260,7 @@ NN512 has now completed this full submission route: the **512 → 256** checkpoi
 
 The rules work for two people with a physical deck. The current browser playtest is human versus AI, free and available on mobile and desktop without registration.
 
-New players start on **Easy AI**. Choose another opponent under **Settings → Preferences → AI opponent**: Easy, Medium · NN AI, Hard · Code AI, Godlike, or **Arena AI** for registered policies.
+New players start on **Easy AI**. Choose another opponent under **Settings → Preferences → AI opponent**: Easy, NN AI, Hard · Code AI, Godlike, or **Arena AI** for registered policies. NN AI uses the autoregressive model; whole-move scorers are available under Arena AI.
 
 The first visit begins with a short practice: **8 cards → attack with three Aces → resolve → defend with a flush → take 1 wound**. Wound icons show what happened. The first real game then introduces playable wound cards and swapping with contextual hints.
 

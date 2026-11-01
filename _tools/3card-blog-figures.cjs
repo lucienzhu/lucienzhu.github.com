@@ -230,17 +230,19 @@ for (const lang of ['zh-CN','en']) {
   s+=t(44,2174,tr('入模值最多显示 6 位小数。','Encoded values rounded to 6 decimals.'),20,C.muted);
   s+=down(280,2218,26);
   s+=box(24,2260,512,110,C.dark,'none',16)+t(280,2308,'312 + 6 + 18 = 336',35,C.darkInk,800,'middle');
-  s+=t(280,2346,tr('当前状态 → 与候选动作一起评分','Current state + candidate → score'),23,C.darkInk,500,'middle');
+  s+=t(280,2346,tr('固定顺序的 336 维当前状态','336 fixed state features'),23,C.darkInk,500,'middle');
   s+=t(280,2408,tr('不含对手暗牌、牌堆顺序或历史。','No rival hand, deck order or history.'),23,C.muted,500,'middle');
   save('observation-state',2434,tr('336 维状态：六个牌区、全部阶段编码与 18 项原值和入模值','336-value state: six card zones, every phase bit, and all 18 raw and encoded position values'),s,lang);
-  const node=(y,n,title,details)=>box(24,y,512,112)+t(48,y+45,n,28,C.redText,700)+t(104,y+44,title,28,C.ink,700)+t(104,y+84,details,24,C.muted);
+  const node=(y,n,title,details)=>box(24,y,512,112)+t(48,y+45,n,28,C.redText,700)+t(104,y+44,title,26,C.ink,700)+t(104,y+84,details,22,C.muted);
   s=t(24,48,tr('从自对弈到浏览器','From self-play to the browser'),31,C.ink,700);
-  s+=node(80,'01','Code AI × Code AI',tr('10,000 小局 · 252,859 决策','10,000 games · 252,859 decisions'))+down(280,192,24);
+  s+=node(80,'01','SDK Code AI × SDK Code AI',tr('每套配方 10,000 小局','10,000 games per recipe'))+down(280,192,24);
   s+=node(230,'02',tr('按完整小局切分','Split by whole game'),tr('训练 8,000 / 验证 1,000 / 测试 1,000','8,000 train / 1,000 val / 1,000 test'))+down(280,342,24);
-  s+=node(380,'03','PyTorch + TensorBoard',tr('行为克隆 · 336 + 72 → 256 → 128 → 1','Imitation · 408 → 256 → 128 → 1'))+down(280,492,24);
-  s+=node(530,'04',tr('按验证损失选 checkpoint','Select by validation loss'),tr('第 5 轮 · 再用留出集与对战评估','Epoch 5 · then test and play evaluation'))+down(280,642,24);
-  s+=node(680,'05','ONNX → Web Worker',tr('0.55 MB 权重 · 浏览器本地推理','0.55 MB weights · local inference'));
-  s+=box(24,822,512,88,C.table,'none')+t(48,859,tr('已上线：学习 Code AI 的选择','Released: learns Code AI actions'),25,C.ink,600)+t(48,893,tr('下一步：用胜负奖励做强化学习','Next: RL from win/loss rewards'),24,C.muted);
-  save('training-pipeline',936,tr('行为克隆基线的训练与部署流程','Training and deployment of the behavior-cloning baseline'),s,lang);
+  s+=box(24,380,512,132)+t(48,422,'03',28,C.redText,700)+t(104,422,'PyTorch + TensorBoard',26,C.ink,700);
+  s+=t(104,459,tr('整手评分：408 → 256 → 128 → 1','Scoring: 408 → 256 → 128 → 1'),21,C.muted);
+  s+=t(104,491,tr('自回归：732 → 256 → 128 → 65','Autoreg.: 732 → 256 → 128 → 65'),21,C.muted)+down(280,512,18);
+  s+=node(548,'04',tr('按验证损失选模','Select by validation loss'),tr('整手评分 Epoch 5 · 自回归 Epoch 16','Scoring epoch 5 · Autoreg. epoch 16'))+down(280,660,22);
+  s+=node(700,'05','ONNX → Web Worker',tr('0.55 / 0.92 MB · 浏览器本地推理','0.55 / 0.92 MB · local inference'));
+  s+=box(24,842,512,66,C.table,'none')+t(280,883,'actions-v2',26,C.ink,700,'middle');
+  save('training-pipeline',936,tr('两种行为克隆基线的训练与部署流程','Training and deployment of both behavior-cloning baselines'),s,lang);
 }
 console.log('Generated 16 bilingual figures and 8 hand strips. All 8 hands pass Standard 1.0 evaluation.');

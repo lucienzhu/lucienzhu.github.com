@@ -11,10 +11,10 @@ permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
-extra_css: ["/css/royale-article.css?v=random-baseline1"]
+extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
 update_id: "3card-royale"
 release_tag: "v1.1.0"
-last_modified_at: "2026-10-27 00:00:00 +0800"
+last_modified_at: "2026-11-01 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
@@ -139,132 +139,92 @@ original_url: "/updates/2026/10/3card-royale/"
 
 [完整规则](https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN) · [A4 规则卡](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.zh-CN.pdf)
 
-## 4. 强化学习：从一个小基线开始
+## 4. 强化学习：一个环境，不同策略
 {: #rl}
 
-做出可以玩的规则之后，我也想看看：一个模型会怎样学习这套游戏？
+隐蔽信息、随机发牌，以及攻守之间的资源取舍，让这副牌也适合研究策略。固定发牌、替换策略、重复对战，就能比较不同决策带来的结果。
 
-深圳花牌有隐藏信息，有随机发牌，也有连续的攻守和资源调整。一张牌现在打出去，影响的不只是这次比较，还有稍后的防守和下一轮组合。这些问题很适合放进一个可以反复运行、固定种子、比较策略的环境里。
+GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原生实现，使用共同回放检查一致性。网页与自对弈采集使用 JavaScript；Gymnasium 使用 Python 核心，PyTorch 从保存的样本训练。
 
-项目提供了 Gymnasium 环境，也保留了可以训练、评估和部署的统一观察与动作接口。
+{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="四种原生核心通过回放校验，策略只接收可见观察，网页与训练分别接入同一套规则。" caption="图 11 · 一套规则，共同接口。Godlike 使用单独标明的明牌接口。" %}
 
-规则核心与界面、策略分开。JavaScript、Python、Rust 和 C++ 各有独立实现，通过同一套回放校验；网页使用 JavaScript，Gym 与训练使用原生 Python 核心。
+### 策略能看到什么
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；SDK／NN 策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 11 · SDK／NN 的信息边界。Godlike 使用独立的明牌接口。" %}
+神经网络接收己方手牌、双方公开伤牌、弃牌、当前出牌与局面信息。**六个牌区各占 52 位**，按固定顺序标记每张牌是否存在；再加 **6 位阶段 + 18 项状态**，得到 **336 维观察**。两个模型都不读取对手暗牌、牌堆顺序或历史序列。
 
-目前网页里的 **NN AI 是行为克隆基线**：它学习 SDK Code AI 的动作选择。奖励驱动的强化学习训练，是在这份基线上继续探索的方向。
+{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg" width="560" height="2434" diagram=true alt="实际换牌样本：六个 52 位牌区、六位阶段、其余 18 项状态，以及原值、入模值与归一化公式。" caption="图 12 · 完整的观察编码。牌区是 multi-hot，阶段是 one-hot；本例牌堆 29 张，编码为 29 / 52。" %}
 
-### 模型能看到什么，怎样选动作
+### 含义固定，合法性随选择变化
 
-NN 策略只能使用当前玩家有权知道的信息：自己的手牌、双方公开伤牌、弃牌、当前已出牌，以及阶段、等级、花牌和牌数等状态。它看不到对手暗手牌，也看不到牌堆顺序。
+所有策略都通过 **actions-v2** 提交一个完整动作。实体牌 ID 固定：按黑、红、梅、方排列，每种花色从 2 到 A。Token 0–51 对应这 52 张牌；52–54 是 `PLAY_3`、`PLAY_4`、`PLAY_5`；55–64 表示换牌、目标与流程操作。`PAD = 65` 只用于补齐序列。
 
-六个牌区，各按固定的 52 张牌顺序记 0/1。再加 6 维阶段编码和 18 维局面数值或标记，得到 **336 维当前状态**。没有循环记忆，也不输入整段对局历史。
+三个 A 的出牌编码为 `PLAY_3 → A♠ → A♥ → A♣`。同一张牌不能重复，出牌统一按 ID 升序，点击顺序不影响表示。四张、五张须构成合法炸弹。换牌指定来源与去向；去向是可见牌区时，再指定目标牌。`SKIP` 用掉本次机会，`STOP` 放弃剩余机会。
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg?v=values1" width="560" height="2434" diagram=true alt="真实换牌观察的完整编码：六组 52 维牌区、全部六个阶段位，以及其余 18 项状态的原始值、入模值和归一化公式。你是席位 1，对手是席位 0。" caption="图 12 · 同一份真实换牌样本的全部状态。牌区可有多个 1（multi-hot）；阶段只有一个 1（one-hot）；其余为归一化数值或 0/1 标记。" %}
+**65 位条件 mask** 标记哪些 token 仍能组成完整合法动作。它随局面与已选前缀变化，token 的含义不变。Gym 接受补齐为六位的完整动作 `MultiDiscrete([66] × 6)`，每个完整动作只推进一次游戏。[动作协议与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)。
 
-本例是第 1 局第 4 轮，你是席位 1，还剩 2 次换牌机会。等级和冲 A 失败数按固定席位 0/1 排列；身份与伤牌数则相对于“你”。例如，牌堆剩 29 张编码为 `29 / 52 ≈ 0.557692`，“轮到你行动”编码为 `1`；当前任务是小局，所以“整场任务”为 `0`。图中的序号和公式与[实际编码器](https://github.com/lucienzhu/3card-royale/blob/428df779a6335c5c1d7bf350637646324c6fda8b/sdk/features.js)一致。
+{% include royale-figure.html src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="固定 token 编成三张牌或换牌动作；每步通过条件 mask 过滤，最终一次性提交完整动作。" caption="图 13 · 纯代码、整手评分、自回归，共用一个动作协议。" %}
 
-合法动作会随着牌和阶段变化。环境为当前决策生成候选动作，每个候选用 **72 维特征**表示。Gym 接口最多提供 512 个候选槽位，并用合法动作掩码排除空槽。
+### 两种决策建模
 
-模型为每个合法候选评分，选择最高分。两层隐藏层分别为 256 和 128，使用 ReLU；所有候选共享同一个网络。512 是候选容量，动作索引的含义由当次候选表决定，下一次决策会重新生成。
+**整手评分**先枚举合法动作。共享 MLP 对每个「336 维状态 + 72 维动作特征」评分，取最高分。候选列表的位置可以变化，提交时转换为固定牌 ID。
 
-{% include royale-figure.html src="/img/blog/3card-royale/policy.svg" width="1100" height="488" alt="当前状态 336 维加候选动作 72 维，经过 256 和 128 两层隐藏层，得到一个动作分数。" caption="图 13 · 上线策略的结构。模型只给当前合法候选评分，不使用对手的隐藏信息。" %}
+**自回归**先决定操作，再逐个预测 token。共享 MLP 接收相同状态与 396 维前缀编码，输出 65 个 token 分数，经 mask 过滤，最多六次调用完成一个动作。
 
-### 先让 SDK Code AI 对弈 10,000 局
+| 策略 | 网络 | 参数 | ONNX |
+| --- | --- | ---: | ---: |
+| 整手评分 | 408 → 256 → 128 → 1 | 137,729 | 0.55 MB |
+| 自回归 | 732 → 256 → 128 → 65 | 228,929 | 0.92 MB |
 
-训练的第一步，是让两席 SDK Code AI 完成 **10,000 个小局**，记录双方的决策，得到 **252,859 条样本**。
+协议规定合法动作，不规定策略如何学习或搜索。两个模型目前都通过**行为克隆学习 SDK Code AI**；它是固定训练教师，与网页困难档 Code AI 不同。两者都还没有用奖励训练。整手评分还使用人工牌型特征，因此这不是只改变网络结构的对照实验。
 
-数据按完整小局划分为 8,000 局训练、1,000 局验证和 1,000 局测试。同一局的双方决策始终放在同一个集合，避免把高度相关的局面拆到训练和测试两边。
+### 训练与复现
 
-模型用 PyTorch 训练，TensorBoard 记录训练与验证的损失、动作一致率等曲线，按验证集损失选择 checkpoint。
+两套配方各采集 **10,000 小局** SDK 自对弈，按完整小局划分为 **8,000 训练 / 1,000 验证 / 1,000 测试**。整手评分有 252,859 条决策；自回归有 252,906 条决策、988,571 个目标 token。配方与种子不同，样本数也不同。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-loss.svg" width="708" height="319" alt="256 到 128 模型的训练与验证交叉熵曲线，验证损失在第 5 个 epoch 最低。" caption="图 14 · 已保存的十轮训练记录。第 5 个 epoch 的验证损失最低，因此保留这一 checkpoint。继续降低训练损失，没有继续改善验证损失。" %}
+整手评分在合法完整动作之间计算交叉熵；自回归使用带 mask 的 teacher forcing，每个完整决策总权重相同。PyTorch 训练，TensorBoard 记录 train/val 曲线。按验证损失选择 checkpoint：整手评分第 **5** 个 epoch，自回归第 **16** 个。
 
-最终上线模型有 **137,729 个参数**，ONNX 权重约 **0.55 MB**。留出测试集上，与 SDK Code AI 的动作一致率为 **89.36%**。动作一致率说明模仿得有多接近；实际能赢多少，还需要单独对战。
+{% include royale-figure.html src="/img/blog/3card-royale/structured-training.svg" width="1000" height="420" alt="自回归训练 40 个 epoch 的训练与验证损失，验证损失最低点为第 16 个 epoch。" caption="图 14 · 自回归训练曲线。按验证损失选模型，不用对战结果选模。" %}
 
-### 和 SDK Code AI 打，结果如何
+整手评分在测试集上有 **89.36% 的整手动作一致率**；自回归的 **teacher-forced token 准确率为 90.44%**。两者不是同一种指标：给定正确前缀后预测 token，不等于独立生成完整动作。自回归的教师也没有提供 `SKIP`、`STOP` 的正例。
 
-五个模型使用同一批训练数据，另加无需训练的随机策略，以及最多比较 64 个候选的 Easy AI。七种策略都使用相同的 500 个评估种子与 SDK Code AI 对战，交换席位并平衡先攻，从 2 级开始，每种评估 1,000 小局。
+{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈、按局切分、整手评分或自回归训练、验证选模，最后导出 ONNX 在浏览器运行。" caption="图 15 · 两种训练配方，通过同一动作协议接入评测与试玩。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg?v=sdk-baseline1" width="677" height="425" alt="对 SDK Code AI，随机策略胜率 0.1%，64 候选的 Easy 为 36.1%，五个模型为 45.0% 至 46.5%，上线模型为 46.2%。" caption="图 15 · 同一对手、相同种子，每种策略 1,000 局，横轴为 0–100%。五个模型间的小幅差异不足以证明强弱。" %}
+数据超过仓库 10 MB 的预算，因此保存确定性生成配方与哈希，不直接提交数据集。最佳 ONNX、训练记录、运行环境与评测结果均已保存。评估新训练的权重时，先注册新的不可变策略 ID 并本地验证；现成的基线评估命令读取的是仓库中的 checkpoint。[整手评分配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [自回归配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)。
 
-| 策略 | ONNX 大小 | 延迟 p95 | 对 SDK Code AI 胜率 |
-| --- | ---: | ---: | ---: |
-| 随机策略 | — | — | 0.1% |
-| Easy · 64 | — | — | 36.1% |
-| 64 → 32 | 0.11 MB | 0.3 ms | 45.2% |
-| 128 → 64 | 0.24 MB | 1.9 ms | 46.0% |
-| **256 → 128** | **0.55 MB** | **1.1 ms** | **46.2%** |
-| 256 → 512 | 0.95 MB | 1.8 ms | 46.5% |
-| 512 → 256 | 1.37 MB | 2.0 ms | 45.0% |
+### 基线评估
+
+下表每格 **1,000 小局**：同一组 500 个种子，交换座位、平衡先攻，从 2 级开始。**Code AI** 是网页困难档；**SDK Code AI** 是训练教师。共 **19,000 小局**，全部完成，无非法动作或截断。
+
+{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="864" height="576" alt="八种公开信息策略，在相同 500 个配对种子下对战网页 Code AI 与 SDK Code AI 的胜率。" caption="图 16 · 相同发牌，两个对手。每条柱为 1,000 局，横轴保留完整的 0–100%。" %}
+
+| 策略 | ONNX | 延迟 p95 | 对 Code AI | 对 SDK Code AI |
+| --- | ---: | ---: | ---: | ---: |
+| 随机策略 | — | 0.21 ms | 0.0% | 0.0% |
+| Easy · 64 | — | 0.59 ms | 34.1% | 35.6% |
+| SDK Code AI | — | 0.66 ms | 48.0% | 自身 |
+| 整手评分 · 64 → 32 | 0.11 MB | 0.73 ms | 41.9% | 47.8% |
+| 整手评分 · 128 → 64 | 0.24 MB | 0.88 ms | 42.5% | 44.4% |
+| 整手评分 · 256 → 128 | 0.55 MB | 1.32 ms | 42.6% | 45.5% |
+| 整手评分 · 256 → 512 | 0.95 MB | 2.54 ms | 43.6% | 44.7% |
+| 整手评分 · 512 → 256 | 1.37 MB | 2.71 ms | 40.3% | 45.8% |
+| 自回归 · 256 → 128 | 0.92 MB | 0.87 ms | 23.9% | 26.6% |
+| Godlike · 明牌 | — | 18.12 ms | 67.0% | 67.5% |
 {: .royale-policy-results }
 
-随机策略从合法候选中均匀抽取，包括换牌和跳过，最终 **1 胜、999 负**，无截断、无非法动作；两次完整运行的记录一致。它无需 ONNX，神经网络推理延迟不适用。[实验与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md#uniform-random-baseline) · [原始记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/nn-policy-v1/random-baseline.json)。
+延迟是各对手批次中最高的完整决策 p95，环境为 **Apple M1 / Node 22 / 单线程 WASM**。包含编码和全部推理调用，不含初始化与线程间通信，不代表手机表现。ONNX 大小只计权重；纯代码策略没有 ONNX 文件。[原始记录、哈希与复现](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline)。
 
-Easy 的 64 指候选出牌上限，不是网络层宽度。它无需 ONNX；此处尚未测量规则策略耗时。
+整手评分对困难档胜率 **42.6%**，自回归为 **23.9%**；直接对战中，自回归胜率 **28.8%**。统一协议让策略可以互换，不保证某种模型更强。不同评分网络之间的小幅差异不足以确定强弱。Godlike 可见对手手牌，不参与公开信息天梯。
 
-神经模型延迟：Mac Chrome、单线程 WASM、FP32，对 220 个候选评分；预热 3 次后测量 100 次。仅计推理，不含下载、特征提取和界面等待。结果受浏览器与系统负载影响，手机端尚未实测。[原始记录](https://github.com/lucienzhu/3card-royale/blob/5f1b0fa79de4cdd1d9500d41cc3d53bc2190ca48/docs/experiments/nn-policy-v1/browser-profile.json)。
+另有 [11,000 局神经网络对照](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines)，覆盖 Easy、Random 与已注册的 NN512 整手评分模型。它与上表重合 4,000 局，两套评测合计 **26,000 个不同对局**，不是 30,000。
 
-最高的 46.5% 与上线模型的 46.2%，在这次评估里只相差三局，不能据此认定前者更强。这次实验也没有显示出“模型越大，胜率就越高”的稳定趋势。数据、目标和决策方式，都值得和参数量一起考虑。
+接下来可以学习多个好动作的分布，或从现有 checkpoint 出发，用胜负奖励继续训练。Gym 支持小局与从 2 到 A 的整场任务；当前基线训练的是小局，奖励驱动的强化学习仍待实验。
 
-综合模型大小、实测延迟和对战表现，内置中等档采用 `256 → 128`；`512 → 256` checkpoint 也已通过 Arena 提供。
-
-训练完成后，模型导出为 ONNX，通过 JavaScript 在浏览器的 Worker 中运行。0.55 MB 指模型权重，另有单独缓存的 WASM 运行时。加载或推理失败时，游戏会回退到 Easy AI 并显示提示，让对局可以继续。
-
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈一万小局产生 252859 条决策；按整局划分训练、验证、测试，经 PyTorch 训练，以验证损失选择第 5 轮权重，导出 ONNX 进入浏览器 Worker。" caption="图 16 · 当前流程学习 SDK Code AI 的动作标签；胜负奖励驱动的 RL 是后续实验。" %}
-
-### 内置的四种对手
-
-前三档只看己方可见信息；超凡额外看到你的手牌：
-
-| 难度 | 策略 | 选牌方式 |
-| --- | --- | --- |
-| 简单 | Easy AI | 最多看 64 个出牌候选；从牌堆换牌 |
-| 中等 | NN AI | 上线的 256 → 128 MLP |
-| 困难 | Code AI | 原牌桌策略，保留组合并评估换牌收益 |
-| 超凡 | Godlike AI | 看当前双方手牌；不记已出牌 |
-
-困难档使用原牌桌 Code AI：进攻比较牌力，防守优先少受伤、争取换牌机会，并考虑剩余牌能否组成好牌。换牌比较组合收益，可以盲换对手手牌、交换公开伤牌，也可以从牌堆抽牌。它只读取己方可见信息，不知道对手暗牌，也不向后搜索。
-
-Easy 使用 SDK 基线的比较方式，但只抽取最多 **64** 个组合。防守时，如果存在不会立即输局的应对，就先排除致命选择；每次换牌机会都从牌堆抽牌。它会正常选牌，也会漏掉更好的组合。
-
-这里需要区分两个策略：**SDK Code AI** 是固定的训练教师与实验基线；**网页困难档 Code AI** 是原牌桌策略。上方七种策略的历史结果仍保留原基线，方便复现。
-
-对网页困难档 Code AI，各评估 1,000 小局，交换席位并平衡先攻；前三组使用相同的 500 个种子：
-
-| 策略 | 对困难档 Code AI 胜率 |
-| --- | ---: |
-| Easy · 64 | **31.5%**（315 / 1,000） |
-| NN · 256 → 128 | **41.2%**（412 / 1,000） |
-| SDK Code AI 基线 | **45.3%**（453 / 1,000） |
-| [Godlike · 明牌](https://github.com/lucienzhu/3card-royale/blob/1887d08e29e4e6cb88e646b43308f18e1b9a57d2/docs/experiments/godlike-v1/evaluation.json) | **65.0%**（650 / 1,000） |
-
-Godlike 可看手牌、不记牌；使用独立种子，非同等信息比较。
-
-另保留 NN 对 SDK 的对照组，逐局复现此前的 462 胜（46.2%）。前三组加对照组的 4,000 局全部正常结束、无非法动作。[网页策略评估记录](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/table-code-evaluation.json)。
-
-Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候选版本在同一批种子上分别为 39.0% 和 30.4%。64 是比较后选定的，因此这组种子不再是未参与选型的独立测试集。难度名称不代表实测真人难度。
-
-[策略与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/DIFFICULTY.zh-CN.md) · [SDK 基线结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation.json) · [48 候选历史结果](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/docs/experiments/difficulty-v1/evaluation-48.json)
-
-### 下一步，让奖励指导学习
-
-这份基线打通了从环境、数据、训练、评估到网页部署的流程，也留下了一个可比较的起点。
-
-接下来可以从行为克隆权重出发，让策略通过胜负奖励继续学习。环境已经区分“小局”和“整场”任务：前者以一小局的胜负为目标，后者推进到冲 A 结束。当前上线模型按小局任务训练，尚未实现奖励驱动的 RL 训练器。
-
-这两种目标可能带来不同的策略。某次防守能否改善后续局面？是否值得冒险追求更大的终局伤势差？面对不同对手，怎样调整资源分配？这些都值得通过实验继续回答。
-
-复现也属于这个起点的一部分。训练数据压缩后约 112.5 MB，因此仓库保存固定种子、生成配方、依赖、校验值和实验报告，数据由 SDK Code AI 自对弈重新生成；最佳 ONNX 则直接进入版本控制，供网页使用。在记录的环境中，数据和上线模型已经完成逐字节一致的复现。
-
-[RL 环境与 checkpoint](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#research) · [实验记录](https://github.com/lucienzhu/3card-royale/tree/v1.0.0/docs/experiments/nn-policy-v1) · [训练与复现](https://github.com/lucienzhu/3card-royale/blob/v1.0.0/training/README.md)
-
-## 5. Arena：带一个策略来打天梯
+## 5. 竞技场：带一个策略来打天梯
 {: #arena}
 
 一个游戏有趣，也因为不同的人会带来不同的打法。**Arena** 把这件事开放给代码：提交一个策略，获得基准 Elo，再让玩家在浏览器里挑战同一份策略。可以从几条判断规则开始，也可以训练一个网络。
 
-[AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。在榜单点「挑战」，或进入 **设置 → 偏好 → AI 对手 → Arena AI**，就能挑选策略。每个条目都带作者的 GitHub handle。截至 10 月 27 日，已有六个策略：牌桌 Code AI、Easy、Random、SDK 训练教师，以及两个 NN checkpoint。
+[竞技场](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。在榜单点「挑战」，或进入 **设置 → 偏好 → AI 对手 → 竞技场 AI**，就能挑选策略。每个条目都带作者的 GitHub handle。竞技场现有七个策略，包括代码策略、整手评分与自回归模型。
 
 ### 一个目录，两种策略
 
@@ -272,8 +232,11 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 | 格式 | 接口 |
 | --- | --- |
-| JavaScript | `createPolicy → act(observation) → 合法动作序号` |
-| ONNX | `state [1,336] + candidates [1,N,72] → logits [1,N]` |
+| JavaScript | `createPolicy → act(observation) → 完整结构化动作` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → 动作分数 [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token 分数 [B,65]` |
+
+两种 ONNX 模型和 JS 均声明 `royale-policy-v2` 与 `actions-v2`。各自的模型输出先映射成同一种完整语义动作，再统一校验。两种神经网络分别注册、独立评分；整手评分 256 → 128 保持为固定 Elo 基准。
 
 两种策略都只能获得当前座位的信息：自己的手牌和公开牌，看不到对手暗牌或牌堆顺序。JS 可以在一小局内记忆公开观察；当前 ONNX 接口没有循环状态。**明牌 Godlike 不进天梯。**
 
@@ -291,7 +254,7 @@ Easy 对 NN 仍为 **44.1%**；此前对 SDK 的 36.1% 也没有改写。48 候�
 
 三个基准固定在 **1387、1440、1500**。评估器用 Elo 胜率公式，一次拟合 60 局的结果；加入已声明的先验，避免全胜、全败产生无穷分数。这是**暂定的基准 Elo**，不使用逐局 K 值更新，也不受对局顺序影响。小分差不代表强弱已定；固定对手和公开种子也可能被针对优化。[完整算法与限制](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md)。
 
-NN512 已经走完一次完整投稿：**512 → 256** checkpoint 在这套基准中获得 **1443 分、30/60 胜**，其中对 Easy 为 13/20、NN256 为 9/20、Code AI 为 8/20。这是当次发布的记录，不替代前面的千局 SDK 实验，也不能据此断言它强于 NN256。[PR](https://github.com/lucienzhu/3card-royale/pull/52) · [当次评分](https://github.com/lucienzhu/3card-royale/blob/9fbb4d5b0933b493545a321c92e7d8c15ec69494/arena/results/leaderboard.json)。
+整手评分 **512 → 256** 获得暂定 Elo **1443**（30/60 胜）；自回归 **256 → 128** 为 **1237**（14/60 胜）。二者按同一固定基准面板评分；这 60 局天梯成绩与上面的 1,000 局基线评测分别统计。[评分记录](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1)。
 
 [实时天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder) · [接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
 
@@ -300,7 +263,7 @@ NN512 已经走完一次完整投稿：**512 → 256** checkpoint 在这套基�
 
 规则本身可以用实体扑克进行双人对战。当前网页试玩提供的是人机对局，免费，无需注册，手机和桌面都可以打开。
 
-新玩家默认 **Easy AI**。在 **设置 → 偏好 → AI 对手** 中可以选择简单、中等 NN、困难 Code、明牌 Godlike，或选择 **Arena AI** 体验已注册的策略。
+新玩家默认 **Easy AI**。在 **设置 → 偏好 → AI 对手** 中可以选择 Easy、NN、困难 Code、明牌 Godlike，或选择 **竞技场 AI** 体验已注册策略。NN AI 使用自回归模型；整手评分模型可在竞技场 AI 中选择。
 
 第一次先练一小段：**8 张牌 → 三个 A 进攻 → 结算 → 同花防守 → 受 1 伤**，用受伤图标显示结果。正式首局再通过气泡提示，介绍伤牌也能出、换牌怎么选。
 
