@@ -13,8 +13,8 @@ article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
 extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
 update_id: "3card-royale"
-release_tag: "v1.1.0"
-last_modified_at: "2026-11-01 00:00:00 +0800"
+release_tag: "v1.2.0"
+last_modified_at: "2026-11-02 00:00:00 +0800"
 ---
 
 {% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
