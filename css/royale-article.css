@@ -15,3 +15,7 @@
 @media print{.royale-article .royale-toc{display:none}.royale-article .royale-figure,.royale-article table{break-inside:avoid}.royale-article h2,.royale-article h3{break-after:avoid}}
 
 .royale-article .royale-policy-results td:first-child{white-space:nowrap}
+@media screen and (max-width:700px){
+  .royale-article table:not(.royale-hands-table){display:block;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+  .royale-article .royale-policy-results th,.royale-article .royale-policy-results td{white-space:nowrap}
+}
