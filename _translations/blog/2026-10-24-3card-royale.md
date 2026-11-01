@@ -152,7 +152,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="标准规则对应四种原生核心，通过回放对齐；SDK／NN 策略只接收可见观察与合法动作。网页连接 JavaScript 与 ONNX，实验连接 Python、Gymnasium 与 PyTorch。" caption="图 11 · SDK／NN 的信息边界。Godlike 使用独立的明牌接口。" %}
 
-**11 月 1 日更新，位于 `unify-action-space` 分支：**新 NN 按固定含义逐步构造动作，仍通过行为克隆学习 SDK Code AI。这次迁移尚在验证，已发布的 v1 模型与成绩保留。奖励驱动的 RL 是后续实验。
+**11 月 1 日更新，位于 `unify-action-space` 分支：**统一动作空间与协议，允许纯代码、整手评分、自回归等不同模型接入。新的自回归基线仍通过行为克隆学习 SDK Code AI。这次迁移尚在验证，已发布的 v1 模型与成绩保留。奖励驱动的 RL 是后续实验。
 
 ### 模型能看到什么，怎样选动作
 
@@ -166,7 +166,7 @@ NN 策略只能使用当前玩家有权知道的信息：自己的手牌、双�
 
 ### 含义固定，合法性随选择变化
 
-v1 对每次重新生成的候选列表评分。新接口 **actions-v2** 则让每个 token 都有固定含义：**0–51 对应实体牌**，52–54 选择出 3、4、5 张，55–64 表示换牌、目标区域与流程操作。PAD = 65 只补齐序列，模型不会选择它。
+v1 对完整合法动作评分，这种建模方式在 **actions-v2** 里仍然适用：内部选好候选，提交固定牌 ID 的完整动作，而非临时候选序号。纯代码和自回归策略也提交同一种动作。序列编码中，每个 token 都有固定含义：**0–51 对应实体牌**，52–54 选择出 3、4、5 张，55–64 表示换牌、目标区域与流程操作。PAD = 65 只补齐序列，模型不会选择它。
 
 三个 A 的进攻是 `PLAY_3 → A♠ → A♥ → A♣`。每选一步，下一步的 **65 位 mask** 随之更新：`1` 表示还能补成合法动作，`0` 表示当前不可选；牌 ID 始终不变。已选牌不能重复，出牌按 ID 递增，避免同一手牌出现多种排列。四张、五张必须组成合法炸弹。
 
@@ -174,9 +174,11 @@ v1 对每次重新生成的候选列表评分。新接口 **actions-v2** 则让�
 
 {% include royale-figure.html src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="三个 A 的出牌序列与换牌序列。每个 token 含义固定，条件 mask 随前缀变化；完整动作只提交一次。" caption="图 13 · 固定含义、条件合法。逐张选择属于解码，完整提交才推进一次 GameCore。" %}
 
-模型仍读 **336 维局面**，再加 **396 维已选前缀**：6 个位置，每个位置用 65 个 token 加 PAD 的 one-hot 表示。共享 `732 → 256 → 128 → 65` MLP 预测下一个 token。屏蔽非法位置后做 softmax；推理选最高合法分，重复至动作完整，最多调用 6 次。
+当前的**自回归实验**仍读 **336 维局面**，再加 **396 维已选前缀**：6 个位置，每个位置用 65 个 token 加 PAD 的 one-hot 表示。共享 `732 → 256 → 128 → 65` MLP 预测下一个 token。屏蔽非法位置后做 softmax；推理选最高合法分，重复至动作完整，最多调用 6 次。
 
-Gym 用 `MultiDiscrete([66] × 6)` 接收补齐的完整序列。**这些输出不是独立选择**：RL 策略要逐步使用条件 mask。一个动作的 log probability 是各 token 的 log probability 之和，对应一次环境转移和奖励。非法或未完成的序列不会移动牌，也不会消耗发牌随机数。[接口与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)。
+Gym 用 `MultiDiscrete([66] × 6)` 接收完整动作的序列编码，并不规定模型结构。整手评分模型可以选好一个合法动作，再提交对应序列；自回归模型则用条件 mask 逐步构造。前者使用整手动作的 log probability，后者相加各 token 的 log probability；两者都只产生一次环境转移和奖励。非法提交不会移动牌，也不会消耗发牌随机数。[接口与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)。
+
+因此可以保留 v1 的候选排序训练方式，同时采用新动作协议。`scoring-v2` 沿用其 72 维动作特征，`structured-v2` 对应逐步生成。前者还包含牌型等人工特征，所以这两个 checkpoint 的对比不能单独归因于模型结构。目前两者都在模仿老师的 top-1；让多个好动作共同成为训练目标，再通过奖励改进，是后续实验。
 
 ### 重新训练一个可复现基线
 
@@ -297,9 +299,10 @@ GameCore 规则与存档保持原样。v2 适配器先验证结构化动作，�
 | 格式 | 接口 |
 | --- | --- |
 | JavaScript v2 | `createPolicy → act(observation) → 完整结构化动作` |
-| ONNX v2 | `state [B,336] + prefix [B,396] → token logits [B,65]` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → 动作分数 [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token 分数 [B,65]` |
 
-新声明使用 `royale-policy-v2` 与 `actions-v2`。已发布的 v1 JS 序号与候选评分 ONNX 继续用原加载器。结构化 checkpoint 单独注册，发布评分前为暂未评分，不替换 NN 的冻结 Elo 基准。
+两种 ONNX 模型和 JS 均声明 `royale-policy-v2` 与 `actions-v2`。各自的模型输出先映射成同一种完整语义动作，再统一校验。已发布的 v1 JS 序号与候选评分 ONNX 继续用原加载器。结构化 checkpoint 单独注册，发布评分前为暂未评分，不替换 NN 的冻结 Elo 基准。
 
 两种策略都只能获得当前座位的信息：自己的手牌和公开牌，看不到对手暗牌或牌堆顺序。JS 可以在一小局内记忆公开观察；当前 ONNX 接口没有循环状态。**明牌 Godlike 不进天梯。**
 

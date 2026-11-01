@@ -149,7 +149,7 @@ The rules core is separate from the interface and strategy. JavaScript, Python, 
 
 {% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg?v=godlike-scope1" width="560" height="884" diagram=true alt="Standard 1.0 has four native cores checked for replay parity. SDK / NN policies receive only visible observations and legal actions. The browser uses JavaScript and ONNX; experiments use Python, Gymnasium and PyTorch." caption="Figure 11. SDK / NN information boundary. Godlike uses a separate open-hand route." %}
 
-**November 1 update, on the `unify-action-space` branch:** the new NN baseline builds a move one token at a time. It still learns by behavior cloning from SDK Code AI. This migration is under review; the published v1 models and their results remain available. Reward-based RL is a further experiment.
+**November 1 update, on the `unify-action-space` branch:** one action space and protocol now support code, whole-move scoring and autoregressive models. The new autoregressive baseline still learns by behavior cloning from SDK Code AI. This migration is under review; the published v1 models and their results remain available. Reward-based RL is a further experiment.
 
 ### What the NN policy observes and how it acts
 
@@ -163,7 +163,7 @@ In this sample, it is game 1, round 4, and you are seat 1 with two swap chances 
 
 ### Stable meanings, conditional choices
 
-The v1 policy scored a fresh list of candidate moves. In **actions-v2**, every token has a fixed meaning: **0–51 identify physical cards**, 52–54 choose a 3-, 4- or 5-card play, and 55–64 describe swaps, destinations and progression. PAD = 65 only fills unused positions; the network never selects it.
+The v1 policy scored complete legal moves. That modeling approach also works with **actions-v2**: select a move internally, then submit its fixed card IDs instead of a temporary candidate index. Code and autoregressive policies submit the same action. In its token encoding, every token has a fixed meaning: **0–51 identify physical cards**, 52–54 choose a 3-, 4- or 5-card play, and 55–64 describe swaps, destinations and progression. PAD = 65 only fills unused positions; the network never selects it.
 
 For a three-Ace attack, the sequence is `PLAY_3 → A♠ → A♥ → A♣`. Each choice changes the next **65-bit mask**: `1` means that token can still lead to a complete legal move; `0` means it cannot. Card IDs remain constant. A selected card cannot repeat, and plays use ascending card-ID order so the same hand has one representation. Four- and five-card plays must form valid bombs.
 
@@ -171,9 +171,11 @@ A swap is `SWAP → source card → destination`, followed by a target card when
 
 {% include royale-figure.html src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed tokens build a three-Ace play or a swap. The conditional mask changes after every selected token. The complete action is submitted once." caption="Figure 13. Fixed token meanings, conditional legality. Card selection is decoding; GameCore advances once per complete move." %}
 
-The model receives the same **336 state features**, plus **396 features** for the selected prefix: six positions, each one-hot over 65 tokens plus PAD. A shared `732 → 256 → 128 → 65` MLP predicts the next token. Masked softmax supplies a distribution over legal continuations. Inference takes the highest legal logit and repeats until the move is complete, at most six calls.
+The current **autoregressive experiment** receives the same **336 state features**, plus **396 features** for the selected prefix: six positions, each one-hot over 65 tokens plus PAD. A shared `732 → 256 → 128 → 65` MLP predicts the next token. Masked softmax supplies a distribution over legal continuations. Inference takes the highest legal logit and repeats until the move is complete, at most six calls.
 
-Gym exposes a padded six-token sequence through `MultiDiscrete([66] × 6)`. **The heads are not independent:** an RL policy must decode with the conditional mask. The whole move has log probability equal to the sum of its token log probabilities, and receives one environment transition/reward. Invalid or incomplete sequences do not move cards or consume deal randomness. [Contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md).
+Gym accepts a complete move serialized as `MultiDiscrete([66] × 6)`. This does not prescribe the model architecture. A whole-move scorer chooses among legal actions and submits the selected sequence; an autoregressive policy builds that sequence with conditional masks. The scorer uses the complete move’s log probability; the generator sums token log probabilities. Both receive one transition and reward per complete move. Invalid submissions do not move cards or consume deal randomness. [Contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md).
+
+Whole-move scoring can retain the v1 learning setup while adopting the new action protocol. The `scoring-v2` profile reuses its 72-feature descriptor; `structured-v2` is the token-generation profile. The scorer includes handcrafted hand features, so comparing these checkpoints does not isolate architecture alone. Both currently imitate top-1 teacher choices. Learning a distribution over several good moves, then improving through rewards, remains future work.
 
 ### A new, reproducible baseline
 
@@ -294,9 +296,10 @@ A submission lives in `policies/entries/your-policy-v1/`, with a manifest, sourc
 | Format | Interface |
 | --- | --- |
 | JavaScript v2 | `createPolicy → act(observation) → complete semantic action` |
-| ONNX v2 | `state [B,336] + prefix [B,396] → token logits [B,65]` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → move scores [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token scores [B,65]` |
 
-The new manifest declares `royale-policy-v2` and `actions-v2`. Published v1 JS indices and candidate-scoring ONNX models keep their original loader. The structured checkpoint is a separate, unrated entry until release evaluation; it does not replace the frozen NN Elo reference.
+Both ONNX profiles and JS declare `royale-policy-v2` and `actions-v2`. Model-specific outputs map to the same complete semantic action before validation. Published v1 JS indices and candidate-scoring ONNX models keep their original loader. The structured checkpoint is a separate, unrated entry until release evaluation; it does not replace the frozen NN Elo reference.
 
 Both receive the acting player's information: their own hand and public cards, without the rival's hidden hand or deck order. JS strategies may remember public observations within a game. The current ONNX contract has no recurrent state. **Godlike is excluded from the ladder.**
 
