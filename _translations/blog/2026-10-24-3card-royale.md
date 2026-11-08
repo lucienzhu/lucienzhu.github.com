@@ -11,15 +11,15 @@ permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
-extra_css: ["/css/royale-article.css", "/css/royale-experiments.css"]
-extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css", "/css/royale-native.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js", "/js/royale-article/native.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
 last_modified_at: "2026-11-02 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
-{% include royale-figure.html src="/img/blog/3card-royale/cover.svg" width="1200" height="640" alt="三张金牌与绿色电路板" caption="一副牌，两个人，三张牌，打出花。" %}
+{% include royale-native.html kind="cover" src="/img/blog/3card-royale/cover.svg" caption="一副牌，两个人，三张牌，打出花。" %}
 
 我想用一副普通扑克牌，做一个耐玩的双人对战游戏。
 
@@ -46,7 +46,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 {% include royale-figure.html src="/img/blog/3card-royale/table-light.jpg" width="1000" height="900" alt="浅色牌桌：对手在上、玩家在下，中间展示当前攻防。" caption="图 1 · 实际试玩画面。对手已亮出同花，轮到你防守；暗手牌始终只显示牌背。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones.svg?v=boxes1" width="560" height="868" diagram=true alt="用边框标出八个牌区：上方是对手手牌和公开伤牌；中间是进攻牌、牌堆、弃牌和防守牌；下方是你的公开伤牌和手牌。" caption="图 2 · 牌区示意。手牌保密；伤牌公开，也能出牌。" %}
+{% include royale-native.html kind="card-zones" src="/img/blog/3card-royale/card-zones.svg?v=boxes1" caption="图 2 · 牌区示意。手牌保密；伤牌公开，也能出牌。" %}
 
 一手牌的价值会随着局面变化。同样三张牌，在不同的时候，可能是一次进攻、一道防线，也可能是下一轮更好组合的基础。
 
@@ -61,7 +61,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 标志是一张平涂的金色牌：金底、金边，中央是一朵红花，带着小小的金蕊。这个形象贯穿标志、牌背和花牌提示，让它们属于同一个游戏。
 
-{% include royale-figure.html src="/img/blog/3card-royale/identity.svg" width="1200" height="400" alt="红花代表三角梅与玩家，金牌统一标志牌背与花牌，绿色来自电路板。" caption="图 3 · 三个视觉元素：红花、金牌、绿色电路板。花形和牌标复用游戏当前的正式素材。" %}
+{% include royale-native.html kind="identity" src="/img/blog/3card-royale/identity.svg" caption="图 3 · 三个视觉元素：红花、金牌、绿色电路板。花形和牌标复用游戏当前的正式素材。" %}
 
 **花是主角，绿色的电路板是底盘。**
 
@@ -69,7 +69,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 颜色也承担着识别任务。玩家是红花，对手是金花；无论在牌桌、进度轨道还是分享图里，身份都保持一致。
 
-{% include royale-figure.html src="/img/blog/3card-royale/design-system.svg" width="560" height="712" diagram=true alt="明暗主题共用平涂金牌标志、牌背与花牌；红花是你，金花是对手。" caption="图 4 · 正式配色与素材。明暗两种绿底，都来自电路板。" %}
+{% include royale-native.html kind="design-system" src="/img/blog/3card-royale/design-system.svg" caption="图 4 · 正式配色与素材。明暗两种绿底，都来自电路板。" %}
 
 设置里还藏着一个电路板模式：牌区化作芯片，走线连接攻守，亮点随着行动流动。绿色底盘于是也参与了对局。
 
@@ -83,7 +83,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 这段动画与刚才的对局相连。最后出手的牌，成了胜利画面的起点。
 
-{% include royale-figure.html src="/img/blog/3card-royale/finale.svg" width="1080" height="1440" alt="完整对局结束后的开花海报，花群、白鹭、深圳天际线与升级轨道组成终局画面。" caption="图 6 · 用种子 0 完成整场对局后，由正式分享组件生成的结算图。每次对局的赢家和历程都来自真实记录。" %}
+{% include royale-native.html kind="finale" src="/img/blog/3card-royale/finale.svg" caption="图 6 · 种子 0 的整场结算示意：11 局，7 : 4，58 轮攻防。" %}
 
 单局胜利保留更轻的反馈。一小局打得漂亮，值得高兴；从 2 打到 A、完成整场挑战，值得一次更完整的绽放。两种胜利有不同的分量，画面也应该表达出来。
 
@@ -116,7 +116,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 所以，受伤会让你更接近败局，同时也会带来新的可用牌。它们公开可见，双方都能据此判断后续组合。你可能从伤牌里找到一次反击，对手也可能提前看见这个机会。
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds.svg" width="1200" height="420" alt="将公开伤牌 8♥ 与手牌 6♠、7♣ 组成顺子；出牌后原位置补入一张新伤牌，仍为 1 伤。" caption="图 9 · 伤牌参与出牌的流程示意。K♦ 仅为补牌示例；补牌来自牌堆，出伤牌不会回血。" %}
+{% include royale-native.html kind="wounds" src="/img/blog/3card-royale/wounds.svg" caption="图 9 · 伤牌参与出牌的流程示意。K♦ 仅为补牌示例；补牌来自牌堆，出伤牌不会回血。" %}
 
 ### 换牌机会，可以选择不用
 
@@ -126,7 +126,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 补牌的节奏同样重要。双方各进攻一次，才算完成一轮；两次攻防之间不补手牌，轮末保留未用牌，再补到 8 张。因此，第一次出手时，就需要想着第二次交锋。
 
-{% include royale-figure.html src="/img/blog/3card-royale/round-flow.svg" width="560" height="1000" diagram=true alt="进攻、回应、结算；达到 5 伤立即结束小局。否则交换攻守，再做一次攻防，轮末双方补到 8 张。" caption="图 10 · 一轮包含两次攻防；出现终局条件时立即停止。" %}
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow.svg" caption="图 10 · 一轮包含两次攻防；出现终局条件时立即停止。" %}
 
 ### 从 2 到 A，最后再赢一次
 
@@ -147,7 +147,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原生实现，使用共同回放检查一致性。网页与自对弈采集使用 JavaScript；Gymnasium 使用 Python 核心，PyTorch 从保存的样本训练。
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="四种原生核心通过回放校验，策略只接收可见观察，网页与训练分别接入同一套规则。" caption="图 11 · 一套规则，共同接口。Godlike 使用单独标明的明牌接口。" %}
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture.svg" caption="图 11 · 一套规则，共同接口。Godlike 使用单独标明的明牌接口。" %}
 
 ### 策略能看到什么
 
@@ -184,11 +184,11 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 整手评分在合法完整动作之间计算交叉熵；自回归使用带 mask 的 teacher forcing，每个完整决策总权重相同。PyTorch 训练，TensorBoard 记录 train/val 曲线。按验证损失选择 checkpoint：整手评分第 **5** 个 epoch，自回归第 **16** 个。
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-training.svg" width="1000" height="420" alt="自回归训练 40 个 epoch 的训练与验证损失，验证损失最低点为第 16 个 epoch。" caption="图 14 · 自回归训练曲线。按验证损失选模型，不用对战结果选模。" %}
+{% include royale-native.html kind="structured-training" src="/img/blog/3card-royale/structured-training.svg" caption="图 14 · 自回归训练曲线。按验证损失选模型，不用对战结果选模。" %}
 
 整手评分在测试集上有 **89.36% 的整手动作一致率**；自回归的 **teacher-forced token 准确率为 90.44%**。两者不是同一种指标：给定正确前缀后预测 token，不等于独立生成完整动作。自回归的教师也没有提供 `SKIP`、`STOP` 的正例。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈、按局切分、整手评分或自回归训练、验证选模，最后导出 ONNX 在浏览器运行。" caption="图 15 · 两种训练配方，通过同一动作协议接入评测与试玩。" %}
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline.svg" caption="图 15 · 两种训练配方，通过同一动作协议接入评测与试玩。" %}
 
 数据超过仓库 10 MB 的预算，因此保存确定性生成配方与哈希，不直接提交数据集。最佳 ONNX、训练记录、运行环境与评测结果均已保存。评估新训练的权重时，先注册新的不可变策略 ID 并本地验证；现成的基线评估命令读取的是仓库中的 checkpoint。[整手评分配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [自回归配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)。
 
@@ -249,7 +249,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 2. **PR：**CI 重放这四局，核对结果、合法动作和运行时限。这里只验证能否对战，不算 Elo。
 3. **发布：**审核合并后先显示「暂未评分」。发布 GitHub Release，或手动运行 **Publish Arena**，才为待评分策略打分、提交结果并重建 Pages，榜单随之自动更新。
 
-{% include royale-figure.html src="/img/blog/3card-royale/arena-flow.svg" width="560" height="690" diagram=true alt="JS 或 ONNX 策略：本地四局验证，PR 重放检查，发布时六十局评分，自动更新天梯并供网页挑战。" caption="图 17 · 同一份策略用于本地评估和网页试玩；PR 验证与发布评分分开进行。" %}
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow.svg" caption="图 17 · 同一份策略用于本地评估和网页试玩；PR 验证与发布评分分开进行。" %}
 
 每个新策略分别与三个固定基准 **Easy、NN256、Code AI 各打 20 小局**，共 60 局，从 2 级开始，交换座位并平衡先攻。加上重新验证的四局，每次发布是 **每个待评分策略 64 局**，不随已有策略数量增加。已有评分复用；玩家在网页上的胜负不影响 Elo。
 
@@ -272,11 +272,8 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 18 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
+{% include royale-native.html kind="sharing" src="sharing.svg" caption="图 18–20 · 种子 19 的第 1 局：完整回顾、决胜一手和最大伤害。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 19 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 20 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
 
 项目的源码、规则、设计规范、环境和模型资料都已经开放。可以来玩，也可以带着自己的策略、模型或者规则想法继续尝试。
 

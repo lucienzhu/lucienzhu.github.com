@@ -56,7 +56,7 @@ const handRows = hands.map(([zh,en,cards],score)=>{
   const alt_en=cards.map(([r,s])=>`${r} of ${suitNames[s][1]}`).join(', ')+(score===7?'; the heart 2 is wild and counts as a 7.':'');
   const art=cards.map(([r,s],i)=>card(2+i*60,2,r,s,52,score===7&&i===4)).join('');
   fs.writeFileSync(path.join(out,`hand-${slug}.svg`),`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><style>text{font-family:Arial,sans-serif}</style>${art}</svg>\n`);
-  return {slug,zh,en,score,count:cards.length,width,height,alt_zh,alt_en};
+  return {slug,zh,en,score,count:cards.length,width,height,alt_zh,alt_en,cards:cards.map(([rank,s])=>({rank,suit:{s:'♠',h:'♥',c:'♣',d:'♦'}[s],red:s==='h'||s==='d',wild:score===7&&rank==='2'&&s==='h'}))};
 });
 fs.mkdirSync(path.resolve(__dirname,'../_data'),{recursive:true});
 fs.writeFileSync(path.resolve(__dirname,'../_data/royale_hands.json'),JSON.stringify(handRows,null,2)+'\n');

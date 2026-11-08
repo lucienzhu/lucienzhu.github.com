@@ -11,14 +11,14 @@ permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
-extra_css: ["/css/royale-article.css", "/css/royale-experiments.css"]
-extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css", "/css/royale-native.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js", "/js/royale-article/native.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
 last_modified_at: "2026-11-02 00:00:00 +0800"
 ---
 
-{% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
+{% include royale-native.html kind="cover" src="/img/blog/3card-royale/cover-en.svg" caption="One deck. Two players. Three cards. Make them bloom." %}
 
 I wanted to make a replayable two-player game using a single ordinary deck of cards.
 
@@ -43,7 +43,7 @@ I eventually put the emphasis on the relationship between attack and defense. An
 
 {% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in English. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones-en.svg?v=boxes1" width="560" height="868" diagram=true alt="Eight outlined card zones: rival hand and public wounds above; attack, draw pile, discard pile and defense in the middle; your public wounds and hand below." caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
+{% include royale-native.html kind="card-zones" src="/img/blog/3card-royale/card-zones-en.svg?v=boxes1" caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
 
 The same three cards can become an attack, a defense or the beginning of a better combination next round. Their value depends on the position.
 
@@ -58,7 +58,7 @@ Bougainvillea is [Shenzhen's city flower](https://www.sz.gov.cn/ztfw/gysy/wyw_18
 
 The mark is a flat gold card: a gold surface and border, a red flower in the center and small gold stamens. The same image runs through the logo, card backs and wild-card indicator.
 
-{% include royale-figure.html src="/img/blog/3card-royale/identity-en.svg" width="1200" height="400" alt="Three visual elements: a red bougainvillea, a gold card and a green circuit board." caption="Figure 3. The current production flower and card mark, with the green circuit board that supports them." %}
+{% include royale-native.html kind="identity" src="/img/blog/3card-royale/identity-en.svg" caption="Figure 3. The current production flower and card mark, with the green circuit board that supports them." %}
 
 **The flower is the focal point. The green circuit board is the foundation.**
 
@@ -66,7 +66,7 @@ The green surface carries the cards and a little of Shenzhen's hardware characte
 
 Color also identifies the players. You are the red flower; your rival is gold. That distinction stays consistent across the table, progress track and shared images.
 
-{% include royale-figure.html src="/img/blog/3card-royale/design-system-en.svg" width="560" height="712" diagram=true alt="The same flat gold logo, card back and wild card on light and dark green themes; red identifies you and gold the rival." caption="Figure 4. Production colors and artwork. Both green themes come from the circuit-board idea." %}
+{% include royale-native.html kind="design-system" src="/img/blog/3card-royale/design-system-en.svg" caption="Figure 4. Production colors and artwork. Both green themes come from the circuit-board idea." %}
 
 There is a circuit-board mode in Settings too. Card zones become chips, traces connect the playing areas, and points of light move with the action. The green foundation takes part in the game.
 
@@ -80,7 +80,7 @@ The fullest expression is the bloom at the end of a match. After the winner clea
 
 The animation grows out of the game that just happened. The final play becomes the beginning of the victory image.
 
-{% include royale-figure.html src="/img/blog/3card-royale/finale-en.svg" width="1080" height="1440" alt="The final match poster combines flowers, egrets, the Shenzhen skyline and a rank progression track." caption="Figure 6. A completed match generated with seed 0, rendered by the production sharing component. The winner and progression come from the recorded game." %}
+{% include royale-native.html kind="finale" src="/img/blog/3card-royale/finale-en.svg" caption="Figure 6. A diagram of the recorded seed-0 result: 11 games, 7 : 4, 58 rounds." %}
 
 Winning a single game gets a lighter celebration. A good game deserves recognition; completing the journey from 2 through Ace deserves a fuller bloom. The visuals give those two achievements different weight.
 
@@ -113,7 +113,7 @@ Cards received as wounds are placed face up in the wound area. They still belong
 
 Being wounded brings you closer to losing, but also gives you new cards to work with. Both players can see them and consider the combinations they make possible. A wound might offer a counterattack that your opponent can also see coming.
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds-en.svg" width="1200" height="420" alt="The public wound card 8♥ joins 6♠ and 7♣ from the hand to make a straight, then its wound slot is refilled." caption="Figure 9. Playing a wound card does not heal it. K♦ is an example refill; the replacement comes from the deck." %}
+{% include royale-native.html kind="wounds" src="/img/blog/3card-royale/wounds-en.svg" caption="Figure 9. Playing a wound card does not heal it. K♦ is an example refill; the replacement comes from the deck." %}
 
 ### A swap is an opportunity, not an obligation
 
@@ -123,7 +123,7 @@ Each opportunity can be skipped independently. With two opportunities, you can u
 
 Refills give the round its rhythm. A round finishes after both players have attacked once. Hands are not refilled between those two encounters. At the end of the round, unused cards are kept and hands refill to eight. The first play therefore needs to leave something for the second encounter.
 
-{% include royale-figure.html src="/img/blog/3card-royale/round-flow-en.svg" width="560" height="1000" diagram=true alt="Attack, defend, resolve; reaching five wounds ends the game. Otherwise switch roles for a second encounter, then refill both hands to eight." caption="Figure 10. One round contains two encounters. A terminal result stops the loop immediately." %}
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow-en.svg" caption="Figure 10. One round contains two encounters. A terminal result stops the loop immediately." %}
 
 ### Reach Ace, then win once more
 
@@ -144,7 +144,7 @@ The game combines hidden information, random deals and connected decisions about
 
 GameCore is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against shared replay sequences. The browser and self-play collector use JavaScript; Gymnasium uses the native Python core, and PyTorch trains on saved examples.
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Four native rules cores with replay parity, public observations for policies, and separate browser and training hosts." caption="Figure 11. One ruleset, shared contracts. Godlike has a separate, explicitly open-hand interface." %}
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture-en.svg" caption="Figure 11. One ruleset, shared contracts. Godlike has a separate, explicitly open-hand interface." %}
 
 ### What a policy can see
 
@@ -181,11 +181,11 @@ Each recipe generates **10,000 SDK self-play games**, split by whole game into *
 
 The scorer uses cross-entropy over legal complete moves. The generator uses masked, teacher-forced token cross-entropy, weighting each complete decision equally. PyTorch trains both; TensorBoard records train/validation curves. Validation loss selects epoch **5** for the scorer and **16** for the generator.
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-training-en.svg" width="1000" height="420" alt="Autoregressive training and validation loss over 40 epochs; minimum validation loss selects epoch 16." caption="Figure 14. Autoregressive training. Checkpoint selection uses validation loss, not playing results." %}
+{% include royale-native.html kind="structured-training" src="/img/blog/3card-royale/structured-training-en.svg" caption="Figure 14. Autoregressive training. Checkpoint selection uses validation loss, not playing results." %}
 
 The scorer matches the teacher's **whole move 89.36%** of the time on its test split. The generator reaches **90.44% teacher-forced token accuracy**. These are different metrics: correct tokens under a supplied prefix do not guarantee a correct free-running move. The generator's teacher also supplies no positive `SKIP` or `STOP` examples.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="SDK Code AI self-play, whole-game split, whole-move scoring or autoregressive training, validation checkpoint selection, and ONNX browser deployment." caption="Figure 15. Both recipes connect self-play, training and browser inference through one action protocol." %}
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline-en.svg" caption="Figure 15. Both recipes connect self-play, training and browser inference through one action protocol." %}
 
 Data exceeds the repository's 10 MB budget, so deterministic generation recipes and hashes replace dataset downloads. The best ONNX weights, histories, runtime versions and evaluation records are checked in. To evaluate newly trained weights, register a new immutable policy ID and validate it; the supplied baseline evaluation command loads the checked-in entries. [Scoring recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [Autoregressive recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured).
 
@@ -246,7 +246,7 @@ No training is required for a JS policy. If your strategy is in Python or anothe
 2. **PR:** CI replays those games and checks matching results, legal actions and time limits. It checks playability; it does not award Elo.
 3. **Publication:** after review and merge, the policy appears as **Unrated**. A GitHub Release or a manual **Publish Arena** run evaluates pending policies, commits the results and rebuilds Pages. The leaderboard updates automatically.
 
-{% include royale-figure.html src="/img/blog/3card-royale/arena-flow-en.svg" width="560" height="690" diagram=true alt="JS or ONNX policy: four local validation games, PR replay checks, 60 rated games at publication, then automatic leaderboard and browser play." caption="Figure 17. The submitted policy is shared by local evaluation and browser play. PR checks and rating are separate steps." %}
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow-en.svg" caption="Figure 17. The submitted policy is shared by local evaluation and browser play. PR checks and rating are separate steps." %}
 
 Each new entry plays **20 games against each of three frozen references: Easy, NN 256 and Code AI**. That is 60 rated individual games, starting at level 2, with paired seats and balanced first attackers. Including fresh validation, publication costs **64 games per pending policy**, independent of the number already on the board. Unchanged scores are reused; browser games never change ratings.
 
@@ -269,11 +269,8 @@ The browser remembers completion. **Quick start** in Settings lets you disable h
 
 After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 18. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
+{% include royale-native.html kind="sharing" src="sharing.svg" caption="Figures 18–20. Game 1, seed 19: the recap, final hand and biggest hit." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 19. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 20. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
 
 The source, rules, design system, environment and model materials are open. Come and play, or try your own policy, model or rule idea.
 

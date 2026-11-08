@@ -32,6 +32,7 @@
     };
     redraw();
     live.hidden = false;
+    host.classList.add('is-enhanced');
     host.querySelector('.rx-static').open = false;
     // Keep existing article deep links pointed at the visible explanation.
     const staticFigure = host.querySelector('figure[id]');
