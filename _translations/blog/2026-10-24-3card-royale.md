@@ -225,7 +225,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 一个游戏有趣，也因为不同的人会带来不同的打法。**Arena** 把这件事开放给代码：提交一个策略，获得基准 Elo，再让玩家在浏览器里挑战同一份策略。可以从几条判断规则开始，也可以训练一个网络。
 
-[竞技场](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。在榜单点「挑战」，或进入 **设置 → 偏好 → AI 对手 → 竞技场 AI**，就能挑选策略。每个条目都带作者的 GitHub handle。竞技场现有七个策略，包括代码策略、整手评分与自回归模型。
+[竞技场](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。
 
 ### 一个目录，两种策略
 
@@ -257,7 +257,14 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 整手评分 **512 → 256** 获得暂定 Elo **1443**（30/60 胜）；自回归 **256 → 128** 为 **1237**（14/60 胜）。二者按同一固定基准面板评分；这 60 局天梯成绩与上面的 1,000 局基线评测分别统计。[评分记录](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1)。
 
-[实时天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder) · [接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
+### 天梯：挑一个 AI，打一局
+{: #ladder}
+
+天梯列出每个策略的作者、基准 Elo、胜率和决策延迟。点条目旁的「挑战」，就能直接在浏览器里与该 AI 对局，体验代码策略与神经网络的不同打法。试玩不影响天梯评分。
+
+[查看天梯，挑战 AI →](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder)
+
+[接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
 
 ## 6. 体验：打开网页，先打几局
 {: #play}

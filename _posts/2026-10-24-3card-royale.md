@@ -222,7 +222,7 @@ A next experiment is to learn from several good moves or continue from these che
 
 A game becomes more interesting when other people bring different ways to play it. **Arena** makes that possible for code: submit a strategy, earn a reference Elo, and let players challenge the same policy in their browsers. You can start with a few rules or a trained network.
 
-[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together. Click **Play** beside a policy, or choose **Settings → Preferences → AI opponent → Arena AI**. Each entry credits its author's GitHub handle. Seven policies are registered, spanning code, whole-move scoring and autoregressive models.
+[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together.
 
 ### One folder, two ways to play
 
@@ -254,7 +254,14 @@ The references stay at **1387, 1440 and 1500**. The evaluator fits one rating to
 
 Whole-move scoring **512 → 256** has provisional Elo **1443** (30/60 wins); autoregressive **256 → 128** has **1237** (14/60). Both use the same frozen reference panel. These 60-game ratings are separate from the 1,000-game baseline evaluation above. [Rating records](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1).
 
-[Live leaderboard](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder) · [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
+### The ladder: pick an AI to play
+{: #ladder}
+
+The ladder lists each policy's author, reference Elo, win rate and decision latency. Click **Play** beside an entry to face that AI directly in your browser—from handwritten strategies to neural networks. These games are for play; they do not change the ratings.
+
+[Explore the ladder and play →](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder)
+
+[Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
 
 ## 6. Try it: open the page and play a few games
 {: #play}
