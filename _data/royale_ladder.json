@@ -1,0 +1,315 @@
+{
+  "source": "https://lucienzhu.github.io/3card-royale/arena/results/leaderboard.json",
+  "registrySource": "https://lucienzhu.github.io/3card-royale/policies/registry.json",
+  "createdAt": "2026-11-01T14:07:15.560Z",
+  "method": "reference-elo-v1",
+  "panelSha256": "197c97f1aaa89f81b70fa287f3e96b3ca9501a317458e38fcf76f5493f4cec81",
+  "protocol": {
+    "gamesPerOpponent": 20,
+    "opponents": [
+      {
+        "id": "easy-v2",
+        "elo": 1387
+      },
+      {
+        "id": "nn-256-v1",
+        "elo": 1440
+      },
+      {
+        "id": "code-table-v1",
+        "elo": 1500
+      }
+    ],
+    "priorMean": 1500,
+    "priorSd": 400,
+    "pairedSeats": true,
+    "balancedFirst": true
+  },
+  "ratedGames": 240,
+  "rows": [
+    {
+      "id": "code-table-v1",
+      "elo": 1500,
+      "games": 80,
+      "wins": 59,
+      "losses": 21,
+      "provisional": false,
+      "reference": true,
+      "opponents": [
+        {
+          "id": "nn-512-v1",
+          "games": 20,
+          "wins": 12
+        },
+        {
+          "id": "nn-structured-v2",
+          "games": 20,
+          "wins": 15
+        },
+        {
+          "id": "random-v1",
+          "games": 20,
+          "wins": 20
+        },
+        {
+          "id": "sdk-code-v1",
+          "games": 20,
+          "wins": 12
+        }
+      ],
+      "latencyP95Ms": 3.197,
+      "decisions": 807,
+      "name": {
+        "en": "Code AI",
+        "zh": "Code AI"
+      },
+      "architecture": null,
+      "kind": "JS",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "sdk-code-v1",
+      "elo": 1455,
+      "games": 60,
+      "wins": 31,
+      "losses": 29,
+      "provisional": true,
+      "reference": false,
+      "opponents": [
+        {
+          "id": "code-table-v1",
+          "elo": 1500,
+          "games": 20,
+          "wins": 8
+        },
+        {
+          "id": "easy-v2",
+          "elo": 1387,
+          "games": 20,
+          "wins": 15
+        },
+        {
+          "id": "nn-256-v1",
+          "elo": 1440,
+          "games": 20,
+          "wins": 8
+        }
+      ],
+      "latencyP95Ms": 1.224,
+      "decisions": 705,
+      "updatedAt": "2026-10-27T12:27:28.328Z",
+      "sourceCommit": "504645db4625595084aaad8f43d10b6db97450e9",
+      "runUrl": "https://github.com/lucienzhu/3card-royale/actions/runs/40503863484",
+      "name": {
+        "en": "SDK Code AI",
+        "zh": "SDK Code AI"
+      },
+      "architecture": null,
+      "kind": "JS",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "nn-512-v1",
+      "elo": 1443,
+      "games": 60,
+      "wins": 30,
+      "losses": 30,
+      "provisional": true,
+      "reference": false,
+      "opponents": [
+        {
+          "id": "code-table-v1",
+          "elo": 1500,
+          "games": 20,
+          "wins": 8
+        },
+        {
+          "id": "easy-v2",
+          "elo": 1387,
+          "games": 20,
+          "wins": 13
+        },
+        {
+          "id": "nn-256-v1",
+          "elo": 1440,
+          "games": 20,
+          "wins": 9
+        }
+      ],
+      "latencyP95Ms": 4.096,
+      "decisions": 686,
+      "updatedAt": "2026-10-27T14:34:28.080Z",
+      "sourceCommit": "6d9b2d1942d2133ad5ef22fff92c4b4aba946a17",
+      "runUrl": "https://github.com/lucienzhu/3card-royale/actions/runs/40522335018",
+      "name": {
+        "en": "Whole-move scoring",
+        "zh": "整手评分"
+      },
+      "architecture": "512 → 256",
+      "kind": "NN",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "nn-256-v1",
+      "elo": 1440,
+      "games": 80,
+      "wins": 60,
+      "losses": 20,
+      "provisional": false,
+      "reference": true,
+      "opponents": [
+        {
+          "id": "nn-512-v1",
+          "games": 20,
+          "wins": 11
+        },
+        {
+          "id": "nn-structured-v2",
+          "games": 20,
+          "wins": 17
+        },
+        {
+          "id": "random-v1",
+          "games": 20,
+          "wins": 20
+        },
+        {
+          "id": "sdk-code-v1",
+          "games": 20,
+          "wins": 12
+        }
+      ],
+      "latencyP95Ms": 2.547,
+      "decisions": 782,
+      "name": {
+        "en": "Whole-move scoring",
+        "zh": "整手评分"
+      },
+      "architecture": "256 → 128",
+      "kind": "NN",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "easy-v2",
+      "elo": 1387,
+      "games": 80,
+      "wins": 46,
+      "losses": 34,
+      "provisional": false,
+      "reference": true,
+      "opponents": [
+        {
+          "id": "nn-512-v1",
+          "games": 20,
+          "wins": 7
+        },
+        {
+          "id": "nn-structured-v2",
+          "games": 20,
+          "wins": 14
+        },
+        {
+          "id": "random-v1",
+          "games": 20,
+          "wins": 20
+        },
+        {
+          "id": "sdk-code-v1",
+          "games": 20,
+          "wins": 5
+        }
+      ],
+      "latencyP95Ms": 1.353,
+      "decisions": 975,
+      "name": {
+        "en": "Easy · 64",
+        "zh": "Easy · 64"
+      },
+      "architecture": null,
+      "kind": "JS",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "nn-structured-v2",
+      "elo": 1237,
+      "games": 60,
+      "wins": 14,
+      "losses": 46,
+      "provisional": true,
+      "reference": false,
+      "opponents": [
+        {
+          "id": "code-table-v1",
+          "elo": 1500,
+          "games": 20,
+          "wins": 5
+        },
+        {
+          "id": "easy-v2",
+          "elo": 1387,
+          "games": 20,
+          "wins": 6
+        },
+        {
+          "id": "nn-256-v1",
+          "elo": 1440,
+          "games": 20,
+          "wins": 3
+        }
+      ],
+      "latencyP95Ms": 1.049,
+      "decisions": 608,
+      "updatedAt": "2026-11-01T14:07:15.560Z",
+      "sourceCommit": "7911e209e9a68fc80b8a8ca957f957bf99598896",
+      "runUrl": "",
+      "name": {
+        "en": "Autoregressive",
+        "zh": "自回归"
+      },
+      "architecture": "256 → 128",
+      "kind": "NN",
+      "github": "lucienzhu"
+    },
+    {
+      "id": "random-v1",
+      "elo": 703,
+      "games": 60,
+      "wins": 0,
+      "losses": 60,
+      "provisional": true,
+      "reference": false,
+      "opponents": [
+        {
+          "id": "code-table-v1",
+          "elo": 1500,
+          "games": 20,
+          "wins": 0
+        },
+        {
+          "id": "easy-v2",
+          "elo": 1387,
+          "games": 20,
+          "wins": 0
+        },
+        {
+          "id": "nn-256-v1",
+          "elo": 1440,
+          "games": 20,
+          "wins": 0
+        }
+      ],
+      "latencyP95Ms": 0.425,
+      "decisions": 260,
+      "updatedAt": "2026-10-27T11:56:48.461Z",
+      "sourceCommit": "d1bae68c2ef96618a64006fa725ef24057b849f9",
+      "runUrl": "https://github.com/lucienzhu/3card-royale/actions/runs/40499902327",
+      "name": {
+        "en": "Random",
+        "zh": "随机策略"
+      },
+      "architecture": null,
+      "kind": "JS",
+      "github": "lucienzhu"
+    }
+  ]
+}

@@ -257,9 +257,9 @@ Whole-move scoring **512 → 256** has provisional Elo **1443** (30/60 wins); au
 ### The ladder: pick an AI to play
 {: #ladder}
 
-The ladder lists each policy's author, reference Elo, win rate and decision latency. Click **Play** beside an entry to face that AI directly in your browser—from handwritten strategies to neural networks. These games are for play; they do not change the ratings.
+Pick an opponent and play directly in your browser. These games do not change the ratings.
 
-[Explore the ladder and play →](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder)
+{% include royale-ladder.html %}
 
 [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
 

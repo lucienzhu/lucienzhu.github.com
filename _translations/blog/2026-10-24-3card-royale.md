@@ -260,9 +260,9 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 ### 天梯：挑一个 AI，打一局
 {: #ladder}
 
-天梯列出每个策略的作者、基准 Elo、胜率和决策延迟。点条目旁的「挑战」，就能直接在浏览器里与该 AI 对局，体验代码策略与神经网络的不同打法。试玩不影响天梯评分。
+选一个对手，直接在浏览器开局。试玩不影响天梯评分。
 
-[查看天梯，挑战 AI →](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder)
+{% include royale-ladder.html %}
 
 [接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
 

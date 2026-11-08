@@ -1,0 +1,47 @@
+{% assign ladder = site.data.royale_ladder %}
+{% assign ladder_lang = 'en' %}{% assign play_lang = 'en' %}
+{% if page.lang == 'zh-CN' %}{% assign ladder_lang = 'zh' %}{% assign play_lang = 'zh-CN' %}{% endif %}
+<div class="royale-ladder" aria-label="{% if ladder_lang == 'zh' %}AI 天梯{% else %}AI ladder{% endif %}">
+  <div class="rl-snapshot">
+    <span>{% if ladder_lang == 'zh' %}{{ ladder.rows.size }} 个策略 · {{ ladder.ratedGames }} 评分局{% else %}{{ ladder.rows.size }} policies · {{ ladder.ratedGames }} rated games{% endif %}</span>
+    <time datetime="{{ ladder.createdAt }}">{{ ladder.createdAt | date: '%Y-%m-%d' }}</time>
+  </div>
+  <table aria-describedby="ladder-notes">
+    <thead><tr>
+      <th scope="col">{% if ladder_lang == 'zh' %}策略{% else %}Policy{% endif %}</th>
+      <th scope="col">{% if ladder_lang == 'zh' %}基准 Elo{% else %}Reference Elo{% endif %}</th>
+      <th scope="col">{% if ladder_lang == 'zh' %}胜率{% else %}Win rate{% endif %}</th>
+      <th scope="col">{% if ladder_lang == 'zh' %}延迟 p95{% else %}Latency p95{% endif %}</th>
+      <th scope="col"><span class="rl-sr-only">{% if ladder_lang == 'zh' %}挑战{% else %}Play{% endif %}</span></th>
+    </tr></thead>
+    <tbody>
+      {% for policy in ladder.rows %}
+      <tr>
+        <th scope="row" class="rl-policy">
+          <span class="rl-rank">{{ forloop.index }}</span>
+          <span class="rl-identity">
+            <strong>{{ policy.name[ladder_lang] }}</strong>
+            {% if policy.architecture %}<span class="rl-architecture">{{ policy.architecture }}</span>{% endif %}
+            <span class="rl-author">{{ policy.kind }} · <a href="https://github.com/{{ policy.github }}">@{{ policy.github }}</a></span>
+          </span>
+        </th>
+        <td class="rl-rating" data-label="{% if ladder_lang == 'zh' %}基准 Elo{% else %}Reference Elo{% endif %}">
+          <strong>{{ policy.elo }}</strong>
+          <small>{% if policy.reference %}{% if ladder_lang == 'zh' %}固定基准{% else %}Fixed reference{% endif %}{% else %}{% if ladder_lang == 'zh' %}暂定{% else %}Provisional{% endif %}{% endif %}</small>
+        </td>
+        <td class="rl-wins" data-label="{% if ladder_lang == 'zh' %}胜率{% else %}Win rate{% endif %}">
+          <strong>{{ policy.wins | times: 100.0 | divided_by: policy.games | round: 1 }}%</strong>
+          <small>{{ policy.wins }} / {{ policy.games }} {% if ladder_lang == 'zh' %}胜{% else %}wins{% endif %}</small>
+        </td>
+        <td class="rl-latency" data-label="{% if ladder_lang == 'zh' %}延迟 p95{% else %}Latency p95{% endif %}">{{ policy.latencyP95Ms | round: 2 }} <span>ms</span></td>
+        <td class="rl-action"><a class="rl-play" href="https://lucienzhu.github.io/3card-royale/index.html?lang={{ play_lang }}&amp;policy={{ policy.id }}" target="_blank" rel="noopener" aria-label="{% if ladder_lang == 'zh' %}挑战{% else %}Play{% endif %} {{ policy.name[ladder_lang] }} {{ policy.architecture }}{% if ladder_lang == 'zh' %}（新窗口）{% else %} (new tab){% endif %}">{% if ladder_lang == 'zh' %}挑战{% else %}Play{% endif %} <span aria-hidden="true">↗</span></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p id="ladder-notes" class="rl-notes">{% if ladder_lang == 'zh' %}榜单快照。固定基准与参赛策略的对手不同，胜率不宜直接横比。延迟为各对手批次中最高的 p95，非手机实测。{% else %}Leaderboard snapshot. References and entrants face different opponents; win rates are not directly comparable. Latency is the highest opponent-batch p95, not a mobile benchmark.{% endif %}</p>
+  <div class="rl-links">
+    <a href="https://lucienzhu.github.io/3card-royale/arena.html?lang={{ play_lang }}#ladder">{% if ladder_lang == 'zh' %}最新天梯{% else %}Current ladder{% endif %} ↗</a>
+    <a href="{{ ladder.source }}">{% if ladder_lang == 'zh' %}评分数据{% else %}Rating data{% endif %} ↗</a>
+  </div>
+</div>
