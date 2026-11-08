@@ -8,7 +8,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "黑桃2、红桃5、方块9",
-    "alt_en": "2 of spades, 5 of hearts, 9 of diamonds"
+    "alt_en": "2 of spades, 5 of hearts, 9 of diamonds",
+    "cards": [
+      {
+        "rank": "2",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "5",
+        "suit": "♥",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "9",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "pair",
@@ -19,7 +39,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "黑桃7、梅花7、方块J",
-    "alt_en": "7 of spades, 7 of clubs, J of diamonds"
+    "alt_en": "7 of spades, 7 of clubs, J of diamonds",
+    "cards": [
+      {
+        "rank": "7",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♣",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "J",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "straight",
@@ -30,7 +70,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "黑桃6、红桃7、方块8",
-    "alt_en": "6 of spades, 7 of hearts, 8 of diamonds"
+    "alt_en": "6 of spades, 7 of hearts, 8 of diamonds",
+    "cards": [
+      {
+        "rank": "6",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♥",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "8",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "flush",
@@ -41,7 +101,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "方块4、方块8、方块Q",
-    "alt_en": "4 of diamonds, 8 of diamonds, Q of diamonds"
+    "alt_en": "4 of diamonds, 8 of diamonds, Q of diamonds",
+    "cards": [
+      {
+        "rank": "4",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "8",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "Q",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "straight-flush",
@@ -52,7 +132,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "黑桃6、黑桃7、黑桃8",
-    "alt_en": "6 of spades, 7 of spades, 8 of spades"
+    "alt_en": "6 of spades, 7 of spades, 8 of spades",
+    "cards": [
+      {
+        "rank": "6",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "8",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "three-kind",
@@ -63,7 +163,27 @@
     "width": 176,
     "height": 78,
     "alt_zh": "黑桃9、红桃9、梅花9",
-    "alt_en": "9 of spades, 9 of hearts, 9 of clubs"
+    "alt_en": "9 of spades, 9 of hearts, 9 of clubs",
+    "cards": [
+      {
+        "rank": "9",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "9",
+        "suit": "♥",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "9",
+        "suit": "♣",
+        "red": false,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "four-kind",
@@ -74,7 +194,33 @@
     "width": 236,
     "height": 78,
     "alt_zh": "黑桃7、红桃7、梅花7、方块7",
-    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds"
+    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds",
+    "cards": [
+      {
+        "rank": "7",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♥",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♣",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      }
+    ]
   },
   {
     "slug": "five-kind",
@@ -85,6 +231,38 @@
     "width": 296,
     "height": 78,
     "alt_zh": "黑桃7、红桃7、梅花7、方块7、红桃2；红桃2为花牌，代替7。",
-    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds, 2 of hearts; the heart 2 is wild and counts as a 7."
+    "alt_en": "7 of spades, 7 of hearts, 7 of clubs, 7 of diamonds, 2 of hearts; the heart 2 is wild and counts as a 7.",
+    "cards": [
+      {
+        "rank": "7",
+        "suit": "♠",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♥",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♣",
+        "red": false,
+        "wild": false
+      },
+      {
+        "rank": "7",
+        "suit": "♦",
+        "red": true,
+        "wild": false
+      },
+      {
+        "rank": "2",
+        "suit": "♥",
+        "red": true,
+        "wild": true
+      }
+    ]
   }
 ]

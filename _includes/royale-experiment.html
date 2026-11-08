@@ -1,0 +1,7 @@
+<div class="royale-experiment" data-experiment="{{ include.kind }}">
+  <div class="rx-live" hidden></div>
+  <details class="rx-static" open>
+    <summary>{% if page.lang == 'zh-CN' %}静态图{% else %}Static figure{% endif %}</summary>
+    {% include royale-figure.html src=include.src width=include.width height=include.height alt=include.alt caption=include.caption diagram=true %}
+  </details>
+</div>

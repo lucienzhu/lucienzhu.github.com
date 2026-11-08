@@ -1,0 +1,7 @@
+{% assign native_lang = 'en' %}{% if page.lang == 'zh-CN' %}{% assign native_lang = 'zh' %}{% endif %}
+{% assign native_path = 'royale-native/' | append: include.kind | append: '-' | append: native_lang | append: '.html' %}
+{% assign native_id = include.src | split: '/' | last | split: '.' | first %}
+<figure class="royale-native" id="figure-{{ native_id }}">
+  <div class="rn-content">{% include {{ native_path }} %}</div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

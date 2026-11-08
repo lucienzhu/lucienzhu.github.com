@@ -6,193 +6,184 @@ author: "Xiaolong Zhu"
 show_url: true
 tags: ["blog"]
 lang: "en"
-summary: "One deck, two players: Shenzhen-inspired design, a neural baseline and an open AI Arena."
+summary: "A two-player game for an ordinary deck: quick tactical encounters, a race to Ace, and an open arena for new opponents."
 permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
-extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css", "/css/royale-native.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js", "/js/royale-article/native.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
-last_modified_at: "2026-11-02 00:00:00 +0800"
+last_modified_at: "2026-11-08 00:00:00 +0800"
 ---
 
-{% include royale-figure.html src="/img/blog/3card-royale/cover-en.svg" width="1200" height="640" alt="Three gold flower cards on a green circuit board" caption="One deck. Two players. Three cards. Make them bloom." %}
+{% include royale-native.html kind="cover" src="/img/blog/3card-royale/cover-en.svg" caption="One deck. Two players. Three cards. Make them bloom." %}
 
-I wanted to make a replayable two-player game using a single ordinary deck of cards.
+I wanted a game that two people could reach for during a break: one ordinary deck, a quick start, and enough decisions to make the next game worth playing.
 
-Two people and an ordinary deck should be enough to get started. After a few games, there should still be choices worth thinking about. Luck brings variety; judgment changes the outcome; an opponent's move changes what I want to do next.
+**3Card Royale**, also called **Shenzhen Flower Cards** (深圳花牌), grew out of that idea. Each short game turns on attack and defense. Across a match, both players climb from 2 to Ace. A single good hand can win an encounter; reaching the finish takes several games.
 
-That idea became **3Card Royale**, aka **Shenzhen Flower Cards** (深圳花牌): a 1v1 game built around three-card combinations. Attacks deal wounds, successful defenses earn opportunities to swap cards, and the cards received as wounds can re-enter play. Both players climb from 2 to Ace. Win your own Ace challenge, and you bloom.
-
-The project now includes a browser playtest, a complete rulebook, a Shenzhen-inspired visual identity, a reproducible neural baseline and an open AI Arena. Play against a policy, or submit one of your own.
-
-## 1. The starting point: a replayable duel with one deck
+## 1. A short game, a longer goal
 {: #origin}
 
-I wanted familiar cards to make the basic actions easy to understand: choose, compare, attack and defend. The rules should fit into a few sentences, while the interesting decisions emerge through play.
+An ordinary deck gives us a shared vocabulary: pairs, straights, flushes. The interesting part is deciding **when to spend them**.
 
-**Easy to begin, with choices that keep developing: that is what matters most to me.**
+Suppose I have a strong flush. Playing it now might hurt my opponent, but those cards will be gone when I need to defend. My opponent sees the attack before responding. They can beat it, or accept some damage to keep a better combination for their own attack. Both players attack once before their hands refill, so each choice carries into the next encounter.
 
-An ordinary deck provides a shared vocabulary. Ranks, suits, pairs, straights and flushes are already familiar. That leaves more room to learn the mechanisms that give this particular game its character.
+{% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The rival has played a flush. Your hand is below, with the defense still to choose." caption="Figure 1. A flush is on the table. Spend cards to beat it, or save them for your attack?" %}
 
-The game draws inspiration from [Hanafuda](https://en.wikipedia.org/wiki/Hanafuda), [Zha Jin Hua](https://baike.sogou.com/m/v7421269.htm "Sogou Baike · Chinese"), [Guandan](https://en.wikipedia.org/wiki/Guandan) and [Balatro](https://en.wikipedia.org/wiki/Balatro): the connection between flowers and cards, the immediacy of three-card combinations, the variation introduced by ranks and wild cards, and the pleasure of rearranging familiar hands.
+<details class="royale-depth" markdown="1">
+<summary>The card zones</summary>
 
-I eventually put the emphasis on the relationship between attack and defense. An attack should deal damage, but it also spends cards I may need to defend. The defender sees the attack before responding and can decide whether to beat it or preserve a more valuable combination while accepting some damage. A successful defense can then change the next encounter through a swap.
+{% include royale-native.html kind="card-zones" src="/img/blog/3card-royale/card-zones-en.svg?v=boxes1" caption="Figure 2. Hands are private; wounds are public and playable. A separate example position." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-light-en.jpg" width="1000" height="900" alt="The live table, with the rival above, the player below and the current encounter in the middle." caption="Figure 1. The browser playtest in English. The rival has played a flush; the player is choosing a defense. The rival&#x27;s private hand remains face down." %}
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones-en.svg?v=boxes1" width="560" height="868" diagram=true alt="Eight outlined card zones: rival hand and public wounds above; attack, draw pile, discard pile and defense in the middle; your public wounds and hand below." caption="Figure 2. Card zones. Hands are private; wounds are public and can also be played." %}
+At five wounds, the game ends. The winner moves up the rank track, and the next game begins with fresh hands. That gives a short game its own payoff without ending the contest. **The match has a destination: reach Ace, then win your own Ace challenge.**
 
-The same three cards can become an attack, a defense or the beginning of a better combination next round. Their value depends on the position.
+[Hanafuda](https://en.wikipedia.org/wiki/Hanafuda), [Zha Jin Hua](https://baike.sogou.com/m/v7421269.htm "Sogou Baike · Chinese"), [Guandan](https://en.wikipedia.org/wiki/Guandan) and [Balatro](https://en.wikipedia.org/wiki/Balatro) were inspirations: flowers as an identity, three-card combinations, ranks and wild cards, and the pleasure of finding new uses for familiar hands. Here, those ideas serve a duel between two people.
 
-I hope a player finishes a game remembering a particular decision: was that flush played too early, should that wound card have been saved, was the swap worth taking? Wanting to try again with that question in mind is the result I am looking for.
+[Try a game →](https://lucienzhu.github.io/3card-royale/?lang=en)
 
-## 2. The design: bougainvillea on a green circuit board
+## 2. A flower from Shenzhen
 {: #design}
 
-The Chinese name gives the game a home in Shenzhen.
+Bougainvillea grows across Shenzhen and is the [city's official flower](https://www.sz.gov.cn/ztfw/gysy/wyw_183970/ywzsk_184570/content/post_12660964.html). Its three coloured bracts suggested a natural companion for a game built around three cards.
 
-Bougainvillea is [Shenzhen's city flower](https://www.sz.gov.cn/ztfw/gysy/wyw_183970/ywzsk_184570/content/post_12660964.html). Its three-part form connects naturally with the game's three cards, while the city's skyline also finds its way into the interface.
+Under the flower sits **circuit-board green**. Shenzhen is a city of hardware and fast iteration; I wanted the game to carry that character, with room to slow down and play with a friend.
 
-The mark is a flat gold card: a gold surface and border, a red flower in the center and small gold stamens. The same image runs through the logo, card backs and wild-card indicator.
+{% include royale-native.html kind="identity" src="/img/blog/3card-royale/identity-en.svg" caption="Figure 3. Bougainvillea, a gold card and circuit-board green." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/identity-en.svg" width="1200" height="400" alt="Three visual elements: a red bougainvillea, a gold card and a green circuit board." caption="Figure 3. The current production flower and card mark, with the green circuit board that supports them." %}
+The gold card, red flower and gold centers form the mark. On the table, red identifies you and gold identifies your rival. Those roles stay the same in both light and dark themes.
 
-**The flower is the focal point. The green circuit board is the foundation.**
+{% include royale-native.html kind="design-system" src="/img/blog/3card-royale/design-system-en.svg" caption="Figure 4. Day and night. You remain red; your rival remains gold." %}
 
-The green surface carries the cards and a little of Shenzhen's hardware character. Light and dark themes are two expressions of that same circuit-board green. Red and gold flowers sit on top of it.
+<details class="royale-depth" markdown="1">
+<summary>A circuit board you can play on</summary>
 
-Color also identifies the players. You are the red flower; your rival is gold. That distinction stays consistent across the table, progress track and shared images.
+Circuit-board mode in Settings gives the playing areas chip pins and connects them with animated traces.
 
-{% include royale-figure.html src="/img/blog/3card-royale/design-system-en.svg" width="560" height="712" diagram=true alt="The same flat gold logo, card back and wild card on light and dark green themes; red identifies you and gold the rival." caption="Figure 4. Production colors and artwork. Both green themes come from the circuit-board idea." %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-pcb-en.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 5. Circuit-board mode on the same table." %}
 
-There is a circuit-board mode in Settings too. Card zones become chips, traces connect the playing areas, and points of light move with the action. The green foundation takes part in the game.
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-pcb-en.jpg" width="1000" height="900" alt="The same game in circuit-board mode, with chip pins and traces around the playing areas." caption="Figure 5. The same position with Settings → Preferences → Circuit board enabled." %}
+The city returns at the end of a match. The winning cards turn over, gather into a flower, bloom, then scatter towards the skyline. Above them appears **“You bloomed.”** The celebration begins with the hand that earned it.
 
-The skyline brings the city into the ending. Buildings appear in light linework; flowers can settle into corners of the city while the architecture remains in the background.
+{% include royale-native.html kind="finale" src="/img/blog/3card-royale/finale-en.svg" caption="Figure 6. The match ends in bloom. Recorded result: 11 games, 7 : 4, 58 rounds." %}
 
-The fullest expression is the bloom at the end of a match. After the winner clears their own Ace challenge, the animation starts with the cards they actually played. For a four- or five-card hand, it takes the first three. The cards turn over in motion, gather into a flower, blossom and drift down into the city. As space opens above, the message appears:
+A single-game victory gets a quieter ending. The full bloom belongs to the journey through Ace.
 
-> You bloomed.
-
-The animation grows out of the game that just happened. The final play becomes the beginning of the victory image.
-
-{% include royale-figure.html src="/img/blog/3card-royale/finale-en.svg" width="1080" height="1440" alt="The final match poster combines flowers, egrets, the Shenzhen skyline and a rank progression track." caption="Figure 6. A completed match generated with seed 0, rendered by the production sharing component. The winner and progression come from the recorded game." %}
-
-Winning a single game gets a lighter celebration. A good game deserves recognition; completing the journey from 2 through Ace deserves a fuller bloom. The visuals give those two achievements different weight.
-
-## 3. The game: attack for wounds, defend for swaps
+## 3. Attack for wounds. Defend for swaps.
 {: #rules}
 
-Three lines summarize the rhythm:
+Start with a standard **52-card deck, no jokers**. Each player has **eight cards** and begins at level 2. The attacker reveals a play; the defender sees it before choosing a response.
 
-1. **Eight cards in hand. Take turns attacking and defending.**
-2. **Attacks deal wounds. Defenses earn swaps.**
-3. **Climb from 2 to Ace, then clear your own Ace challenge.**
-
-Two players share an ordinary 52-card deck without jokers. Each starts with eight cards and level 2. Hands are private; wound cards are public.
-
-The attacker reveals a play, and the defender responds after seeing it. Most plays use three cards; four of a kind uses four, and five of a kind uses five. The two sides need not use the same number of cards, suit or hand type.
+Most plays use three cards. Four or five cards are allowed only for four or five of a kind. The two players do not need to play the same number of cards. Each game designates one heart as the **wild card**, which can stand for any rank and suit.
 
 {% include royale-hands.html %}
 
-Five of a kind requires all four natural cards of a rank plus the game's wild card. Hand scores are compared first, then ranks within the same hand type. Suits do not break ties.
+Compare hand type first, then ranks within that type. Suits do not break ties. Five of a kind uses all four natural cards of a rank plus the wild card.
 
-For example, attack with the flush `4♦, 8♦, Q♦` against the pair `6♣, 6♠, J♥`. A flush scores 3 and a pair scores 1: the attack wins and the defender receives **two wound cards**.
+A flush scores 3; a pair scores 1. If the attacker wins that comparison, the defender takes **3 − 1 = 2 wounds**. If the defender beats a flush with three of a kind, they earn **5 − 3 = 2 swap opportunities**. A win within the same hand type gives one wound or swap; an exact tie gives neither.
 
-If the defender answers a flush with three of a kind, the defender earns **two swap opportunities**. A win decided by ranks within the same hand type yields one wound or one swap opportunity. An exact tie yields neither.
+{% include royale-experiment.html kind="combat" src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 8. The score gap becomes wounds when attacking, or swaps when defending." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 8. Attacking advances the game toward its end; defending improves the next position. These examples use ♥2 as the wild card." %}
+### A wound can become an answer
 
-### Wounds are playable cards
+Wounds are cards placed face up in front of you. You can play them together with your hand. Each used wound is replaced from the deck, so **playing it does not reduce your wound count**.
 
-Cards received as wounds are placed face up in the wound area. They still belong to you and can be combined with cards from your hand. A used wound card is replaced in its original slot with a new face-up card, keeping the wound count unchanged.
+This makes damage a visible resource as well as a threat. A new wound might complete a strong hand—but your opponent can see that possibility too.
 
-Being wounded brings you closer to losing, but also gives you new cards to work with. Both players can see them and consider the combinations they make possible. A wound might offer a counterattack that your opponent can also see coming.
+{% include royale-native.html kind="wounds" src="/img/blog/3card-royale/wounds-en.svg" caption="Figure 9. The wound helps make a straight, then its slot refills. The wound count stays at one; K♦ is an example draw." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds-en.svg" width="1200" height="420" alt="The public wound card 8♥ joins 6♠ and 7♣ from the hand to make a straight, then its wound slot is refilled." caption="Figure 9. Playing a wound card does not heal it. K♦ is an example refill; the replacement comes from the deck." %}
+### Defense changes the next encounter
 
-### A swap is an opportunity, not an obligation
+Each swap opportunity exchanges one of your cards with an eligible target: the deck, a random rival hand card, a public wound card, or your other card area. The source area determines which targets are allowed. Wound counts stay unchanged, and **each opportunity can be skipped**.
 
-A successful defense lets you exchange one of your own hand or wound cards with an eligible target: a random card in the rival's hand, a specified public wound, your other card area or the deck. The permitted targets depend on the source area. Swapping changes the cards, not the wound count.
+A round contains two encounters, with each player attacking once. There is no hand refill between them. At the round's end, keep unused cards and refill to eight. Winning the first encounter can leave you poorly equipped for the second.
 
-Each opportunity can be skipped independently. With two opportunities, you can use one and skip the other, or keep everything unchanged. Having that choice is itself a benefit of defense.
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow-en.svg" caption="Figure 10. Each player attacks once before hands refill. Either encounter can end the game." %}
 
-Refills give the round its rhythm. A round finishes after both players have attacked once. Hands are not refilled between those two encounters. At the end of the round, unused cards are kept and hands refill to eight. The first play therefore needs to leave something for the second encounter.
+### From one game to a match
 
-{% include royale-figure.html src="/img/blog/3card-royale/round-flow-en.svg" width="560" height="1000" diagram=true alt="Attack, defend, resolve; reaching five wounds ends the game. Otherwise switch roles for a second encounter, then refill both hands to eight." caption="Figure 10. One round contains two encounters. A terminal result stops the loop immediately." %}
+A player loses the game at five or more wounds. The winner advances by the **full difference in wound counts**: seven against two means five ranks. Advancement stops at Ace.
 
-### Reach Ace, then win once more
+Reaching Ace opens the final challenge. Win a game in which you are the Ace challenger to win the match. Fail your own Ace challenge three times and you return to level 2; your opponent keeps their level.
 
-A game ends when a player reaches five or more wounds. The winner advances by the full difference between the final wound counts. If the rival finishes with seven wounds and you have two, you advance five ranks. Damage is not capped at five for this calculation.
-
-Advancement stops at Ace, but reaching it is not enough. **You must win an Ace game in which you are the challenger to win the match.** Losing your own Ace challenge three times resets you to level 2; the rival keeps their level.
-
-Each game also has one shared wild card. The first game uses `♥2`; later games use the heart card matching the previous winner's new level. If the winner advances to 7, the next game uses `♥7` for both players. It remains fixed throughout that game.
-
-Private hands, public wounds, a shared wild card and decisions that carry between attack and defense create the game's variety.
+The shared wild card follows that journey. It is `♥2` in the first game, then the heart matching the previous winner's new level. After a win that takes someone to 7, both players use `♥7` as the wild card for the next game.
 
 [Full rules](https://lucienzhu.github.io/3card-royale/rules.html?lang=en) · [A4 rules card](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.en.pdf)
 
-## 4. Reinforcement learning: one environment, different policies
+## 4. Policy experiments: which decisions win more games?
 {: #rl}
 
-The game combines hidden information, random deals and connected decisions about attack, defense and resources. A reproducible environment makes those decisions testable: fix the deals, change the policy, and compare outcomes.
+Designing the game raised another question: **what kinds of decisions actually win?** I built a reproducible environment so I could hold the deals fixed, change the policy, and compare outcomes. It also lets other people test ideas without building a game engine first.
 
-GameCore is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against shared replay sequences. The browser and self-play collector use JavaScript; Gymnasium uses the native Python core, and PyTorch trains on saved examples.
+These experiments measure policy performance. They do not, by themselves, establish that the rules are balanced or that people will enjoy them. They can expose weak strategies and suggest questions to take back to human playtests.
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture-en.svg" width="560" height="884" diagram=true alt="Four native rules cores with replay parity, public observations for policies, and separate browser and training hosts." caption="Figure 11. One ruleset, shared contracts. Godlike has a separate, explicitly open-hand interface." %}
+GameCore runs the rules; a policy chooses moves. Ordinary policies see their own hand and public information, never the rival's hidden cards or deck order.
 
-### What a policy can see
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture-en.svg" caption="Figure 11. A policy chooses from its own information; GameCore validates the move." %}
 
-The neural policies receive their own hand, both public wound areas, discards, current played cards and position metadata. Each of the **six card zones** uses 52 presence bits in fixed card order. Another **6 phase bits + 18 values** give a **336-dimensional observation**. Neither network receives the rival's private hand, deck order or a history sequence.
+### Two approaches to the same decision
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="2434" diagram=true alt="A saved swap observation: all six 52-card zones, six phase bits, and 18 metadata values, with their raw values and normalization." caption="Figure 12. Every observation feature. Card zones are multi-hot; phase is one-hot. This example has 29 cards in the deck, encoded as 29 / 52." %}
+A **whole-move scorer** compares all legal plays and chooses the highest-scoring one. An **autoregressive policy** builds a move token by token: choose an operation, then cards or a swap target. Both return the same complete action to the engine.
 
-### Stable meanings, conditional choices
+I trained models of both kinds to imitate a frozen rule-based teacher, **SDK Code AI**. These are behavior-cloning baselines, not models trained from game rewards. The environment supports reinforcement learning as a next step.
 
-All policies submit the same complete action through **actions-v2**. Physical card IDs stay fixed: suits ♠, ♥, ♣, ♦, each ordered 2 through Ace. Token IDs 0–51 identify those cards; 52–54 mean `PLAY_3`, `PLAY_4`, `PLAY_5`; 55–64 cover swaps, destinations and progression. `PAD = 65` fills unused sequence positions.
+<details class="royale-depth" markdown="1">
+<summary>Inside a decision: observation, action and networks</summary>
 
-For three Aces, the sequence is `PLAY_3 → A♠ → A♥ → A♣`. Selected cards cannot repeat. Ascending card IDs give every play a unique representation, regardless of click order. Four- and five-card plays must form valid bombs. A swap names its source and destination, plus a target card for a visible card area. `SKIP` uses one opportunity; `STOP` ends the remaining opportunities.
+The observation has **336 values**: six card zones × 52 presence bits, six phase bits and 18 position values. It contains the player's hand, both public wound areas, discards and both currently played hands. Neither neural model receives a history sequence.
 
-The **65-bit conditional mask** marks tokens that can still complete a legal move. Its values change with the state and selected prefix; token meanings do not. Gym accepts the completed move as six padded tokens, `MultiDiscrete([66] × 6)`, and advances the game once. [Action contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md).
+{% include royale-experiment.html kind="observation" src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="2434" diagram=true alt="A saved swap observation: all six 52-card zones, six phase bits, and 18 metadata values, with their raw values and normalization." caption="Figure 12. One saved position, 336 values. Card zones are multi-hot; phase is one-hot. The deck count is 29 / 52." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed token IDs form a three-card play or swap. A conditional mask filters each continuation before the complete move is submitted." caption="Figure 13. One action protocol for code, whole-move scoring and autoregressive policies." %}
+Card IDs stay fixed: ♠, ♥, ♣, ♦, each ordered 2 through Ace. IDs 0–51 identify physical cards; 52–54 mean `PLAY_3`, `PLAY_4`, `PLAY_5`; 55–64 cover swaps, destinations and progression. `PAD = 65` fills unused positions.
 
-### Two ways to model a decision
+For three Aces, the action is `PLAY_3 → A♠ → A♥ → A♣`. Ascending card IDs give the play one representation regardless of click order. Cards cannot repeat; four- and five-card plays must form valid bombs. A swap specifies its source and destination, including the target card when it is visible.
 
-**Whole-move scoring** enumerates legal moves. A shared MLP scores each `336-value state + 72-value move descriptor`; the highest-scoring move is submitted. Its internal list position may change, but the selected move is converted to stable card IDs.
+The **65-bit mask** marks which next tokens can complete a legal move. The mask changes as cards are selected; the meaning of each token stays fixed. Gym accepts a completed move as six padded tokens, `MultiDiscrete([66] × 6)`, and executes it once.
 
-**Autoregressive generation** starts with an operation and predicts one token at a time. A shared MLP receives the same state plus a 396-value prefix encoding, then outputs 65 token scores. Masked decoding takes at most six calls to build one move.
+{% include royale-experiment.html kind="action" src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed token IDs form a three-card play or swap. A conditional mask filters each continuation before the complete move is submitted." caption="Figure 13. Fixed card IDs and operations encode a complete move. The mask restricts the next choice." %}
 
 | Policy | Network | Parameters | ONNX |
 | --- | --- | ---: | ---: |
 | Whole-move scoring | 408 → 256 → 128 → 1 | 137,729 | 0.55 MB |
 | Autoregressive | 732 → 256 → 128 → 65 | 228,929 | 0.92 MB |
 
-The protocol constrains valid actions, not how a policy learns or searches. Both models currently use **behavior cloning from SDK Code AI**, a frozen teacher distinct from browser Hard Code AI. Neither has been trained from rewards. The scorer also uses handcrafted hand features, so this comparison does not isolate architecture alone.
+The scorer takes a 336-value state and a 72-value move descriptor, with handcrafted hand features. The generator takes the same state and a 396-value prefix encoding, making up to six inference calls per move. Different inputs and decoding procedures mean this is not an isolated test of architecture.
 
-### Training and reproduction
+The browser and self-play collector use the JavaScript core; Gymnasium uses a native Python core. JavaScript, Python, Rust and C++ implementations are checked against shared replay sequences.
 
-Each recipe generates **10,000 SDK self-play games**, split by whole game into **8,000 training / 1,000 validation / 1,000 test**. The scorer has 252,859 decision samples; the autoregressive dataset has 252,906 decisions and 988,571 target tokens. Separate recipes and seeds account for the different counts.
+[Action contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)
 
-The scorer uses cross-entropy over legal complete moves. The generator uses masked, teacher-forced token cross-entropy, weighting each complete decision equally. PyTorch trains both; TensorBoard records train/validation curves. Validation loss selects epoch **5** for the scorer and **16** for the generator.
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-training-en.svg" width="1000" height="420" alt="Autoregressive training and validation loss over 40 epochs; minimum validation loss selects epoch 16." caption="Figure 14. Autoregressive training. Checkpoint selection uses validation loss, not playing results." %}
+<details class="royale-depth" markdown="1">
+<summary>Training recipes and validation</summary>
 
-The scorer matches the teacher's **whole move 89.36%** of the time on its test split. The generator reaches **90.44% teacher-forced token accuracy**. These are different metrics: correct tokens under a supplied prefix do not guarantee a correct free-running move. The generator's teacher also supplies no positive `SKIP` or `STOP` examples.
+Each model's recipe generates **10,000 SDK self-play games**, split by whole game into **8,000 training / 1,000 validation / 1,000 test**. The scorer has 252,859 decisions; the autoregressive dataset has 252,906 decisions and 988,571 target tokens. The recipes use separate seeds.
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline-en.svg" width="560" height="936" diagram=true alt="SDK Code AI self-play, whole-game split, whole-move scoring or autoregressive training, validation checkpoint selection, and ONNX browser deployment." caption="Figure 15. Both recipes connect self-play, training and browser inference through one action protocol." %}
+PyTorch trains both models. The scorer uses cross-entropy over legal complete moves; the generator uses masked, teacher-forced token cross-entropy, with equal weight per complete decision. TensorBoard records the curves. Validation loss selects epoch **5** for the scorer and **16** for the generator.
 
-Data exceeds the repository's 10 MB budget, so deterministic generation recipes and hashes replace dataset downloads. The best ONNX weights, histories, runtime versions and evaluation records are checked in. To evaluate newly trained weights, register a new immutable policy ID and validate it; the supplied baseline evaluation command loads the checked-in entries. [Scoring recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [Autoregressive recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured).
+{% include royale-native.html kind="structured-training" src="/img/blog/3card-royale/structured-training-en.svg" caption="Figure 14. Autoregressive loss: training keeps improving while validation is best at epoch 16." %}
 
-### Baseline evaluation
+Test accuracy is **89.36% for the scorer's complete move** and **90.44% for the generator's teacher-forced token**. These metrics cannot be compared directly: predicting a token under a supplied prefix is a different task from producing a whole move independently. The generator's teacher supplies no positive `SKIP` or `STOP` examples.
 
-Each cell below uses **1,000 individual games**, with the same 500 seeds, swapped seats, balanced first attackers and level-2 starts. **Code AI** is the browser's Hard opponent; **SDK Code AI** is the training teacher. All **19,000 games** completed with no illegal actions or truncations.
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline-en.svg" caption="Figure 15. Separate self-play datasets; splits by whole game; checkpoints selected by validation loss." %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg" width="864" height="576" alt="Win rates for eight public-information policies against browser Code AI and SDK Code AI, on the same 500 paired seeds." caption="Figure 16. Same deals, two opponents. Each bar covers 1,000 games; the full 0–100% axis keeps differences in perspective." %}
+The repository includes deterministic data-generation recipes, hashes, checkpoints, training curves and runtime versions. Evaluate newly trained weights under a separate policy ID to keep their results distinct from the supplied baselines.
+
+[Scoring recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [Autoregressive recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)
+
+</details>
+
+### What the experiments show
+
+Against the browser's Hard opponent, the 256 → 128 scorer wins **42.6%** of games; the autoregressive model wins **23.9%**. Each result uses 1,000 games with the same 500 seeds, swapped seats, balanced first attackers and level-2 starts.
+
+{% include royale-experiment.html kind="evaluation" src="/img/blog/3card-royale/win-rates-en.svg" width="864" height="576" alt="Win rates for public-information policies against browser Code AI and SDK Code AI, on the same 500 paired seeds." caption="Figure 16. Win rates on the same deals. Each bar represents 1,000 games; the axis spans 0–100%." %}
 
 | Policy | ONNX | Latency p95 | vs Code AI | vs SDK Code AI |
 | --- | ---: | ---: | ---: | ---: |
@@ -208,76 +199,77 @@ Each cell below uses **1,000 individual games**, with the same 500 seeds, swappe
 | Godlike · open hand | — | 18.12 ms | 67.0% | 67.5% |
 {: .royale-policy-results }
 
-Latency is the highest opponent-batch p95 for a complete policy decision on **Apple M1 / Node 22 / single-thread WASM**. It includes encoding and all inference calls, excluding initial loading and inter-thread messaging. It is not a mobile benchmark. ONNX sizes cover weights; code policies have no ONNX artifact. [Reports, hashes and reproduction](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline).
+Whole-move scoring performs better here. This compares these training recipes, not the limits of autoregressive policies. The effects of inputs, supervision and decoding need separate tests. Small differences among scorer widths do not establish a strength ranking.
 
-The scorer wins **42.6%** against Hard, while the autoregressive checkpoint wins **23.9%**. In their direct matchup, the generator wins **28.8%**. A fixed protocol makes policies interoperable; it does not make one model stronger. Small differences between scoring widths do not establish a strength ranking. Godlike sees the rival's hand and is excluded from the public-information ladder.
+<details class="royale-depth" markdown="1">
+<summary>Evaluation conditions and complete records</summary>
 
-An [11,000-game neural comparison](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines) also covers Easy, Random and the registered NN512 scorer. It shares 4,000 games with the table above: together these reports contain **26,000 distinct games**, not 30,000.
+**Code AI** is the browser's Hard policy; **SDK Code AI** is the frozen training teacher. Every reported matchup uses 1,000 individual games. All **19,000 games** in the baseline report completed without illegal actions or truncation. **Godlike** sees the rival's hand and is excluded from the public-information ladder.
 
-A next experiment is to learn from several good moves or continue from these checkpoints using win/loss rewards. Gym supports both individual games and full matches through the Ace challenge; the current baselines train on individual games. Reward-driven RL remains future work.
+Latency is the highest opponent-batch p95 for a complete decision on **Apple M1 / Node 22 / single-thread WASM**. It includes encoding and all inference calls, excluding initial loading and inter-thread messaging. It is not a mobile benchmark. ONNX sizes cover model weights.
 
-## 5. Arena: bring a policy to the table
+In a direct matchup, the autoregressive model wins **28.8%** against the 256 → 128 scorer. The additional neural report also covers Easy, Random and the registered NN512 scorer. Its 11,000 games overlap the baseline report by 4,000: the two reports contain **26,000 distinct games**.
+
+[Baseline report and reproduction](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline) · [Additional neural matchups](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines)
+
+</details>
+
+The next question is whether learning several good alternatives—or optimizing wins rather than agreement with a teacher—produces better decisions. Gym supports individual games and full matches through Ace; the current training recipes use individual games.
+
+## 5. An open table for new opponents
 {: #arena}
 
-A game becomes more interesting when other people bring different ways to play it. **Arena** makes that possible for code: submit a strategy, earn a reference Elo, and let players challenge the same policy in their browsers. You can start with a few rules or a trained network.
+A few well-chosen rules can make a policy; a neural network is optional. **Arena** gives both a place to compete. Submit an opponent, have it evaluated, then let people play against the same strategy in their browser.
 
-[The Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) brings the leaderboard, RL environment and baseline together. Click **Play** beside a policy, or choose **Settings → Preferences → AI opponent → Arena AI**. Each entry credits its author's GitHub handle. Seven policies are registered, spanning code, whole-move scoring and autoregressive models.
+### From a PR to the ladder
 
-### One folder, two ways to play
+Put the strategy and its manifest in a policy folder, add your GitHub handle, and run local validation. Submit a PR with the generated receipt. CI checks that it can play legally; at publication, evaluation assigns a provisional reference Elo and updates the ladder.
 
-A submission lives in `policies/entries/your-policy-v1/`, with a manifest, source or weights, a README and a generated validation receipt. Add it to the registry with your GitHub handle. Use a new ID for each revision so a score always refers to the exact evaluated policy.
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow-en.svg" caption="Figure 17. Validate a submission, rate it at publication, then make it playable. Publication also repeats validation." %}
+
+<details class="royale-depth" markdown="1">
+<summary>Submission format and rating method</summary>
+
+A submission lives in `policies/entries/your-policy-v1/`, with a manifest, source or weights, README and `validation.json`. Add it to the registry. Each revision gets a new immutable ID, so its score identifies the evaluated files.
 
 | Format | Interface |
 | --- | --- |
 | JavaScript | `createPolicy → act(observation) → complete semantic action` |
-| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → move scores [B,N]` |
-| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token scores [B,65]` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → scores [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → scores [B,65]` |
 
-Both ONNX profiles and JS declare `royale-policy-v2` and `actions-v2`. Model-specific outputs map to the same complete semantic action before validation. The neural policies are separate rated entries; the 256 → 128 scorer remains a fixed Elo reference.
+All declare `royale-policy-v2` and `actions-v2`. JS policies may remember public observations within a game; the current ONNX contract has no recurrent state. A strategy written in another language must be ported to JS or exported to a supported ONNX profile, then checked against saved observations. Artifacts are limited to 5 MB. GitHub Pages serves reviewed registry entries, and a browser Worker runs them locally.
 
-Both receive the acting player's information: their own hand and public cards, without the rival's hidden hand or deck order. JS strategies may remember public observations within a game. The current ONNX contract has no recurrent state. **Godlike is excluded from the ladder.**
+Run `npm run arena:validate`, then `npm run arena:submit -- --policy your-policy-v1`. The submission check plays four games against Code AI, covering both seats and first movers. PR CI repeats the check. A merged entry is **Unrated** until a GitHub Release or **Publish Arena** run scores it, commits the results and rebuilds Pages.
 
-No training is required for a JS policy. If your strategy is in Python or another language, port it with Codex or Claude Code and compare actions on saved observations before submitting. Each policy artifact is limited to 5 MB. GitHub Pages serves the reviewed files; a browser Worker runs the policy locally. The site loads registered submissions, not arbitrary uploads.
+Each new policy plays **20 games against each of three fixed references**: Easy (1387), NN 256 (1440) and Code AI (1500). Paired seats and balanced first movers give 60 rated individual games. Including validation, that is **64 games per pending policy**, independent of ladder size; unchanged results are reused.
 
-### Validate first, rate at release
+The evaluator fits one rating to the outcomes using the Elo win-probability curve and a declared prior. There is no K-factor update or game-order effect. With only 60 games, ratings are provisional; small gaps are not evidence of strength. The fixed panel and public seeds can also be overfit. These ratings are separate from the 1,000-game baseline results.
 
-1. **Local:** run `npm run arena:validate`, then `npm run arena:submit -- --policy your-policy-v1`. This plays four games against Code AI, covering both seats and first movers. Commit the resulting `validation.json`.
-2. **PR:** CI replays those games and checks matching results, legal actions and time limits. It checks playability; it does not award Elo.
-3. **Publication:** after review and merge, the policy appears as **Unrated**. A GitHub Release or a manual **Publish Arena** run evaluates pending policies, commits the results and rebuilds Pages. The leaderboard updates automatically.
+[Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md) · [Rating calculation](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md)
 
-{% include royale-figure.html src="/img/blog/3card-royale/arena-flow-en.svg" width="560" height="690" diagram=true alt="JS or ONNX policy: four local validation games, PR replay checks, 60 rated games at publication, then automatic leaderboard and browser play." caption="Figure 17. The submitted policy is shared by local evaluation and browser play. PR checks and rating are separate steps." %}
+</details>
 
-Each new entry plays **20 games against each of three frozen references: Easy, NN 256 and Code AI**. That is 60 rated individual games, starting at level 2, with paired seats and balanced first attackers. Including fresh validation, publication costs **64 games per pending policy**, independent of the number already on the board. Unchanged scores are reused; browser games never change ratings.
+### Pick an AI. Play a game.
+{: #ladder}
 
-The references stay at **1387, 1440 and 1500**. The evaluator fits one rating to the 60 outcomes using the Elo win-probability curve, with a declared prior that keeps all-win or all-loss results finite. This is a **provisional reference Elo**, without a K-factor update or game-order effect. Small gaps do not establish strength; a fixed panel and public seeds can also be overfit. [Exact calculation and limits](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md).
+The ladder is also an opponent list. Choose **Play** to challenge a policy directly in the browser. Your games do not change its rating.
 
-Whole-move scoring **512 → 256** has provisional Elo **1443** (30/60 wins); autoregressive **256 → 128** has **1237** (14/60). Both use the same frozen reference panel. These 60-game ratings are separate from the 1,000-game baseline evaluation above. [Rating records](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1).
+{% include royale-ladder.html %}
 
-[Live leaderboard](https://lucienzhu.github.io/3card-royale/arena.html?lang=en#ladder) · [Policy format and templates](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [Submission guide](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md)
-
-## 6. Try it: open the page and play a few games
+## 6. Bring a deck—or open the page
 {: #play}
 
-The rules work for two people with a physical deck. The current browser playtest is human versus AI, free and available on mobile and desktop without registration.
+For two people, an ordinary deck and the [A4 rules card](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.en.pdf) are enough. For a quick solo game, the browser version has AI opponents, works on mobile and desktop, and needs no account.
 
-New players start on **Easy AI**. Choose another opponent under **Settings → Preferences → AI opponent**: Easy, NN AI, Hard · Code AI, Godlike, or **Arena AI** for registered policies. NN AI uses the autoregressive model; whole-move scorers are available under Arena AI.
+A short first-visit practice takes you through an attack and a defense. The first real game introduces wound cards and swapping as they arise. Start on Easy, then choose another opponent in Settings; **Arena AI** opens the submitted policies. On mobile, swipe across cards to select a hand.
 
-The first visit begins with a short practice: **8 cards → attack with three Aces → resolve → defend with a flush → take 1 wound**. Wound icons show what happened. The first real game then introduces playable wound cards and swapping with contextual hints.
+After a game, keep the moment that mattered: the full recap, the final hand, or the biggest hit. Each can be shared as a PNG.
 
-The browser remembers completion. **Quick start** in Settings lets you disable hints or **Practice again**. On mobile, swipe across cards to select them. Resolved encounters advance automatically to the next attack or defense; choices such as swapping remain yours.
+{% include royale-native.html kind="sharing" src="sharing.svg" caption="Figures 18–20. Three views of the same game: the full recap, final hand and biggest hit. Seed 19, game 1." %}
 
-After a game, there are three ways to look back: **Game recap** shows every encounter in order; **Final hand** shows the last play and final wound difference; **Best play** picks out the largest hit or strongest hand. Choose the moment you like and share its PNG.
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview-en.svg" width="1080" height="1440" alt="Game recap" caption="Figure 18. Game recap. Seed 19, 13 encounters. The preview shows the top of the recap; open it for the complete sequence." full="/img/blog/3card-royale/share-recap-en.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish-en.svg" width="1080" height="1440" alt="Final hand" caption="Figure 19. Final hand. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-finish-en.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight-en.svg" width="1080" height="1440" alt="Best play" caption="Figure 20. Best play. Seed 19, 13 encounters. " full="/img/blog/3card-royale/share-highlight-en.svg" %}
-
-The source, rules, design system, environment and model materials are open. Come and play, or try your own policy, model or rule idea.
-
-I hope this becomes a game that two people can begin at any time, learn something about each other's decisions over a few games, and finish with a particular hand still in mind.
+Try a few games with someone. I would love to hear which hand made you want a rematch—and which decision never felt worth taking. Both are useful feedback for the next iteration.
 
 **One deck. Two players. Three cards. Make them bloom.**
 
-[Play](https://lucienzhu.github.io/3card-royale/?lang=en) · [AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) · [GitHub](https://github.com/lucienzhu/3card-royale)
+[Play →](https://lucienzhu.github.io/3card-royale/?lang=en) · [AI Arena](https://lucienzhu.github.io/3card-royale/arena.html?lang=en) · [Source and rules](https://github.com/lucienzhu/3card-royale)

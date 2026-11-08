@@ -6,196 +6,185 @@ author: "Xiaolong Zhu"
 show_url: true
 tags: ["blog"]
 lang: "zh-CN"
-summary: "从一副牌的双人对战、三角梅与绿色电路板，到神经网络基线与开放 AI 天梯。"
+summary: "一副普通扑克，两个人：短局里的攻防取舍，整场从 2 到 A 的目标，还有开放的新对手。"
 permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
-extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css", "/css/royale-native.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js", "/js/royale-article/native.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
-last_modified_at: "2026-11-02 00:00:00 +0800"
+last_modified_at: "2026-11-08 00:00:00 +0800"
 original_url: "/updates/2026/10/3card-royale/"
 ---
 
-{% include royale-figure.html src="/img/blog/3card-royale/cover.svg" width="1200" height="640" alt="三张金牌与绿色电路板" caption="一副牌，两个人，三张牌，打出花。" %}
+{% include royale-native.html kind="cover" src="/img/blog/3card-royale/cover.svg" caption="一副牌，两个人，三张牌，打出花。" %}
 
-我想用一副普通扑克牌，做一个耐玩的双人对战游戏。
+我想做一个闲下来就能和伙伴开玩的双人游戏：一副普通扑克牌，容易上手，打过几局之后，仍然有值得琢磨的选择。
 
-两个人，一副普通扑克牌，能很快开始；玩过几局之后，依然会遇到值得想一想的选择。运气带来变化，判断影响结果，对手的每一步都会改变自己的下一步。
+这就是**深圳花牌（3Card Royale）**的起点。小局里，两个人交替攻防，争取打好眼前这一手；整场里，双方从 2 向 A 升级。一手好牌能赢下一次攻防，要走到终点，还得赢下几局。
 
-这个想法慢慢变成了**深圳花牌（3Card Royale，aka Shenzhen Flower Cards）**：一个围绕三张牌展开的 1v1 游戏。进攻造成伤害，防守赢得换牌机会，受伤后留下的牌也能重新参与战斗。两个人从 2 级一路打到 A，最后赢下自己的 A 局，就算“开花”。
-
-如今，它有了网页试玩、完整规则、深圳主题的视觉设计、可复现的神经网络基线，以及开放的 AI 天梯。可以来挑战一个策略，也可以提交自己的打法。
-
-## 1. 起心动念：用一副扑克牌，做一个耐玩的双人对战游戏
+## 1. 短局有快乐，整场有目标
 {: #origin}
 
-我希望第一次接触的人，可以借助熟悉的扑克牌迅速理解基本动作：选牌、比较、进攻、防守。规则最好能用几句话讲清楚，而值得琢磨的东西，留在实际对局里慢慢发现。
+扑克牌已经提供了一套熟悉的语言：对子、顺子、同花。我想把有趣的选择放在**什么时候用掉这些牌**上。
 
-**容易开始，又能持续产生选择，是我最在意的部分。**
+比如，我有一手同花。现在打出去，可能让对手受伤；但轮到防守时，这几张牌就不在了。对手看过我的进攻，可以选择压过它，也可以受一点伤，留下更好的组合准备反攻。双方各进攻一次后才补手牌，因此眼前的选择会影响下一次应对。
 
-一副普通扑克很适合作为起点。点数和花色已经是一种共同语言，对子、顺子、同花也不陌生。用这些熟悉的元素，可以把学习成本留给真正有意思的新机制。
+{% include royale-figure.html src="/img/blog/3card-royale/table-light.jpg" width="1000" height="900" alt="浅色牌桌：对手在上、玩家在下，中间展示当前攻防。" caption="图 1 · 对手已经打出同花。用强牌防住它，还是留牌准备反攻？" %}
 
-深圳花牌吸收了[花札](https://zh.wikipedia.org/wiki/%E8%8A%B1%E6%9C%AD)、[炸金花](https://baike.sogou.com/m/v7421269.htm "搜狗百科：三张牌")、[掼蛋](https://zh.wikipedia.org/wiki/%E6%8E%BC%E8%9B%8B)和《[小丑牌](https://zh.wikipedia.org/wiki/%E5%B0%8F%E4%B8%91%E7%89%8C_%28%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%29)》的灵感：花与牌的联系、三张牌组合的直接感、升级和百搭牌带来的变化，以及重新组织熟悉牌型的乐趣。
+<details class="royale-depth" markdown="1">
+<summary>牌桌上的几个区域</summary>
 
-最后，我把游戏的重心放在了攻守之间。
+{% include royale-native.html kind="card-zones" src="/img/blog/3card-royale/card-zones.svg?v=boxes1" caption="图 2 · 手牌保密，伤牌公开且可以打出。这是另一组示例局面。" %}
 
-进攻时，要考虑怎样打出伤害，也要考虑用掉这些牌后，还剩什么来防守。防守时，已经看到了对方出牌，可以选择认真接住，也可以保留更有价值的组合，接受一次有限的损失。防守获胜之后，还能通过换牌改变下一次交锋的条件。
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-light.jpg" width="1000" height="900" alt="浅色牌桌：对手在上、玩家在下，中间展示当前攻防。" caption="图 1 · 实际试玩画面。对手已亮出同花，轮到你防守；暗手牌始终只显示牌背。" %}
+有人达到 5 伤，小局就结束。胜者升级，双方换一手新牌再来。这样，一局有输赢、有回报，整场又保留着更远的目标：**升到 A，再赢下自己的冲 A 局，才算开花。**
 
-{% include royale-figure.html src="/img/blog/3card-royale/card-zones.svg?v=boxes1" width="560" height="868" diagram=true alt="用边框标出八个牌区：上方是对手手牌和公开伤牌；中间是进攻牌、牌堆、弃牌和防守牌；下方是你的公开伤牌和手牌。" caption="图 2 · 牌区示意。手牌保密；伤牌公开，也能出牌。" %}
+玩法受到[花札](https://zh.wikipedia.org/wiki/%E8%8A%B1%E6%9C%AD)、[炸金花](https://baike.sogou.com/m/v7421269.htm "搜狗百科")、[掼蛋](https://zh.wikipedia.org/wiki/%E6%8E%BC%E8%9B%8B)和 [Balatro](https://zh.wikipedia.org/wiki/%E5%B0%8F%E4%B8%91%E7%89%8C_%28%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%29) 的启发：花与牌的联系、三张牌的直接较量、等级和百搭牌带来的变化，以及重新组合熟悉牌型的乐趣。这些想法最终落在两个人之间的攻防取舍上。
 
-一手牌的价值会随着局面变化。同样三张牌，在不同的时候，可能是一次进攻、一道防线，也可能是下一轮更好组合的基础。
+[先打几局 →](https://lucienzhu.github.io/3card-royale/?lang=zh-CN)
 
-我希望玩家在一局结束后，能想起某个具体选择：那手同花是不是出早了，那张伤牌是不是该留下，刚才的换牌机会是不是值得用。愿意带着这个问题再来一局，就是这个设计想争取的东西。
-
-## 2. 设计理念：三角梅与绿色电路板
+## 2. 一朵来自深圳的花
 {: #design}
 
-“深圳花牌”这个名字，让游戏有了一个具体的地方。
+三角梅开遍深圳，也是[深圳的市花](https://www.sz.gov.cn/ztfw/gysy/wyw_183970/ywzsk_184570/content/post_12660964.html)。三片彩色苞片围成一朵花，自然呼应了三张牌的玩法。
 
-三角梅（簕杜鹃）是[深圳的市花](https://www.sz.gov.cn/ztfw/gysy/wyw_183970/ywzsk_184570/content/post_12660964.html)。三张牌与它展开的花形自然呼应，深圳的天际线也融入了界面。
+花的下面，是**电路板绿**。深圳有硬件、有快速迭代，也应该有和伙伴慢下来打一局的闲暇。我希望这副牌带着这座城市的性格。
 
-标志是一张平涂的金色牌：金底、金边，中央是一朵红花，带着小小的金蕊。这个形象贯穿标志、牌背和花牌提示，让它们属于同一个游戏。
+{% include royale-native.html kind="identity" src="/img/blog/3card-royale/identity.svg" caption="图 3 · 三角梅、金牌与电路板绿。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/identity.svg" width="1200" height="400" alt="红花代表三角梅与玩家，金牌统一标志牌背与花牌，绿色来自电路板。" caption="图 3 · 三个视觉元素：红花、金牌、绿色电路板。花形和牌标复用游戏当前的正式素材。" %}
+金色牌底、红花、金花心组成标志。到了牌桌上，红花代表你，金花代表对手；日间和夜间都沿用这套识别方式。
 
-**花是主角，绿色的电路板是底盘。**
+{% include royale-native.html kind="design-system" src="/img/blog/3card-royale/design-system.svg" caption="图 4 · 日间与夜间：你是红花，对手是金花。" %}
 
-我用电路板的绿色承托整副牌，也把深圳的硬件气质放进游戏里。浅色与暗色主题，是这块绿色底盘的两种明暗表达，红花和金花始终落在它上面。
+<details class="royale-depth" markdown="1">
+<summary>把牌桌变成电路板</summary>
 
-颜色也承担着识别任务。玩家是红花，对手是金花；无论在牌桌、进度轨道还是分享图里，身份都保持一致。
+设置里的「电路板」模式，为牌区添上芯片引脚，用动态走线连接各个区域。
 
-{% include royale-figure.html src="/img/blog/3card-royale/design-system.svg" width="560" height="712" diagram=true alt="明暗主题共用平涂金牌标志、牌背与花牌；红花是你，金花是对手。" caption="图 4 · 正式配色与素材。明暗两种绿底，都来自电路板。" %}
+{% include royale-figure.html src="/img/blog/3card-royale/table-pcb.jpg" width="1000" height="900" alt="同一局牌在电路板模式下，牌区周围出现芯片引脚和连通的走线。" caption="图 5 · 同一个牌桌的电路板模式。" %}
 
-设置里还藏着一个电路板模式：牌区化作芯片，走线连接攻守，亮点随着行动流动。绿色底盘于是也参与了对局。
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/table-pcb.jpg" width="1000" height="900" alt="同一局牌在电路板模式下，牌区周围出现芯片引脚和连通的走线。" caption="图 5 · 同一牌局，打开「设置 → 偏好 → 电路板」后的实际画面。" %}
+城市也出现在整场的终点。赢下冲 A 局的牌翻过来，聚成花、绽放，再散落到天际线的角落。上方浮现一句**「你，开花了。」**胜利画面从刚刚打出的那一手开始。
 
-天际线把城市带进了游戏的结尾。建筑以较轻的线条出现，花可以停在城市的角落，城市也能安静地留在背景里。
+{% include royale-native.html kind="finale" src="/img/blog/3card-royale/finale.svg" caption="图 6 · 整场的终点，是绽放。实录结果：11 局，7 : 4，58 轮。" %}
 
-最完整的表达，是整场胜利时的“开花”。赢下自己的 A 局后，动画会取出赢家最后实际打出的牌；如果是四张或五张，就取前三张。牌在运动中翻到统一的牌背，收拢成花，随后绽放、飘落，落到城市各处。上方逐渐空出来时，才出现那句话：
+单局胜利的结算更轻。完整的绽放，留给从 2 走到 A 的这一程。
 
-> 你，开花了。
-
-这段动画与刚才的对局相连。最后出手的牌，成了胜利画面的起点。
-
-{% include royale-figure.html src="/img/blog/3card-royale/finale.svg" width="1080" height="1440" alt="完整对局结束后的开花海报，花群、白鹭、深圳天际线与升级轨道组成终局画面。" caption="图 6 · 用种子 0 完成整场对局后，由正式分享组件生成的结算图。每次对局的赢家和历程都来自真实记录。" %}
-
-单局胜利保留更轻的反馈。一小局打得漂亮，值得高兴；从 2 打到 A、完成整场挑战，值得一次更完整的绽放。两种胜利有不同的分量，画面也应该表达出来。
-
-## 3. 规则与对局：进攻掉血，防守换牌
+## 3. 进攻打伤害，防守换牌
 {: #rules}
 
-开始之前，记住三句话就够了：
+一副 **52 张普通扑克牌，不用大小王**。双方各摸 **8 张**，从 2 级开始。进攻方先亮牌，防守方看过后再应对。
 
-1. **8 张手牌，一攻一守。**
-2. **进攻掉血，防守换牌。**
-3. **从 2 到 A，过关开花。**
-
-两人共用一副去掉大小王的 52 张扑克，各拿 8 张手牌，从 2 级开始。手牌保密，伤牌公开。
-
-每次攻防，由进攻者先亮牌，防守者看到之后再回应。通常出三张，也可以出四张的“四炸”或五张的“五炸”。攻守双方不必出相同张数，也不必跟相同花色或牌型。
+通常出三张牌。四张、五张只用于四炸、五炸，双方不必出相同张数。每局指定一张红桃为**花牌**，可以代替任意点数和花色。
 
 {% include royale-hands.html %}
 
-这里的“三炸”就是三张同点牌，四炸是四张同点牌；五炸需要四张自然同点牌，再加本局花牌。先比较牌型分数，同牌型再比较点数。花色没有大小之分。
+先比牌型，再比同牌型内的点数，花色不分大小。五炸需要四张同点数牌加一张花牌。
 
-例如，你用 `4♦、8♦、Q♦` 的同花进攻，对手用 `6♣、6♠、J♥` 的对子防守。同花 3 分，对子 1 分，你赢下进攻，对手增加 **2 张伤牌**。
+同花 3 分，对子 1 分。如果进攻赢了，防守方受到 **3 − 1 = 2 伤**；如果用三炸防住同花，就获得 **5 − 3 = 2 次换牌机会**。同牌型靠点数获胜，效果是 1 伤或 1 次换牌；完全相同则没有伤害或换牌。
 
-如果防守者用三炸接住同花，就获得 **2 次换牌机会**。同牌型只靠点数获胜时，按 1 伤或 1 次换牌机会结算；完全相同则没有收益。
+{% include royale-experiment.html kind="combat" src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 8 · 分差在进攻时变成伤害，在防守时变成换牌机会。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 8 · 进攻推动小局结束，防守改善接下来的牌。示例牌中，本局花牌为 ♥2。" %}
+### 受伤，也可能带来一手反击
 
-### 伤牌，也是可用的牌
+伤害以牌的形式正面放在面前。**伤牌可以和手牌一起出**；用掉后从牌堆原位补一张，所以出伤牌不会减少伤害。
 
-受到伤害后，新增的牌会公开放在伤牌区。这些牌依然属于你，也可以和手牌混合出牌。用掉伤牌后，原位置会补上一张新的公开牌，伤势数量保持不变。
+伤牌让你更接近输局，也增加了可用的组合。它可能恰好补成一手强牌，而对手也能看到这个威胁。
 
-所以，受伤会让你更接近败局，同时也会带来新的可用牌。它们公开可见，双方都能据此判断后续组合。你可能从伤牌里找到一次反击，对手也可能提前看见这个机会。
+{% include royale-native.html kind="wounds" src="/img/blog/3card-royale/wounds.svg" caption="图 9 · 伤牌参与组成顺子，再原位补牌，仍然是 1 伤。K♦ 为示例补牌。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/wounds.svg" width="1200" height="420" alt="将公开伤牌 8♥ 与手牌 6♠、7♣ 组成顺子；出牌后原位置补入一张新伤牌，仍为 1 伤。" caption="图 9 · 伤牌参与出牌的流程示意。K♦ 仅为补牌示例；补牌来自牌堆，出伤牌不会回血。" %}
+### 防守改变下一次攻防
 
-### 换牌机会，可以选择不用
+每次换牌机会，可以用己方一张手牌或伤牌，与一个合法目标交换：牌堆、对手随机暗牌、公开伤牌，或己方另一个牌区。可选目标由来源牌区决定。换牌不改变伤牌数量，**每次机会都可以单独放弃**。
 
-防守获得的换牌，进一步改变了资源关系。你可以交出自己的一张手牌或伤牌，与对手的随机手牌、指定公开伤牌、自己的另一牌区或牌库交换，具体目标取决于来源牌区。换牌改变牌的内容，不改变伤势。
+双方各进攻一次，才算一轮。两次攻防之间不补手牌；轮末保留剩余牌，再补至 8 张。第一手赢得漂亮，也可能让第二手难以应对。
 
-每次机会都可以独立跳过。拿到两次机会，可以换一次、跳过一次，也可以两次都保留原状。拥有选择，本身就是防守的收益。
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow.svg" caption="图 10 · 双方各进攻一次，再补手牌；任一次攻防都可能结束小局。" %}
 
-补牌的节奏同样重要。双方各进攻一次，才算完成一轮；两次攻防之间不补手牌，轮末保留未用牌，再补到 8 张。因此，第一次出手时，就需要想着第二次交锋。
+### 从赢下一局，到走完整场
 
-{% include royale-figure.html src="/img/blog/3card-royale/round-flow.svg" width="560" height="1000" diagram=true alt="进攻、回应、结算；达到 5 伤立即结束小局。否则交换攻守，再做一次攻防，轮末双方补到 8 张。" caption="图 10 · 一轮包含两次攻防；出现终局条件时立即停止。" %}
+一方达到 5 伤或以上，小局结束。胜者按**最终伤牌差**升级：对手 7 伤、你 2 伤，就升 5 级，最多到 A。计算时不会把伤害截成 5。
 
-### 从 2 到 A，最后再赢一次
+到 A 后，还要赢下由自己冲 A 的一局，才能赢得整场。自己的冲 A 局累计失败三次，就回到 2；对手的等级保留。
 
-小局在一方达到 5 伤或以上时结束。赢家按照双方完整的终局伤势差升级。例如，对手最终 7 伤、你 2 伤，你就升 5 级；伤害不会在 5 截断。
-
-升级最高到 A，但到 A 还要完成最后一次挑战：**由自己作为打级方，赢下自己的 A 局，才赢下整场。**打自己的 A 局累计失败三次，会回到 2 级；对手的等级保留。
-
-每小局还有一张双方共用的花牌，也就是百搭牌。首局是 `♥2`，之后根据上一局赢家升级后的等级确定。例如赢家升到 7，下局双方都使用 `♥7`。花牌一局内固定，双方可以围绕同一个关键资源展开争夺。
-
-隐藏的手牌、公开的伤牌、共同的花牌，以及攻守之间连续的资源选择，共同构成了深圳花牌的变化。
+花牌也跟着升级变化。第一局是 `♥2`，之后是上一局胜者新等级对应的红桃。如果胜者升到 7，下一局双方共用的花牌就是 `♥7`，整局不变。
 
 [完整规则](https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN) · [A4 规则卡](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.zh-CN.pdf)
 
-## 4. 强化学习：一个环境，不同策略
+## 4. 策略实验：什么样的决策更容易赢
 {: #rl}
 
-隐蔽信息、随机发牌，以及攻守之间的资源取舍，让这副牌也适合研究策略。固定发牌、替换策略、重复对战，就能比较不同决策带来的结果。
+设计玩法之后，我还想知道：**什么样的决策更容易赢？**于是我做了一个可复现的环境，固定发牌、替换策略，再比较结果。别人也可以直接实验，不必先重写游戏引擎。
 
-GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原生实现，使用共同回放检查一致性。网页与自对弈采集使用 JavaScript；Gymnasium 使用 Python 核心，PyTorch 从保存的样本训练。
+这些实验衡量的是策略表现，不能单独证明规则平衡或游戏好玩。它们能暴露策略的弱点，也能提出值得拿回真人试玩中检验的问题。
 
-{% include royale-figure.html src="/img/blog/3card-royale/system-architecture.svg" width="560" height="884" diagram=true alt="四种原生核心通过回放校验，策略只接收可见观察，网页与训练分别接入同一套规则。" caption="图 11 · 一套规则，共同接口。Godlike 使用单独标明的明牌接口。" %}
+GameCore 负责规则，策略负责选动作。普通策略只能看到自己的手牌和公开信息，不能读取对手暗牌或牌堆顺序。
 
-### 策略能看到什么
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture.svg" caption="图 11 · 策略根据自己可见的信息选择动作，GameCore 校验并执行。" %}
 
-神经网络接收己方手牌、双方公开伤牌、弃牌、当前出牌与局面信息。**六个牌区各占 52 位**，按固定顺序标记每张牌是否存在；再加 **6 位阶段 + 18 项状态**，得到 **336 维观察**。两个模型都不读取对手暗牌、牌堆顺序或历史序列。
+### 同一个决策，两种建模方式
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg" width="560" height="2434" diagram=true alt="实际换牌样本：六个 52 位牌区、六位阶段、其余 18 项状态，以及原值、入模值与归一化公式。" caption="图 12 · 完整的观察编码。牌区是 multi-hot，阶段是 one-hot；本例牌堆 29 张，编码为 29 / 52。" %}
+**整手评分**先列出合法动作，给每一手打分，再选最高分。**自回归**则逐步构造动作：先选操作，再选牌或换牌目标。两者最终交给引擎的，都是同一种完整动作。
 
-### 含义固定，合法性随选择变化
+我训练了这两类模型，模仿固定的规则策略 **SDK Code AI**。它们目前是行为克隆基线，还没有根据输赢奖励做强化学习；环境为后续 RL 实验保留了入口。
 
-所有策略都通过 **actions-v2** 提交一个完整动作。实体牌 ID 固定：按黑、红、梅、方排列，每种花色从 2 到 A。Token 0–51 对应这 52 张牌；52–54 是 `PLAY_3`、`PLAY_4`、`PLAY_5`；55–64 表示换牌、目标与流程操作。`PAD = 65` 只用于补齐序列。
+<details class="royale-depth" markdown="1">
+<summary>一个决策的内部：观察、动作与网络</summary>
 
-三个 A 的出牌编码为 `PLAY_3 → A♠ → A♥ → A♣`。同一张牌不能重复，出牌统一按 ID 升序，点击顺序不影响表示。四张、五张须构成合法炸弹。换牌指定来源与去向；去向是可见牌区时，再指定目标牌。`SKIP` 用掉本次机会，`STOP` 放弃剩余机会。
+观察共 **336 维**：六个牌区各 52 个有无标记，加上 6 个阶段标记和 18 项局面值。六个牌区是己方手牌、双方公开伤牌、弃牌、双方当前出牌。两个网络都没有输入历史序列。
 
-**65 位条件 mask** 标记哪些 token 仍能组成完整合法动作。它随局面与已选前缀变化，token 的含义不变。Gym 接受补齐为六位的完整动作 `MultiDiscrete([66] × 6)`，每个完整动作只推进一次游戏。[动作协议与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)。
+{% include royale-experiment.html kind="observation" src="/img/blog/3card-royale/observation-state.svg" width="560" height="2434" diagram=true alt="实际换牌样本：六个 52 位牌区、六位阶段、其余 18 项状态，以及原值、入模值与归一化公式。" caption="图 12 · 一个实录局面，336 个值。牌区是 multi-hot，阶段是 one-hot；牌堆余量编码为 29 / 52。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="固定 token 编成三张牌或换牌动作；每步通过条件 mask 过滤，最终一次性提交完整动作。" caption="图 13 · 纯代码、整手评分、自回归，共用一个动作协议。" %}
+实体牌 ID 固定按 ♠、♥、♣、♦，每种花色从 2 到 A 排列。0–51 表示牌；52–54 是 `PLAY_3`、`PLAY_4`、`PLAY_5`；55–64 表示换牌、目标区和流程操作。`PAD = 65` 用于补齐。
 
-### 两种决策建模
+三个 A 的动作是 `PLAY_3 → A♠ → A♥ → A♣`。出牌按 ID 升序排列，不管点击顺序如何，同一手只有一种表示。牌不能重复，四张、五张必须组成合法炸弹。换牌指定来源和目标；目标可见时，还要指定目标牌。
 
-**整手评分**先枚举合法动作。共享 MLP 对每个「336 维状态 + 72 维动作特征」评分，取最高分。候选列表的位置可以变化，提交时转换为固定牌 ID。
+**65 位 mask** 标记下一步哪些 token 仍能组成合法动作。选牌时 mask 会变，token 的含义不变。Gym 接收补齐后的六个 token，即 `MultiDiscrete([66] × 6)`，一次执行完整动作。
 
-**自回归**先决定操作，再逐个预测 token。共享 MLP 接收相同状态与 396 维前缀编码，输出 65 个 token 分数，经 mask 过滤，最多六次调用完成一个动作。
+{% include royale-experiment.html kind="action" src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="固定 token 编成三张牌或换牌动作；每步通过条件 mask 过滤，最终一次性提交完整动作。" caption="图 13 · 固定牌 ID 与操作组成完整动作，mask 限定下一步的合法选择。" %}
 
-| 策略 | 网络 | 参数 | ONNX |
+| 策略 | 网络 | 参数量 | ONNX |
 | --- | --- | ---: | ---: |
 | 整手评分 | 408 → 256 → 128 → 1 | 137,729 | 0.55 MB |
 | 自回归 | 732 → 256 → 128 → 65 | 228,929 | 0.92 MB |
 
-协议规定合法动作，不规定策略如何学习或搜索。两个模型目前都通过**行为克隆学习 SDK Code AI**；它是固定训练教师，与网页困难档 Code AI 不同。两者都还没有用奖励训练。整手评分还使用人工牌型特征，因此这不是只改变网络结构的对照实验。
+整手评分输入 336 维状态和 72 维动作描述，其中包含人工定义的牌型特征。自回归输入同一状态和 396 维前缀编码，每个动作最多调用网络六次。输入信息与解码方式不同，因此这不是单独比较网络结构的实验。
 
-### 训练与复现
+浏览器和自对弈采集使用 JavaScript 核心，Gymnasium 使用原生 Python 核心。JavaScript、Python、Rust、C++ 实现通过共享回放序列校验。
 
-两套配方各采集 **10,000 小局** SDK 自对弈，按完整小局划分为 **8,000 训练 / 1,000 验证 / 1,000 测试**。整手评分有 252,859 条决策；自回归有 252,906 条决策、988,571 个目标 token。配方与种子不同，样本数也不同。
+[动作协议与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)
 
-整手评分在合法完整动作之间计算交叉熵；自回归使用带 mask 的 teacher forcing，每个完整决策总权重相同。PyTorch 训练，TensorBoard 记录 train/val 曲线。按验证损失选择 checkpoint：整手评分第 **5** 个 epoch，自回归第 **16** 个。
+</details>
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-training.svg" width="1000" height="420" alt="自回归训练 40 个 epoch 的训练与验证损失，验证损失最低点为第 16 个 epoch。" caption="图 14 · 自回归训练曲线。按验证损失选模型，不用对战结果选模。" %}
+<details class="royale-depth" markdown="1">
+<summary>训练配方与验证</summary>
 
-整手评分在测试集上有 **89.36% 的整手动作一致率**；自回归的 **teacher-forced token 准确率为 90.44%**。两者不是同一种指标：给定正确前缀后预测 token，不等于独立生成完整动作。自回归的教师也没有提供 `SKIP`、`STOP` 的正例。
+两个配方分别生成 **10,000 局 SDK 自对弈**，按整局划分为 **8,000 训练 / 1,000 验证 / 1,000 测试**。整手评分有 252,859 次决策；自回归有 252,906 次决策、988,571 个目标 token。两份数据使用不同种子。
 
-{% include royale-figure.html src="/img/blog/3card-royale/training-pipeline.svg" width="560" height="936" diagram=true alt="SDK Code AI 自对弈、按局切分、整手评分或自回归训练、验证选模，最后导出 ONNX 在浏览器运行。" caption="图 15 · 两种训练配方，通过同一动作协议接入评测与试玩。" %}
+两者都用 PyTorch 训练。整手评分在合法动作之间计算交叉熵；自回归使用带 mask 的 teacher forcing，计算逐 token 交叉熵，每次完整决策权重相同。TensorBoard 记录曲线，以验证损失选出整手评分的第 **5** 轮、自回归的第 **16** 轮。
 
-数据超过仓库 10 MB 的预算，因此保存确定性生成配方与哈希，不直接提交数据集。最佳 ONNX、训练记录、运行环境与评测结果均已保存。评估新训练的权重时，先注册新的不可变策略 ID 并本地验证；现成的基线评估命令读取的是仓库中的 checkpoint。[整手评分配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [自回归配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)。
+{% include royale-native.html kind="structured-training" src="/img/blog/3card-royale/structured-training.svg" caption="图 14 · 自回归训练损失持续下降，验证损失在第 16 轮最低。" %}
 
-### 基线评估
+测试集上，整手评分的**完整动作一致率为 89.36%**，自回归的 **teacher-forced token 准确率为 90.44%**。这不是同一种指标：给定正确前缀预测下一个 token，不等于独立生成一整手正确动作。自回归的老师也没有提供 `SKIP`、`STOP` 正例。
 
-下表每格 **1,000 小局**：同一组 500 个种子，交换座位、平衡先攻，从 2 级开始。**Code AI** 是网页困难档；**SDK Code AI** 是训练教师。共 **19,000 小局**，全部完成，无非法动作或截断。
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline.svg" caption="图 15 · 分别生成自对弈数据，按整局划分，以验证损失选模。" %}
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="864" height="576" alt="八种公开信息策略，在相同 500 个配对种子下对战网页 Code AI 与 SDK Code AI 的胜率。" caption="图 16 · 相同发牌，两个对手。每条柱为 1,000 局，横轴保留完整的 0–100%。" %}
+仓库提供确定性数据生成配方、哈希、checkpoint、训练曲线和运行时版本。新训练的权重使用独立策略 ID 评测，避免与已有基线混淆。
+
+[整手评分配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [自回归配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)
+
+</details>
+
+### 实验告诉了我们什么
+
+对网页困难档 Code AI，256 → 128 整手评分模型的胜率是 **42.6%**，自回归模型是 **23.9%**。每组打 1,000 小局，使用同一批 500 个种子，交换座位、平衡先攻，从 2 级开始。
+
+{% include royale-experiment.html kind="evaluation" src="/img/blog/3card-royale/win-rates.svg" width="864" height="576" alt="公开信息策略，在相同 500 个配对种子下对战网页 Code AI 与 SDK Code AI 的胜率。" caption="图 16 · 同一批发牌下的胜率。每条对应 1,000 局，横轴为完整的 0–100%。" %}
 
 | 策略 | ONNX | 延迟 p95 | 对 Code AI | 对 SDK Code AI |
 | --- | ---: | ---: | ---: | ---: |
@@ -211,76 +200,77 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 | Godlike · 明牌 | — | 18.12 ms | 67.0% | 67.5% |
 {: .royale-policy-results }
 
-延迟是各对手批次中最高的完整决策 p95，环境为 **Apple M1 / Node 22 / 单线程 WASM**。包含编码和全部推理调用，不含初始化与线程间通信，不代表手机表现。ONNX 大小只计权重；纯代码策略没有 ONNX 文件。[原始记录、哈希与复现](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline)。
+整手评分在这次实验中表现更好。这比较的是两套训练方案，不能据此判定自回归方法的上限。输入、监督方式和解码各自的影响，还需要单独验证。不同宽度评分网络之间的小幅差异，也不足以确定强弱排序。
 
-整手评分对困难档胜率 **42.6%**，自回归为 **23.9%**；直接对战中，自回归胜率 **28.8%**。统一协议让策略可以互换，不保证某种模型更强。不同评分网络之间的小幅差异不足以确定强弱。Godlike 可见对手手牌，不参与公开信息天梯。
+<details class="royale-depth" markdown="1">
+<summary>评测条件与完整记录</summary>
 
-另有 [11,000 局神经网络对照](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines)，覆盖 Easy、Random 与已注册的 NN512 整手评分模型。它与上表重合 4,000 局，两套评测合计 **26,000 个不同对局**，不是 30,000。
+**Code AI** 是网页困难档，**SDK Code AI** 是固定的训练老师。表中每组对战 1,000 小局，基线报告共 **19,000 局**，均正常结束，无非法动作或截断。**Godlike** 可以看到对手手牌，不参与普通信息天梯。
 
-接下来可以学习多个好动作的分布，或从现有 checkpoint 出发，用胜负奖励继续训练。Gym 支持小局与从 2 到 A 的整场任务；当前基线训练的是小局，奖励驱动的强化学习仍待实验。
+延迟取各对手批次中最高的整次决策 p95，环境为 **Apple M1 / Node 22 / 单线程 WASM**。包含编码和所有推理调用，不含首次加载、线程间通信；这不是手机延迟。ONNX 大小只计模型权重。
 
-## 5. 竞技场：带一个策略来打天梯
+两个模型直接对战时，自回归对 256 → 128 整手评分的胜率为 **28.8%**。另外的神经策略报告覆盖 Easy、Random 和已登记的 NN512，共 11,000 局；其中 4,000 局与基线报告重叠，两份报告合计 **26,000 个不同对局**。
+
+[基线报告与复现](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/complete-baseline) · [其他神经策略对战](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/docs/experiments/neural-baselines)
+
+</details>
+
+接下来值得试的是：学习多个好选择，而不只模仿老师的首选；或者直接优化输赢奖励。Gym 支持小局和从 2 到 A 的整场，当前训练配方使用小局。
+
+## 5. 给新对手留一张椅子
 {: #arena}
 
-一个游戏有趣，也因为不同的人会带来不同的打法。**Arena** 把这件事开放给代码：提交一个策略，获得基准 Elo，再让玩家在浏览器里挑战同一份策略。可以从几条判断规则开始，也可以训练一个网络。
+几条规则就可以是一种策略，不一定要训练神经网络。**竞技场**让两者都能参与：提交自己的对手，接受评测，再让玩家直接在浏览器里挑战同一份策略。
 
-[竞技场](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) 把天梯、RL 环境和基线放在了一起。在榜单点「挑战」，或进入 **设置 → 偏好 → AI 对手 → 竞技场 AI**，就能挑选策略。每个条目都带作者的 GitHub handle。竞技场现有七个策略，包括代码策略、整手评分与自回归模型。
+### 从 PR 到天梯
 
-### 一个目录，两种策略
+把策略和声明文件放进独立目录，填上 GitHub handle，跑通本地验证，带着生成的记录提交 PR。CI 检查它能否合法对战；发布时再评估暂定基准 Elo，自动更新天梯。
 
-投稿放在 `policies/entries/your-policy-v1/`：版本声明、代码或权重、README，以及本地验证生成的回执。再把策略和 GitHub handle 加入注册表。修改策略时使用新 ID，让每个分数都对应实际评估过的那一版。
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow.svg" caption="图 17 · 提交时验证，发布时评分，随后开放试玩；发布也会重复验证。" %}
+
+<details class="royale-depth" markdown="1">
+<summary>投稿格式与评分方法</summary>
+
+策略放在 `policies/entries/your-policy-v1/`，包含 manifest、源码或权重、README 和 `validation.json`，并登记到 registry。每次修改使用新的不可变 ID，让分数对应到实际评测的文件。
 
 | 格式 | 接口 |
 | --- | --- |
-| JavaScript | `createPolicy → act(observation) → 完整结构化动作` |
-| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → 动作分数 [B,N]` |
-| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → token 分数 [B,65]` |
+| JavaScript | `createPolicy → act(observation) → 完整语义动作` |
+| ONNX · `scoring-v2` | `state [B,336] + candidates [B,N,72] → scores [B,N]` |
+| ONNX · `structured-v2` | `state [B,336] + prefix [B,396] → scores [B,65]` |
 
-两种 ONNX 模型和 JS 均声明 `royale-policy-v2` 与 `actions-v2`。各自的模型输出先映射成同一种完整语义动作，再统一校验。两种神经网络分别注册、独立评分；整手评分 256 → 128 保持为固定 Elo 基准。
+统一声明 `royale-policy-v2` 和 `actions-v2`。JS 策略可以在一局内记住公开观察；当前 ONNX 接口没有循环状态。其他语言的策略需要移植为 JS，或导出为支持的 ONNX 格式，再用保存的观察样本核对。每份策略产物限制为 5 MB，由 GitHub Pages 加载审核后的注册文件，在浏览器 Worker 中运行。
 
-两种策略都只能获得当前座位的信息：自己的手牌和公开牌，看不到对手暗牌或牌堆顺序。JS 可以在一小局内记忆公开观察；当前 ONNX 接口没有循环状态。**明牌 Godlike 不进天梯。**
+先运行 `npm run arena:validate`，再运行 `npm run arena:submit -- --policy your-policy-v1`。提交检查会与 Code AI 打四局，覆盖双方座位和先攻。PR CI 重复验证；合并后标为**未评分**，直到 GitHub Release 或 **Publish Arena** 流程完成评分、提交结果并构建 Pages。
 
-纯代码策略无需训练。Python 等语言的策略可以先用 Codex 或 Claude Code 转成 JS，再用保存的观察样本核对动作一致性。单个策略文件不超过 5 MB。GitHub Pages 提供审核后的文件，浏览器 Worker 在玩家设备上执行；网页加载已注册的策略，不接受任意文件上传。
+每个新策略对三个固定基准各打 **20 局**：Easy（1387）、NN 256（1440）、Code AI（1500）。交换座位、平衡先攻，共 60 个评分小局；加上验证是**每个待评策略 64 局**，不随榜单人数增加。未修改策略复用已有结果。
 
-### 先验证，再在发版时评分
+评分使用 Elo 胜率曲线和声明的先验，根据结果拟合一个分数，不使用逐局 K 值更新，也不受对局顺序影响。60 局只能给出暂定评分，小差距不能证明强弱；固定基准和公开种子也可能被过拟合。天梯成绩与前面每组 1,000 局的基线评测分别统计。
 
-1. **本地：**运行 `npm run arena:validate`，再运行 `npm run arena:submit -- --policy your-policy-v1`。与 Code AI 打四小局，覆盖两个座位和先攻，把生成的 `validation.json` 一起提交。
-2. **PR：**CI 重放这四局，核对结果、合法动作和运行时限。这里只验证能否对战，不算 Elo。
-3. **发布：**审核合并后先显示「暂未评分」。发布 GitHub Release，或手动运行 **Publish Arena**，才为待评分策略打分、提交结果并重建 Pages，榜单随之自动更新。
+[接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.md) · [评分计算](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md)
 
-{% include royale-figure.html src="/img/blog/3card-royale/arena-flow.svg" width="560" height="690" diagram=true alt="JS 或 ONNX 策略：本地四局验证，PR 重放检查，发布时六十局评分，自动更新天梯并供网页挑战。" caption="图 17 · 同一份策略用于本地评估和网页试玩；PR 验证与发布评分分开进行。" %}
+</details>
 
-每个新策略分别与三个固定基准 **Easy、NN256、Code AI 各打 20 小局**，共 60 局，从 2 级开始，交换座位并平衡先攻。加上重新验证的四局，每次发布是 **每个待评分策略 64 局**，不随已有策略数量增加。已有评分复用；玩家在网页上的胜负不影响 Elo。
+### 挑一个 AI，打一局
+{: #ladder}
 
-三个基准固定在 **1387、1440、1500**。评估器用 Elo 胜率公式，一次拟合 60 局的结果；加入已声明的先验，避免全胜、全败产生无穷分数。这是**暂定的基准 Elo**，不使用逐局 K 值更新，也不受对局顺序影响。小分差不代表强弱已定；固定对手和公开种子也可能被针对优化。[完整算法与限制](https://github.com/lucienzhu/3card-royale/blob/main/arena/README.md)。
+天梯也是一份对手名单。点「挑战」，就能在浏览器里与对应策略对战。试玩不会改变评分。
 
-整手评分 **512 → 256** 获得暂定 Elo **1443**（30/60 胜）；自回归 **256 → 128** 为 **1237**（14/60 胜）。二者按同一固定基准面板评分；这 60 局天梯成绩与上面的 1,000 局基线评测分别统计。[评分记录](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/arena/results/reference-elo-v1)。
+{% include royale-ladder.html %}
 
-[实时天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN#ladder) · [接口与模板](https://github.com/lucienzhu/3card-royale/tree/main/policies) · [投稿指南](https://github.com/lucienzhu/3card-royale/blob/main/policies/README.zh-CN.md)
-
-## 6. 体验：打开网页，先打几局
+## 6. 带一副牌，或者打开网页
 {: #play}
 
-规则本身可以用实体扑克进行双人对战。当前网页试玩提供的是人机对局，免费，无需注册，手机和桌面都可以打开。
+两个人玩，有一副普通扑克和 [A4 规则卡](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.zh-CN.pdf) 就够了。一个人想试试，可以打开网页版和 AI 对战，手机、桌面都能玩，无需注册。
 
-新玩家默认 **Easy AI**。在 **设置 → 偏好 → AI 对手** 中可以选择 Easy、NN、困难 Code、明牌 Godlike，或选择 **竞技场 AI** 体验已注册策略。NN AI 使用自回归模型；整手评分模型可在竞技场 AI 中选择。
+首次进入会练习一次进攻和一次防守，正式第一局再按场景介绍伤牌和换牌。从简单档开始，之后可以在设置里更换对手；「竞技场 AI」可以选择投稿策略。手机上划过牌面，就能连选一手。
 
-第一次先练一小段：**8 张牌 → 三个 A 进攻 → 结算 → 同花防守 → 受 1 伤**，用受伤图标显示结果。正式首局再通过气泡提示，介绍伤牌也能出、换牌怎么选。
+打完之后，留下值得记住的片段：本局全部攻防、决胜的最后一手，或者打出最多伤害的高光。三种回顾都可以生成 PNG 分享。
 
-浏览器会记住完成状态。「新手引导」可以关闭，也能点「再练一次」。手机上可以划过多张牌进行选择；攻防结算后自动进入下一步，换牌等选择仍由你决定。
+{% include royale-native.html kind="sharing" src="sharing.svg" caption="图 18–20 · 同一局的三种回顾：全部攻防、最后一手、最大伤害。种子 19，第 1 局。" %}
 
-一小局结束后，可以从三个角度回看：**本局回顾**按顺序看完全部攻防，**决胜现场**看最后一手和最终伤势差，**高光一手**找出最大伤害或最大的牌型。喜欢哪一段，就分享对应的 PNG。
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-recap-preview.svg" width="1080" height="1440" alt="本局回顾" caption="图 18 · 本局回顾。种子 19，13 次攻防。此处展示长图顶部，点开查看完整过程。" full="/img/blog/3card-royale/share-recap.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-finish.svg" width="1080" height="1440" alt="决胜现场" caption="图 19 · 决胜现场。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-finish.svg" %}
-
-{% include royale-figure.html src="/img/blog/3card-royale/share-highlight.svg" width="1080" height="1440" alt="高光一手" caption="图 20 · 高光一手。种子 19，13 次攻防。" full="/img/blog/3card-royale/share-highlight.svg" %}
-
-项目的源码、规则、设计规范、环境和模型资料都已经开放。可以来玩，也可以带着自己的策略、模型或者规则想法继续尝试。
-
-我希望深圳花牌最后能成为这样一个游戏：两个人随时可以开始，几局之后，对彼此的打法多一点了解；结束时，还记得其中一手牌。
+找个伙伴打几局。我想听听哪一手让你想再来一次，也想知道哪些选择始终不值得做。它们都会成为下一次迭代的依据。
 
 **一副牌，两个人，三张牌，打出花。**
 
-[开始玩](https://lucienzhu.github.io/3card-royale/?lang=zh-CN) · [AI 天梯](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) · [GitHub](https://github.com/lucienzhu/3card-royale)
+[开始玩 →](https://lucienzhu.github.io/3card-royale/?lang=zh-CN) · [AI 竞技场](https://lucienzhu.github.io/3card-royale/arena.html?lang=zh-CN) · [源码与规则](https://github.com/lucienzhu/3card-royale)

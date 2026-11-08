@@ -8,7 +8,7 @@
       {% for hand in site.data.royale_hands %}
       <tr{% if hand.score == 0 %} id="figure-hands-basic{{ hands_suffix }}"{% elsif hand.score == 4 %} id="figure-hands-strong{{ hands_suffix }}"{% endif %}>
         <th scope="row">{% if hands_zh %}{{ hand.zh }}{% else %}{{ hand.en }}{% endif %}</th>
-        <td><img class="royale-hand-cards" src="{{ '/img/blog/3card-royale/hand-' | append: hand.slug | append: '.svg' | relative_url }}" alt="{% if hands_zh %}{{ hand.alt_zh | escape }}{% else %}{{ hand.alt_en | escape }}{% endif %}" width="{{ hand.width }}" height="{{ hand.height }}" style="--hand-cards:{{ hand.count }}" loading="lazy" decoding="async"></td>
+        <td><div class="rn-hand-cards" role="img" aria-label="{% if hands_zh %}{{ hand.alt_zh | escape }}{% else %}{{ hand.alt_en | escape }}{% endif %}">{% for card in hand.cards %}<span class="rn-card{% if card.red %} rn-red{% endif %}{% if card.wild %} rn-wild{% endif %}" aria-hidden="true"><b>{{ card.rank }}</b><span>{{ card.suit }}</span><i>{{ card.suit }}</i>{% if card.wild %}<em>★</em>{% endif %}</span>{% endfor %}</div></td>
         <td class="hand-score">{{ hand.score }}</td>
       </tr>
       {% endfor %}
