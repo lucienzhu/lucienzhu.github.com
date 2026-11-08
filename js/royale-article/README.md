@@ -15,6 +15,10 @@ Native figures remain readable without JavaScript. The four interactive explanat
 
 Run `python3 _tools/3card-native-figures.py` to regenerate the bilingual HTML partials in `_includes/royale-native/`. Styling lives in `css/royale-native.css`; the small interactive layer is `native.js`.
 
+## Visual grammar
+
+Text uses the article type scale while cards and diagrams reflow independently. Sequence uses arrows, alternative outcomes branch, and parallel recipes align in separate lanes. The round diagram includes early termination and hand-refill timing; the architecture shows the actual information boundary. The data pipeline keeps the two separately generated datasets distinct. Methods and provenance belong in captions or the article, rather than inside decorative boxes. Only theme comparison, sharing views and the four experiments need interaction.
+
 ## Sources
 
 - `actions.js`: [3Card Royale SDK](https://github.com/lucienzhu/3card-royale/blob/main/sdk/actions.js), Git blob `d28fe4ff64e2d07c0e4dfcac02c7826828b9381b` (MIT). The attribution line is added locally.
@@ -23,7 +27,7 @@ Run `python3 _tools/3card-native-figures.py` to regenerate the bilingual HTML pa
 - `flower.svg`: extracted from this site's `img/blog/3card-royale/identity-en.svg`, preserving its paths and colors.
 - `flower-gold.svg`: the same geometry, using the established opponent-gold color.
 - `skyline.svg`: the city illustration extracted from `img/blog/3card-royale/finale-en.svg`, without its labels.
-- `training-history.json`: all 40 epochs from [the autoregressive training run](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/models/structured-policy/history.json). Epoch 16 has the lowest recorded validation loss. Chart inspection does not retrain or interpolate measurements.
+- `training-history.json`: all 40 epochs from [the autoregressive training run](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/models/structured-policy/history.json). Epoch 16 has the lowest recorded validation loss. The chart marks that minimum directly, compares it with the last epoch, and provides the full table. It does not retrain or interpolate measurements.
 - Sharing examples: the existing seed-19 recap, final-hand and best-play posters in `img/blog/3card-royale/`; each view links to its source poster.
 
 ## Validation

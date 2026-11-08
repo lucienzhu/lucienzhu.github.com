@@ -126,7 +126,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 补牌的节奏同样重要。双方各进攻一次，才算完成一轮；两次攻防之间不补手牌，轮末保留未用牌，再补到 8 张。因此，第一次出手时，就需要想着第二次交锋。
 
-{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow.svg" caption="图 10 · 一轮包含两次攻防；出现终局条件时立即停止。" %}
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow.svg" caption="图 10 · 一轮两次攻防，中间不补手牌。任一次结算达到 5 伤，即结束小局。" %}
 
 ### 从 2 到 A，最后再赢一次
 
@@ -147,7 +147,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原生实现，使用共同回放检查一致性。网页与自对弈采集使用 JavaScript；Gymnasium 使用 Python 核心，PyTorch 从保存的样本训练。
 
-{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture.svg" caption="图 11 · 一套规则，共同接口。Godlike 使用单独标明的明牌接口。" %}
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture.svg" caption="图 11 · 普通策略只读取己方手牌与公开信息；完整动作返回核心，校验后执行。" %}
 
 ### 策略能看到什么
 
@@ -188,7 +188,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 整手评分在测试集上有 **89.36% 的整手动作一致率**；自回归的 **teacher-forced token 准确率为 90.44%**。两者不是同一种指标：给定正确前缀后预测 token，不等于独立生成完整动作。自回归的教师也没有提供 `SKIP`、`STOP` 的正例。
 
-{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline.svg" caption="图 15 · 两种训练配方，通过同一动作协议接入评测与试玩。" %}
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline.svg" caption="图 15 · 独立采样、独立选模，共用动作协议。训练、验证、测试按整局划分。" %}
 
 数据超过仓库 10 MB 的预算，因此保存确定性生成配方与哈希，不直接提交数据集。最佳 ONNX、训练记录、运行环境与评测结果均已保存。评估新训练的权重时，先注册新的不可变策略 ID 并本地验证；现成的基线评估命令读取的是仓库中的 checkpoint。[整手评分配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [自回归配方](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured)。
 
@@ -249,7 +249,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 2. **PR：**CI 重放这四局，核对结果、合法动作和运行时限。这里只验证能否对战，不算 Elo。
 3. **发布：**审核合并后先显示「暂未评分」。发布 GitHub Release，或手动运行 **Publish Arena**，才为待评分策略打分、提交结果并重建 Pages，榜单随之自动更新。
 
-{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow.svg" caption="图 17 · 同一份策略用于本地评估和网页试玩；PR 验证与发布评分分开进行。" %}
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow.svg" caption="图 17 · PR 验证能否对战；发布时用 60 局拟合 Elo，另重跑 4 局验证。" %}
 
 每个新策略分别与三个固定基准 **Easy、NN256、Code AI 各打 20 小局**，共 60 局，从 2 级开始，交换座位并平衡先攻。加上重新验证的四局，每次发布是 **每个待评分策略 64 局**，不随已有策略数量增加。已有评分复用；玩家在网页上的胜负不影响 Elo。
 

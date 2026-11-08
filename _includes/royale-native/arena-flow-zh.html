@@ -1,1 +1,4 @@
-<div class="rn-flow-figure"><h3>同一份策略，从提交到试玩</h3><ol class="rn-flow"><li><span class="rn-step-num">01</span><div><strong>本地验证</strong><p>JS / ONNX · 4 局 · validation.json</p></div></li><li><span class="rn-step-num">02</span><div><strong>提交 PR</strong><p>CI 校验可运行、合法性与结果一致。</p></div></li><li><span class="rn-step-num">03</span><div><strong>发布评分</strong><p>3 个固定基准 × 20 局，另加 4 局验证。</p></div></li><li><span class="rn-step-num">04</span><div><strong>上榜与试玩</strong><p>记录入库，Pages 自动更新。</p></div></li></ol><p class="rn-callout">每个新策略 60 个评分小局。固定基准 Elo，暂定评分。</p></div>
+<div class="rn-arena-flow"><h3>一次提交，从验证到试玩</h3>
+      <div class="rn-submission-chain"><div class="rn-pipeline-node"><strong>本地验证</strong><span>4 局</span><code>validation.json</code></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>PR · CI</strong><span>合法且可运行</span></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>发布评分</strong><span>3 固定基准 × 20 局</span></div></div>
+      <div class="rn-publication"><span class="rn-down" aria-hidden="true">↓</span><strong>60 局 → 暂定 Elo → 榜单与试玩</strong></div>
+    </div>

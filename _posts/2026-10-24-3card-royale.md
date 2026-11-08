@@ -123,7 +123,7 @@ Each opportunity can be skipped independently. With two opportunities, you can u
 
 Refills give the round its rhythm. A round finishes after both players have attacked once. Hands are not refilled between those two encounters. At the end of the round, unused cards are kept and hands refill to eight. The first play therefore needs to leave something for the second encounter.
 
-{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow-en.svg" caption="Figure 10. One round contains two encounters. A terminal result stops the loop immediately." %}
+{% include royale-native.html kind="round-flow" src="/img/blog/3card-royale/round-flow-en.svg" caption="Figure 10. Two encounters per round, with no hand refill between them. Either resolution can end the game at five wounds." %}
 
 ### Reach Ace, then win once more
 
@@ -144,7 +144,7 @@ The game combines hidden information, random deals and connected decisions about
 
 GameCore is separate from the interface and strategy. JavaScript, Python, Rust and C++ have independent implementations checked against shared replay sequences. The browser and self-play collector use JavaScript; Gymnasium uses the native Python core, and PyTorch trains on saved examples.
 
-{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture-en.svg" caption="Figure 11. One ruleset, shared contracts. Godlike has a separate, explicitly open-hand interface." %}
+{% include royale-native.html kind="system-architecture" src="/img/blog/3card-royale/system-architecture-en.svg" caption="Figure 11. Ordinary policies receive only their own hand and public information. Complete moves return to the engine for validation and execution." %}
 
 ### What a policy can see
 
@@ -185,7 +185,7 @@ The scorer uses cross-entropy over legal complete moves. The generator uses mask
 
 The scorer matches the teacher's **whole move 89.36%** of the time on its test split. The generator reaches **90.44% teacher-forced token accuracy**. These are different metrics: correct tokens under a supplied prefix do not guarantee a correct free-running move. The generator's teacher also supplies no positive `SKIP` or `STOP` examples.
 
-{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline-en.svg" caption="Figure 15. Both recipes connect self-play, training and browser inference through one action protocol." %}
+{% include royale-native.html kind="training-pipeline" src="/img/blog/3card-royale/training-pipeline-en.svg" caption="Figure 15. Separate datasets and checkpoints; one action protocol. Each train/validation/test split is made by whole game." %}
 
 Data exceeds the repository's 10 MB budget, so deterministic generation recipes and hashes replace dataset downloads. The best ONNX weights, histories, runtime versions and evaluation records are checked in. To evaluate newly trained weights, register a new immutable policy ID and validate it; the supplied baseline evaluation command loads the checked-in entries. [Scoring recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training) · [Autoregressive recipe](https://github.com/lucienzhu/3card-royale/tree/unify-action-space/training/structured).
 
@@ -246,7 +246,7 @@ No training is required for a JS policy. If your strategy is in Python or anothe
 2. **PR:** CI replays those games and checks matching results, legal actions and time limits. It checks playability; it does not award Elo.
 3. **Publication:** after review and merge, the policy appears as **Unrated**. A GitHub Release or a manual **Publish Arena** run evaluates pending policies, commits the results and rebuilds Pages. The leaderboard updates automatically.
 
-{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow-en.svg" caption="Figure 17. The submitted policy is shared by local evaluation and browser play. PR checks and rating are separate steps." %}
+{% include royale-native.html kind="arena-flow" src="/img/blog/3card-royale/arena-flow-en.svg" caption="Figure 17. PR checks validate play; release evaluation fits Elo from 60 games. Releases also repeat the four validation games." %}
 
 Each new entry plays **20 games against each of three frozen references: Easy, NN 256 and Code AI**. That is 60 rated individual games, starting at level 2, with paired seats and balanced first attackers. Including fresh validation, publication costs **64 games per pending policy**, independent of the number already on the board. Unchanged scores are reused; browser games never change ratings.
 

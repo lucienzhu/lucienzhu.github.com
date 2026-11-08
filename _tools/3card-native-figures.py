@@ -48,6 +48,9 @@ city = next(e for e in root.iter() if e.attrib.get('data-composition') == 'city3
 for attr in ['x','y','width','height']:
     city.attrib.pop(attr, None)
 assert not any(e.tag.endswith('text') for e in city.iter()), 'Skyline must contain no text'
+poster_style = root.find('{http://www.w3.org/2000/svg}style')
+assert poster_style is not None and poster_style.text, 'Preserve skyline line-art styles'
+city.insert(0, poster_style)
 city.set('role','img')
 ET.ElementTree(city).write(ROOT/'js/royale-article/skyline.svg', encoding='unicode')
 
@@ -99,44 +102,60 @@ for LANG in ('en','zh'):
       <ol class="rn-ranks" aria-label="{L('胜者等级进程','Winner’s rank progression')}">{''.join(f'<li>{r}</li>' for r in ['2','3','5','7','8','9','10','J','A'])}</ol>
     </div>''')
 
-    wounds = [
-      ('一起出牌','Play them together',f'<div class="rn-two"><div>{label("手牌", "Hand")}{cards([4,31])}</div><div>{label("公开伤牌", "Public wound")}{cards([19])}</div></div>','6♠ + 7♣ + 8♥','顺子 · 2 分','Straight · 2 points'),
-      ('用过后补牌','Refill the wound slot',f'<div class="rn-replace">{card(19)}<span aria-hidden="true">→</span>{card(50)}</div>','8♥ → K♦','伤害仍是 1；补入的牌来自牌堆。','Still 1 wound. The replacement comes from the deck.')]
-    save('wounds','<div class="rn-two rn-wounds">'+''.join(box(z,e,art+f'<p class="rn-equation">{eq}</p><p>{L(a,b)}</p>') for z,e,art,eq,a,b in wounds)+'</div>')
+    save('wounds',f'''<div class="rn-wounds">{title('用伤牌出牌，伤害不变','Play a wound. Keep the wound count.')}
+      <div class="rn-wound-process"><div class="rn-wound-step"><div class="rn-play-union"><div>{label('手牌','Hand')}{cards([4,31])}</div><span class="rn-plus" aria-hidden="true">+</span><div>{label('伤牌','Wound')}{cards([19])}</div></div><div class="rn-bracket"></div><strong>{L('顺子 · 2 分','Straight · 2 points')}</strong></div>
+      <div class="rn-flow-link" aria-hidden="true">→</div>
+      <div class="rn-wound-step">{label('原伤牌位补牌','Refill the same wound slot')}<div class="rn-refill-slot">{card(50)}</div><strong>{L('仍是 1 伤','Still 1 wound')}</strong></div></div>
+    </div>''')
 
-    steps=[('01','你进攻','You attack','选 3 张，或 4 / 5 张炸弹。','Choose three cards, or a four- / five-card bomb.'),('02','对手防守','Rival defends','看过你的牌，再出牌应对。','They see your play before responding.'),('03','结算','Resolve','进攻赢：造成伤害。防守赢：获得换牌机会。','Attack wins: deal wounds. Defense wins: earn swaps.'),('04','交换攻守','Switch roles','对手进攻，你来防守。此时不补手牌。','Your rival attacks; you defend. No hand refill yet.'),('05','轮末补牌','Refill after the round','保留未用的牌，双方手牌补至 8 张。','Keep unused cards; both hands refill to eight.')]
-    save('round-flow',f'<div class="rn-flow-figure">{title("一轮，两次攻防", "One round. Two encounters.")}<ol class="rn-flow">'+''.join(f'<li><span class="rn-step-num">{n}</span><div><strong>{L(z,e)}</strong><p>{L(a,b)}</p></div></li>' for n,z,e,a,b in steps)+f'</ol><p class="rn-callout">{L("任何一次结算达到 5 伤，立即结束小局。", "A player reaching 5 wounds ends the game immediately.")}</p></div>')
+    encounters=[]
+    for n in (1,2):
+        attacker = L('你','You') if n == 1 else L('对手','Rival')
+        defender = L('对手','Rival') if n == 1 else L('你','You')
+        attacker_flower = flower() if n == 1 else flower('rn-gold')
+        defender_flower = flower('rn-gold') if n == 1 else flower()
+        encounters.append(f'''<div class="rn-encounter"><span class="rn-encounter-number">0{n}</span><div class="rn-encounter-chain"><div class="rn-stage"><span class="rn-person">{attacker_flower}{attacker}</span><strong>{L('进攻','Attack')}</strong></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-stage"><span class="rn-person">{defender_flower}{defender}</span><strong>{L('防守','Respond')}</strong></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-stage rn-resolve"><strong>{L('结算','Resolve')}</strong><span>{L('伤害 / 换牌','Wounds / swaps')}</span></div></div><div class="rn-exit"><span>{L('任一方 ≥ 5 伤','Either player ≥ 5 wounds')}</span><strong>{L('结束小局','Game over')}</strong></div></div>''')
+    save('round-flow',f'''<div class="rn-round">{title('一轮，两次攻防','One round. Two encounters.')}
+      {encounters[0]}<div class="rn-round-link"><span class="rn-down" aria-hidden="true">↓</span><span>{L('均 < 5 伤 · 交换攻守','Both < 5 wounds · switch roles')}<b>{L('不补手牌','No hand refill')}</b></span></div>
+      {encounters[1]}<div class="rn-round-link"><span class="rn-down" aria-hidden="true">↓</span><span>{L('均 < 5 伤','Both < 5 wounds')}</span></div>
+      <div class="rn-round-end"><strong>{L('双方手牌补至 8 张','Both hands refill to 8')}</strong><span>{L('下一轮','Next round')} →</span></div>
+    </div>''')
 
-    save('system-architecture',f'''<div class="rn-system">{title('共同的规则，独立的实现','Shared rules. Independent implementations.')}
-      <div class="rn-system-root"><strong>{L('标准规则 1.0','Standard rules 1.0')}</strong><span>{L('共享回放校验','Shared replay checks')}</span></div>
-      <div class="rn-core-row">{''.join(f'<span>{n}</span>' for n in ['JavaScript','Python','Rust','C++'])}</div>
-      <div class="rn-contract"><strong>{L('公开观察 → 策略 → 完整合法动作','Public observation → policy → complete legal action')}</strong><code>actions-v2</code></div>
-      <div class="rn-two">{box('浏览器','Browser','<p>JavaScript GameCore</p><p>Code AI · ONNX · Web Worker</p>')}{box('训练','Training','<p>Python GameCore · Gymnasium</p><p>PyTorch · TensorBoard</p>')}</div>
-      <p class="rn-note">{L('完整状态由环境持有；普通策略看不到对手暗牌与牌堆顺序。','The environment holds the full state; ordinary policies cannot see the rival’s hand or deck order.')}</p>
+    save('system-architecture',f'''<div class="rn-system">{title('环境知道的，策略能看到的','What the environment knows. What the policy sees.')}
+      <div class="rn-boundary-flow"><div class="rn-engine"><strong>GameCore</strong><span>{L('完整状态','Full state')}</span><div class="rn-visible-state">{L('己方手牌 + 公开信息','Own hand + public information')}</div><div class="rn-private-state">{L('对手手牌','Rival hand')}<br>{L('牌堆顺序','Deck order')}</div></div>
+      <div class="rn-info-bridge"><strong>{L('公开观察','Public observation')}</strong><span class="rn-line-arrow" aria-hidden="true"></span><span>336 {L('维','values')}</span></div>
+      <div class="rn-policy"><strong>{L('普通策略','Ordinary policy')}</strong><span>{L('代码 / 整手评分 / 自回归','Code / scoring / autoregressive')}</span></div>
+      <div class="rn-action-bridge"><strong>actions-v2</strong><span class="rn-line-arrow rn-reverse" aria-hidden="true"></span><span>{L('完整动作 → 校验并执行','Complete move → validate & execute')}</span></div></div>
+      <div class="rn-godlike"><span>{L('对手当前手牌','Current rival hand')}</span><span class="rn-line-arrow" aria-hidden="true"></span><strong>Godlike</strong><small>{L('额外可见 · 不参与普通天梯','Extra access · outside the public-information ladder')}</small></div>
     </div>''')
 
     # Responsive curves: geometry scales; all chart type stays HTML at article size.
     def coord(record,key): return (record['epoch']-1)/39*800, 220-record[key]['loss']/.6*220
     polylines=''.join('<polyline class="rn-line-'+key+'" points="'+' '.join(f'{x:.3f},{y:.3f}' for x,y in [coord(r,key) for r in HISTORY])+'"/>' for key in ['train','val'])
-    initial=HISTORY[15]
-    save('structured-training',f'''<div class="rn-training" data-native="training">
-      <div class="rn-toolbar">{title('自回归训练','Autoregressive training')}<span class="rn-label">40 {L('轮','epochs')}</span></div>
-      <div class="rn-curve-legend"><span class="rn-train-key">{L('训练损失','Training loss')}</span><span class="rn-val-key">{L('验证损失','Validation loss')}</span></div>
-      <div class="rn-plot"><div class="rn-y-labels"><span>0.6</span><span>0.3</span><span>0</span></div><div class="rn-plot-inner"><svg viewBox="0 0 800 220" preserveAspectRatio="none" role="img" aria-label="{L('训练损失持续降低；验证损失在第 16 轮最低。','Training loss falls; validation loss reaches its minimum at epoch 16.')}"><path class="rn-gridline" d="M0 0H800 M0 110H800 M0 220H800"/>{polylines}<line class="rn-epoch-line" x1="{15/39*800:.3f}" x2="{15/39*800:.3f}" y1="0" y2="220"/></svg><div class="rn-x-labels"><span style="left:0%">1</span><span style="left:23.077%">10</span><span style="left:48.718%">20</span><span style="left:74.359%">30</span><span style="left:100%">40</span></div></div></div>
-      <div class="rn-controls" hidden><label for="rn-epoch">{L('训练轮数','Epoch')} <output id="rn-epoch-value">16</output></label><input id="rn-epoch" type="range" min="1" max="40" value="16" step="1"></div>
-      <div class="rn-readout" aria-live="polite"><span>{L('训练损失','Training loss')} <b data-loss="train">{initial['train']['loss']:.4f}</b></span><span>{L('验证损失','Validation loss')} <b data-loss="val">{initial['val']['loss']:.4f}</b></span><span class="rn-checkpoint">{L('保存第 16 轮','Checkpoint: epoch 16')}</span></div>
+    best_epoch=min(HISTORY, key=lambda r:r['val']['loss'])
+    final_epoch=HISTORY[-1]
+    best_x,best_y=coord(best_epoch,'val')
+    comparison=''.join(f'''<div class="rn-loss-pair {'rn-selected-checkpoint' if r == best_epoch else ''}"><span>{L('第','Epoch ')}{r['epoch']}{L('轮','')}{' · '+L('保存','saved') if r == best_epoch else ''}</span><div><span class="rn-train-key">{L('训练','Train')}<b>{r['train']['loss']:.4f}</b></span><span class="rn-val-key">{L('验证','Validation')}<b>{r['val']['loss']:.4f}</b></span></div></div>''' for r in [best_epoch,final_epoch])
+    save('structured-training',f'''<div class="rn-training">
+      <div class="rn-toolbar">{title('验证损失决定保存哪一轮','Validation loss selects the checkpoint')}{label('交叉熵损失','Cross-entropy loss')}</div>
+      <div class="rn-curve-legend"><span class="rn-train-key">{L('训练','Training')}</span><span class="rn-val-key">{L('验证','Validation')}</span></div>
+      <div class="rn-plot"><div class="rn-y-labels"><span>0.6</span><span>0.3</span><span>0</span></div><div class="rn-plot-inner"><svg viewBox="0 0 800 220" preserveAspectRatio="none" role="img" aria-label="{L('训练损失持续降低；验证损失在第 16 轮最低，之后升高。','Training loss keeps falling. Validation loss is lowest at epoch 16, then rises.')}"><path class="rn-gridline" d="M0 0H800 M0 110H800 M0 220H800"/>{polylines}<line class="rn-epoch-line" x1="{best_x:.3f}" x2="{best_x:.3f}" y1="0" y2="220"/></svg><div class="rn-minimum" style="left:{best_x/8:.3f}%;top:{best_y:.3f}px"><i></i><span>{L('第 16 轮 · 验证最低','Epoch 16 · validation minimum')}<b>→ checkpoint</b></span></div><div class="rn-x-labels"><span style="left:0%">1</span><span style="left:23.077%">10</span><span style="left:48.718%">20</span><span style="left:74.359%">30</span><span style="left:100%">40</span></div></div></div>
+      <p class="rn-axis-title">{L('训练轮数','Epoch')}</p><div class="rn-loss-comparison">{comparison}</div>
       <details class="rn-data"><summary>{L('40 轮实测数据','All 40 measured epochs')}</summary><table><thead><tr><th>{L('轮数','Epoch')}</th><th>{L('训练损失','Training loss')}</th><th>{L('验证损失','Validation loss')}</th></tr></thead><tbody>{''.join(f"<tr><th scope='row'>{r['epoch']}</th><td>{r['train']['loss']:.6f}</td><td>{r['val']['loss']:.6f}</td></tr>" for r in HISTORY)}</tbody></table></details>
     </div>''')
 
-    save('training-pipeline',f'''<div class="rn-pipeline">{title('从自对弈，到浏览器','From self-play to the browser')}
-      <div class="rn-system-root"><strong>10,000 {L('小局','games')}</strong><span>SDK Code AI × SDK Code AI</span></div>
-      <div class="rn-split"><span><b>8,000</b>{L('训练','Train')}</span><span><b>1,000</b>{L('验证','Validation')}</span><span><b>1,000</b>{L('测试','Test')}</span></div>
-      <div class="rn-two">{box('整手评分','Whole-move scoring',f'<p><strong>252,859</strong> {L("决策样本","decisions")}</p><p>{L("对合法整手做交叉熵训练。","Cross-entropy over legal moves.")}</p><p class="rn-note">{L("验证集选择第 5 轮。","Validation selects epoch 5.")}</p>')}{box('自回归','Autoregressive',f'<p><strong>988,571</strong> {L("目标 token","target tokens")}</p><p>{L("按 token 训练，按决策加权。","Token loss, weighted by decision.")}</p><p class="rn-note">{L("验证集选择第 16 轮。","Validation selects epoch 16.")}</p>')}</div>
-      <div class="rn-contract"><span>PyTorch → ONNX → Web Worker</span><strong>actions-v2</strong></div>
+    recipes=[]
+    for zh,en,decisions,epoch,loss_zh,loss_en in [('整手评分','Whole-move scoring','252,859',5,'合法整手交叉熵','Cross-entropy over legal moves'),('自回归','Autoregressive','252,906',16,'逐 token 交叉熵','Token cross-entropy')]:
+        recipes.append(f'''<div class="rn-recipe"><h4>{L(zh,en)}</h4><div class="rn-pipeline-node"><strong>10,000 {L('小局','games')}</strong><span>{decisions} {L('决策','decisions')}</span></div><span class="rn-down" aria-hidden="true">↓</span><div class="rn-split"><span><b>8,000</b>{L('训练','Train')}</span><span><b>1,000</b>{L('验证','Validation')}</span><span><b>1,000</b>{L('测试','Test')}</span></div><span class="rn-down" aria-hidden="true">↓</span><div class="rn-pipeline-node"><strong>{L(loss_zh,loss_en)}</strong><span>256 → 128</span></div><span class="rn-down" aria-hidden="true">↓</span><div class="rn-checkpoint-node"><strong>{L('验证集选模','Validation selection')}</strong><span>{L('第','Epoch ')}{epoch}{L('轮','')} → ONNX</span></div></div>''')
+    save('training-pipeline',f'''<div class="rn-pipeline">{title('两套训练，一套动作协议','Two training recipes. One action protocol.')}
+      <p class="rn-pipeline-origin">SDK Code AI × SDK Code AI <span>{L('分别生成 · 种子不同','Generated separately · different seeds')}</span></p>
+      <div class="rn-recipe-pair">{''.join(recipes)}</div><div class="rn-merge-lines" aria-hidden="true"></div><div class="rn-protocol-node"><strong>actions-v2</strong><span>{L('浏览器对战 / 统一评估','Browser play / shared evaluation')}</span></div>
     </div>''')
 
-    flow=[('01','本地验证','Validate locally','JS / ONNX · 4 局 · validation.json','JS / ONNX · 4 games · validation.json'),('02','提交 PR','Open a PR','CI 校验可运行、合法性与结果一致。','CI checks playability, legality and reproducibility.'),('03','发布评分','Rate at release','3 个固定基准 × 20 局，另加 4 局验证。','3 frozen references × 20 games, plus 4 validation games.'),('04','上榜与试玩','Rank and play','记录入库，Pages 自动更新。','Records are committed; Pages updates automatically.')]
-    save('arena-flow',f'<div class="rn-flow-figure">{title("同一份策略，从提交到试玩", "One policy, from submission to play")}<ol class="rn-flow">'+''.join(f'<li><span class="rn-step-num">{n}</span><div><strong>{L(z,e)}</strong><p>{L(a,b)}</p></div></li>' for n,z,e,a,b in flow)+f'</ol><p class="rn-callout">{L("每个新策略 60 个评分小局。固定基准 Elo，暂定评分。","60 rated games per new policy. Provisional Elo against frozen references.")}</p></div>')
+    save('arena-flow',f'''<div class="rn-arena-flow">{title('一次提交，从验证到试玩','One submission, from validation to play')}
+      <div class="rn-submission-chain"><div class="rn-pipeline-node"><strong>{L('本地验证','Local validation')}</strong><span>4 {L('局','games')}</span><code>validation.json</code></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>PR · CI</strong><span>{L('合法且可运行','Legal & runnable')}</span></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>{L('发布评分','Release evaluation')}</strong><span>3 {L('固定基准','frozen references')} × 20 {L('局','games')}</span></div></div>
+      <div class="rn-publication"><span class="rn-down" aria-hidden="true">↓</span><strong>{L('60 局 → 暂定 Elo → 榜单与试玩','60 games → provisional Elo → leaderboard & play')}</strong></div>
+    </div>''')
 
     # Recorded seed-19 outcomes; keep the entire recap in text rather than cropping a poster.
     outcomes=[(1,1,'对手换牌 ×1','Rival: 1 swap'),(2,1,'你 +2 伤 · 共 2 伤','You +2 wounds · 2 total'),(3,2,'你换牌 ×2','You: 2 swaps'),(4,2,'对手 +1 伤 · 共 1 伤','Rival +1 wound · 1 total'),(5,3,'对手 +1 伤 · 共 2 伤','Rival +1 wound · 2 total'),(6,3,'你 +1 伤 · 共 3 伤','You +1 wound · 3 total'),(7,4,'你 +1 伤 · 共 4 伤','You +1 wound · 4 total'),(8,4,'对手换牌 ×1','Rival: 1 swap'),(9,5,'对手换牌 ×3','Rival: 3 swaps'),(10,5,'你换牌 ×2','You: 2 swaps'),(11,6,'你换牌 ×2','You: 2 swaps'),(12,6,'对手 +2 伤 · 共 4 伤','Rival +2 wounds · 4 total'),(13,7,'对手 +1 伤 · 共 5 伤','Rival +1 wound · 5 total')]
