@@ -19,6 +19,14 @@ Run `python3 _tools/3card-native-figures.py` to regenerate the bilingual HTML pa
 
 Text uses the article type scale while cards and diagrams reflow independently. Sequence uses arrows, alternative outcomes branch, and parallel recipes align in separate lanes. The round diagram includes early termination and hand-refill timing; the architecture shows the actual information boundary. The data pipeline keeps the two separately generated datasets distinct. Methods and provenance belong in captions or the article, rather than inside decorative boxes. Only theme comparison, sharing views and the four experiments need interaction.
 
+## Editorial structure
+
+The main reading path starts with the reason to play: one ordinary deck for two, tactical choices within a short game, and a longer race to Ace. Identity and rules support that experience. Strategy experiments then offer an optional deeper look and a way to contribute new opponents.
+
+Keep the result and its limits visible. Put encoding details, training recipes and evaluation methods in `royale-depth` disclosures. Figure links open their containing disclosures; printing expands them and restores their previous state afterwards. Each figure should answer one question, with live labels and a concise caption. Captions identify what is shown and where measurements came from, not how the page was developed.
+
+AI win rates measure policy performance under a stated protocol. They do not establish rule balance, human difficulty or enjoyment. Preserve that distinction in both languages.
+
 ## Sources
 
 - `actions.js`: [3Card Royale SDK](https://github.com/lucienzhu/3card-royale/blob/main/sdk/actions.js), Git blob `d28fe4ff64e2d07c0e4dfcac02c7826828b9381b` (MIT). The attribution line is added locally.

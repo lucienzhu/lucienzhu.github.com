@@ -103,7 +103,7 @@ for LANG in ('en','zh'):
     save('cover',f'''<div class="rn-cover"><svg class="rn-traces" viewBox="0 0 800 400" aria-hidden="true">{traces}</svg>
       <span class="rn-label">3CARD ROYALE</span><div class="rn-cover-cards">{card()}{card()}{card()}</div>
       <p class="rn-tagline">{L('一副牌，两个人。<br>三张牌，打出花。','One deck. Two players.<br>Three cards. Make them bloom.')}</p>
-      <p>{L('从双人对战，到策略学习。','From a two-player duel to policy learning.')}</p></div>''')
+</div>''')
 
     zone_data = [
       ('rival-hand','对手手牌','Rival hand',cards([None]*5),'暗牌，只有对手知道。','Private: only your rival knows these cards.'),
@@ -117,16 +117,16 @@ for LANG in ('en','zh'):
     zones=''
     for key,zh,en,art,desc_zh,desc_en in zone_data:
         zones+=f'<div class="rn-zone rn-zone-{key}"><details><summary>{L(zh,en)}</summary><p>{L(desc_zh,desc_en)}</p></details>{art}</div>'
-    save('card-zones',f'<div class="rn-zone-map">{label("牌桌示意", "The table")}{title("每张牌都有位置", "A place for every card")}<div class="rn-zone-grid">{zones}</div></div>')
+    save('card-zones',f'<div class="rn-zone-map">{label("牌桌示意", "The table")}{title("牌区与信息", "Card zones and visibility")}<div class="rn-zone-grid">{zones}</div></div>')
 
     save('identity',f'''<div class="rn-three rn-identity">
-      {box('红花','Red flower',flower()+f'<p>{L("三角梅，深圳市花。<br>三瓣的形态，呼应三张牌。","Bougainvillea, Shenzhen’s city flower.<br>A three-part form for a three-card game.")}</p>')}
-      {box('金牌','Gold card',card()+f'<p>{L("同一个标志。<br>贯穿牌背与花牌。","One mark.<br>On the card back and wild card.")}</p>')}
+      {box('红花','Red flower',flower()+f'<p>{L("三角梅，深圳市花。<br>三片彩色苞片，呼应三张牌。","Bougainvillea, Shenzhen’s city flower.<br>Three coloured bracts, three cards.")}</p>')}
+      {box('金牌','Gold card',card()+f'<p>{L("牌背与花牌的共同标志。","The mark on card backs and wild cards.")}</p>')}
       {box('电路板绿','Circuit-board green','<div class="rn-pcb" aria-hidden="true"><i></i><i></i><i></i></div>'+f'<p>{L("深圳的硬件底色。<br>承托红花与金牌。","Shenzhen’s hardware character.<br>A foundation for red and gold.")}</p>')}
     </div>''')
 
     save('design-system',f'''<div data-native="theme" class="rn-theme" data-tone="light">
-      <div class="rn-toolbar">{title('同一套颜色，两种光线','One palette. Two lights.')}<div class="rn-controls" hidden><button type="button" data-tone="light" aria-pressed="true">{L('日间','Light')}</button><button type="button" data-tone="dark" aria-pressed="false">{L('夜间','Dark')}</button></div></div>
+      <div class="rn-toolbar">{title('日间与夜间','Day and night')}<div class="rn-controls" hidden><button type="button" data-tone="light" aria-pressed="true">{L('日间','Light')}</button><button type="button" data-tone="dark" aria-pressed="false">{L('夜间','Dark')}</button></div></div>
       <div class="rn-theme-stage"><div class="rn-lockup">{card()}<div><strong>{L('深圳花牌','3Card Royale')}</strong><span>{L('3Card Royale','Shenzhen Flower Cards')}</span></div></div>
       <div class="rn-theme-players"><span>{flower()} {L('你 · 红花','You · red')}</span><span>{flower('rn-gold')} {L('对手 · 金花','Rival · gold')}</span></div>
       {cards([4,18,45])}<p class="rn-theme-wild">{L('花牌','Wild card')} <b>2 ♥</b></p></div>
@@ -161,9 +161,9 @@ for LANG in ('en','zh'):
       <div class="rn-round-end"><strong>{L('双方手牌补至 8 张','Both hands refill to 8')}</strong><span>{L('下一轮','Next round')} →</span></div>
     </div>''')
 
-    save('system-architecture',f'''<div class="rn-system">{title('环境知道的，策略能看到的','What the environment knows. What the policy sees.')}
+    save('system-architecture',f'''<div class="rn-system">{title('策略的信息边界','What a policy can see')}
       <div class="rn-boundary-flow"><div class="rn-engine"><strong>GameCore</strong><span>{L('完整状态','Full state')}</span><div class="rn-visible-state">{L('己方手牌 + 公开信息','Own hand + public information')}</div><div class="rn-private-state">{L('对手手牌','Rival hand')}<br>{L('牌堆顺序','Deck order')}</div></div>
-      <div class="rn-info-bridge"><strong>{L('公开观察','Public observation')}</strong><span class="rn-line-arrow" aria-hidden="true"></span><span>336 {L('维','values')}</span></div>
+      <div class="rn-info-bridge"><strong>{L('玩家观察','Player observation')}</strong><span class="rn-line-arrow" aria-hidden="true"></span><span>336 {L('维','values')}</span></div>
       <div class="rn-policy"><strong>{L('普通策略','Ordinary policy')}</strong><span>{L('代码 / 整手评分 / 自回归','Code / scoring / autoregressive')}</span></div>
       <div class="rn-action-bridge"><strong>actions-v2</strong><span class="rn-line-arrow rn-reverse" aria-hidden="true"></span><span>{L('完整动作 → 校验并执行','Complete move → validate & execute')}</span></div></div>
       <div class="rn-godlike"><span>{L('对手当前手牌','Current rival hand')}</span><span class="rn-line-arrow" aria-hidden="true"></span><strong>Godlike</strong><small>{L('额外可见 · 不参与普通天梯','Extra access · outside the public-information ladder')}</small></div>
@@ -177,7 +177,7 @@ for LANG in ('en','zh'):
     best_x,best_y=coord(best_epoch,'val')
     comparison=''.join(f'''<div class="rn-loss-pair {'rn-selected-checkpoint' if r == best_epoch else ''}"><span>{L('第','Epoch ')}{r['epoch']}{L('轮','')}{' · '+L('保存','saved') if r == best_epoch else ''}</span><div><span class="rn-train-key">{L('训练','Train')}<b>{r['train']['loss']:.4f}</b></span><span class="rn-val-key">{L('验证','Validation')}<b>{r['val']['loss']:.4f}</b></span></div></div>''' for r in [best_epoch,final_epoch])
     save('structured-training',f'''<div class="rn-training">
-      <div class="rn-toolbar">{title('验证损失决定保存哪一轮','Validation loss selects the checkpoint')}{label('交叉熵损失','Cross-entropy loss')}</div>
+      <div class="rn-toolbar">{title('训练与验证损失','Training and validation loss')}{label('交叉熵损失','Cross-entropy loss')}</div>
       <div class="rn-curve-legend"><span class="rn-train-key">{L('训练','Training')}</span><span class="rn-val-key">{L('验证','Validation')}</span></div>
       <div class="rn-plot"><div class="rn-y-labels"><span>0.6</span><span>0.3</span><span>0</span></div><div class="rn-plot-inner"><svg viewBox="0 0 800 220" preserveAspectRatio="none" role="img" aria-label="{L('训练损失持续降低；验证损失在第 16 轮最低，之后升高。','Training loss keeps falling. Validation loss is lowest at epoch 16, then rises.')}"><path class="rn-gridline" d="M0 0H800 M0 110H800 M0 220H800"/>{polylines}<line class="rn-epoch-line" x1="{best_x:.3f}" x2="{best_x:.3f}" y1="0" y2="220"/></svg><div class="rn-minimum" style="left:{best_x/8:.3f}%;top:{best_y:.3f}px"><i></i><span>{L('第 16 轮 · 验证最低','Epoch 16 · validation minimum')}<b>→ checkpoint</b></span></div><div class="rn-x-labels"><span style="left:0%">1</span><span style="left:23.077%">10</span><span style="left:48.718%">20</span><span style="left:74.359%">30</span><span style="left:100%">40</span></div></div></div>
       <p class="rn-axis-title">{L('训练轮数','Epoch')}</p><div class="rn-loss-comparison">{comparison}</div>
@@ -192,7 +192,7 @@ for LANG in ('en','zh'):
       <div class="rn-recipe-pair">{''.join(recipes)}</div><div class="rn-merge-lines" aria-hidden="true"></div><div class="rn-protocol-node"><strong>actions-v2</strong><span>{L('浏览器对战 / 统一评估','Browser play / shared evaluation')}</span></div>
     </div>''')
 
-    save('arena-flow',f'''<div class="rn-arena-flow">{title('一次提交，从验证到试玩','One submission, from validation to play')}
+    save('arena-flow',f'''<div class="rn-arena-flow">{title('从策略到对手','From policy to opponent')}
       <div class="rn-submission-chain"><div class="rn-pipeline-node"><strong>{L('本地验证','Local validation')}</strong><span>4 {L('局','games')}</span><code>validation.json</code></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>PR · CI</strong><span>{L('合法且可运行','Legal & runnable')}</span></div><span class="rn-arrow" aria-hidden="true">→</span><div class="rn-pipeline-node"><strong>{L('发布评分','Release evaluation')}</strong><span>3 {L('固定基准','frozen references')} × 20 {L('局','games')}</span></div></div>
       <div class="rn-publication"><span class="rn-down" aria-hidden="true">↓</span><strong>{L('60 局 → 暂定 Elo → 榜单与试玩','60 games → provisional Elo → leaderboard & play')}</strong></div>
     </div>''')
