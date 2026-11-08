@@ -115,7 +115,7 @@ The shared wild card follows that journey. It is `♥2` in the first game, then 
 
 [Full rules](https://lucienzhu.github.io/3card-royale/rules.html?lang=en) · [A4 rules card](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.en.pdf)
 
-## 4. A side project: testing strategies
+## 4. Policy experiments: which decisions win more games?
 {: #rl}
 
 Designing the game raised another question: **what kinds of decisions actually win?** I built a reproducible environment so I could hold the deals fixed, change the policy, and compare outcomes. It also lets other people test ideas without building a game engine first.

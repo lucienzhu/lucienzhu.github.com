@@ -116,7 +116,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 [完整规则](https://lucienzhu.github.io/3card-royale/rules.html?lang=zh-CN) · [A4 规则卡](https://lucienzhu.github.io/3card-royale/docs/shenzhen-flower-rules-a4.zh-CN.pdf)
 
-## 4. 附笔：把策略放进实验里
+## 4. 策略实验：什么样的决策更容易赢
 {: #rl}
 
 设计玩法之后，我还想知道：**什么样的决策更容易赢？**于是我做了一个可复现的环境，固定发牌、替换策略，再比较结果。别人也可以直接实验，不必先重写游戏引擎。
