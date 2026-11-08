@@ -1,4 +1,8 @@
 {%- assign post_view = include.post -%}
 {%- if locale == 'zh' -%}
-  {%- assign post_view = site.translations | where: 'original_url', include.post.url | first -%}
+  {%- assign translated_post = site.translations | where: 'original_url', include.post.url | first -%}
+  {%- if translated_post == nil and include.post.update_id -%}
+    {%- assign translated_post = site.translations | where: 'update_id', include.post.update_id | first -%}
+  {%- endif -%}
+  {%- assign post_view = translated_post | default: include.post -%}
 {%- endif -%}

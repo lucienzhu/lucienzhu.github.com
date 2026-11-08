@@ -8,7 +8,15 @@
 {%- if locale == 'zh' -%}
   {%- assign english_url = page.original_url | default: page.url | remove_first: '/zh' -%}
   {%- assign chinese_url = page.url -%}
+  {%- if page.update_id -%}
+    {%- assign english_post = site.posts | where: 'update_id', page.update_id | first -%}
+    {%- assign english_url = english_post.url | default: english_url -%}
+  {%- endif -%}
 {%- else -%}
   {%- assign english_url = page.url -%}
   {%- assign chinese_url = '/zh' | append: page.url -%}
+  {%- if page.update_id -%}
+    {%- assign chinese_post = site.translations | where: 'update_id', page.update_id | first -%}
+    {%- assign chinese_url = chinese_post.url | default: chinese_url -%}
+  {%- endif -%}
 {%- endif -%}
