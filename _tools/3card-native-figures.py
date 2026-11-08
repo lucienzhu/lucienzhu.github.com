@@ -4,6 +4,7 @@ No screenshot text is reproduced as a bitmap. Run from any working directory.
 """
 from pathlib import Path
 from html import escape
+from copy import deepcopy
 import json
 import xml.etree.ElementTree as ET
 
@@ -44,15 +45,53 @@ def save(name,body):
 # Skyline artwork only: all poster typography is rendered as HTML below.
 ET.register_namespace('', 'http://www.w3.org/2000/svg')
 root = ET.parse(ASSETS/'finale-en.svg').getroot()
-city = next(e for e in root.iter() if e.attrib.get('data-composition') == 'city37')
+city = deepcopy(next(e for e in root.iter() if e.attrib.get('data-composition') == 'city37'))
 for attr in ['x','y','width','height']:
     city.attrib.pop(attr, None)
 assert not any(e.tag.endswith('text') for e in city.iter()), 'Skyline must contain no text'
 poster_style = root.find('{http://www.w3.org/2000/svg}style')
 assert poster_style is not None and poster_style.text, 'Preserve skyline line-art styles'
-city.insert(0, poster_style)
+city.insert(0, deepcopy(poster_style))
 city.set('role','img')
 ET.ElementTree(city).write(ROOT/'js/royale-article/skyline.svg', encoding='unicode')
+
+# Preserve the finale's complete composition, rather than isolating the skyline.
+# Only artwork scales; the heading, statistics and rank labels remain HTML.
+ET.register_namespace('xlink', 'http://www.w3.org/1999/xlink')
+SVG = '{http://www.w3.org/2000/svg}'
+poster = list(root)
+vine_start = next(i for i,e in enumerate(poster) if e.get('d', '').startswith('M162 1194'))
+footer_start = next(i for i,e in enumerate(poster) if e.get('d') == 'M80 1262H1000')
+bloom = ET.Element(SVG+'svg', {'viewBox':'0 340 1080 825', 'width':'1080', 'height':'825'})
+for e in poster[:vine_start]:
+    if e.tag not in (SVG+'text', SVG+'rect'):
+        bloom.append(deepcopy(e))
+assert len(bloom.findall(SVG+'use')) == 41, 'Keep the hero and all 40 canopy flowers'
+# Fit the glow inside the artwork crop so it fades before meeting the HTML header.
+next(e for e in bloom if e.get('fill') == 'url(#szglow)').set('r', '225')
+
+# The exported composition predates the approved enlarged flower centers.
+# Reuse today's mark without altering the recorded positions, sizes or colors.
+approved_flower = ET.parse(ROOT/'js/royale-article/flower.svg').getroot()
+for i,tone in enumerate(('#962C4F','#C5416B','#E38BA6')):
+    symbol = next(e for e in bloom.iter() if e.get('id') == f'szf{i}')
+    for e in list(symbol):
+        symbol.remove(e)
+    centered = ET.SubElement(symbol, SVG+'g', {'transform':'translate(-32 -36)'})
+    for e in approved_flower:
+        part = deepcopy(e)
+        for node in part.iter():
+            if node.get('fill') == '#C5416B':
+                node.set('fill',tone)
+        centered.append(part)
+
+vine = ET.Element(SVG+'svg', {'viewBox':'130 1140 830 108', 'width':'830', 'height':'108'})
+for e in poster[vine_start:footer_start]:
+    if e.tag not in (SVG+'text', SVG+'rect'):
+        vine.append(deepcopy(e))
+for name,art in [('finale-bloom',bloom),('finale-vine',vine)]:
+    assert not any(e.tag == SVG+'text' for e in art.iter()), 'Finale typography must remain native'
+    ET.ElementTree(art).write(ROOT/f'js/royale-article/{name}.svg', encoding='unicode')
 
 (ROOT / 'js/royale-article/flower-gold.svg').write_text((ROOT / 'js/royale-article/flower.svg').read_text().replace('#C5416B', '#D6A41C'))
 
@@ -98,8 +137,9 @@ for LANG in ('en','zh'):
       <div class="rn-lockup rn-compact">{card()}<strong>{L('深圳花牌','3Card Royale')}</strong></div>
       <p class="rn-bloom-title">{L('你，开花了。','You bloomed.')}</p>
       <div class="rn-stats"><span><b>11</b>{L('局','games')}</span><span><b>7 : 4</b>{L('你 : 对手','you : rival')}</span><span><b>58</b>{L('轮攻防','rounds')}</span></div>
-      <div class="rn-bloom-art">{flower()}<img src="/js/royale-article/skyline.svg" alt="{L('深圳天际线','Shenzhen skyline')}" width="640" height="250" loading="lazy"></div>
-      <ol class="rn-ranks" aria-label="{L('胜者等级进程','Winner’s rank progression')}">{''.join(f'<li>{r}</li>' for r in ['2','3','5','7','8','9','10','J','A'])}</ol>
+      <div class="rn-bloom-art"><img src="/js/royale-article/finale-bloom.svg" alt="{L('主花绽放，红花随白鹭散落到深圳天际线。','A central bloom, scattered flowers and egrets above Shenzhen’s flower-lined skyline.')}" width="1080" height="825" loading="lazy"></div>
+      <div class="rn-finale-vine"><img src="/js/royale-article/finale-vine.svg" alt="" width="830" height="108" loading="lazy">
+      <ol class="rn-ranks" aria-label="{L('胜者等级进程，A 级通关','Winner’s rank progression, Ace completed')}">{''.join(f'<li style="left:{(float(e.get("x"))-130)/830*100:.4f}%">{e.text}</li>' for e in poster[vine_start:footer_start] if e.tag == SVG+'text' and e.text != 'A')}<li class="rn-rank-complete" style="left:86.5320%">A</li></ol></div>
     </div>''')
 
     save('wounds',f'''<div class="rn-wounds">{title('用伤牌出牌，伤害不变','Play a wound. Keep the wound count.')}

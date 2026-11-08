@@ -84,16 +84,17 @@
 .royale-article .rn-swatches i{display:block;height:36px;border-radius:4px;margin-bottom:8px}
 .royale-article .rn-swatches span,.royale-article .rn-swatches code{display:block;font-size:14px;line-height:1.5}
 /* Match result. */
-.royale-article .rn-finale{text-align:center;max-width:660px;margin:auto}
+.royale-article .rn-finale{text-align:center;max-width:760px;margin:auto}
 .royale-article .rn-compact strong{font-size:16px}.royale-article .rn-compact .rn-card{--rn-card-width:25px}
 .royale-article .rn-bloom-title{font-size:clamp(32px,5vw,48px)!important;font-weight:750;color:var(--rn-red);line-height:1.2!important;margin:32px 0!important}
 .royale-article .rn-stats{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;color:var(--rn-muted);font-size:14px}
 .royale-article .rn-stats b{font-size:24px;display:block;color:var(--rn-ink)}
-.royale-article .rn-bloom-art{position:relative;margin:20px 0 0;padding-top:140px}
-.royale-article .rn-bloom-art>.rn-flower{position:absolute;width:110px;height:110px;left:calc(50% - 55px);top:10px}
-.royale-article .rn-bloom-art>img:last-child{display:block;width:100%;height:auto;margin:0}
-.royale-article .rn-ranks{display:flex;justify-content:space-around;list-style:none;margin:12px 0 0;padding:0;color:var(--rn-muted);gap:8px}
-.royale-article .rn-ranks li{font-size:16px}
+.royale-article .rn-bloom-art{margin:16px 0 0}
+.royale-article .rn-bloom-art>img,.royale-article .rn-finale-vine>img{display:block;width:100%;height:auto;margin:0}
+.royale-article .rn-finale-vine{position:relative;margin:4px 4% 0}
+.royale-article .rn-ranks{position:absolute;inset:0;list-style:none;margin:0;padding:0;color:var(--rn-muted)}
+.royale-article .rn-ranks li{position:absolute;top:50%;transform:translate(-50%,-50%);background:var(--rn-paper);padding:0 1px;font-size:clamp(12px,2vw,16px);line-height:1}
+.royale-article .rn-ranks .rn-rank-complete{top:12%;font-size:13px}
 /* Flow grammar: arrows carry sequence; branches carry alternative outcomes. */
 .royale-article :is(.rn-arrow,.rn-down,.rn-flow-link){font-size:26px;line-height:1;color:var(--rn-green);text-align:center}
 .royale-article .rn-down{display:block;padding:12px 0}

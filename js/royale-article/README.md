@@ -27,6 +27,7 @@ Text uses the article type scale while cards and diagrams reflow independently. 
 - `flower.svg`: extracted from this site's `img/blog/3card-royale/identity-en.svg`, preserving its paths and colors.
 - `flower-gold.svg`: the same geometry, using the established opponent-gold color.
 - `skyline.svg`: the city illustration extracted from `img/blog/3card-royale/finale-en.svg`, without its labels.
+- `finale-bloom.svg` and `finale-vine.svg`: the same recorded finale's complete artwork, including the central bloom, 40 scattered flowers, egrets, skyline and rank markers. Canopy flowers use the approved `flower.svg` geometry. All title, statistics and rank text remains HTML, sized independently of the artwork.
 - `training-history.json`: all 40 epochs from [the autoregressive training run](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/models/structured-policy/history.json). Epoch 16 has the lowest recorded validation loss. The chart marks that minimum directly, compares it with the last epoch, and provides the full table. It does not retrain or interpolate measurements.
 - Sharing examples: the existing seed-19 recap, final-hand and best-play posters in `img/blog/3card-royale/`; each view links to its source poster.
 
