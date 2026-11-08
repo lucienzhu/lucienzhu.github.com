@@ -1,0 +1,2985 @@
+[
+  {
+    "observation": {
+      "rules": "1.0.0",
+      "player": 0,
+      "actor": 0,
+      "phase": "attack",
+      "game": 1,
+      "round": 1,
+      "first": 0,
+      "attacker": 0,
+      "battle_index": 0,
+      "levels": [
+        2,
+        2
+      ],
+      "a_losses": [
+        0,
+        0
+      ],
+      "flower_level": 2,
+      "level_owner": 0,
+      "hand": [
+        33,
+        25,
+        3,
+        11,
+        9,
+        29,
+        28,
+        30
+      ],
+      "wounds": [],
+      "enemy_wounds": [],
+      "enemy_hand_count": 8,
+      "deck_count": 36,
+      "discard": [],
+      "active": [
+        null,
+        null
+      ],
+      "pending": null,
+      "last_combat": null,
+      "results": [],
+      "legal_actions": [
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            11
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            25
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            9,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            11,
+            25
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            11,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            11,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            11,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            11,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            25,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            25,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            25,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            25,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            28,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            28,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            29,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            29,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            3,
+            30,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            11,
+            25
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            11,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            11,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            11,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            11,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            25,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            25,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            25,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            25,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            28,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            28,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            29,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            29,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            9,
+            30,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            25,
+            28
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            25,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            25,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            25,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            28,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            28,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            29,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            29,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            11,
+            30,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            28,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            28,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            29,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            29,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            25,
+            30,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            28,
+            29,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            28,
+            30,
+            33
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            29,
+            30,
+            33
+          ]
+        }
+      ]
+    },
+    "expectedState": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.1428571492433548,
+      0.1428571492433548,
+      0.1428571492433548,
+      0,
+      0,
+      1,
+      0.692307710647583,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0.0009765625,
+      0.0009765625,
+      0
+    ]
+  },
+  {
+    "observation": {
+      "rules": "1.0.0",
+      "player": 1,
+      "actor": 1,
+      "phase": "defend",
+      "game": 1,
+      "round": 1,
+      "first": 0,
+      "attacker": 0,
+      "battle_index": 0,
+      "levels": [
+        2,
+        2
+      ],
+      "a_losses": [
+        0,
+        0
+      ],
+      "flower_level": 2,
+      "level_owner": 0,
+      "hand": [
+        27,
+        17,
+        15,
+        47,
+        44,
+        12,
+        18,
+        21
+      ],
+      "wounds": [],
+      "enemy_wounds": [],
+      "enemy_hand_count": 5,
+      "deck_count": 36,
+      "discard": [],
+      "active": [
+        {
+          "score": 4,
+          "kind": 5,
+          "rank_key": [
+            6
+          ],
+          "wild": null,
+          "cards": [
+            28,
+            29,
+            30
+          ],
+          "origins": [
+            {
+              "zone": "hand"
+            },
+            {
+              "zone": "hand"
+            },
+            {
+              "zone": "hand"
+            }
+          ]
+        },
+        null
+      ],
+      "pending": null,
+      "last_combat": null,
+      "results": [],
+      "legal_actions": [
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            17
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            18
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            15,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            17,
+            18
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            17,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            17,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            17,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            17,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            18,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            18,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            18,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            18,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            21,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            21,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            21,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            27,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            27,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            12,
+            44,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            17,
+            18
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            17,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            17,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            17,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            17,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            18,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            18,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            18,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            18,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            21,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            21,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            21,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            27,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            27,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            15,
+            44,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            18,
+            21
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            18,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            18,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            18,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            21,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            21,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            21,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            27,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            27,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            17,
+            44,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            21,
+            27
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            21,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            21,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            27,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            27,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            18,
+            44,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            21,
+            27,
+            44
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            21,
+            27,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            21,
+            44,
+            47
+          ]
+        },
+        {
+          "type": "play",
+          "cards": [
+            27,
+            44,
+            47
+          ]
+        }
+      ]
+    },
+    "expectedState": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.1428571492433548,
+      0.1428571492433548,
+      0.1428571492433548,
+      0,
+      0,
+      0.625,
+      0.692307710647583,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.0009765625,
+      0.0009765625,
+      0
+    ]
+  },
+  {
+    "observation": {
+      "rules": "1.0.0",
+      "player": 1,
+      "actor": 1,
+      "phase": "refresh",
+      "game": 1,
+      "round": 4,
+      "first": 0,
+      "attacker": 0,
+      "battle_index": 0,
+      "levels": [
+        4,
+        4
+      ],
+      "a_losses": [
+        0,
+        0
+      ],
+      "flower_level": 4,
+      "level_owner": 1,
+      "hand": [
+        34,
+        3,
+        8,
+        37,
+        46,
+        25
+      ],
+      "wounds": [
+        17,
+        40,
+        39
+      ],
+      "enemy_wounds": [
+        1,
+        28
+      ],
+      "enemy_hand_count": 6,
+      "deck_count": 29,
+      "discard": [
+        16,
+        18,
+        24,
+        6,
+        19,
+        32
+      ],
+      "active": [
+        null,
+        null
+      ],
+      "pending": {
+        "actor": 1,
+        "total": 2,
+        "remaining": 2
+      },
+      "last_combat": {
+        "delta": -2,
+        "effective_delta": -2,
+        "reason": "type",
+        "attacker": 0,
+        "moves": [
+          {
+            "score": 3,
+            "kind": 3,
+            "rank_key": [
+              13,
+              7,
+              5
+            ],
+            "wild": null,
+            "cards": [
+              16,
+              18,
+              24
+            ],
+            "origins": [
+              {
+                "zone": "wounds",
+                "index": 0
+              },
+              {
+                "zone": "hand"
+              },
+              {
+                "zone": "hand"
+              }
+            ]
+          },
+          {
+            "score": 5,
+            "kind": 4,
+            "rank_key": [
+              8
+            ],
+            "wild": null,
+            "cards": [
+              6,
+              19,
+              32
+            ],
+            "origins": [
+              {
+                "zone": "hand"
+              },
+              {
+                "zone": "wounds",
+                "index": 2
+              },
+              {
+                "zone": "hand"
+              }
+            ]
+          }
+        ]
+      },
+      "results": [],
+      "legal_actions": [
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 3
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 4
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "hand",
+            "index": 5
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 3
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 4
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 0
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 5
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 3
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 4
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 1
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 5
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "deck"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "blind"
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "wounds",
+            "who": 0,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 0
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 1
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 2
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 3
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 4
+          }
+        },
+        {
+          "type": "swap",
+          "source": {
+            "zone": "wounds",
+            "index": 2
+          },
+          "target": {
+            "zone": "hand",
+            "who": 1,
+            "index": 5
+          }
+        },
+        {
+          "type": "skip_swap"
+        },
+        {
+          "type": "stop_swaps"
+        }
+      ]
+    },
+    "expectedState": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0.2857142984867096,
+      0.2857142984867096,
+      0.2857142984867096,
+      0.30000001192092896,
+      0.20000000298023224,
+      0.75,
+      0.557692289352417,
+      0.11538461595773697,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.2857142984867096,
+      1,
+      0.00390625,
+      0.0009765625,
+      0
+    ]
+  }
+]

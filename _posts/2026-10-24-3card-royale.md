@@ -11,7 +11,8 @@ permalink: "/updates/2026/10/3card-royale/"
 alternate_url: "/zh/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover-en.png"
-extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
 last_modified_at: "2026-11-02 00:00:00 +0800"
@@ -104,7 +105,7 @@ For example, attack with the flush `4♦, 8♦, Q♦` against the pair `6♣, 6�
 
 If the defender answers a flush with three of a kind, the defender earns **two swap opportunities**. A win decided by ranks within the same hand type yields one wound or one swap opportunity. An exact tie yields neither.
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 8. Attacking advances the game toward its end; defending improves the next position. These examples use ♥2 as the wild card." %}
+{% include royale-experiment.html kind="combat" src="/img/blog/3card-royale/attack-defense-en.svg" width="1200" height="496" alt="A flush attack beats a pair for two wounds; three of a kind defends against a flush for two swap opportunities." caption="Figure 8. Attacking advances the game toward its end; defending improves the next position. These examples use ♥2 as the wild card." %}
 
 ### Wounds are playable cards
 
@@ -149,7 +150,7 @@ GameCore is separate from the interface and strategy. JavaScript, Python, Rust a
 
 The neural policies receive their own hand, both public wound areas, discards, current played cards and position metadata. Each of the **six card zones** uses 52 presence bits in fixed card order. Another **6 phase bits + 18 values** give a **336-dimensional observation**. Neither network receives the rival's private hand, deck order or a history sequence.
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="2434" diagram=true alt="A saved swap observation: all six 52-card zones, six phase bits, and 18 metadata values, with their raw values and normalization." caption="Figure 12. Every observation feature. Card zones are multi-hot; phase is one-hot. This example has 29 cards in the deck, encoded as 29 / 52." %}
+{% include royale-experiment.html kind="observation" src="/img/blog/3card-royale/observation-state-en.svg" width="560" height="2434" diagram=true alt="A saved swap observation: all six 52-card zones, six phase bits, and 18 metadata values, with their raw values and normalization." caption="Figure 12. Every observation feature. Card zones are multi-hot; phase is one-hot. This example has 29 cards in the deck, encoded as 29 / 52." %}
 
 ### Stable meanings, conditional choices
 
@@ -159,7 +160,7 @@ For three Aces, the sequence is `PLAY_3 → A♠ → A♥ → A♣`. Selected ca
 
 The **65-bit conditional mask** marks tokens that can still complete a legal move. Its values change with the state and selected prefix; token meanings do not. Gym accepts the completed move as six padded tokens, `MultiDiscrete([66] × 6)`, and advances the game once. [Action contract and Gym usage](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md).
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed token IDs form a three-card play or swap. A conditional mask filters each continuation before the complete move is submitted." caption="Figure 13. One action protocol for code, whole-move scoring and autoregressive policies." %}
+{% include royale-experiment.html kind="action" src="/img/blog/3card-royale/structured-actions-en.svg" width="1000" height="650" alt="Fixed token IDs form a three-card play or swap. A conditional mask filters each continuation before the complete move is submitted." caption="Figure 13. One action protocol for code, whole-move scoring and autoregressive policies." %}
 
 ### Two ways to model a decision
 
@@ -192,7 +193,7 @@ Data exceeds the repository's 10 MB budget, so deterministic generation recipes 
 
 Each cell below uses **1,000 individual games**, with the same 500 seeds, swapped seats, balanced first attackers and level-2 starts. **Code AI** is the browser's Hard opponent; **SDK Code AI** is the training teacher. All **19,000 games** completed with no illegal actions or truncations.
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates-en.svg" width="864" height="576" alt="Win rates for eight public-information policies against browser Code AI and SDK Code AI, on the same 500 paired seeds." caption="Figure 16. Same deals, two opponents. Each bar covers 1,000 games; the full 0–100% axis keeps differences in perspective." %}
+{% include royale-experiment.html kind="evaluation" src="/img/blog/3card-royale/win-rates-en.svg" width="864" height="576" alt="Win rates for eight public-information policies against browser Code AI and SDK Code AI, on the same 500 paired seeds." caption="Figure 16. Same deals, two opponents. Each bar covers 1,000 games; the full 0–100% axis keeps differences in perspective." %}
 
 | Policy | ONNX | Latency p95 | vs Code AI | vs SDK Code AI |
 | --- | ---: | ---: | ---: | ---: |

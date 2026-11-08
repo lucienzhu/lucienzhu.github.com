@@ -11,7 +11,8 @@ permalink: "/zh/updates/2026/10/3card-royale/"
 alternate_url: "/updates/2026/10/3card-royale/"
 article_url: "https://lucienzhu.github.io/zh/updates/2026/10/3card-royale/"
 article_image: "/img/blog/3card-royale/cover.png"
-extra_css: ["/css/royale-article.css?v=policy-audit-20261102"]
+extra_css: ["/css/royale-article.css", "/css/royale-experiments.css"]
+extra_js_bottom: ["/js/royale-article/actions.js", "/js/royale-article/experiments.js"]
 update_id: "3card-royale"
 release_tag: "v1.2.0"
 last_modified_at: "2026-11-02 00:00:00 +0800"
@@ -107,7 +108,7 @@ original_url: "/updates/2026/10/3card-royale/"
 
 如果防守者用三炸接住同花，就获得 **2 次换牌机会**。同牌型只靠点数获胜时，按 1 伤或 1 次换牌机会结算；完全相同则没有收益。
 
-{% include royale-figure.html src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 8 · 进攻推动小局结束，防守改善接下来的牌。示例牌中，本局花牌为 ♥2。" %}
+{% include royale-experiment.html kind="combat" src="/img/blog/3card-royale/attack-defense.svg" width="1200" height="496" alt="两个规则示例：同花进攻赢对子造成 2 伤，三炸防守赢同花获得 2 次换牌机会。" caption="图 8 · 进攻推动小局结束，防守改善接下来的牌。示例牌中，本局花牌为 ♥2。" %}
 
 ### 伤牌，也是可用的牌
 
@@ -152,7 +153,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 神经网络接收己方手牌、双方公开伤牌、弃牌、当前出牌与局面信息。**六个牌区各占 52 位**，按固定顺序标记每张牌是否存在；再加 **6 位阶段 + 18 项状态**，得到 **336 维观察**。两个模型都不读取对手暗牌、牌堆顺序或历史序列。
 
-{% include royale-figure.html src="/img/blog/3card-royale/observation-state.svg" width="560" height="2434" diagram=true alt="实际换牌样本：六个 52 位牌区、六位阶段、其余 18 项状态，以及原值、入模值与归一化公式。" caption="图 12 · 完整的观察编码。牌区是 multi-hot，阶段是 one-hot；本例牌堆 29 张，编码为 29 / 52。" %}
+{% include royale-experiment.html kind="observation" src="/img/blog/3card-royale/observation-state.svg" width="560" height="2434" diagram=true alt="实际换牌样本：六个 52 位牌区、六位阶段、其余 18 项状态，以及原值、入模值与归一化公式。" caption="图 12 · 完整的观察编码。牌区是 multi-hot，阶段是 one-hot；本例牌堆 29 张，编码为 29 / 52。" %}
 
 ### 含义固定，合法性随选择变化
 
@@ -162,7 +163,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 **65 位条件 mask** 标记哪些 token 仍能组成完整合法动作。它随局面与已选前缀变化，token 的含义不变。Gym 接受补齐为六位的完整动作 `MultiDiscrete([66] × 6)`，每个完整动作只推进一次游戏。[动作协议与 Gym 用法](https://github.com/lucienzhu/3card-royale/blob/unify-action-space/docs/ACTIONS.md)。
 
-{% include royale-figure.html src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="固定 token 编成三张牌或换牌动作；每步通过条件 mask 过滤，最终一次性提交完整动作。" caption="图 13 · 纯代码、整手评分、自回归，共用一个动作协议。" %}
+{% include royale-experiment.html kind="action" src="/img/blog/3card-royale/structured-actions.svg" width="1000" height="650" alt="固定 token 编成三张牌或换牌动作；每步通过条件 mask 过滤，最终一次性提交完整动作。" caption="图 13 · 纯代码、整手评分、自回归，共用一个动作协议。" %}
 
 ### 两种决策建模
 
@@ -195,7 +196,7 @@ GameCore 独立于界面与策略。JavaScript、Python、Rust、C++ 各有原�
 
 下表每格 **1,000 小局**：同一组 500 个种子，交换座位、平衡先攻，从 2 级开始。**Code AI** 是网页困难档；**SDK Code AI** 是训练教师。共 **19,000 小局**，全部完成，无非法动作或截断。
 
-{% include royale-figure.html src="/img/blog/3card-royale/win-rates.svg" width="864" height="576" alt="八种公开信息策略，在相同 500 个配对种子下对战网页 Code AI 与 SDK Code AI 的胜率。" caption="图 16 · 相同发牌，两个对手。每条柱为 1,000 局，横轴保留完整的 0–100%。" %}
+{% include royale-experiment.html kind="evaluation" src="/img/blog/3card-royale/win-rates.svg" width="864" height="576" alt="八种公开信息策略，在相同 500 个配对种子下对战网页 Code AI 与 SDK Code AI 的胜率。" caption="图 16 · 相同发牌，两个对手。每条柱为 1,000 局，横轴保留完整的 0–100%。" %}
 
 | 策略 | ONNX | 延迟 p95 | 对 Code AI | 对 SDK Code AI |
 | --- | ---: | ---: | ---: | ---: |
