@@ -81,4 +81,3 @@
   function observation(o){const {legal_actions,...publicState}=o;return {...publicState,action_schema:VERSION,legal_actions:build(o).rows.map(r=>r.action)};}
   return {VERSION,VOCAB,PAD,LENGTH,T,fromLegacy,tokens,build,state,prefixFeatures,best,decode,observation};
 });
-
